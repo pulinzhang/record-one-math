@@ -60,7 +60,7 @@
         </form>
         <p class="find-empty" id="findEmpty">没有对上的专题。换个题号或关键词试试。</p>
 
-        <!-- 新专题按年级放进 lectures/高一、lectures/高二、lectures/高三。文件名用「高一上期中考试16-函数入门.html」，出处写成「高一上期中考试 16题」。题目正文同时放进页面末尾的 .sheet。 -->
+        <!-- 新专题放进 lectures/高一、lectures/高二、lectures/高三、lectures/高考。文件名用「高一上期中考试16-函数入门.html」，出处写成「高一上期中考试 16题」。题目正文同时放进页面末尾的 .sheet。 -->
         <section class="grade">
             <h2 class="list-title">高一</h2>
             <nav class="catalog" aria-label="高一">
@@ -123,8 +123,23 @@
             <h2 class="list-title">高三</h2>
             <p class="grade-empty">可以以后补进来。</p>
         </section>
+        <section class="grade">
+            <h2 class="list-title">高考</h2>
+            <nav class="catalog" aria-label="高考">
+            <a class="topic" href="lectures/高考/2026年高考19-集合里的增减.html">
+                <span class="topic-index">01</span>
+                <div>
+                    <h2>集合里的增减</h2>
+                    <p class="src">2026年高考 19题</p>
+                    <p>用集合的包含关系研究函数的增减</p>
+                    <p class="file">lectures/高考/2026年高考19-集合里的增减.html</p>
+                </div>
+                <span class="go">进入</span>
+            </a>
+            </nav>
+        </section>
 
-        
+        <p class="bank">题库 <a href="https://github.com/deekur/gaokaomath/" target="_blank" rel="noopener noreferrer">历史高考试卷</a></p>
     </div>
     <script>
         (function () {
@@ -223,6 +238,19 @@
                 <p><strong>（1）</strong> 当 \(m=n=0\) 时，求证：\(y=f(x+1)\) <span class="keep">为奇函数；</span></p>
                 <p><strong>（2）</strong> 证明：函数 \(y=f(x)\) 的图象成中心对称图形；</p>
                 <p><strong>（3）</strong> 当 \(m=-2\) 时，若 \(f(x)\geqslant -2\) 当且仅当 <span class="keep">\(1\leqslant x&lt;2\)，</span>求 \(n\) 的取值范围。</p>
+            </div>
+        </section>
+
+        <section class="q">
+            <h2>集合里的增减 <span class="src">出处：2026年高考 19题</span></h2>
+            <div class="problem-content">
+                <p>已知函数 \(f(x)\) 的定义域为 \(\mathbb R\)，且当 \(x&lt;0\) 时，\(f(x)=2^x\)。对任意 \(x_0\in\mathbb R\)，定义集合</p>
+                <div class="formula-block">$$D(x_0)=\{d\in\mathbb R\mid f(x_0+d)&gt;f(x_0)\}.$$</div>
+                <p><strong>（1）</strong> 若当 \(x\geqslant 0\) 时，\(f(x)=1-x\)，求 \(D(-1)\)；</p>
+                <p><strong>（2）</strong> 若 \(f(x)\) 是奇函数，\(f(x_1)\leqslant f(x_2)\)，且 \(x_1x_2\neq 0\)，证明：\(D(x_2)\subseteq D(x_1)\)；</p>
+                <p><strong>（3）</strong> 设 \(f(x)\) 满足：① 若 \(f(x_1)\leqslant f(x_2)\)，则 \(D(x_2)\subseteq D(x_1)\)；② 当 \(0&lt;x&lt;1\) 时，\(f(x)&lt;f(0)\)。</p>
+                <p><strong>（i）</strong> 证明：\(f(0)\geqslant 1\)；</p>
+                <p><strong>（ii）</strong> 证明：\(f(x)\) 在区间 \((0,+\infty)\) 单调递增。</p>
             </div>
         </section>
     </article>

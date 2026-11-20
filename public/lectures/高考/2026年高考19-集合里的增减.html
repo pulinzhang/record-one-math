@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="../../css/site.css">
+    <style>
+        #f-half.jxgbox,
+        #f-odd.jxgbox,
+        #f-case-left.jxgbox,
+        #f-case-mix.jxgbox,
+        #f-venn.jxgbox {
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1.8 / 1;
+            margin: 0 auto;
+            overflow: hidden;
+            border: 0;
+            border-radius: 0;
+            background: #fff;
+            user-select: none;
+            touch-action: none;
+        }
+        #f-odd.jxgbox,
+        #f-case-left.jxgbox,
+        #f-case-mix.jxgbox { aspect-ratio: 1.9 / 1; }
+        #f-venn.jxgbox { aspect-ratio: 1.35 / 1; }
+        @media (min-width: 721px) {
+            .venn-wrap {
+                width: min(26rem, 100%);
+                margin-inline: auto;
+            }
+        }
+        body.lecture .formula-block mjx-container[display="true"] {
+            max-width: 100%;
+        }
+        body.lecture .formula-block mjx-container[display="true"] > svg {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+    <link rel="icon" href="../../icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../../icons/favicon.ico" sizes="32x32">
+    <title>集合里的增减 · 用包含关系研究单调性</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+        (function () {
+            var sources = [
+                '../../vendor/tex-svg.js',
+                'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
+            ];
+            function giveUp() {
+                var note = document.createElement('p');
+                note.textContent = '数学公式未能渲染。请确认能访问到 vendor/tex-svg.js。';
+                note.style.cssText = 'width:min(1440px,calc(100% - 1.5rem));margin:1rem auto;padding:0.8rem 1rem;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;color:#92400e;';
+                document.body.prepend(note);
+            }
+            function load(i) {
+                if (i >= sources.length) {
+                    if (document.body) giveUp();
+                    else document.addEventListener('DOMContentLoaded', giveUp);
+                    return;
+                }
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = sources[i];
+                s.onload = function () {
+                    if (!window.MathJax || !window.MathJax.version) load(i + 1);
+                };
+                s.onerror = function () { load(i + 1); };
+                document.head.appendChild(s);
+            }
+            load(0);
+        })();
+    </script>
+</head>
+<body class="lecture">
+    <div class="now-asking" id="nowAsking">
+        <div class="bar-tools">
+            <button type="button" class="home-link" onclick="printLecture()">打印讲义</button>
+            <button type="button" class="home-link" onclick="printProblems()">打印题目</button>
+            <a class="home-link" href="../../index.html">返回目录</a>
+        </div>
+        <div class="now-inner">
+            <span class="now-label" id="nowLabel">原题</span>
+            <div class="now-text" id="nowText">\(x&lt;0\) 时 \(f(x)=2^x\)。\(D(x_0)\) 是使 \(f(x_0+d)&gt;f(x_0)\) 的移动 \(d\)。<strong>（1）</strong> 右半轴为 \(1-x\)，求 \(D(-1)\)；<strong>（2）</strong> 若 \(f\) 为奇函数，\(f(x_1)\leqslant f(x_2)\) 且 \(x_1x_2\neq 0\)，证明 \(D(x_2)\subseteq D(x_1)\)；<strong>（3）</strong> 把（2）的包含关系当作条件，证明 \(f(0)\geqslant 1\)，并证明正半轴递增。</div>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <div class="section-kicker">高考</div>
+            <h1>用集合的包含关系研究增减</h1>
+            <p>记 \(D(x_0)=\{d\in\mathbb R\mid f(x_0+d)&gt;f(x_0)\}\)。\(d\in D(x_0)\) 当且仅当从 \(x_0\) 移动 \(d\) 后函数值变大。函数值的大小关系转化为这两个集合的包含关系。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
+            <p>这个集合记下的，是从当前位置出发，往哪移动函数值会变大。谁的函数值更大，谁的移动范围就更窄。</p>
+            <div class="badge-group">
+                <span class="badge">先读集合的定义</span>
+                <span class="badge">奇函数补全另一半</span>
+                <span class="badge">用包含关系传递</span>
+            </div>
+        </header>
+
+        <section class="card problem-box">
+            <div class="problem-title">原题 <span class="src">出处：2026年高考 19题</span></div>
+            <div class="problem-content">
+                <p>已知函数 \(f(x)\) 的定义域为 \(\mathbb R\)，且当 \(x&lt;0\) 时，\(f(x)=2^x\)。对任意 \(x_0\in\mathbb R\)，定义集合</p>
+                <div class="formula-block">$$D(x_0)=\{d\in\mathbb R\mid f(x_0+d)&gt;f(x_0)\}.$$</div>
+                <p><strong>（1）</strong> 若当 \(x\geqslant 0\) 时，\(f(x)=1-x\)，求 \(D(-1)\)；</p>
+                <p><strong>（2）</strong> 若 \(f(x)\) 是奇函数，\(f(x_1)\leqslant f(x_2)\)，且 \(x_1x_2\neq 0\)，证明：\(D(x_2)\subseteq D(x_1)\)；</p>
+                <p><strong>（3）</strong> 设 \(f(x)\) 满足：</p>
+                <p>① 若 \(f(x_1)\leqslant f(x_2)\)，则 \(D(x_2)\subseteq D(x_1)\)；</p>
+                <p>② 当 \(0&lt;x&lt;1\) 时，\(f(x)&lt;f(0)\)。</p>
+                <p><strong>（i）</strong> 证明：\(f(0)\geqslant 1\)；</p>
+                <p><strong>（ii）</strong> 证明：\(f(x)\) 在区间 \((0,+\infty)\) 单调递增。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="第（1）问">
+            <div class="section-header">
+                <span class="step-num">1</span>
+                <h2>第（1）问：不要被新定义的符号吓住</h2>
+            </div>
+            <div class="ask">右半轴是 \(1-x\)。求 \(D(-1)\)。</div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>\(D(x_0)\) 是新写出来的集合。\(x_0\) 是定住的位置，\(d\) 是可以变的移动。\(f(x_0+d)&gt;f(x_0)\) 就是函数值变大。所求 \(D(-1)\)，是从 \(-1\) 出发、能使函数值变大的全部 \(d\)。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>一看见 \(D\) 就把两段式子分开解不等式。水平线与图像的交点是等于 \(\dfrac{1}{2}\)，不在集合里。左支和右支高于水平线的部分是连着的，不要拆开后再漏掉一段。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是水平线 \(y=\dfrac{1}{2}\)，再加上左支 \(2^x\) 与右支 \(1-x\) 这一组合。它招呼的是：数形结合。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">数形结合</div>
+                <p>由定义，\(D(-1)=\{d\mid f(d-1)&gt;f(-1)\}\)。算出 \(f(-1)=\dfrac{1}{2}\) 后，将所求转化为函数图像在直线 \(y=\dfrac{1}{2}\) 上方的横坐标范围。令 \(x=d-1\)，再平移回 \(d\)。</p>
+                <p>\(D\) 是 Define，出题人新定义的集合；\(f\) 是 Function，用来求这个集合的函数。先读成「函数值变大」，再看成图像在水平线上面。</p>
+            </div>
+            <div class="solution-step">
+                <p>把 \(x_0=-1\) 代进定义。\(-1&lt;0\)，故 \(f(-1)=2^{-1}=\dfrac{1}{2}\)，</p>
+                <div class="formula-block">$$D(-1)=\left\{d\mid f(d-1)&gt;\dfrac{1}{2}\right\}.$$</div>
+                <p>令 \(x=d-1\)。所求就是 \(f(x)&gt;\dfrac{1}{2}\) 的 \(x\)，再平移回 \(d\)。</p>
+            </div>
+            <div class="canvas-wrap">
+                <div id="f-half" class="jxgbox" role="img" aria-label="f 的图像：左支是 2 的 x 次方，右支是 1 减 x。虚线是 y 等于 1/2。蓝线是图像在虚线上方的部分，两端是空心点。"></div>
+                <p class="cap">橙线是 \(y=\dfrac{1}{2}\)。蓝线是图像在它上方的那一段。两端的空心点刚好落在橙线上，不算在里面。</p>
+            </div>
+            <div class="solution-step">
+                <p>左支 \(2^x\) 严格递增，与水平线交于 \((-1,\dfrac{1}{2})\)，故 \(x&lt;0\) 时图像在水平线上方当且仅当 \(x&gt;-1\)。</p>
+                <p>右支 \(1-x\) 严格递减，与水平线交于 \(\left(\dfrac{1}{2},\dfrac{1}{2}\right)\)，故 \(x\geqslant 0\) 时图像在水平线上方当且仅当 \(x&lt;\dfrac{1}{2}\)。</p>
+                <p>两段连起来，就是 \(-1&lt;x&lt;\dfrac{1}{2}\)。这里的 \(x\) = \(d-1\)。两边加 \(1\)：</p>
+                <div class="formula-block">$$0&lt;d&lt;\dfrac{3}{2}.$$</div>
+            </div>
+            <ol class="model">
+                <li>看定义：把集合转化为函数不等式。</li>
+                <li>看图像：把不等式转化为图像与水平线的位置关系。</li>
+                <li>找区间：确定图像在哪些横坐标上位于水平线上方。</li>
+                <li>做平移：把 \(x=d-1\) 换回 \(d\)。</li>
+            </ol>
+            <div class="result-box">\(D(-1)=\left(0,\dfrac{3}{2}\right)\)。</div>
+        </section>
+
+        <section class="card" data-q="第（2）问">
+            <div class="section-header">
+                <span class="step-num">2</span>
+                <h2>第（2）问：先看图像，再任取一个 \(d\)</h2>
+            </div>
+            <div class="ask">\(f\) 是奇函数，且 \(f(x_1)\leqslant f(x_2)\)，\(x_1x_2\neq 0\)。证明 \(D(x_2)\subseteq D(x_1)\)。</div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>已知 \(f(x_1)\leqslant f(x_2)\)，要证 \(D(x_2)\subseteq D(x_1)\)。题目给了两个函数值的大小，所求是两个集合的包含。</p>
+                <p>定义写成 \(\{d\mid \cdots\}\)。\(x_0\) 先定住，\(d\) 是变量。集合里装的是 \(d\) 的哪些值。</p>
+                <ol class="model">
+                    <li>换一个起点，就换一个集合。两个集合里变的是同一个 \(d\)。</li>
+                    <li>\(d\) 取定一个数，\(x_0+d\) 才是图像上的横坐标。\(x_0+d\) 不是集合的元素。</li>
+                    <li>包含是说：\(d\) 的一个值如果进了 \(D(x_2)\)，这同一个数也要进 \(D(x_1)\)。</li>
+                </ol>
+                <p>可以按四步走：先看函数图像，再令 \(t=x_0+d\)，用值域看 \(f(t)\)，代回 \(d\)，然后用韦恩图看谁包含谁，最后任取一个 \(d\)。</p>
+                <p>试着看：\(D(x_2)\) 里的每一个 \(d\)，为什么也属于 \(D(x_1)\)？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>\(d\) 不是一个已经定好的数。把 \(x_0+d\) 收进集合，收的就不是定义里的那个元素。奇函数把右半轴补成负的，左正右负，\(f\) 在全体实数上并不递增。若把每个 \(D(x_0)\) 都写成 \((0,+\infty)\)，包含关系就没有依据。\(x_1&lt;0&lt;x_2\) 时，\(f(x_1)\leqslant f(x_2)\) 并不成立。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是定义里的 \(f(x_0+d)\)，再加上「奇函数」。\(x_0+d\) 粘在一起，还不是上面列出的那个函数。它招呼的是：换元。令 \(t=x_0+d\)，得到 \(f(t)\)。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">换元</div>
+                <p>令 \(t=x_0+d\)，条件化为 \(f(t)&gt;f(x_0)\)。\(f(t)\) 才是上面列出的函数。值域按 \(t\) 所在的那一段来看。</p>
+                <div class="formula-block">$$\underbrace{x_0}_{\text{定住}}+\underbrace{d}_{\text{变量}}=\underbrace{t}_{\text{新元}}.$$</div>
+                <p>不换元，式子里还粘着 \(x_0+d\)，右边对不上图像。看完值域再代回 \(d\)。韦恩图里橙圈是 \(D(x_2)\)，蓝圈是 \(D(x_1)\)。证明时任取 \(d\in D(x_2)\)，推出这同一个 \(d\in D(x_1)\)。</p>
+            </div>
+            <div class="solution-step">
+                <h3>先看函数图像</h3>
+                <p>先按定义把 \(f\) 列出来。\(x&lt;0\) 时，题目已经给出 \(f(x)=2^x\)。</p>
+                <p>奇函数满足 \(f(0)=0\)，且 \(f(-x)=-f(x)\)。\(x&gt;0\) 时 \(-x&lt;0\)，故 \(f(-x)=2^{-x}\)，</p>
+                <div class="formula-block">$$f(x)=-f(-x)=-2^{-x}.$$</div>
+                <p>三段合在一起：</p>
+                <div class="formula-block">$$f(x)=\begin{cases}2^{x},&x&lt;0,\\0,&x=0,\\-2^{-x},&x&gt;0.\end{cases}$$</div>
+                <p>\(x&lt;0\) 时 \(2^x\) 严格递增。并且 \(0&lt;2^x&lt;2^{0}=1\)，所以 \(f(x)\in(0,1)\)。</p>
+                <p>\(x&gt;0\) 时 \(-x&lt;0\)，故 \(0&lt;2^{-x}&lt;1\)。两边乘 \(-1\)，不等号反向，得到 \(-1&lt;-2^{-x}&lt;0\)。所以 \(f(x)\in(-1,0)\)。</p>
+                <p>左半轴的值都大于右半轴的值，所以 \(f\) 在 \(\mathbb R\) 上不是单调递增的。下面的图像就是这个函数。</p>
+            </div>
+            <div class="canvas-wrap">
+                <div id="f-odd" class="jxgbox" role="img" aria-label="奇函数补全后的 f：左支是 2 的 x 次方，右支是负的 2 的负 x 次方，原点函数值是 0。两侧靠近 0 的空心点不是函数值。"></div>
+                <p class="cap">这张图就是上面列出的 \(f\)。左支 \(2^x\)，右支 \(-2^{-x}\)，黑点是 \(f(0)=0\)。空心点在高度 \(1\) 和 \(-1\)，式子里取不到。</p>
+            </div>
+            <div class="solution-step">
+                <h3>再确定集合里的元素</h3>
+                <p>元素是 \(d\)。集合的条件是 \(f(x_0+d)&gt;f(x_0)\)。令</p>
+                <div class="formula-block">$$t=x_0+d.$$</div>
+                <p>条件化为 \(f(t)&gt;f(x_0)\)。这里的 \(f(t)\) 就是上面列出的函数，自变量换成了 \(t\)。不能带着 \(x_0+d\) 去套原来的式子。先用值域看哪些 \(t\) 满足，再代回 \(d=t-x_0\)。先看左支，再看右支。</p>
+                <p>\(x_0&lt;0\) 时，\(f(x_0)\) 是 \((0,1)\) 里的一个定值。拿 \(f(t)\) 和这个定值比。\(t&lt;0\) 时 \(f(t)\in(0,1)\)，\(t=0\) 时 \(f(t)=0\)，\(t&gt;0\) 时 \(f(t)\in(-1,0)\)。\(0\) 和右支都不超过 \(0\)，比这个定值小，不满足。</p>
+                <p>所以 \(t\) 还在左支。\(2^t\) 严格递增，\(f(t)&gt;f(x_0)\) 当且仅当 \(x_0&lt;t&lt;0\)。</p>
+                <div class="formula-block">$$x_0&lt;t&lt;0.$$</div>
+                <p>再代回 \(d=t-x_0\)。两边减去 \(x_0\)，得 \(0&lt;d&lt;-x_0\)。故</p>
+                <div class="formula-block">$$D(x_0)=(0,-x_0).$$</div>
+                <p>\(x_0&gt;0\) 时，\(f(x_0)\) 是 \((-1,0)\) 里的一个定值。条件仍是 \(f(t)&gt;f(x_0)\)。右边列出的是 \(-2^{-x}\)。令 \(t\) 之后才回到这一段：\(t&gt;0\) 时 \(f(t)=-2^{-t}\)。不令 \(t\)，就会写成 \(-2^{-(x_0+d)}\)，不再是上面的 \(f\)。</p>
+                <p>\(t&lt;0\) 时，\(f(t)\in(0,1)\)。这段值都大于 \(0\)，而定值小于 \(0\)，所以 \(t&lt;0\) 全部满足。\(t=0\) 时，\(f(t)=0&gt;f(x_0)\)，也满足。所以 \(t\leqslant 0\) 都满足。</p>
+                <p>\(t&gt;0\) 时，\(f(t)\) 与 \(f(x_0)\) 在同一段。\(-2^{-t}\) 对 \(t\) 严格递增，所以 \(f(t)&gt;f(x_0)\) 当且仅当 \(t&gt;x_0\)。</p>
+                <p>合起来，满足不等式的是</p>
+                <div class="formula-block">$$t\in(-\infty,0]\cup(x_0,+\infty).$$</div>
+                <p>再代回 \(d=t-x_0\)。\(t\leqslant 0\) 化为 \(d\leqslant -x_0\)；\(t&gt;x_0\) 化为 \(d&gt;0\)。故</p>
+                <div class="formula-block">$$D(x_0)=(-\infty,-x_0]\cup(0,+\infty).$$</div>
+                <p>下面在 \(f(x_1)\leqslant f(x_2)\) 下，仍先看左支，再看右支。不等式先定出 \(x_1\)、\(x_2\)，集合用上面代回的结果。左支和一左一右配了图：蓝是 \(D(x_1)\) 里的 \(d\)，橙是 \(D(x_2)\) 里的 \(d\)。</p>
+            </div>
+            <div class="solution-step">
+                <p>都在左支。\(f(x_1)\leqslant f(x_2)\)，两边都在 \((0,1)\)。\(2^x\) 严格递增，所以满足这个不等式的是 \(x_1\leqslant x_2&lt;0\)。由上面左支的集合，\(D(x_1)=(0,-x_1)\)，\(D(x_2)=(0,-x_2)\)。</p>
+            </div>
+            <div class="canvas-wrap">
+                <div id="f-case-left" class="jxgbox" role="img" aria-label="两点都在左支。x1 等于负 2，x2 等于负 1。蓝色移动比橙色长，两段都停在 0 的左边。"></div>
+                <p class="cap">\(x_1=-2\)，\(x_2=-1\)。蓝段是 \((0,2)\)，橙段是 \((0,1)\)。两段都停在 \(0\) 的左边，右端是空心。</p>
+            </div>
+            <div class="solution-step">
+                <p>都在右支。\(f(x_1)\leqslant f(x_2)\)，两边都在 \((-1,0)\)。\(-2^{-x}\) 严格递增，所以满足这个不等式的是 \(0&lt;x_1\leqslant x_2\)。由上面右支的集合，</p>
+                <div class="formula-block">$$D(x_1)=(-\infty,-x_1]\cup(0,+\infty).$$</div>
+                <div class="formula-block">$$D(x_2)=(-\infty,-x_2]\cup(0,+\infty).$$</div>
+            </div>
+            <div class="solution-step">
+                <p>\(x_1\) 在右支、\(x_2\) 在左支。左支的值都在 \((0,1)\)，右支的值都在 \((-1,0)\)，所以 \(f(x_1)&lt;0&lt;f(x_2)\)，条件成立。由左支的集合，\(D(x_2)=(0,-x_2)\)。由右支的集合，\((0,+\infty)\subseteq D(x_1)\)。</p>
+            </div>
+            <div class="canvas-wrap">
+                <div id="f-case-mix" class="jxgbox" role="img" aria-label="x2 在左支，x1 在右支。橙色是从 x2 向右不到 0 的移动。蓝色是从 x1 向右的移动。"></div>
+                <p class="cap">\(x_1=1\)，\(x_2=-1\)。橙段是 \((0,1)\)，右端空心。蓝箭头是 \(d&gt;0\)。</p>
+            </div>
+            <div class="solution-step">
+                <p>若 \(x_1\) 在左、\(x_2\) 在右，则 \(f(x_1)&gt;0&gt;f(x_2)\)，与 \(f(x_1)\leqslant f(x_2)\) 不合，这种情形不出现。</p>
+            </div>
+            <div class="solution-step">
+                <h3>用韦恩图看包含</h3>
+                <p>元素已经分开了。橙圈收 \(D(x_2)\) 里的 \(d\)，蓝圈收 \(D(x_1)\) 里的 \(d\)。要证的是橙圈整圈都在蓝圈里。</p>
+            </div>
+            <div class="canvas-wrap venn-wrap">
+                <div id="f-venn" class="jxgbox" role="img" aria-label="韦恩图：橙色小圈 D(x2) 完全落在蓝色大圈 D(x1) 里面。小圈里有一个点 d。"></div>
+                <p class="cap">点 \(d\) 在橙圈里，就一定也在蓝圈里。蓝圈里、橙圈外还可以有别的 \(d\)，那些只属于 \(D(x_1)\)。三种情形都是这张图。</p>
+            </div>
+            <div class="solution-step">
+                <h3>任取一个元素</h3>
+                <p>任取 \(d\in D(x_2)\)，证明这同一个 \(d\in D(x_1)\)。</p>
+                <p>都在左支。\(d\in(0,-x_2)\)。由 \(x_1\leqslant x_2&lt;0\) 得 \(-x_2\leqslant -x_1\)，所以 \(d\in(0,-x_1)\)，即 \(d\in D(x_1)\)。</p>
+                <p>都在右支。\(d\in D(x_2)\)，故 \(d&gt;0\) 或 \(d\leqslant -x_2\)。若 \(d&gt;0\)，则 \(d\in D(x_1)\)。若 \(d\leqslant -x_2\)，由 \(0&lt;x_1\leqslant x_2\) 得 \(d\leqslant -x_1\)，所以 \(d\in D(x_1)\)。</p>
+                <p>\(x_1\) 在右、\(x_2\) 在左。\(d\in(0,-x_2)\)，故 \(d&gt;0\)。而 \((0,+\infty)\subseteq D(x_1)\)，所以 \(d\in D(x_1)\)。</p>
+            </div>
+            <div class="result-box">三种可能的情形都有 \(D(x_2)\subseteq D(x_1)\)。</div>
+        </section>
+
+        <section class="card" data-q="第（3）问">
+            <div class="section-header">
+                <span class="step-num">3</span>
+                <h2>第（3）问：右半轴没有解析式</h2>
+            </div>
+            <div class="ask">条件①、②已知。证明 \(f(0)\geqslant 1\)，再证明 \(f\) 在 \((0,+\infty)\) 上单调递增。</div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>第（2）问里证过的包含关系，这里直接当作条件。右半轴不再给式子。能不能用左半轴上算得清的 \(2^x\)，把信息传到右边？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>\(x&lt;0\) 时 \(2^x&lt;1\)，\(1\) 取不到。反证时的移动要同时留在负半轴里，又落进 \((0,1)\)。（i）只给出 \(f(0)\) 的下界，正半轴递增还要另外证明。正半轴上若出现正的函数值，左移回到 \(0\) 会和（i）顶上。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是条件①，它就是第（2）问的结论；还有一段特殊区间 \((0,1)\)。它招呼的是：反证法，以及用负半轴的 \(2^x\) 作参照。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">反证，再用负半轴作参照</div>
+                <p>（i）若 \(f(0)&lt;1\)，则存在 \(u&lt;0\) 使 \(f(u)&gt;f(0)\)。在负半轴上取足够小的正移动，它属于 \(D(u)\)，由①进入 \(D(0)\)，与②矛盾。</p>
+                <p>（ii）先确定 \(x&gt;0\) 时 \(f(x)\) 的符号，再对任意正的移动距离，用负半轴上更小的函数值作参照，得到右移后函数值变大。</p>
+                <p>左边的指数函数算得清。函数值更小的点，能变大的移动更多。用这一点把右边的比较拉回来。</p>
+            </div>
+            <div class="solution-step">
+                <p><strong>（i）</strong> \(x&lt;0\) 时 \(2^x\) 严格递增，值域为 \((0,1)\)。反设 \(f(0)&lt;1\)，则存在 \(u&lt;0\) 使 \(f(0)&lt;f(u)&lt;1\)。由①，\(D(u)\subseteq D(0)\)。</p>
+                <p>取 \(0&lt;h&lt;\min\{-u,1\}\)。则 \(u+h&lt;0\)，且 \(2^{u+h}&gt;2^u\)，故 \(h\in D(u)\subseteq D(0)\)，即 \(f(h)&gt;f(0)\)。又 \(0&lt;h&lt;1\)，由②得 \(f(h)&lt;f(0)\)，矛盾。所以 \(f(0)\geqslant 1\)。</p>
+            </div>
+            <div class="solution-step">
+                <p><strong>（ii）</strong> 先准备两条由负半轴传出去的比较。\(x&lt;0\) 时 \(2^x\) 的值域是 \((0,1)\)，且严格递增。</p>
+                <p>右移：设 \(h&gt;0\)，且 \(f(x)&lt;2^{-h}\)。\(2^u\) 在 \(u&lt;-h\) 上的值域是 \((0,2^{-h})\)，故存在 \(u&lt;-h\) 使 \(f(u)&gt;f(x)\)。由①，\(D(u)\subseteq D(x)\)。又 \(u+h&lt;0\)，\(2^{u+h}&gt;2^u\)，故 \(h\in D(u)\subseteq D(x)\)，即 \(f(x+h)&gt;f(x)\)。</p>
+                <p>左移：设 \(f(x)&gt;0\)，\(h&gt;0\)。存在 \(u&lt;0\) 使 \(2^u\leqslant f(x)\)。由①，\(D(x)\subseteq D(u)\)。而 \(2^{u-h}&lt;2^u\)，故 \(-h\notin D(u)\)，从而 \(-h\notin D(x)\)，即 \(f(x-h)\leqslant f(x)\)。</p>
+                <p>于是 \(0&lt;x&lt;1\) 时，若 \(f(x)&gt;0\)，取 \(h=x\)，得 \(f(0)\leqslant f(x)\)，与②矛盾。故 \(f(x)\leqslant 0\)。</p>
+                <p>再设存在 \(a&gt;0\) 使 \(f(a)&gt;0\)。由左移，\(f(0)\leqslant f(a)\)。结合（i），\(f(a)\geqslant 1\)。取 \(0&lt;t&lt;\min\{a,1\}\)，则 \(f(t)\leqslant 0\)。取 \(u&lt;0\) 使 \(2^u&lt;f(a)\)，令 \(v=t-a+u\)。由 \(t&lt;a\) 得 \(v&lt;u&lt;0\)，故 \(2^v&lt;2^u\)。由①，\(D(u)\subseteq D(v)\)。令 \(d=a-u&gt;0\)，则 \(f(u+d)=f(a)&gt;f(u)\)，故 \(d\in D(u)\subseteq D(v)\)。于是 \(f(v+d)&gt;f(v)\)。而 \(v+d=t\)，\(f(v)=2^v&gt;0\)，得 \(f(t)&gt;0\)，与 \(f(t)\leqslant 0\) 矛盾。所以 \(x&gt;0\) 时 \(f(x)\leqslant 0\)。</p>
+                <p>任取 \(0&lt;x_1&lt;x_2\)，令 \(h=x_2-x_1&gt;0\)。\(f(x_1)\leqslant 0&lt;2^{-h}\)，由右移得 \(f(x_2)&gt;f(x_1)\)。</p>
+            </div>
+            <div class="result-box">\(f(0)\geqslant 1\)，且 \(f\) 在 \((0,+\infty)\) 上严格递增。</div>
+        </section>
+
+        <section class="card paper-card">
+            <div class="section-header">
+                <span class="step-num">写</span>
+                <h2>标准解答</h2>
+            </div>
+            <p class="paper-note">下面按试卷来写。步骤留全，不写想法。</p>
+            <div class="paper">
+                <p><strong>（1）</strong> 由定义，\(D(-1)=\{d\mid f(d-1)&gt;f(-1)\}\)。\(-1&lt;0\)，故 \(f(-1)=\dfrac{1}{2}\)。令 \(x=d-1\)，即求 \(f(x)&gt;\dfrac{1}{2}\)。</p>
+                <p>\(y=\dfrac{1}{2}\) 与左支 \(2^x\) 交于 \(x=-1\)，与右支 \(1-x\) 交于 \(x=\dfrac{1}{2}\)。</p>
+                <p>\(x&lt;0\) 时 \(2^x\) 严格递增，故 \(2^x&gt;\dfrac{1}{2}\) 当且仅当 \(x&gt;-1\)。\(x\geqslant 0\) 时 \(1-x\) 严格递减，故 \(1-x&gt;\dfrac{1}{2}\) 当且仅当 \(x&lt;\dfrac{1}{2}\)。因此 \(-1&lt;x&lt;\dfrac{1}{2}\)。</p>
+                <p>由 \(x=d-1\)，得 \(0&lt;d&lt;\dfrac{3}{2}\)。所以 \(D(-1)=\left(0,\dfrac{3}{2}\right)\)。</p>
+
+                <p><strong>（2）</strong> \(f\) 为奇函数，故 \(f(0)=0\)。当 \(x&gt;0\) 时，\(-x&lt;0\)，</p>
+                <div class="formula-block">$$f(x)=-f(-x)=-2^{-x}.$$</div>
+                <p>因此 \(x&lt;0\) 时 \(f(x)\in(0,1)\)，\(x&gt;0\) 时 \(f(x)\in(-1,0)\)。</p>
+                <p>设 \(x_0&lt;0\)。\(f(x_0+d)&gt;f(x_0)\) 仅当 \(x_0+d&lt;0\) 且 \(d&gt;0\)，即 \(0&lt;d&lt;-x_0\)。故 \(D(x_0)=(0,-x_0)\)。</p>
+                <p>设 \(x_0&gt;0\)。若 \(d&gt;0\)，则 \(x_0+d&gt;x_0&gt;0\)。\(-2^{-x}\) 在 \((0,+\infty)\) 上严格递增，故 \(f(x_0+d)&gt;f(x_0)\)。若 \(d\leqslant -x_0\)，则 \(x_0+d\leqslant 0\)，\(f(x_0+d)\geqslant 0&gt;f(x_0)\)。若 \(-x_0&lt;d&lt;0\)，则 \(0&lt;x_0+d&lt;x_0\)，\(f(x_0+d)&lt;f(x_0)\)。故</p>
+                <div class="formula-block">$$D(x_0)=(-\infty,-x_0]\cup(0,+\infty).$$</div>
+                <p>由 \(f(x_1)\leqslant f(x_2)\) 且 \(x_1x_2\neq 0\)，分三种情形。</p>
+                <p>若 \(x_1&lt;0\)，\(x_2&lt;0\)，则由 \(2^x\) 在 \((-\infty,0)\) 上严格递增，得 \(x_1\leqslant x_2\)，故 \((0,-x_2)\subseteq(0,-x_1)\)，即 \(D(x_2)\subseteq D(x_1)\)。</p>
+                <p>若 \(x_1&gt;0\)，\(x_2&gt;0\)，则由 \(-2^{-x}\) 在 \((0,+\infty)\) 上严格递增，得 \(x_1\leqslant x_2\)，故 \((-\infty,-x_2]\subseteq(-\infty,-x_1]\)，即 \(D(x_2)\subseteq D(x_1)\)。</p>
+                <p>若 \(x_1&gt;0\)，\(x_2&lt;0\)，则 \(f(x_1)&lt;0&lt;f(x_2)\)，且 \(D(x_2)=(0,-x_2)\subseteq(0,+\infty)\subseteq D(x_1)\)。</p>
+                <p>若 \(x_1&lt;0&lt;x_2\)，则 \(f(x_1)&gt;0&gt;f(x_2)\)，与 \(f(x_1)\leqslant f(x_2)\) 矛盾，故不出现。因此 \(D(x_2)\subseteq D(x_1)\)。</p>
+
+                <p><strong>（3）（i）</strong> \(x&lt;0\) 时 \(2^x\) 严格递增，值域为 \((0,1)\)。反设 \(f(0)&lt;1\)，则存在 \(u&lt;0\) 使 \(f(0)&lt;2^u&lt;1\)，即 \(f(0)&lt;f(u)\)。由①，\(D(u)\subseteq D(0)\)。</p>
+                <p>取 \(0&lt;h&lt;\min\{-u,1\}\)，则 \(u+h&lt;0\)，且 \(2^{u+h}&gt;2^u\)，故 \(h\in D(u)\subseteq D(0)\)，即 \(f(h)&gt;f(0)\)。但 \(0&lt;h&lt;1\)，由②得 \(f(h)&lt;f(0)\)，矛盾。所以 \(f(0)\geqslant 1\)。</p>
+
+                <p><strong>（ii）</strong> 先证两条比较。</p>
+                <p>设 \(h&gt;0\)，\(f(x)&lt;2^{-h}\)。\(2^u\) 在 \((-\infty,-h)\) 上的值域是 \((0,2^{-h})\)，故存在 \(u&lt;-h\) 使 \(2^u&gt;f(x)\)。由①，\(D(u)\subseteq D(x)\)。又 \(u+h&lt;0\)，\(2^{u+h}&gt;2^u\)，故 \(h\in D(u)\subseteq D(x)\)，即 \(f(x+h)&gt;f(x)\)。</p>
+                <p>设 \(f(x)&gt;0\)，\(h&gt;0\)。存在 \(u&lt;0\) 使 \(2^u\leqslant f(x)\)。由①，\(D(x)\subseteq D(u)\)。又 \(2^{u-h}&lt;2^u\)，故 \(-h\notin D(u)\)，从而 \(-h\notin D(x)\)，即 \(f(x-h)\leqslant f(x)\)。</p>
+                <p>当 \(0&lt;x&lt;1\) 时，若 \(f(x)&gt;0\)，取 \(h=x\)，得 \(f(0)\leqslant f(x)\)，与②矛盾。故 \(f(x)\leqslant 0\)。</p>
+                <p>设存在 \(a&gt;0\) 使 \(f(a)&gt;0\)。由上一段，\(f(0)\leqslant f(a)\)。结合（i），\(f(a)\geqslant 1\)。取 \(0&lt;t&lt;\min\{a,1\}\)，则 \(f(t)\leqslant 0\)。取 \(u&lt;0\) 使 \(2^u&lt;f(a)\)，令 \(v=t-a+u\)。因 \(t&lt;a\)，有 \(v&lt;u&lt;0\)，故 \(2^v&lt;2^u\)。由①，\(D(u)\subseteq D(v)\)。令 \(d=a-u&gt;0\)，则 \(f(a)=f(u+d)&gt;f(u)\)，故 \(d\in D(u)\subseteq D(v)\)，从而 \(f(t)=f(v+d)&gt;f(v)=2^v&gt;0\)，与 \(f(t)\leqslant 0\) 矛盾。所以 \(x&gt;0\) 时 \(f(x)\leqslant 0\)。</p>
+                <p>任取 \(0&lt;x_1&lt;x_2\)，令 \(h=x_2-x_1&gt;0\)。则 \(f(x_1)\leqslant 0&lt;2^{-h}\)。由第一段的比较，\(f(x_2)&gt;f(x_1)\)。故 \(f\) 在 \((0,+\infty)\) 上严格递增。</p>
+            </div>
+        </section>
+    </div>
+    <script src="../../js/jsxgraphcore.js"></script>
+    <script>
+        (function () {
+            var box = document.getElementById("f-half");
+            if (!box || !window.JXG) {
+                if (box) box.textContent = "图像未能载入。";
+                return;
+            }
+            var board = JXG.JSXGraph.initBoard("f-half", {
+                boundingbox: [-3, 1.6, 2.5, -1.45],
+                axis: true,
+                grid: false,
+                keepAspectRatio: true,
+                showCopyright: false,
+                showNavigation: false,
+                showInfobox: false,
+                pan: { enabled: false },
+                zoom: { enabled: false, wheel: false, pinch: false },
+                defaultAxes: {
+                    x: {
+                        name: "x",
+                        withLabel: true,
+                        strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [-4, 14], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: {
+                            strokeColor: "#94a3b8",
+                            insertTicks: false,
+                            ticksDistance: 1,
+                            minorTicks: 0,
+                            majorHeight: 8,
+                            drawZero: false,
+                            label: { fontSize: 13, strokeColor: "#64748b", offset: [0, -8] }
+                        }
+                    },
+                    y: {
+                        name: "y",
+                        withLabel: true,
+                        strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [8, 4], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: {
+                            strokeColor: "#94a3b8",
+                            insertTicks: false,
+                            ticksDistance: 1,
+                            minorTicks: 0,
+                            majorHeight: 8,
+                            drawZero: false,
+                            label: { fontSize: 13, strokeColor: "#64748b", offset: [-12, 0], anchorX: "right" },
+                            generateLabelText: function (tick) {
+                                var v = tick.usrCoords[2];
+                                var n = Math.round(v);
+                                if (Math.abs(v - n) > 1e-6) return String(v);
+                                return n < 0 ? "−" + (-n) : String(n);
+                            }
+                        }
+                    }
+                }
+            });
+            var gray = { strokeColor: "#94a3b8", strokeWidth: 2.4, highlight: false, numberPoints: 160 };
+            var blue = { strokeColor: "#2563eb", strokeWidth: 3.4, highlight: false, numberPoints: 80 };
+            board.create("segment", [[-2.85, 1 / 2], [2.25, 1 / 2]], {
+                strokeColor: "#ea580c", strokeWidth: 1.7, dash: 2, highlight: false
+            });
+            board.create("functiongraph", [function (x) { return Math.pow(2, x); }, -2.9, 0], gray);
+            board.create("functiongraph", [function (x) { return 1 - x; }, 0, 2.25], gray);
+            board.create("functiongraph", [function (x) { return Math.pow(2, x); }, -1, 0], blue);
+            board.create("functiongraph", [function (x) { return 1 - x; }, 0, 1 / 2], blue);
+            var open = {
+                name: "", size: 3.2, face: "o",
+                fillColor: "#fff", strokeColor: "#ea580c", strokeWidth: 2,
+                fixed: true, highlight: false, showInfobox: false, withLabel: false
+            };
+            board.create("point", [-1, 1 / 2], open);
+            board.create("point", [1 / 2, 1 / 2], open);
+            board.create("ticks", [board.defaultAxes.y, [1 / 2, -1 / 2, -3 / 2]], {
+                drawLabels: true,
+                strokeColor: "#94a3b8",
+                majorHeight: 8,
+                label: { offset: [-12, 0], fontSize: 13, strokeColor: "#64748b", anchorX: "right" },
+                generateLabelText: function (tick) {
+                    var v = tick.usrCoords[2];
+                    if (Math.abs(v - 1 / 2) < 1e-6) return "";
+                    if (Math.abs(v + 1 / 2) < 1e-6) return "−1/2";
+                    if (Math.abs(v + 3 / 2) < 1e-6) return "−3/2";
+                    return "";
+                }
+            });
+            board.create("text", [-2.35, 0.92, "2ˣ"], {
+                fixed: true, highlight: false, parse: false, fontSize: 16,
+                strokeColor: "#64748b", cssStyle: "font-weight:700", anchorX: "left"
+            });
+            board.create("text", [1.28, -0.78, "1 − x"], {
+                fixed: true, highlight: false, parse: false, fontSize: 16,
+                strokeColor: "#64748b", cssStyle: "font-weight:700", anchorX: "left"
+            });
+            board.create("text", [1.45, 0.7, "y = 1/2"], {
+                fixed: true, highlight: false, parse: false, fontSize: 15,
+                strokeColor: "#ea580c", cssStyle: "font-weight:700", anchorX: "left"
+            });
+            board.create("ticks", [board.defaultAxes.x, [1 / 2]], {
+                drawLabels: true,
+                strokeColor: "#1e3a8a",
+                majorHeight: 10,
+                label: { offset: [0, -18], fontSize: 13, strokeColor: "#1e3a8a", cssStyle: "font-weight:700" },
+                generateLabelText: function () { return "1/2"; }
+            });
+        })();
+        (function () {
+            var box = document.getElementById("f-odd");
+            if (!box || !window.JXG) {
+                if (box) box.textContent = "图像未能载入。";
+                return;
+            }
+            var board = JXG.JSXGraph.initBoard("f-odd", {
+                boundingbox: [-3.3, 1.72, 3.3, -1.58],
+                axis: true,
+                grid: false,
+                keepAspectRatio: true,
+                showCopyright: false,
+                showNavigation: false,
+                showInfobox: false,
+                pan: { enabled: false },
+                zoom: { enabled: false, wheel: false, pinch: false },
+                defaultAxes: {
+                    x: {
+                        name: "x",
+                        withLabel: true,
+                        strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [-4, 14], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: {
+                            strokeColor: "#94a3b8",
+                            insertTicks: false,
+                            ticksDistance: 1,
+                            minorTicks: 0,
+                            majorHeight: 8,
+                            drawZero: false,
+                            label: { fontSize: 13, strokeColor: "#64748b", offset: [0, -8] }
+                        }
+                    },
+                    y: {
+                        name: "y",
+                        withLabel: true,
+                        strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [8, 4], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: {
+                            strokeColor: "#94a3b8",
+                            insertTicks: false,
+                            ticksDistance: 1,
+                            minorTicks: 0,
+                            majorHeight: 8,
+                            drawZero: false,
+                            label: { fontSize: 13, strokeColor: "#64748b", offset: [-12, 0], anchorX: "right" },
+                            generateLabelText: function (tick) {
+                                var v = tick.usrCoords[2];
+                                var n = Math.round(v);
+                                if (Math.abs(v - n) > 1e-6) return String(v);
+                                return n < 0 ? "−" + (-n) : String(n);
+                            }
+                        }
+                    }
+                }
+            });
+            var curve = { strokeColor: "#2563eb", strokeWidth: 2.8, highlight: false, numberPoints: 180 };
+            board.create("functiongraph", [function (x) { return Math.pow(2, x); }, -3.15, -0.03], curve);
+            board.create("functiongraph", [function (x) { return -Math.pow(2, -x); }, 0.03, 3.15], curve);
+            var openLimit = {
+                name: "", size: 3.2, face: "o",
+                fillColor: "#fff", strokeColor: "#64748b", strokeWidth: 2,
+                fixed: true, highlight: false, showInfobox: false, withLabel: false
+            };
+            board.create("point", [0, 1], openLimit);
+            board.create("point", [0, -1], openLimit);
+            board.create("point", [0, 0], {
+                name: "", size: 4, face: "o",
+                fillColor: "#0f172a", strokeColor: "#0f172a", strokeWidth: 2,
+                fixed: true, highlight: false, showInfobox: false, withLabel: false
+            });
+            function tag(x, y, str, color) {
+                board.create("text", [x, y, str], {
+                    fixed: true, highlight: false, parse: false, fontSize: 15,
+                    strokeColor: color || "#64748b", cssStyle: "font-weight:700",
+                    anchorX: "middle", anchorY: "middle"
+                });
+            }
+            tag(-2.55, 0.72, "2ˣ", "#64748b");
+            tag(1.85, -0.72, "−2⁻ˣ", "#64748b");
+            tag(0.72, 0.28, "f(0)=0", "#0f172a");
+        })();
+        (function () {
+            var box = document.getElementById("f-venn");
+            if (!box || !window.JXG) {
+                if (box) box.textContent = "图像未能载入。";
+                return;
+            }
+            var board = JXG.JSXGraph.initBoard("f-venn", {
+                boundingbox: [-5.2, 4.15, 5.2, -4.15],
+                axis: false,
+                grid: false,
+                keepAspectRatio: true,
+                showCopyright: false,
+                showNavigation: false,
+                showInfobox: false,
+                pan: { enabled: false },
+                zoom: { enabled: false, wheel: false, pinch: false }
+            });
+            board.create("circle", [[0.55, 0], [0.55 + 3.35, 0]], {
+                strokeColor: "#1e3a8a", strokeWidth: 2.4,
+                fillColor: "#dbeafe", fillOpacity: 0.85,
+                highlight: false
+            });
+            board.create("circle", [[-1.15, 0.15], [-1.15 + 1.35, 0.15]], {
+                strokeColor: "#ea580c", strokeWidth: 2.4,
+                fillColor: "#ffedd5", fillOpacity: 0.92,
+                highlight: false
+            });
+            board.create("point", [-1.35, -0.15], {
+                name: "d", size: 4, face: "o",
+                fillColor: "#0f172a", strokeColor: "#0f172a", strokeWidth: 2,
+                fixed: true, highlight: false, showInfobox: false,
+                label: { fontSize: 16, strokeColor: "#0f172a", offset: [8, -2], cssStyle: "font-weight:700" }
+            });
+            function tag(x, y, str, color) {
+                board.create("text", [x, y, str], {
+                    fixed: true, highlight: false, parse: false, fontSize: 18,
+                    strokeColor: color, cssStyle: "font-weight:700",
+                    anchorX: "middle", anchorY: "middle"
+                });
+            }
+            tag(-1.15, 0.85, "D(x₂)", "#ea580c");
+            tag(2.35, 1.35, "D(x₁)", "#1e3a8a");
+        })();
+        (function () {
+            var ids = ["f-case-left", "f-case-mix"];
+            if (!window.JXG) {
+                ids.forEach(function (id) {
+                    var box = document.getElementById(id);
+                    if (box) box.textContent = "图像未能载入。";
+                });
+                return;
+            }
+            var box = [-3.35, 2.25, 3.45, -1.7];
+            function make(id) {
+                var el = document.getElementById(id);
+                if (!el) return null;
+                return JXG.JSXGraph.initBoard(id, {
+                    boundingbox: box,
+                    axis: true,
+                    grid: false,
+                    keepAspectRatio: true,
+                    showCopyright: false,
+                    showNavigation: false,
+                    showInfobox: false,
+                    pan: { enabled: false },
+                    zoom: { enabled: false, wheel: false, pinch: false },
+                    defaultAxes: {
+                        x: {
+                            name: "x", withLabel: true, strokeColor: "#94a3b8",
+                            label: { position: "rt", offset: [-4, 14], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                            ticks: {
+                                strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0,
+                                majorHeight: 8, drawZero: false,
+                                label: { fontSize: 13, strokeColor: "#64748b", offset: [0, -8] }
+                            }
+                        },
+                        y: {
+                            name: "y", withLabel: true, strokeColor: "#94a3b8",
+                            label: { position: "rt", offset: [8, 4], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                            ticks: {
+                                strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0,
+                                majorHeight: 8, drawZero: false,
+                                label: { fontSize: 13, strokeColor: "#64748b", offset: [-12, 0], anchorX: "right" },
+                                generateLabelText: function (tick) {
+                                    var v = tick.usrCoords[2];
+                                    var n = Math.round(v);
+                                    if (Math.abs(v - n) > 1e-6) return String(v);
+                                    return n < 0 ? "−" + (-n) : String(n);
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+            function base(board) {
+                var curve = { strokeColor: "#2563eb", strokeWidth: 2.6, highlight: false, numberPoints: 160 };
+                board.create("functiongraph", [function (x) { return Math.pow(2, x); }, -3.2, -0.03], curve);
+                board.create("functiongraph", [function (x) { return -Math.pow(2, -x); }, 0.03, 3.3], curve);
+                var hole = {
+                    name: "", size: 3, face: "o", fillColor: "#fff", strokeColor: "#64748b", strokeWidth: 2,
+                    fixed: true, highlight: false, showInfobox: false, withLabel: false
+                };
+                board.create("point", [0, 1], hole);
+                board.create("point", [0, -1], hole);
+                board.create("point", [0, 0], {
+                    name: "", size: 3.6, face: "o", fillColor: "#0f172a", strokeColor: "#0f172a", strokeWidth: 2,
+                    fixed: true, highlight: false, showInfobox: false, withLabel: false
+                });
+            }
+            function dot(board, xy, color) {
+                board.create("point", xy, {
+                    name: "", size: 4, face: "o", fillColor: color, strokeColor: color, strokeWidth: 2,
+                    fixed: true, highlight: false, showInfobox: false, withLabel: false
+                });
+            }
+            function holeAt(board, xy, color) {
+                board.create("point", xy, {
+                    name: "", size: 3.2, face: "o", fillColor: "#fff", strokeColor: color, strokeWidth: 2,
+                    fixed: true, highlight: false, showInfobox: false, withLabel: false
+                });
+            }
+            function tag(board, x, y, str, color) {
+                board.create("text", [x, y, str], {
+                    fixed: true, highlight: false, parse: false, fontSize: 14,
+                    strokeColor: color, cssStyle: "font-weight:700", anchorX: "middle", anchorY: "middle"
+                });
+            }
+            function guide(board, x, y0, y1) {
+                board.create("segment", [[x, y0], [x, y1]], {
+                    strokeColor: "#cbd5e1", strokeWidth: 1.2, dash: 2, highlight: false
+                });
+            }
+            var navy = "#1e3a8a", orange = "#ea580c";
+            var left = make("f-case-left");
+            if (left) {
+                base(left);
+                var x1 = -2, x2 = -1;
+                dot(left, [x1, Math.pow(2, x1)], navy);
+                dot(left, [x2, Math.pow(2, x2)], orange);
+                guide(left, x1, Math.pow(2, x1), 1.22);
+                guide(left, x2, Math.pow(2, x2), 1.55);
+                left.create("segment", [[x1 + 0.06, 1.22], [-0.08, 1.22]], { strokeColor: navy, strokeWidth: 3, highlight: false });
+                left.create("segment", [[x2 + 0.06, 1.55], [-0.08, 1.55]], { strokeColor: orange, strokeWidth: 3, highlight: false });
+                holeAt(left, [x1 + 0.06, 1.22], navy);
+                holeAt(left, [-0.08, 1.22], navy);
+                holeAt(left, [x2 + 0.06, 1.55], orange);
+                holeAt(left, [-0.08, 1.55], orange);
+                tag(left, x1 - 0.32, 0.46, "x₁", navy);
+                tag(left, -1.45, 0.78, "x₂", orange);
+                tag(left, -1.2, 1.02, "D(x₁)", navy);
+                tag(left, -1.55, 1.78, "D(x₂)", orange);
+            }
+            var mix = make("f-case-mix");
+            if (mix) {
+                base(mix);
+                dot(mix, [1, -Math.pow(2, -1)], navy);
+                dot(mix, [-1, Math.pow(2, -1)], orange);
+                guide(mix, -1, 0.5, 1.55);
+                guide(mix, 1, -0.5, 0.42);
+                mix.create("segment", [[-0.94, 1.55], [-0.08, 1.55]], { strokeColor: orange, strokeWidth: 3, highlight: false });
+                holeAt(mix, [-0.94, 1.55], orange);
+                holeAt(mix, [-0.08, 1.55], orange);
+                mix.create("arrow", [[1.08, 0.42], [3.15, 0.42]], { strokeColor: navy, strokeWidth: 2.2, highlight: false });
+                tag(mix, -1.35, 0.62, "x₂", orange);
+                tag(mix, 1, -0.78, "x₁", navy);
+                tag(mix, -0.55, 1.82, "D(x₂)", orange);
+                tag(mix, 2.15, 0.68, "d>0", navy);
+            }
+        })();
+    </script>
+    <script>
+        (function () {
+            var bar = document.getElementById("nowAsking");
+            var label = document.getElementById("nowLabel");
+            var slot = document.getElementById("nowText");
+            if (!bar || !slot) return;
+            var sections = [].slice.call(document.querySelectorAll("section[data-q]"));
+            var saved = sections.map(function (section) {
+                return { label: section.getAttribute("data-q"), html: section.querySelector(".ask").innerHTML };
+            });
+            var home = { label: label.textContent, html: slot.innerHTML };
+            var current = null;
+            function fill(item) {
+                if (current === item) return;
+                current = item;
+                label.textContent = item.label;
+                slot.innerHTML = item.html;
+                var done = window.MathJax && MathJax.typesetPromise
+                    ? MathJax.typesetPromise([slot])
+                    : Promise.resolve();
+                done.then(function () {
+                    document.documentElement.style.setProperty("--ask-space", bar.offsetHeight + "px");
+                }).catch(function () {});
+            }
+            function render() {
+                var line = bar.getBoundingClientRect().bottom;
+                var pick = -1;
+                sections.forEach(function (section, i) {
+                    if (section.getBoundingClientRect().top < line) pick = i;
+                });
+                fill(pick === -1 ? home : saved[pick]);
+            }
+            window.addEventListener("scroll", render, { passive: true });
+            window.addEventListener("resize", function () { current = null; render(); });
+            var start = window.MathJax && MathJax.startup && MathJax.startup.promise
+                ? MathJax.startup.promise
+                : Promise.resolve();
+            start.then(function () { current = null; render(); }).catch(function () { render(); });
+        })();
+    </script>
+    <script src="../../js/site.js"></script>
+</body>
+</html>

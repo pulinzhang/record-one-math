@@ -191,7 +191,7 @@
                     <span id="lambdaReadout" style="font-weight:700;color:var(--primary);min-width:88px;">λ = 3.00</span>
                 </div>
                 <div class="canvas-wrap">
-                    <svg id="hookSvg" viewBox="0 0 680 300" width="680" height="300"></svg>
+                    <div id="hookBoard" class="jxgbox" role="img" aria-label="对勾函数 t 加 1 除以 t，竖虚线是 t 等于 2，横虚线是 5/2，实线是当前的 lambda"></div>
                 </div>
                 <div class="status-readout" id="hookStatus"></div>
             </div>
@@ -226,97 +226,76 @@
 
     </div>
 
+    <script src="../../js/jsxgraphcore.js"></script>
     <script>
-        const svg = document.getElementById('hookSvg');
         const slider = document.getElementById('lambdaSlider');
         const readout = document.getElementById('lambdaReadout');
         const statusEl = document.getElementById('hookStatus');
-
-        const tMin = 0.45, tMax = 6.2, yMin = 1.4, yMax = 7;
-        const left = 52, right = 24, padTop = 18, padBottom = 36;
-        const width = 680, height = 300;
-
-        function X(t) {
-            return left + (t - tMin) / (tMax - tMin) * (width - left - right);
-        }
-        function Y(y) {
-            return padTop + (yMax - y) / (yMax - yMin) * (height - padTop - padBottom);
-        }
+        const tMin = 0.45, tMax = 6.2;
 
         function hook(t) { return t + 1 / t; }
 
-        const ns = 'http://www.w3.org/2000/svg';
-        function el(name, attrs) {
-            const node = document.createElementNS(ns, name);
-            Object.keys(attrs).forEach(function (key) { node.setAttribute(key, attrs[key]); });
-            return node;
-        }
-
-        let points = [];
-        for (let t = 0.48; t <= 6.15; t += 0.04) points.push(X(t).toFixed(1) + ',' + Y(hook(t)).toFixed(1));
-
-        svg.appendChild(el('line', { x1: left, y1: Y(yMin), x2: width - right, y2: Y(yMin), stroke: '#94a3b8', 'stroke-width': 1.5 }));
-        svg.appendChild(el('line', { x1: left, y1: padTop, x2: left, y2: Y(yMin), stroke: '#94a3b8', 'stroke-width': 1.5 }));
-        svg.appendChild(el('text', { x: width - right - 8, y: Y(yMin) + 18, fill: '#64748b', 'font-size': 14, 'font-weight': '700' })).textContent = 't';
-        svg.appendChild(el('text', { x: 16, y: padTop + 12, fill: '#64748b', 'font-size': 14, 'font-weight': '700' })).textContent = 'y';
-
-        svg.appendChild(el('line', {
-            x1: X(2), y1: padTop, x2: X(2), y2: Y(yMin),
-            stroke: '#94a3b8', 'stroke-width': 1.5, 'stroke-dasharray': '4 4'
-        }));
-        svg.appendChild(el('text', { x: X(2) - 10, y: Y(yMin) + 18, fill: '#475569', 'font-size': 13, 'font-weight': '700' })).textContent = '2';
-
-        svg.appendChild(el('line', {
-            x1: left, y1: Y(2.5), x2: width - right, y2: Y(2.5),
-            stroke: '#f59e0b', 'stroke-width': 1.5, 'stroke-dasharray': '5 4'
-        }));
-        svg.appendChild(el('text', { x: left + 6, y: Y(2.5) - 6, fill: '#b45309', 'font-size': 13, 'font-weight': '700' })).textContent = '5/2';
-
-        svg.appendChild(el('polyline', {
-            points: points.join(' '),
-            fill: 'none', stroke: '#2563eb', 'stroke-width': 2.5
-        }));
-
-        const lambdaLine = el('line', { stroke: '#0f172a', 'stroke-width': 2 });
-        const hit = el('circle', { r: 6, fill: '#059669' });
-        const miss = el('circle', { r: 5, fill: 'none', stroke: '#94a3b8', 'stroke-width': 2 });
-        svg.appendChild(lambdaLine);
-        svg.appendChild(hit);
-        svg.appendChild(miss);
+        const hookBoard = JXG.JSXGraph.initBoard('hookBoard', {
+            boundingbox: [-0.4, 7.2, 6.5, -0.45],
+            axis: true,
+            grid: false,
+            keepAspectRatio: false,
+            showCopyright: false,
+            showNavigation: false,
+            showInfobox: false,
+            pan: { enabled: false },
+            zoom: { enabled: false, wheel: false, pinch: false },
+            defaultAxes: {
+                x: {
+                    name: 't', withLabel: true, strokeColor: '#94a3b8',
+                    label: { position: 'rt', offset: [-2, 12], fontSize: 14, strokeColor: '#64748b', cssStyle: 'font-weight:700' },
+                    ticks: { strokeColor: '#94a3b8', insertTicks: false, ticksDistance: 1, minorTicks: 0, majorHeight: 6, drawZero: false, label: { fontSize: 12, strokeColor: '#64748b', offset: [0, -5] } }
+                },
+                y: {
+                    name: 'y', withLabel: true, strokeColor: '#94a3b8',
+                    label: { position: 'rt', offset: [4, 2], fontSize: 14, strokeColor: '#64748b', cssStyle: 'font-weight:700' },
+                    ticks: { strokeColor: '#94a3b8', insertTicks: false, ticksDistance: 1, minorTicks: 0, majorHeight: 6, drawZero: false, label: { fontSize: 12, strokeColor: '#64748b', offset: [-6, 0], anchorX: 'right' } }
+                }
+            }
+        });
+        hookBoard.create('segment', [[2, 0], [2, 7]], { strokeColor: '#94a3b8', strokeWidth: 1.5, dash: 2, highlight: false });
+        hookBoard.create('segment', [[0.4, 2.5], [6.3, 2.5]], { strokeColor: '#f59e0b', strokeWidth: 1.5, dash: 2, highlight: false });
+        hookBoard.create('text', [3.3, 2.15, '5/2'], { fixed: true, highlight: false, parse: false, fontSize: 13, strokeColor: '#b45309', cssStyle: 'font-weight:700' });
+        hookBoard.create('functiongraph', [hook, tMin, tMax], { strokeColor: '#2563eb', strokeWidth: 2.6, highlight: false, numberPoints: 200 });
+        const leftEnd = hookBoard.create('point', [0.4, 3], { visible: false, fixed: true, withLabel: false });
+        const rightEnd = hookBoard.create('point', [6.3, 3], { visible: false, fixed: true, withLabel: false });
+        hookBoard.create('segment', [leftEnd, rightEnd], { strokeColor: '#0f172a', strokeWidth: 2, highlight: false });
+        const hit = hookBoard.create('point', [3, 3], { visible: false, name: '', size: 3, face: 'o', fillColor: '#059669', strokeColor: '#059669', fixed: true, highlight: false, showInfobox: false, withLabel: false });
+        const miss = hookBoard.create('point', [1, 3], { visible: false, name: '', size: 2.6, face: 'o', fillColor: '#fff', strokeColor: '#94a3b8', strokeWidth: 2, fixed: true, highlight: false, showInfobox: false, withLabel: false });
 
         function update() {
             const lambda = parseFloat(slider.value);
             readout.textContent = 'λ = ' + lambda.toFixed(2);
-            const y = Y(Math.min(Math.max(lambda, yMin), yMax));
-            lambdaLine.setAttribute('x1', left);
-            lambdaLine.setAttribute('x2', width - right);
-            lambdaLine.setAttribute('y1', y);
-            lambdaLine.setAttribute('y2', y);
-
+            leftEnd.setPosition(JXG.COORDS_BY_USER, [0.4, lambda]);
+            rightEnd.setPosition(JXG.COORDS_BY_USER, [6.3, lambda]);
             const disc = lambda * lambda - 4;
             if (disc < 0) {
-                hit.setAttribute('display', 'none');
-                miss.setAttribute('display', 'none');
+                hit.setAttribute({ visible: false });
+                miss.setAttribute({ visible: false });
+                hookBoard.update();
                 statusEl.innerHTML = '<strong>t &gt; 2 上没有交点。</strong>横线低于整条曲线在 t = 1 处取到的 2。题目要的是 t &gt; 2，这段上曲线都高于 5/2，横线比 5/2 还低。';
                 return;
             }
             const root = (lambda + Math.sqrt(disc)) / 2;
             const other = (lambda - Math.sqrt(disc)) / 2;
             if (root > 2 + 1e-9 && root < tMax) {
-                hit.setAttribute('display', 'inline');
-                hit.setAttribute('cx', X(root));
-                hit.setAttribute('cy', Y(hook(root)));
+                hit.setPosition(JXG.COORDS_BY_USER, [root, hook(root)]);
+                hit.setAttribute({ visible: true });
             } else {
-                hit.setAttribute('display', 'none');
+                hit.setAttribute({ visible: false });
             }
             if (other > tMin && other < 2) {
-                miss.setAttribute('display', 'inline');
-                miss.setAttribute('cx', X(other));
-                miss.setAttribute('cy', Y(hook(other)));
+                miss.setPosition(JXG.COORDS_BY_USER, [other, hook(other)]);
+                miss.setAttribute({ visible: true });
             } else {
-                miss.setAttribute('display', 'none');
+                miss.setAttribute({ visible: false });
             }
-
+            hookBoard.update();
             if (root > 2 + 1e-6) {
                 statusEl.innerHTML = '<strong>t &gt; 2 上恰好一个交点。</strong>交点约为 t = ' + root.toFixed(2) + '。另一个交点在 2 的左边，题目只要大于 2 的这一段。';
             } else if (Math.abs(root - 2) < 1e-6) {

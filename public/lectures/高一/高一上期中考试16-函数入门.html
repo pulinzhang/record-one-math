@@ -139,30 +139,11 @@
                 <p>\(a+4b\) 能取到的数，就是 \(g(t)\) 在 \(t&gt;0\) 上能取到的数。</p>
             </div>
             <div class="canvas-wrap">
-                <svg viewBox="0 0 520 260" role="img" aria-label="t+5 升高，16/t 降低">
-                    <line x1="48" y1="230" x2="490" y2="230" stroke="#cbd5e1"/>
-                    <line x1="48" y1="18" x2="48" y2="230" stroke="#cbd5e1"/>
-                    <path d="M48 176 L134 149 L249 113 L478 41" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M48 86 L77 158 L134 194 L249 212 L478 221" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                    <text x="400" y="78" font-size="14" font-weight="700" fill="#2563eb">t+5</text>
-                    <text x="400" y="200" font-size="14" font-weight="700" fill="#ea580c">16/t</text>
-                    <text x="498" y="226" font-size="13" font-weight="700" fill="#64748b">t</text>
-                </svg>
+                <div id="g-parts" class="jxgbox" role="img" aria-label="t+5 升高，16 除以 t 降低"></div>
                 <p class="cap">蓝线一直升高。橙线一直降低。\(t\) 很小，橙线很高；\(t\) 很大，蓝线很高。</p>
             </div>
             <div class="canvas-wrap">
-                <svg viewBox="0 0 520 300" role="img" aria-label="g(t)=t+5+16/t 在 t=4 取最小值 13">
-                    <line x1="48" y1="268" x2="490" y2="268" stroke="#cbd5e1"/>
-                    <line x1="48" y1="16" x2="48" y2="268" stroke="#cbd5e1"/>
-                    <line x1="48" y1="255" x2="490" y2="255" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="5 4"/>
-                    <path d="M48 129 L62 197 L77 227 L105 250 L134 255 L191 246 L249 227 L363 180 L478 129" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="134" cy="255" r="4.5" fill="#ea580c"/>
-                    <text x="70" y="158" font-size="14" font-weight="700" fill="#2563eb">下降</text>
-                    <text x="300" y="168" font-size="14" font-weight="700" fill="#2563eb">上升</text>
-                    <text x="168" y="228" font-size="14" font-weight="700" fill="#ea580c">最小值 13</text>
-                    <text x="498" y="264" font-size="13" font-weight="700" fill="#64748b">t</text>
-                    <text x="128" y="286" font-size="12" fill="#94a3b8">4</text>
-                </svg>
+                <div id="g-sum" class="jxgbox" role="img" aria-label="g(t) 等于 t+5+16/t，在 t=4 取到 13"></div>
                 <p class="cap">两段加起来，图像先下降，再上升。最低落在哪里，下面用作差来定。</p>
             </div>
             <div class="solution-step">
@@ -200,15 +181,7 @@
                 <p>\(ab\) 能取到的数，就是 \(f(t)\) 在 \(t&gt;0\) 上能取到的数。</p>
             </div>
             <div class="canvas-wrap">
-                <svg viewBox="0 0 520 280" role="img" aria-label="f(t)=t+5+4/t 在 t=2 取最小值 9">
-                    <line x1="48" y1="236" x2="490" y2="236" stroke="#cbd5e1"/>
-                    <line x1="48" y1="20" x2="48" y2="236" stroke="#cbd5e1"/>
-                    <line x1="48" y1="220" x2="490" y2="220" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="5 4"/>
-                    <text x="280" y="212" font-size="13" font-weight="700" fill="#ea580c">最小值 9</text>
-                    <path d="M48 148 L66 191 L78 204 L107 217 L136 220 L195 215 L254 204 L372 177 L490 148" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <text x="500" y="232" font-size="13" font-weight="700" fill="#64748b">t</text>
-                    <text x="128" y="254" font-size="12" fill="#94a3b8">2</text>
-                </svg>
+                <div id="g-ab" class="jxgbox" role="img" aria-label="f(t) 等于 t+5+4/t，在 t=2 取到 9"></div>
                 <p class="cap">图上先降后升，最低看起来在 \(t=2\)。单调性下面用作差来定，定完再看能取到哪些数。</p>
             </div>
             <div class="solution-step">
@@ -315,6 +288,58 @@
                 ? MathJax.startup.promise
                 : Promise.resolve();
             start.then(function () { current = null; render(); }).catch(function () { render(); });
+        })();
+    </script>
+    <script src="../../js/jsxgraphcore.js"></script>
+    <script>
+        (function () {
+            if (!window.JXG) return;
+            function board(id, box, xStep, yStep) {
+                return JXG.JSXGraph.initBoard(id, {
+                    boundingbox: box,
+                    axis: true,
+                    grid: false,
+                    keepAspectRatio: false,
+                    showCopyright: false,
+                    showNavigation: false,
+                    showInfobox: false,
+                    pan: { enabled: false },
+                    zoom: { enabled: false, wheel: false, pinch: false },
+                    defaultAxes: {
+                        x: {
+                            name: "t", withLabel: true, strokeColor: "#94a3b8",
+                            label: { position: "rt", offset: [-2, 12], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                            ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: xStep, minorTicks: 0, majorHeight: 6, drawZero: false, label: { fontSize: 12, strokeColor: "#64748b", offset: [0, -5] } }
+                        },
+                        y: {
+                            name: "y", withLabel: true, strokeColor: "#94a3b8",
+                            label: { position: "rt", offset: [4, 2], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                            ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: yStep, minorTicks: 0, majorHeight: 6, drawZero: false, label: { fontSize: 12, strokeColor: "#64748b", offset: [-6, 0], anchorX: "right" } }
+                        }
+                    }
+                });
+            }
+            var blue = { strokeColor: "#2563eb", strokeWidth: 2.6, highlight: false, numberPoints: 180 };
+            var orange = { strokeColor: "#ea580c", strokeWidth: 2.6, highlight: false, numberPoints: 180 };
+            var dot = { name: "", size: 2.6, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", fixed: true, highlight: false, showInfobox: false, withLabel: false };
+            var label = { fixed: true, highlight: false, parse: false, fontSize: 14, cssStyle: "font-weight:700" };
+            var parts = board("g-parts", [0, 28, 12, -3], 2, 5);
+            parts.create("functiongraph", [function (t) { return t + 5; }, 0.5, 11.5], blue);
+            parts.create("functiongraph", [function (t) { return 16 / t; }, 0.55, 11.5], orange);
+            parts.create("text", [7.2, 16.5, "t+5"], Object.assign({ strokeColor: "#2563eb" }, label));
+            parts.create("text", [6.4, 5.4, "16/t"], Object.assign({ strokeColor: "#ea580c" }, label));
+            var sum = board("g-sum", [0, 34, 14, -3], 2, 5);
+            sum.create("segment", [[0.4, 13], [13.4, 13]], { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false });
+            sum.create("functiongraph", [function (t) { return t + 5 + 16 / t; }, 0.6, 13.2], blue);
+            sum.create("point", [4, 13], dot);
+            sum.create("text", [1.2, 24, "下降"], Object.assign({ strokeColor: "#2563eb" }, label));
+            sum.create("text", [8.2, 24, "上升"], Object.assign({ strokeColor: "#2563eb" }, label));
+            sum.create("text", [5.1, 16.2, "最小值 13"], Object.assign({ strokeColor: "#ea580c" }, label));
+            var ab = board("g-ab", [0, 22, 11, -2], 2, 5);
+            ab.create("segment", [[0.3, 9], [10.6, 9]], { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false });
+            ab.create("functiongraph", [function (t) { return t + 5 + 4 / t; }, 0.35, 10.6], blue);
+            ab.create("point", [2, 9], dot);
+            ab.create("text", [3.1, 12.2, "最小值 9"], Object.assign({ strokeColor: "#ea580c" }, label));
         })();
     </script>
     <script src="../../js/site.js"></script>

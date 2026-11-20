@@ -99,17 +99,7 @@
                 <p>落地时高度是 \(0\)。落点只跟着水压变，写成一个函数。射程最大，就是这个函数最大。</p>
             </div>
             <div class="canvas-wrap">
-                <svg viewBox="0 0 520 230" role="img" aria-label="三条水柱，k=1 落得最远">
-                    <line x1="30" y1="180" x2="470" y2="180" stroke="#94a3b8" stroke-width="2"/>
-                    <path d="M40 180 L78 171 L116 165 L154 161 L192 160 L230 161 L268 165 L306 171 L344 180" fill="none" stroke="#94a3b8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M40 180 L78 145 L116 120 L154 105 L192 100 L230 105 L268 120 L306 145 L344 180" fill="none" stroke="#ea580c" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    <path d="M40 180 L88 158 L135 143 L183 133 L230 130 L278 133 L325 143 L373 158 L420 180" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="420" cy="180" r="4" fill="#2563eb"/>
-                    <text x="48" y="28" font-size="13" font-weight="700" fill="#94a3b8">k=0.5</text>
-                    <text x="48" y="48" font-size="13" font-weight="700" fill="#ea580c">k=2</text>
-                    <text x="48" y="68" font-size="13" font-weight="700" fill="#2563eb">k=1</text>
-                    <text x="400" y="206" font-size="13" font-weight="700" fill="#2563eb">4 米</text>
-                </svg>
+                <div id="jets" class="jxgbox" role="img" aria-label="三条水柱。k 等于 1 落在 4 米，k 等于 0.5 和 k 等于 2 落在同一处。"></div>
                 <p class="cap">水压一变，落点就变。蓝线落得最远，是 4 米。</p>
             </div>
             <div class="solution-step">
@@ -137,16 +127,7 @@
                 <p>等号要 \(1+k^2=2k\)，也就是 \((k-1)^2=0\)，所以 \(k=1\)。这时 \(L(1)=4\)。</p>
             </div>
             <div class="canvas-wrap">
-                <svg viewBox="0 0 520 280" role="img" aria-label="L(k) 在 k=1 取最大值 4">
-                    <line x1="48" y1="230" x2="490" y2="230" stroke="#cbd5e1"/>
-                    <line x1="48" y1="20" x2="48" y2="230" stroke="#cbd5e1"/>
-                    <line x1="48" y1="50" x2="490" y2="50" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="5 4"/>
-                    <path d="M48 131 L71 86 L95 61 L129 50 L188 64 L246 86 L362 122 L478 145" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="129" cy="50" r="4.5" fill="#ea580c"/>
-                    <text x="200" y="32" font-size="14" font-weight="700" fill="#ea580c">最大值 4</text>
-                    <text x="498" y="226" font-size="13" font-weight="700" fill="#64748b">k</text>
-                    <text x="123" y="248" font-size="12" fill="#94a3b8">1</text>
-                </svg>
+                <div id="range-k" class="jxgbox" role="img" aria-label="L(k) 等于 8k 除以 1 加 k 的平方，在 k 等于 1 取到 4"></div>
                 <p class="cap">先升后降。最高是 4，在 \(k=1\)。</p>
             </div>
             <div class="result-box">射程的最大值是 \(4\) 米，这时 \(k=1\)。</div>
@@ -169,14 +150,7 @@
                 <p>距离和水压一起变。先把距离定住，这一点最高写成距离的函数。再用「不低于 \(1.5\) 米」反过来定距离。</p>
             </div>
             <div class="canvas-wrap">
-                <svg viewBox="0 0 520 220" role="img" aria-label="水柱经过高度 1.5 米的那一点">
-                    <line x1="30" y1="170" x2="460" y2="170" stroke="#94a3b8" stroke-width="2"/>
-                    <line x1="250" y1="170" x2="250" y2="88" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="4 4"/>
-                    <path d="M50 170 L90 132 L130 104 L170 88 L210 82 L250 88 L290 104 L330 132 L370 170" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="250" cy="88" r="5" fill="#ea580c"/>
-                    <text x="262" y="78" font-size="14" font-weight="700" fill="#ea580c">1.5 米</text>
-                    <text x="242" y="192" font-size="14" font-weight="700" fill="#64748b">a</text>
-                </svg>
+                <div id="stone" class="jxgbox" role="img" aria-label="一条水柱与高度 1.5 米的水平线相交，交点的横坐标记为 a"></div>
                 <p class="cap">石头高 \(1.5\) 米。离喷头多远，记成 \(a\)。\(a\) 还没定。</p>
             </div>
             <div class="solution-step">
@@ -245,20 +219,7 @@
                 <p>石头离喷头的最大水平距离是 \(2\) 米。</p>
             </div>
             <div class="canvas-wrap">
-                <svg viewBox="0 0 520 230" role="img" aria-label="f(a) 在 a 等于 2 处降到 1.5">
-                    <line x1="48" y1="188" x2="470" y2="188" stroke="#cbd5e1"/>
-                    <line x1="48" y1="16" x2="48" y2="188" stroke="#cbd5e1"/>
-                    <path d="M48 36 L104 40 L160 52 L216 72 L272 100 L48 100 Z" fill="#dbeafe"/>
-                    <line x1="48" y1="100" x2="450" y2="100" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="5 4"/>
-                    <path d="M48 36 L104 40 L160 52 L216 72 L272 100 L328 136 L384 180" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="272" cy="100" r="4.5" fill="#ea580c"/>
-                    <text x="286" y="88" font-size="14" font-weight="700" fill="#ea580c">1.5</text>
-                    <text x="78" y="88" font-size="13" font-weight="700" fill="#2563eb">不低于</text>
-                    <text x="336" y="162" font-size="13" font-weight="700" fill="#94a3b8">低于</text>
-                    <text x="478" y="184" font-size="13" font-weight="700" fill="#64748b">a</text>
-                    <text x="40" y="208" font-size="12" fill="#94a3b8">0</text>
-                    <text x="264" y="208" font-size="12" fill="#94a3b8">2</text>
-                </svg>
+                <div id="height-a" class="jxgbox" role="img" aria-label="f(a) 等于 2 减 a 平方除以 8，降到 1.5 时 a 等于 2"></div>
                 <p class="cap">曲线是 \(f(a)\)。它不低于 \(1.5\) 的那段，最远到 \(a=2\)。</p>
             </div>
             <div class="solution-step">
@@ -410,6 +371,87 @@
                 ? MathJax.startup.promise
                 : Promise.resolve();
             start.then(function () { current = null; render(); }).catch(function () { render(); });
+        })();
+    </script>
+    <script src="../../js/jsxgraphcore.js"></script>
+    <script>
+        (function () {
+            if (!window.JXG) return;
+            function board(id, box, xName, xStep, yStep) {
+                return JXG.JSXGraph.initBoard(id, {
+                    boundingbox: box,
+                    axis: true,
+                    grid: false,
+                    keepAspectRatio: false,
+                    showCopyright: false,
+                    showNavigation: false,
+                    showInfobox: false,
+                    pan: { enabled: false },
+                    zoom: { enabled: false, wheel: false, pinch: false },
+                    defaultAxes: {
+                        x: {
+                            name: xName, withLabel: true, strokeColor: "#94a3b8",
+                            label: { position: "rt", offset: [-2, 12], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                            ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: xStep, minorTicks: 0, majorHeight: 6, drawZero: true, label: { fontSize: 12, strokeColor: "#64748b", offset: [0, -5] } }
+                        },
+                        y: {
+                            name: "y", withLabel: true, strokeColor: "#94a3b8",
+                            label: { position: "rt", offset: [4, 2], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                            ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: yStep, minorTicks: 0, majorHeight: 6, drawZero: false, label: { fontSize: 12, strokeColor: "#64748b", offset: [-6, 0], anchorX: "right" } }
+                        }
+                    }
+                });
+            }
+            var label = { fixed: true, highlight: false, parse: false, fontSize: 14, cssStyle: "font-weight:700" };
+            function jet(k) {
+                return function (x) { return -(1 + k * k) / 8 * x * x + k * x; };
+            }
+            function land(k) { return 8 * k / (1 + k * k); }
+            var jets = board("jets", [-0.15, 2.15, 4.8, -0.45], "x", 1, 0.5);
+            jets.create("functiongraph", [jet(0.5), 0, land(0.5)], { strokeColor: "#94a3b8", strokeWidth: 2.4, highlight: false, numberPoints: 80 });
+            jets.create("functiongraph", [jet(2), 0, land(2)], { strokeColor: "#ea580c", strokeWidth: 2.4, highlight: false, numberPoints: 80 });
+            jets.create("functiongraph", [jet(1), 0, land(1)], { strokeColor: "#2563eb", strokeWidth: 2.8, highlight: false, numberPoints: 80 });
+            jets.create("point", [4, 0], { name: "", size: 2.2, face: "o", fillColor: "#2563eb", strokeColor: "#2563eb", fixed: true, highlight: false, showInfobox: false, withLabel: false });
+            jets.create("text", [0.15, 1.95, "k=0.5"], Object.assign({ strokeColor: "#64748b" }, label));
+            jets.create("text", [0.15, 1.7, "k=2"], Object.assign({ strokeColor: "#ea580c" }, label));
+            jets.create("text", [0.15, 1.45, "k=1"], Object.assign({ strokeColor: "#2563eb" }, label));
+            jets.create("text", [3.35, 0.28, "4 米"], Object.assign({ strokeColor: "#2563eb" }, label));
+            var range = board("range-k", [0, 4.8, 5.2, -0.55], "k", 1, 1);
+            range.create("segment", [[0.15, 4], [5, 4]], { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false });
+            range.create("functiongraph", [function (k) { return 8 * k / (1 + k * k); }, 0.12, 5], { strokeColor: "#2563eb", strokeWidth: 2.8, highlight: false, numberPoints: 160 });
+            range.create("point", [1, 4], { name: "", size: 2.6, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", fixed: true, highlight: false, showInfobox: false, withLabel: false });
+            range.create("text", [1.7, 4.35, "最大值 4"], Object.assign({ strokeColor: "#ea580c" }, label));
+            var stoneK = 3;
+            var stoneA = (function () {
+                var A = (1 + stoneK * stoneK) / 8;
+                var disc = stoneK * stoneK - 6 * A;
+                return (stoneK + Math.sqrt(disc)) / (2 * A);
+            })();
+            var stone = board("stone", [-0.15, 2.3, land(stoneK) + 0.35, -0.45], "x", 10, 0.5);
+            stone.create("segment", [[0, 1.5], [land(stoneK) + 0.2, 1.5]], { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false });
+            stone.create("segment", [[stoneA, 0], [stoneA, 1.5]], { strokeColor: "#ea580c", strokeWidth: 1.4, dash: 2, highlight: false });
+            stone.create("functiongraph", [jet(stoneK), 0, land(stoneK)], { strokeColor: "#2563eb", strokeWidth: 2.8, highlight: false, numberPoints: 80 });
+            stone.create("point", [stoneA, 1.5], { name: "", size: 2.6, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", fixed: true, highlight: false, showInfobox: false, withLabel: false });
+            stone.create("text", [stoneA + 0.08, 1.72, "1.5 米"], Object.assign({ strokeColor: "#ea580c" }, label));
+            stone.create("text", [stoneA, -0.28, "a"], Object.assign({ strokeColor: "#64748b", anchorX: "middle" }, label));
+            var height = board("height-a", [-0.25, 2.4, 4.6, -0.4], "a", 1, 0.5);
+            var shade = [[0, 1.5]];
+            var i;
+            for (i = 0; i <= 24; i++) {
+                var a = 2 * i / 24;
+                shade.push([a, 2 - a * a / 8]);
+            }
+            height.create("polygon", shade, {
+                fillColor: "#dbeafe", fillOpacity: 0.85, highlight: false,
+                borders: { visible: false },
+                vertices: { visible: false, fixed: true }
+            });
+            height.create("segment", [[0, 1.5], [4.3, 1.5]], { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false });
+            height.create("functiongraph", [function (a) { return 2 - a * a / 8; }, 0, 4], { strokeColor: "#2563eb", strokeWidth: 2.8, highlight: false, numberPoints: 80 });
+            height.create("point", [2, 1.5], { name: "", size: 2.6, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", fixed: true, highlight: false, showInfobox: false, withLabel: false });
+            height.create("text", [2.15, 1.72, "1.5"], Object.assign({ strokeColor: "#ea580c" }, label));
+            height.create("text", [0.25, 1.72, "不低于"], Object.assign({ strokeColor: "#2563eb" }, label));
+            height.create("text", [2.7, 0.55, "低于"], Object.assign({ strokeColor: "#94a3b8" }, label));
         })();
     </script>
     <script src="../../js/site.js"></script>

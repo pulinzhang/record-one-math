@@ -101,37 +101,12 @@
             </div>
             <div class="pics">
                 <figure>
-                    <svg viewBox="0 0 320 200" role="img" aria-label="f(x) 关于点 (1,m) 中心对称">
-                        <line x1="46" y1="102" x2="286" y2="102" stroke="#cbd5e1" stroke-width="1.4"/>
-                        <line x1="60" y1="22" x2="60" y2="182" stroke="#cbd5e1" stroke-width="1.4"/>
-                        <line x1="160" y1="90" x2="160" y2="102" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>
-                        <path d="M84.0 133.2 L92 120.4 L104 109.6 L116 103.1 L128 98.6 L140 95.0 L152 91.9 L160 90 L168 88.1 L180 85.0 L192 81.4 L204 76.9 L216 70.4 L228 59.6 L236 46.8" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="160" cy="90" r="4.6" fill="#fff" stroke="#ea580c" stroke-width="2.6"/>
-                        <text x="172" y="68" font-size="12" font-weight="700" fill="#ea580c">(1, m)</text>
-                        <text x="268" y="96" font-size="12" font-weight="700" fill="#64748b">x</text>
-                        <text x="66" y="30" font-size="12" font-weight="700" fill="#64748b">y</text>
-                        <text x="80" y="190" font-size="12" font-weight="700" fill="#2563eb">f(x)</text>
-                    </svg>
-                    <figcaption>中心在 \((1,m)\)，不在原点</figcaption>
+                    <div id="sym-f" class="jxgbox" role="img" aria-label="老坐标。曲线关于点 (1, m) 中心对称，中心在横轴上方 m、纵轴右方 1"></div>
+                    <figcaption>老坐标。中心在 \((1,m)\)：横轴上方 \(m\)，纵轴右方 \(1\)。</figcaption>
                 </figure>
                 <figure>
-                    <svg viewBox="0 0 320 210" role="img" aria-label="y-t 图上，虚线标出原来的 x 撇轴和 y 撇轴">
-                        <line x1="40" y1="132" x2="292" y2="132" stroke="#ea580c" stroke-width="1.3" stroke-dasharray="4 3"/>
-                        <line x1="72" y1="14" x2="72" y2="196" stroke="#ea580c" stroke-width="1.3" stroke-dasharray="4 3"/>
-                        <line x1="40" y1="100" x2="292" y2="100" stroke="#94a3b8" stroke-width="1.4"/>
-                        <line x1="160" y1="14" x2="160" y2="196" stroke="#94a3b8" stroke-width="1.4"/>
-                        <path d="M84.0 143.2 L92 130.4 L104 119.6 L116 113.1 L128 108.6 L140 105.0 L152 101.9 L160 100 L168 98.1 L180 95.0 L192 91.4 L204 86.9 L216 80.4 L228 69.6 L236 56.8" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="160" cy="100" r="4.6" fill="#fff" stroke="#ea580c" stroke-width="2.6"/>
-                        <text x="172" y="78" font-size="12" font-weight="700" fill="#ea580c">新原点</text>
-                        <text x="274" y="94" font-size="12" font-weight="700" fill="#64748b">t</text>
-                        <text x="166" y="26" font-size="12" font-weight="700" fill="#64748b">y</text>
-                        <text x="274" y="146" font-size="12" font-weight="700" fill="#ea580c">x′</text>
-                        <text x="78" y="26" font-size="12" font-weight="700" fill="#ea580c">y′</text>
-                        <text x="110" y="86" font-size="12" font-weight="700" fill="#2563eb">1</text>
-                        <text x="176" y="124" font-size="12" font-weight="700" fill="#ea580c">m</text>
-                        <text x="112" y="188" font-size="12" font-weight="700" fill="#2563eb">G(t)</text>
-                    </svg>
-                    <figcaption>虚线是原来的 \(x'\)、\(y'\)。横着差 \(1\)，竖着差 \(m\)。</figcaption>
+                    <div id="sym-g" class="jxgbox" role="img" aria-label="同一条曲线和原来的坐标轴。新的横轴 t、竖轴 y 交在中心。虚线是原来的 x 撇和 y 撇"></div>
+                    <figcaption>同一条曲线。实线是新的 \(t\) 轴和 \(y\) 轴，交在中心。虚线仍是原来的 \(x'\)、\(y'\)。</figcaption>
                 </figure>
             </div>
             <div class="matryoshka-box">
@@ -245,16 +220,7 @@
                 <p>\(0&lt;u&lt;1\) 时 \(0&lt;1-u&lt;1\)，故 \(\dfrac{1}{1-u}&gt;1\)，且 \(u\) 靠近 \(1\) 时它可以任意大；\(u\) 增大则倒数增大。所以 \(\dfrac{2}{1-t^2}\) 在 \((0,1)\) 上严格递增，值域是 \((2,+\infty)\)。</p>
             </div>
             <div class="canvas-wrap">
-                <svg viewBox="0 0 520 280" role="img" aria-label="1/(1-u) 在 (0,1) 上严格递增，值域是 (1, 正无穷)">
-                    <line x1="48" y1="236" x2="490" y2="236" stroke="#cbd5e1"/>
-                    <line x1="48" y1="20" x2="48" y2="236" stroke="#cbd5e1"/>
-                    <line x1="48" y1="210" x2="490" y2="210" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="5 4"/>
-                    <text x="300" y="202" font-size="13" font-weight="700" fill="#ea580c">1</text>
-                    <path d="M48 210 L136 204 L225 193 L291 178 L357 149 L402 106 L428 50 L437 19" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-                    <text x="500" y="232" font-size="13" font-weight="700" fill="#64748b">u</text>
-                    <text x="36" y="254" font-size="12" fill="#94a3b8">0</text>
-                    <text x="468" y="254" font-size="12" fill="#94a3b8">1</text>
-                </svg>
+                <div id="inv-u" class="jxgbox" role="img" aria-label="1 除以 1 减 u，在 0 到 1 之间严格递增，横虚线是 1"></div>
                 <p class="cap">横虚线是 \(1\)。</p>
             </div>
             <div class="solution-step">
@@ -330,6 +296,90 @@
                 ? MathJax.startup.promise
                 : Promise.resolve();
             start.then(function () { current = null; render(); }).catch(function () { render(); });
+        })();
+    </script>
+    <script src="../../js/jsxgraphcore.js"></script>
+    <script>
+        (function () {
+            if (!window.JXG) return;
+            function oddPart(t) { return 2 * t / (1 - t * t); }
+            var label = { fixed: true, highlight: false, parse: false, fontSize: 13, cssStyle: "font-weight:700" };
+            var box = [-0.55, 4.15, 2.25, -1.15];
+            var m = 1.6;
+            function plainBoard(id) {
+                return JXG.JSXGraph.initBoard(id, {
+                    boundingbox: box,
+                    axis: false, grid: false, keepAspectRatio: false,
+                    showCopyright: false, showNavigation: false, showInfobox: false,
+                    pan: { enabled: false }, zoom: { enabled: false, wheel: false, pinch: false }
+                });
+            }
+            function ray(board, from, to, color, dashed) {
+                board.create("segment", [from, to], {
+                    strokeColor: color, strokeWidth: dashed ? 1.5 : 1.8, dash: dashed ? 2 : 0,
+                    lastArrow: true, highlight: false, fixed: true
+                });
+            }
+            function curveOn(board) {
+                board.create("functiongraph", [function (x) { return oddPart(x - 1) + m; }, 0.4, 1.6], {
+                    strokeColor: "#2563eb", strokeWidth: 2.6, highlight: false, numberPoints: 160
+                });
+            }
+            function center(board) {
+                board.create("point", [1, m], {
+                    name: "", size: 2.5, face: "o", fillColor: "#fff", strokeColor: "#ea580c", strokeWidth: 2,
+                    fixed: true, highlight: false, showInfobox: false, withLabel: false
+                });
+            }
+            function oldMarks(board) {
+                board.create("segment", [[1, -0.08], [1, 0.08]], { strokeColor: "#64748b", strokeWidth: 1.4, highlight: false });
+                board.create("text", [1.12, -0.38, "1"], Object.assign({ strokeColor: "#1e3a8a", anchorX: "middle" }, label));
+                board.create("text", [1.14, 0.72, "m"], Object.assign({ strokeColor: "#ea580c" }, label));
+            }
+            var symf = plainBoard("sym-f");
+            ray(symf, [-0.35, 0], [2.08, 0], "#94a3b8", false);
+            ray(symf, [0, -0.9], [0, 3.9], "#94a3b8", false);
+            curveOn(symf);
+            center(symf);
+            oldMarks(symf);
+            symf.create("text", [1.85, 0.28, "x"], Object.assign({ strokeColor: "#64748b" }, label));
+            symf.create("text", [0.12, 2.35, "y"], Object.assign({ strokeColor: "#64748b" }, label));
+            symf.create("text", [1.14, 2.05, "(1, m)"], Object.assign({ strokeColor: "#ea580c" }, label));
+            symf.create("text", [1.22, 2.72, "f(x)"], Object.assign({ strokeColor: "#2563eb" }, label));
+            var symg = plainBoard("sym-g");
+            ray(symg, [-0.35, 0], [2.08, 0], "#ea580c", true);
+            ray(symg, [0, -0.9], [0, 3.9], "#ea580c", true);
+            ray(symg, [-0.35, m], [2.08, m], "#1c3d5a", false);
+            ray(symg, [1, -0.9], [1, 3.9], "#1c3d5a", false);
+            curveOn(symg);
+            center(symg);
+            oldMarks(symg);
+            symg.create("text", [1.85, 0.28, "x′"], Object.assign({ strokeColor: "#ea580c" }, label));
+            symg.create("text", [0.12, 2.35, "y′"], Object.assign({ strokeColor: "#ea580c" }, label));
+            symg.create("text", [1.72, m + 0.32, "t"], Object.assign({ strokeColor: "#1c3d5a" }, label));
+            symg.create("text", [0.62, 2.35, "y"], Object.assign({ strokeColor: "#1c3d5a" }, label));
+            symg.create("text", [1.14, 2.05, "新原点"], Object.assign({ strokeColor: "#ea580c" }, label));
+            var inv = JXG.JSXGraph.initBoard("inv-u", {
+                boundingbox: [-0.08, 8.2, 1.08, -0.8],
+                axis: true, grid: false, keepAspectRatio: false,
+                showCopyright: false, showNavigation: false, showInfobox: false,
+                pan: { enabled: false }, zoom: { enabled: false, wheel: false, pinch: false },
+                defaultAxes: {
+                    x: {
+                        name: "u", withLabel: true, strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [-2, 12], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 0.5, minorTicks: 0, majorHeight: 6, drawZero: true, label: { fontSize: 12, strokeColor: "#64748b", offset: [0, -4] } }
+                    },
+                    y: {
+                        name: "y", withLabel: true, strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [4, 2], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0, majorHeight: 6, drawZero: false, label: { fontSize: 12, strokeColor: "#64748b", offset: [-4, 0], anchorX: "right" } }
+                    }
+                }
+            });
+            inv.create("segment", [[0, 1], [1.02, 1]], { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false });
+            inv.create("functiongraph", [function (u) { return 1 / (1 - u); }, 0.02, 0.9], { strokeColor: "#2563eb", strokeWidth: 2.8, highlight: false, numberPoints: 120 });
+            inv.create("text", [0.35, 1.45, "1"], Object.assign({ strokeColor: "#ea580c" }, label));
         })();
     </script>
     <script src="../../js/site.js"></script>
