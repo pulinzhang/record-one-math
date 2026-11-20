@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="stylesheet" href="site.css">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="stylesheet" href="css/site.css">
+    <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="icons/favicon.ico" sizes="32x32">
     <title>记一数学</title>
     <script>
         window.MathJax = {
@@ -60,60 +60,69 @@
         </form>
         <p class="find-empty" id="findEmpty">没有对上的专题。换个题号或关键词试试。</p>
 
-        <h2 class="list-title">专题</h2>
-
-        <nav class="catalog" aria-label="专题目录">
-            <!-- 新专题：文件名用「高一上期中考试16-函数入门.html」，出处写成「高一上期中考试 16题」。题目正文同时放进页面末尾的 .sheet。 -->
-            <a class="topic" href="exponential.html">
+        <!-- 新专题按年级放进 lectures/高一、lectures/高二、lectures/高三。文件名用「高一上期中考试16-函数入门.html」，出处写成「高一上期中考试 16题」。题目正文同时放进页面末尾的 .sheet。 -->
+        <section class="grade">
+            <h2 class="list-title">高一</h2>
+            <nav class="catalog" aria-label="高一">
+            <a class="topic" href="lectures/高一/exponential.html">
                 <span class="topic-index">01</span>
                 <div>
                     <h2>指数函数</h2>
                     <p>先消元，再换元</p>
-                    <p class="file">exponential.html</p>
+                    <p class="file">lectures/高一/exponential.html</p>
                 </div>
                 <span class="go">进入</span>
             </a>
-            <a class="topic" href="高一上期中考试16-函数入门.html">
+            <a class="topic" href="lectures/高一/高一上期中考试16-函数入门.html">
                 <span class="topic-index">02</span>
                 <div>
                     <h2>函数入门</h2>
                     <p class="src">高一上期中考试 16题</p>
                     <p>先换元，同一个条件做两问</p>
-                    <p class="file">高一上期中考试16-函数入门.html</p>
+                    <p class="file">lectures/高一/高一上期中考试16-函数入门.html</p>
                 </div>
                 <span class="go">进入</span>
             </a>
-            <a class="topic" href="高一上期中考试17-套娃.html">
+            <a class="topic" href="lectures/高一/高一上期中考试17-套娃.html">
                 <span class="topic-index">03</span>
                 <div>
                     <h2>套娃</h2>
                     <p class="src">高一上期中考试 17题</p>
                     <p>转化为单变量函数</p>
-                    <p class="file">高一上期中考试17-套娃.html</p>
+                    <p class="file">lectures/高一/高一上期中考试17-套娃.html</p>
                 </div>
                 <span class="go">进入</span>
             </a>
-            <a class="topic" href="高一上期中考试18-对勾函数.html">
+            <a class="topic" href="lectures/高一/高一上期中考试18-对勾函数.html">
                 <span class="topic-index">04</span>
                 <div>
                     <h2>对勾函数</h2>
                     <p class="src">高一上期中考试 18题</p>
                     <p>先作差看增减，方程里再换元</p>
-                    <p class="file">高一上期中考试18-对勾函数.html</p>
+                    <p class="file">lectures/高一/高一上期中考试18-对勾函数.html</p>
                 </div>
                 <span class="go">进入</span>
             </a>
-            <a class="topic" href="高一上期中考试19-目标导向.html">
+            <a class="topic" href="lectures/高一/高一上期中考试19-目标导向.html">
                 <span class="topic-index">05</span>
                 <div>
                     <h2>目标导向</h2>
                     <p class="src">高一上期中考试 19题</p>
                     <p>用中心对称的充要条件</p>
-                    <p class="file">高一上期中考试19-目标导向.html</p>
+                    <p class="file">lectures/高一/高一上期中考试19-目标导向.html</p>
                 </div>
                 <span class="go">进入</span>
             </a>
-        </nav>
+            </nav>
+        </section>
+        <section class="grade">
+            <h2 class="list-title">高二</h2>
+            <p class="grade-empty">可以以后补进来。</p>
+        </section>
+        <section class="grade">
+            <h2 class="list-title">高三</h2>
+            <p class="grade-empty">可以以后补进来。</p>
+        </section>
 
         
     </div>
@@ -123,6 +132,7 @@
             var input = document.getElementById("findInput");
             var empty = document.getElementById("findEmpty");
             var cards = [].slice.call(document.querySelectorAll(".topic"));
+            var grades = [].slice.call(document.querySelectorAll(".grade"));
             if (!input || !cards.length) return;
             form.addEventListener("submit", function (event) { event.preventDefault(); });
             function pieces(text) {
@@ -134,6 +144,7 @@
                 document.body.classList.toggle("is-searching", searching);
                 if (!searching) {
                     cards.forEach(function (card) { card.classList.remove("is-hidden"); });
+                    grades.forEach(function (grade) { grade.classList.remove("is-hidden"); });
                     empty.classList.remove("is-shown");
                     return;
                 }
@@ -144,6 +155,9 @@
                     var hit = need.every(function (part) { return text.indexOf(part) !== -1; });
                     card.classList.toggle("is-hidden", !hit);
                     if (hit) shown += 1;
+                });
+                grades.forEach(function (grade) {
+                    grade.classList.toggle("is-hidden", grade.querySelectorAll(".topic:not(.is-hidden)").length === 0);
                 });
                 empty.classList.toggle("is-shown", shown === 0);
             }
@@ -212,6 +226,6 @@
             </div>
         </section>
     </article>
-    <script src="site.js"></script>
+    <script src="js/site.js"></script>
 </body>
 </html>

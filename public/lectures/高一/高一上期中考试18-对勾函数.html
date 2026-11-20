@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="stylesheet" href="site.css">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="icon" href="favicon.ico" sizes="32x32">
+    <link rel="stylesheet" href="../../css/site.css">
+    <link rel="icon" href="../../icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../../icons/favicon.ico" sizes="32x32">
     <title>对勾函数 · 作差看增减，方程里再换元</title>
     <script>
         window.MathJax = {
@@ -17,14 +17,14 @@
         };
         (function () {
             var sources = [
-                'vendor/tex-svg.js',
+                '../../vendor/tex-svg.js',
                 'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
                 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
                 'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
             ];
             function giveUp() {
                 var note = document.createElement('p');
-                note.textContent = '数学公式未能渲染。请确认 vendor/tex-svg.js 和本页面放在一起后再打开。';
+                note.textContent = '数学公式未能渲染。请确认能访问到 vendor/tex-svg.js。';
                 note.style.cssText = 'width:min(1440px,calc(100% - 1.5rem));margin:1rem auto;padding:0.8rem 1rem;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;color:#92400e;';
                 document.body.prepend(note);
             }
@@ -52,7 +52,7 @@
         <div class="bar-tools">
             <button type="button" class="home-link" onclick="printLecture()">打印讲义</button>
             <button type="button" class="home-link" onclick="printProblems()">打印题目</button>
-            <a class="home-link" href="index.html">返回目录</a>
+            <a class="home-link" href="../../index.html">返回目录</a>
         </div>
         <div class="now-inner">
             <span class="now-label" id="nowLabel">原题</span>
@@ -369,6 +369,6 @@
             start.then(function () { current = null; render(); }).catch(function () { render(); });
         })();
     </script>
-    <script src="site.js"></script>
+    <script src="../../js/site.js"></script>
 </body>
 </html>

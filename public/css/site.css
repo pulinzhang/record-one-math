@@ -805,6 +805,14 @@ body.catalog .list-title {
     font-weight: 700;
 }
 
+body.catalog .grade.is-hidden { display: none; }
+
+body.catalog .grade-empty {
+    margin: 0.45rem 0 0.2rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+}
+
 body.catalog .sr {
     position: absolute;
     width: 1px;
