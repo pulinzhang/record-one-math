@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="site.css">
+    <title>指数函数 · 消元，再换元</title>
+    <!-- 本地 MathJax（SVG，不依赖外部字体）。CDN 在国内经常加载失败，失败时公式会停在 $...$ 原文。 -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+        (function () {
+            var sources = [
+                'vendor/tex-svg.js',
+                'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
+            ];
+            function giveUp() {
+                var note = document.createElement('p');
+                note.textContent = '数学公式未能渲染。请确认 vendor/tex-svg.js 和本页面放在一起后再打开。';
+                note.style.cssText = 'width:min(1440px,calc(100% - 1.5rem));margin:1rem auto;padding:0.8rem 1rem;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;color:#92400e;';
+                document.body.prepend(note);
+            }
+            function load(i) {
+                if (i >= sources.length) {
+                    if (document.body) giveUp();
+                    else document.addEventListener('DOMContentLoaded', giveUp);
+                    return;
+                }
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = sources[i];
+                s.onload = function () {
+                    if (!window.MathJax || !window.MathJax.version) load(i + 1);
+                };
+                s.onerror = function () { load(i + 1); };
+                document.head.appendChild(s);
+            }
+            load(0);
+        })();
+    </script>
+</head>
+<body class="lecture">
+    <div class="now-asking" id="nowAsking">
+        <div class="bar-tools">
+            <button type="button" class="home-link" onclick="printLecture()">打印讲义</button>
+            <button type="button" class="home-link" onclick="printProblems()">打印题目</button>
+            <a class="home-link" href="index.html">返回目录</a>
+        </div>
+        <div class="now-inner">
+            <span class="now-label" id="nowLabel">原题</span>
+            <div class="now-text" id="nowText">已知奇函数 $f(x)$ 与偶函数 $g(x)$ 满足 $f(x)+g(x)=2^x$。<strong>（1）</strong> 求 $f(x)$，$g(x)$；<strong>（2）</strong> $g(m)=4$（$m&lt;0$），求 $f\left(\dfrac{3m}{2}\right)$；<strong>（3）</strong> $h(x)=2af(x)+[g(x)]^2$ 在 $[0,1]$ 上的最小值。</div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- 头部 -->
+        <header>
+            <div class="section-kicker">指数函数</div>
+            <h1>消元，再换元</h1>
+            <p>两个未知函数需要两个方程：由奇偶性，把 \(x\) 换成 \(-x\) 得到第二式，再相加减消元。其后令 \(A=2^{x}\)，\(B=2^{-x}\)，或令 \(t=f(x)\)。由原来变量的范围确定新元的范围，取值不变，计算后再代回。</p>
+            <p>一个式子里有两个不知道的函数，把 \(x\) 换成 \(-x\) 再写一个。后面反复出现的一块先起名，能取哪些数要写出来，算完再拆开。</p>
+            <div class="badge-group">
+                <span class="badge">两个方程解两个函数</span>
+                <span class="badge">用 \(A\)、\(B\) 算立方</span>
+                <span class="badge">换元，写下 \(t\) 的范围</span>
+            </div>
+        </header>
+
+        <!-- 原题展示 -->
+        <section class="card problem-box">
+            <div class="problem-title">原题 <span class="src">出处：指数函数专题</span></div>
+            <div class="problem-content">
+                <p>已知奇函数 $f(x)$ 与偶函数 $g(x)$ 满足 $f(x) + g(x) = 2^x$ 。</p>
+                <p><strong>（1）</strong> 求 $f(x)$ ， $g(x)$ 的解析式；</p>
+                <p><strong>（2）</strong> 若 $g(m) = 4 \ (m < 0)$ ，求 $f\left(\dfrac{3m}{2}\right)$ 的值；</p>
+                <p><strong>（3）</strong> 若函数 $h(x) = 2af(x) + [g(x)]^2$ ，求 $h(x)$ 在 $x \in [0, 1]$ 上的最小值。</p>
+            </div>
+        </section>
+
+        <!-- 第一问 -->
+        <section class="card" data-q="第（1）问">
+            <div class="section-header">
+                <span class="step-num">1</span>
+                <h2>第（1）问：一个方程不够，用 \(-x\) 再写一个</h2>
+            </div>
+            <div class="ask">已知奇函数 $f(x)$ 与偶函数 $g(x)$，$f(x)+g(x)=2^x$。求 $f(x)$，$g(x)$ 的解析式。</div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>已知是 \(f(x)+g(x)=2^x\)，要同时求出 \(f\) 和 \(g\)。题目还说明 \(f\) 是奇函数，\(g\) 是偶函数。把 \(x\) 换成 \(-x\)，能不能再写出一个方程？</p>
+            </div>
+
+            <div class="mindset-box">
+                <div class="mindset-title">两个未知函数，两个方程</div>
+                <p>未知函数 \(f\)、\(g\) 只有一式 \(f(x)+g(x)=2^x\)。由 \(f(-x)=-f(x)\)，\(g(-x)=g(x)\)，以 \(-x\) 代入得第二式，两式相加减消元。</p>
+                <p>一个式子里有两个不知道的函数。把 \(x\) 换成 \(-x\)，用奇、偶写出第二个。相加、相减，各留下一个。</p>
+            </div>
+
+            <div class="solution-step">
+                <p>原方程：</p>
+                <div class="formula-block">$$f(x)+g(x)=2^x \quad \text{—— ①}$$</div>
+                <p>把 \(x\) 换成 \(-x\)：</p>
+                <div class="formula-block">$$f(-x)+g(-x)=2^{-x}$$</div>
+                <p>\(f\) 是奇函数，\(f(-x)=-f(x)\)。\(g\) 是偶函数，\(g(-x)=g(x)\)。代进去：</p>
+                <div class="formula-block">$$-f(x)+g(x)=2^{-x} \quad \text{—— ②}$$</div>
+                <h3>① + ②，\(f\) 消掉</h3>
+                <div class="formula-block">$$2g(x)=2^x+2^{-x}$$</div>
+                <div class="formula-block">$$g(x)=\dfrac{2^x+2^{-x}}{2}$$</div>
+                <h3>① − ②，\(g\) 消掉</h3>
+                <p>左边是 \((f+g)-(-f+g)=2f\)：</p>
+                <div class="formula-block">$$2f(x)=2^x-2^{-x}$$</div>
+                <div class="formula-block">$$f(x)=\dfrac{2^x-2^{-x}}{2}$$</div>
+            </div>
+
+            <div class="result-box">
+                \(f(x)=\dfrac{2^x-2^{-x}}{2}\)，\(g(x)=\dfrac{2^x+2^{-x}}{2}\)。
+            </div>
+        </section>
+
+        <!-- 第二问 -->
+        <section class="card" data-q="第（2）问">
+            <div class="section-header">
+                <span class="step-num">2</span>
+                <h2>第（2）问：指数里有 \(3\)，先设 \(A\)、\(B\) 再立方</h2>
+            </div>
+            <div class="ask">$g(m)=4$，且 $m&lt;0$。求 $f\left(\dfrac{3m}{2}\right)$ 的值。</div>
+            <p class="link-note">用第（1）问求出的 \(f(x)\) 和 \(g(x)\)。已知落在 \(g\) 上，要求的值落在 \(f\) 上。</p>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>已知是 \(g(m)=4\)，所求是 \(f\left(\dfrac{3m}{2}\right)\)。从 \(\dfrac{m}{2}\) 到 \(\dfrac{3m}{2}\)，指数乘了 \(3\)。能不能先抓住和 \(\dfrac{m}{2}\) 有关的量？</p>
+            </div>
+
+            <div class="mindset-box">
+                <div class="mindset-title">换元</div>
+                <p>令 \(A=2^{\frac{m}{2}}\)，\(B=2^{-\frac{m}{2}}\)。则 \(AB=1\)，且 \(2^{\frac{3m}{2}}=A^3\)，\(2^{-\frac{3m}{2}}=B^3\)。\(A\)、\(B\) 的范围由 \(m&lt;0\) 确定。</p>
+                <p>元，就是一个整体、一个组合、一个包。换元，就是把这个包当成一个元素，先给它起个名字，算完再拆包还原。这里两个包起名 \(A\)、\(B\)。算完再拆回原来的指数。</p>
+            </div>
+
+            <div class="solution-step">
+                <h3>已知的是 \(2^m+2^{-m}\)</h3>
+                <div class="formula-block">$$g(m)=\dfrac{2^m+2^{-m}}{2}=4$$</div>
+                <div class="formula-block">$$2^m+2^{-m}=8$$</div>
+                <h3>令 \(A\)、\(B\)，先求 \(A-B\)</h3>
+                <div class="formula-block">$$A=2^{\frac{m}{2}},\qquad B=2^{-\frac{m}{2}}$$</div>
+                <p>乘积是 \(1\)，平方和就是刚算出的 \(8\)：</p>
+                <div class="formula-block">$$AB=1,\qquad A^2+B^2=8$$</div>
+                <p>先平方 \(A-B\)，开方的符号留到下一步：</p>
+                <div class="formula-block">$$(A-B)^2=A^2-2AB+B^2=A^2+B^2-2$$</div>
+                <div class="formula-block">$$(A-B)^2=8-2=6$$</div>
+                <p>\(m&lt;0\)，所以 \(\dfrac{m}{2}&lt;0\)。\(2^x\) 递增，\(2^{\frac{m}{2}}&lt;2^0=1\)，也就是 \(A&lt;1\)。</p>
+                <p>\(-\dfrac{m}{2}&gt;0\)，所以 \(B=2^{-\frac{m}{2}}&gt;1\)。于是 \(A&lt;B\)，\(A-B&lt;0\)：</p>
+                <div class="formula-block">$$A-B=-\sqrt{6}$$</div>
+                <h3>再用立方差</h3>
+                <p>\(A^3-B^3=(A-B)(A^2+AB+B^2)\)。因为 \(AB=1\)，括号里是 \(A^2+B^2+1\)：</p>
+                <div class="formula-block">$$A^2+AB+B^2=8+1=9$$</div>
+                <div class="formula-block">$$A^3-B^3=(-\sqrt{6})\times 9=-9\sqrt{6}$$</div>
+                <p>\(2^{\frac{3m}{2}}=A^3\)，\(2^{-\frac{3m}{2}}=B^3\)，代回 \(f\)：</p>
+                <div class="formula-block">$$f\left(\dfrac{3m}{2}\right)=\dfrac{A^3-B^3}{2}=-\dfrac{9\sqrt{6}}{2}$$</div>
+            </div>
+
+            <div class="result-box">
+                \(f\left(\dfrac{3m}{2}\right)=-\dfrac{9\sqrt{6}}{2}\)。
+            </div>
+        </section>
+
+        <!-- 第三问 -->
+        <section class="card" data-q="第（3）问" data-try>
+            <div class="section-header">
+                <span class="step-num">3</span>
+                <h2>第（3）问：先消掉 \(g\)，再看 \(t\) 离 \(-a\) 有多近</h2>
+            </div>
+            <div class="ask">$h(x)=2af(x)+[g(x)]^2$，求 $h(x)$ 在 $[0,1]$ 上的最小值。</div>
+            <p class="link-note">仍用第（1）问的 \(f\) 和 \(g\)。把它们代进 \(h(x)\)，再在 \([0,1]\) 上看最小值。可以先自己做做看。</p>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>\(h(x)\) 里既有 \(f\)，又有 \(g\) 的平方，还带着 \(a\)。所求是 \([0,1]\) 上的最小值。能不能先在 \(f\) 和 \(g\) 之间消去一个，让 \(h\) 只跟着一个量变？</p>
+            </div>
+
+            <div class="mindset-box">
+                <div class="mindset-title">消元，再换元</div>
+                <p>由（1），将 \(g^2\) 转化为含 \(f^2\) 的式子，从而将 \(h=2af+g^2\) 转化为只含 \(f\) 的二次函数。令 \(t=f(x)\)，\(t\) 的范围就是 \(f\) 在 \([0,1]\) 上的值域。闭区间上二次函数的最小值，由对称轴与该区间的位置关系决定。</p>
+                <p>先把 \(g\) 消掉，\(h\) 只跟着 \(f\) 变。\(f(x)\) 起名 \(t\)。最小，就是让 \(t\) 离对称轴尽量近。</p>
+            </div>
+
+            <div class="solution-step">
+                <h3>相同的项一减就没了</h3>
+                <p>令 \(A=2^x\)，\(B=2^{-x}\)。先看乘积：</p>
+                <div class="formula-block">$$AB=2^x\cdot 2^{-x}=1$$</div>
+                <div class="formula-block">$$g=\dfrac{A+B}{2},\qquad f=\dfrac{A-B}{2}$$</div>
+                <p>把两个平方写开：</p>
+                <div class="formula-block">$$(A+B)^2=A^2+2AB+B^2$$</div>
+                <div class="formula-block">$$(A-B)^2=A^2-2AB+B^2$$</div>
+                <p>\(A^2\) 和 \(B^2\) 两边都有，相减只剩中间：\(2AB-(-2AB)=4AB\)。</p>
+                <div class="formula-block">$$(A+B)^2-(A-B)^2=4AB=4$$</div>
+                <p>\(g^2=\dfrac{(A+B)^2}{4}\)，\(f^2=\dfrac{(A-B)^2}{4}\)。分子相减后再除以 \(4\)：</p>
+                <div class="formula-block">$$g^2-f^2=\dfrac{(A+B)^2-(A-B)^2}{4}=\dfrac{4}{4}=1$$</div>
+                <p>于是 \(g^2=f^2+1\)。代回 \(h\)，只剩 \(f\)：</p>
+                <div class="formula-block">$$h(x)=2af(x)+[f(x)]^2+1$$</div>
+            </div>
+
+            <div class="solution-step">
+                <h3>令 \(t=f(x)\)，先看 \(t\) 的范围</h3>
+                <div class="formula-block">$$t=\dfrac{2^x-2^{-x}}{2}$$</div>
+                <p>\(x\) 变大时，\(2^x\) 变大。同时 \(-x\) 变小，\(2^{-x}\) 变小。大的更大、小的更小，差 \(2^x-2^{-x}\) 变大，所以 \(t\) 变大。</p>
+                <div class="formula-block">$$f(0)=\dfrac{2^0-2^{0}}{2}=\dfrac{1-1}{2}=0$$</div>
+                <div class="formula-block">$$f(1)=\dfrac{2-\dfrac{1}{2}}{2}=\dfrac{\dfrac{3}{2}}{2}=\dfrac{3}{4}$$</div>
+                <p>\(x\) 从 \(0\) 到 \(1\)，\(t\) 从 \(0\) 到 \(\dfrac{3}{4}\)。令 \(t=f(x)\)，则 \(t\in\left[0,\dfrac{3}{4}\right]\)。\(h\) 的取值即该式在此区间上的取值。</p>
+            </div>
+            <div class="matryoshka-box">
+                <div class="matryoshka-title">\(x\) 在 \([0,1]\) 上，\(t=f(x)\) 就在 \(\left[0,\dfrac{3}{4}\right]\) 上</div>
+                <div class="flow-chain">
+                    <span class="flow-node">$x\in[0,1]$</span>
+                    <span class="flow-arrow">$\xrightarrow{\,f\,}$</span>
+                    <span class="flow-node">$t\in\left[0,\dfrac{3}{4}\right]$</span>
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <h3>配方：看 \(t\) 离 \(-a\) 有多近</h3>
+                <div class="formula-block">$$h=t^2+2at+1$$</div>
+                <p>\(t^2+2at\) 凑成完全平方，要补 \(a^2\)，所以再减去它：</p>
+                <div class="formula-block">$$t^2+2at=(t+a)^2-a^2$$</div>
+                <div class="formula-block">$$h=(t+a)^2+1-a^2$$</div>
+                <p>\(t+a=t-(-a)\)。\((t+a)^2\) 是 \(t\) 到 \(-a\) 的距离的平方。\(1-a^2\) 不随 \(t\) 变。</p>
+                <p>\(t\) 只能在 \(\left[0,\dfrac{3}{4}\right]\) 上。\(h\) 最小，就是让 \(t\) 离 \(-a\) 尽量近。\(-a\) 在这段的左边、里面、右边，是三种情况。</p>
+                <h3>\(-a\) 在 \(0\) 的左边或正好是 \(0\)</h3>
+                <p>\(-a\le 0\)。两边乘 \(-1\)，不等号反过来：\(a\ge 0\)。最近点是左端 \(t=0\)。</p>
+                <div class="formula-block">$$h=(0+a)^2+1-a^2=a^2+1-a^2=1$$</div>
+                <h3>\(-a\) 在 \(0\) 和 \(\dfrac{3}{4}\) 之间</h3>
+                <p>\(0&lt;-a&lt;\dfrac{3}{4}\)。两边乘 \(-1\)：\(-\dfrac{3}{4}&lt;a&lt;0\)。\(t\) 可以取到 \(-a\)，距离平方是 \(0\)。</p>
+                <div class="formula-block">$$h=0+1-a^2=1-a^2$$</div>
+                <h3>\(-a\) 在 \(\dfrac{3}{4}\) 的右边或正好是 \(\dfrac{3}{4}\)</h3>
+                <p>\(-a\ge\dfrac{3}{4}\)。两边乘 \(-1\)：\(a\le-\dfrac{3}{4}\)。最近点是右端 \(t=\dfrac{3}{4}\)。</p>
+                <div class="formula-block">$$h=\left(\dfrac{3}{4}+a\right)^2+1-a^2$$</div>
+                <p>先把平方展开。\(a^2\) 和 \(-a^2\) 消掉：</p>
+                <div class="formula-block">$$\left(\dfrac{3}{4}+a\right)^2=\dfrac{9}{16}+\dfrac{3}{2}a+a^2$$</div>
+                <div class="formula-block">$$h=\dfrac{9}{16}+\dfrac{3}{2}a+a^2+1-a^2=\dfrac{3}{2}a+\dfrac{9}{16}+1$$</div>
+                <div class="formula-block">$$1=\dfrac{16}{16},\qquad h=\dfrac{3}{2}a+\dfrac{25}{16}$$</div>
+            </div>
+
+            <!-- 交互式靶心可视化演示 -->
+            <div class="interactive-panel">
+                <div class="interactive-title">拖动 \(a\)，看 \(-a\) 离 \(\left[0,\dfrac{3}{4}\right]\) 哪一头更近</div>
+                <div class="slider-control">
+                    <label for="paramA"><strong>参数 $a$ 的值：</strong></label>
+                    <input type="range" id="paramA" min="-1.5" max="1.0" step="0.05" value="-0.4">
+                    <span id="aValDisplay" style="font-weight: 700; color: var(--primary); min-width: 70px;">a = -0.40</span>
+                </div>
+                <div class="canvas-wrap">
+                    <svg id="targetSvg" viewBox="0 0 600 130" width="600" height="130">
+                        <!-- 数轴主线 -->
+                        <line x1="40" y1="75" x2="560" y2="75" stroke="#94a3b8" stroke-width="2" />
+                        <polygon points="560,75 550,70 550,80" fill="#94a3b8" />
+                        <text x="568" y="80" fill="#64748b" font-size="14" font-weight="bold">t</text>
+
+                        <!-- 刻度参考线 -->
+                        <line x1="250" y1="68" x2="250" y2="82" stroke="#475569" stroke-width="2" />
+                        <text x="245" y="102" fill="#334155" font-size="13" font-weight="bold">0</text>
+
+                        <line x1="370" y1="68" x2="370" y2="82" stroke="#475569" stroke-width="2" />
+                        <text x="355" y="102" fill="#334155" font-size="13" font-weight="bold">3/4 (0.75)</text>
+
+                        <!-- 固定靶道 [0, 3/4] -->
+                        <rect x="250" y="69" width="120" height="12" fill="#3b82f6" opacity="0.35" rx="3" />
+                        <line x1="250" y1="75" x2="370" y2="75" stroke="#2563eb" stroke-width="5" />
+                        <circle cx="250" cy="75" r="5" fill="#2563eb" />
+                        <circle cx="370" cy="75" r="5" fill="#2563eb" />
+                        <text x="275" y="55" fill="#1d4ed8" font-size="13" font-weight="bold">t 的范围 [0, 3/4]</text>
+
+                        <!-- 最近点高亮连线 -->
+                        <line id="distLine" x1="314" y1="32" x2="314" y2="75" stroke="#10b981" stroke-width="2" stroke-dasharray="4,3" />
+                        <circle id="nearestDot" cx="314" cy="75" r="6" fill="#10b981" />
+
+                        <!-- 靶心 -a -->
+                        <g id="targetMarker" transform="translate(314, 75)">
+                            <circle cx="0" cy="0" r="10" fill="none" stroke="#ef4444" stroke-width="2" />
+                            <circle cx="0" cy="0" r="4" fill="#ef4444" />
+                            <text id="targetLabel" x="-28" y="-18" fill="#dc2626" font-size="13" font-weight="bold">-a = 0.40</text>
+                        </g>
+                    </svg>
+                </div>
+                <div class="status-readout" id="statusText"></div>
+            </div>
+
+            <div class="result-box">
+                \(h\) 的最小值：\(a\ge 0\) 时是 \(1\)；\(-\dfrac{3}{4}&lt;a&lt;0\) 时是 \(1-a^2\)；\(a\le -\dfrac{3}{4}\) 时是 \(\dfrac{3}{2}a+\dfrac{25}{16}\)。
+            </div>
+        </section>
+
+        <section class="card paper-card">
+            <div class="section-header">
+                <span class="step-num">写</span>
+                <h2>标准解答</h2>
+            </div>
+            <p class="paper-note">下面按试卷来写。步骤留全，不写想法。</p>
+            <div class="paper">
+                <p><strong>（1）</strong> 由题意，</p>
+                <div class="formula-block">$$f(x)+g(x)=2^x \quad \text{①}$$</div>
+                <p>把 \(x\) 换成 \(-x\)：\(f(-x)+g(-x)=2^{-x}\)。</p>
+                <p>\(f\) 是奇函数，\(g\) 是偶函数，故</p>
+                <div class="formula-block">$$-f(x)+g(x)=2^{-x} \quad \text{②}$$</div>
+                <p>①＋② 得 \(2g(x)=2^x+2^{-x}\)，①－② 得 \(2f(x)=2^x-2^{-x}\)。所以</p>
+                <div class="formula-block">$$f(x)=\dfrac{2^x-2^{-x}}{2}.$$</div>
+                <div class="formula-block">$$g(x)=\dfrac{2^x+2^{-x}}{2}.$$</div>
+                <p><strong>（2）</strong> 由 \(g(m)=4\) 得 \(2^m+2^{-m}=8\)。</p>
+                <p>令 \(A=2^{\frac{m}{2}}\)，\(B=2^{-\frac{m}{2}}\)，则 \(AB=1\)，\(A^2+B^2=8\)。</p>
+                <div class="formula-block">$$(A-B)^2=A^2+B^2-2AB=6.$$</div>
+                <p>\(m&lt;0\)，故 \(\dfrac{m}{2}&lt;0\)，\(A=2^{\frac{m}{2}}&lt;1\)，\(B=2^{-\frac{m}{2}}&gt;1\)，从而 \(A-B&lt;0\)，</p>
+                <div class="formula-block">$$A-B=-\sqrt{6}.$$</div>
+                <div class="formula-block">$$A^3-B^3=(A-B)(A^2+AB+B^2)$$</div>
+                <div class="formula-block">$$=(A-B)(8+1)=(-\sqrt{6})\times 9=-9\sqrt{6}.$$</div>
+                <p>又 \(2^{\frac{3m}{2}}=A^3\)，\(2^{-\frac{3m}{2}}=B^3\)，所以</p>
+                <div class="formula-block">$$f\left(\dfrac{3m}{2}\right)=\dfrac{A^3-B^3}{2}=-\dfrac{9\sqrt{6}}{2}.$$</div>
+                <p><strong>（3）</strong> 令 \(A=2^x\)，\(B=2^{-x}\)，则 \(AB=1\)，且 \(g=\dfrac{A+B}{2}\)，\(f=\dfrac{A-B}{2}\)。</p>
+                <div class="formula-block">$$g^2-f^2=\dfrac{(A+B)^2-(A-B)^2}{4}$$</div>
+                <div class="formula-block">$$=\dfrac{4AB}{4}=1.$$</div>
+                <p>故 \(g^2=f^2+1\)，</p>
+                <div class="formula-block">$$h(x)=[f(x)]^2+2af(x)+1.$$</div>
+                <p>令 \(t=f(x)\)。\(x\) 增大时 \(2^x\) 增大、\(2^{-x}\) 减小，所以 \(f\) 在 \([0,1]\) 上递增。</p>
+                <div class="formula-block">$$f(0)=0,\qquad f(1)=\dfrac{3}{4}.$$</div>
+                <p>因此 \(t\in\left[0,\dfrac{3}{4}\right]\)，且</p>
+                <div class="formula-block">$$h=(t+a)^2+1-a^2.$$</div>
+                <p>（i）当 \(a\ge 0\) 时，\(-a\le 0\)，\(t=0\) 离 \(-a\) 最近，</p>
+                <div class="formula-block">$$h_{\min}=(0+a)^2+1-a^2=1.$$</div>
+                <p>（ii）当 \(-\dfrac{3}{4}&lt;a&lt;0\) 时，\(0&lt;-a&lt;\dfrac{3}{4}\)，\(t\) 可以取到 \(-a\)，</p>
+                <div class="formula-block">$$h_{\min}=1-a^2.$$</div>
+                <p>（iii）当 \(a\le -\dfrac{3}{4}\) 时，\(-a\ge\dfrac{3}{4}\)，\(t=\dfrac{3}{4}\) 离 \(-a\) 最近，</p>
+                <div class="formula-block">$$h_{\min}=\left(\dfrac{3}{4}+a\right)^2+1-a^2$$</div>
+                <div class="formula-block">$$=\dfrac{3}{2}a+\dfrac{25}{16}.$$</div>
+                <p>综上，</p>
+                <div class="formula-block">$$h_{\min}=\begin{cases} 1, & a\ge 0, \\ 1-a^2, & -\dfrac{3}{4}&lt;a&lt;0, \\ \dfrac{3}{2}a+\dfrac{25}{16}, & a\le -\dfrac{3}{4}. \end{cases}$$</div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        const slider = document.getElementById('paramA');
+        const aValDisplay = document.getElementById('aValDisplay');
+        const targetMarker = document.getElementById('targetMarker');
+        const targetLabel = document.getElementById('targetLabel');
+        const nearestDot = document.getElementById('nearestDot');
+        const distLine = document.getElementById('distLine');
+        const statusText = document.getElementById('statusText');
+
+        // 映射 t 值到 SVG x 坐标: t=0 -> 250, t=0.75 -> 370 (每 0.25 对应 40px, 即 1 单位 = 160px)
+        function tToX(t) {
+            return 250 + t * 160;
+        }
+
+        function updateVisual() {
+            const a = parseFloat(slider.value);
+            const target = -a; // 靶心 -a
+            aValDisplay.textContent = `a = ${a.toFixed(2)}`;
+
+            const targetX = tToX(target);
+            targetMarker.setAttribute('transform', `translate(${targetX}, 75)`);
+            targetLabel.textContent = `-a = ${target.toFixed(2)}`;
+
+            let nearestT, caseDesc, minFormula;
+            if (target <= 0) {
+                nearestT = 0;
+                caseDesc = "−a 在 0 的左边。最近点是左端 t = 0。";
+                minFormula = `h(x)_min = 1`;
+            } else if (target < 0.75) {
+                nearestT = target;
+                caseDesc = "−a 在 [0, 3/4] 里面。t 可以取到 −a，距离平方是 0。";
+                const val = (1 - a * a).toFixed(4);
+                minFormula = `h(x)_min = 1 - a² = ${val}`;
+            } else {
+                nearestT = 0.75;
+                caseDesc = "−a 在 3/4 的右边。最近点是右端 t = 3/4。";
+                const val = (1.5 * a + 25 / 16).toFixed(4);
+                minFormula = `h(x)_min = (3/2)a + 25/16 = ${val}`;
+            }
+
+            const nearestX = tToX(nearestT);
+            nearestDot.setAttribute('cx', nearestX);
+            distLine.setAttribute('x1', targetX);
+            distLine.setAttribute('y1', 75);
+            distLine.setAttribute('x2', nearestX);
+            distLine.setAttribute('y2', 75);
+
+            statusText.innerHTML = `<strong>${caseDesc}</strong><br>现在 −a = <code>${target.toFixed(2)}</code>，最近点 t = <code>${nearestT.toFixed(2)}</code>，最小值：<strong>${minFormula}</strong>`;
+        }
+
+        slider.addEventListener('input', updateVisual);
+        updateVisual();
+    </script>
+    <script>
+        (function () {
+            var bar = document.getElementById('nowAsking');
+            var label = document.getElementById('nowLabel');
+            var slot = document.getElementById('nowText');
+            if (!bar || !slot) return;
+            var sections = [].slice.call(document.querySelectorAll('section[data-q]'));
+            var saved = sections.map(function (section) {
+                return { label: section.getAttribute('data-q'), html: section.querySelector('.ask').innerHTML };
+            });
+            var home = { label: label.textContent, html: slot.innerHTML };
+            var current = null;
+            function fill(item) {
+                if (current === item) return;
+                current = item;
+                label.textContent = item.label;
+                slot.innerHTML = item.html;
+                var done = window.MathJax && MathJax.typesetPromise
+                    ? MathJax.typesetPromise([slot])
+                    : Promise.resolve();
+                done.then(function () {
+                    document.documentElement.style.setProperty('--ask-space', bar.offsetHeight + 'px');
+                }).catch(function () {});
+            }
+            function render() {
+                var line = bar.getBoundingClientRect().bottom;
+                var pick = -1;
+                sections.forEach(function (section, i) {
+                    if (section.getBoundingClientRect().top < line) pick = i;
+                });
+                fill(pick === -1 ? home : saved[pick]);
+            }
+            window.addEventListener('scroll', render, { passive: true });
+            window.addEventListener('resize', function () { current = null; render(); });
+            var start = window.MathJax && MathJax.startup && MathJax.startup.promise
+                ? MathJax.startup.promise
+                : Promise.resolve();
+            start.then(function () { current = null; render(); }).catch(function () { render(); });
+        })();
+    </script>
+    <script src="site.js"></script>
+</body>
+</html>

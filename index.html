@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="site.css">
+    <title>记一数学</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+        (function () {
+            var sources = [
+                'vendor/tex-svg.js',
+                'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
+            ];
+            function load(i) {
+                if (i >= sources.length) return;
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = sources[i];
+                s.onload = function () {
+                    if (!window.MathJax || !window.MathJax.version) load(i + 1);
+                };
+                s.onerror = function () { load(i + 1); };
+                document.head.appendChild(s);
+            }
+            load(0);
+        })();
+    </script>
+</head>
+<body class="catalog">
+    <div class="container">
+        <header>
+            <div class="brand">
+                <h1>记一数学</h1>
+                <p class="lead">出题人究竟想干嘛!</p>
+            </div>
+            <div class="print-row">
+                <button type="button" class="print-all" id="printAll">打印全部题目</button>
+                <button type="button" class="print-all" id="printLectures">打印所有讲义</button>
+            </div>
+        </header>
+
+       
+
+        <form class="find" role="search">
+            <label>
+                <span>检索</span>
+                <input id="findInput" type="search" placeholder="题号、考试或专题，例如 16、期中、对勾" autocomplete="off">
+            </label>
+        </form>
+        <p class="find-empty" id="findEmpty">没有对上的专题。换个题号或关键词试试。</p>
+
+        <h2 class="list-title">专题</h2>
+
+        <nav class="catalog" aria-label="专题目录">
+            <!-- 新专题：文件名用「高一上期中考试16-函数入门.html」，出处写成「高一上期中考试 16题」。题目正文同时放进页面末尾的 .sheet。 -->
+            <a class="topic" href="exponential.html">
+                <span class="topic-index">01</span>
+                <div>
+                    <h2>指数函数</h2>
+                    <p>先消元，再换元</p>
+                    <p class="file">exponential.html</p>
+                </div>
+                <span class="go">进入</span>
+            </a>
+            <a class="topic" href="高一上期中考试16-函数入门.html">
+                <span class="topic-index">02</span>
+                <div>
+                    <h2>函数入门</h2>
+                    <p class="src">高一上期中考试 16题</p>
+                    <p>先换元，同一个条件做两问</p>
+                    <p class="file">高一上期中考试16-函数入门.html</p>
+                </div>
+                <span class="go">进入</span>
+            </a>
+            <a class="topic" href="高一上期中考试17-套娃.html">
+                <span class="topic-index">03</span>
+                <div>
+                    <h2>套娃</h2>
+                    <p class="src">高一上期中考试 17题</p>
+                    <p>转化为单变量函数</p>
+                    <p class="file">高一上期中考试17-套娃.html</p>
+                </div>
+                <span class="go">进入</span>
+            </a>
+            <a class="topic" href="高一上期中考试18-对勾函数.html">
+                <span class="topic-index">04</span>
+                <div>
+                    <h2>对勾函数</h2>
+                    <p class="src">高一上期中考试 18题</p>
+                    <p>先作差看增减，方程里再换元</p>
+                    <p class="file">高一上期中考试18-对勾函数.html</p>
+                </div>
+                <span class="go">进入</span>
+            </a>
+            <a class="topic" href="高一上期中考试19-目标导向.html">
+                <span class="topic-index">05</span>
+                <div>
+                    <h2>目标导向</h2>
+                    <p class="src">高一上期中考试 19题</p>
+                    <p>用中心对称的充要条件</p>
+                    <p class="file">高一上期中考试19-目标导向.html</p>
+                </div>
+                <span class="go">进入</span>
+            </a>
+        </nav>
+
+        
+    </div>
+    <script>
+        (function () {
+            var form = document.querySelector(".find");
+            var input = document.getElementById("findInput");
+            var empty = document.getElementById("findEmpty");
+            var cards = [].slice.call(document.querySelectorAll(".topic"));
+            if (!input || !cards.length) return;
+            form.addEventListener("submit", function (event) { event.preventDefault(); });
+            function pieces(text) {
+                return (text || "").toLowerCase().replace(/\s+/g, "").split(/(\d+)/).filter(Boolean);
+            }
+            function applyFind() {
+                var raw = (input.value || "").replace(/\s+/g, "");
+                var searching = raw.length > 0;
+                document.body.classList.toggle("is-searching", searching);
+                if (!searching) {
+                    cards.forEach(function (card) { card.classList.remove("is-hidden"); });
+                    empty.classList.remove("is-shown");
+                    return;
+                }
+                var need = pieces(input.value);
+                var shown = 0;
+                cards.forEach(function (card) {
+                    var text = (card.textContent || "").toLowerCase().replace(/\s+/g, "");
+                    var hit = need.every(function (part) { return text.indexOf(part) !== -1; });
+                    card.classList.toggle("is-hidden", !hit);
+                    if (hit) shown += 1;
+                });
+                empty.classList.toggle("is-shown", shown === 0);
+            }
+            input.addEventListener("input", applyFind);
+            applyFind();
+        })();
+    </script>
+    <article class="sheet" id="sheet" aria-hidden="true">
+        <header class="sheet-head">
+            <p class="series">记一数学</p>
+            <h1>题目</h1>
+            <p>只含题目和出处。解答在各篇讲义里。</p>
+        </header>
+
+        <section class="q">
+            <h2>01 指数函数 <span class="src">出处：指数函数专题</span></h2>
+            <div class="problem-content">
+                <p>已知奇函数 $f(x)$ 与偶函数 $g(x)$ 满足 $f(x) + g(x) = 2^x$ 。</p>
+                <p><strong>（1）</strong> 求 $f(x)$ ， $g(x)$ 的解析式；</p>
+                <p><strong>（2）</strong> 若 $g(m) = 4 \ (m < 0)$ ，求 $f\left(\dfrac{3m}{2}\right)$ 的值；</p>
+                <p><strong>（3）</strong> 若函数 $h(x) = 2af(x) + [g(x)]^2$ ，求 $h(x)$ 在 $x \in [0, 1]$ 上的最小值。</p>
+            </div>
+        </section>
+
+        <section class="q">
+            <h2>02 函数入门 <span class="src">出处：高一上期中考试 16题</span></h2>
+            <div class="problem-content">
+                <p>已知 \(a,b&gt;0\)，且</p>
+                <div class="formula-block">$$ab=a+b+3.$$</div>
+                <p><strong>（1）</strong> 求 \(a+4b\) 的最小值；</p>
+                <p><strong>（2）</strong> 求 \(ab\) 的取值范围。</p>
+            </div>
+        </section>
+
+        <section class="q">
+            <h2>03 套娃 <span class="src">出处：高一上期中考试 17题</span></h2>
+            <div class="problem-content">
+                <p>水柱的轨迹是</p>
+                <div class="formula-block">$$y=-\dfrac{1}{8}(1+k^2)x^2+kx,$$</div>
+                <p class="domain">\(k&gt;0\)。\(k\) 是水压，\(x\) 是水平距离（米），\(y\) 是高度（米）。</p>
+                <p><strong>（1）</strong> 水柱落地时，非零的水平距离叫做射程 \(L\)。求射程的最大值，以及这时的 \(k\)。</p>
+                <p><strong>（2）</strong> 景观石顶部高 \(1.5\) 米。水柱在水平距离 \(a\) 米处的高度不低于 \(1.5\) 米，求 \(a\) 的最大值，以及这时的 \(k\)。</p>
+            </div>
+        </section>
+
+        <section class="q">
+            <h2>04 对勾函数 <span class="src">出处：高一上期中考试 18题</span></h2>
+            <div class="problem-content">
+                <p>已知函数 $f(x)=x+\dfrac{1}{x}$。</p>
+                <p><strong>（1）</strong> 判断并证明 $f(x)$ 在区间 $(1,+\infty)$ 上的单调性；</p>
+                <p><strong>（2）</strong> 对任意 $x_1,x_2\in[1,3]$，总有 $|f(x_1)-f(x_2)|\le m$，求 $m$ 的最小值；</p>
+                <p><strong>（3）</strong> 若方程 $f(x^2)-\lambda f(x)+3=0$ 在 $(1,+\infty)$ 上有且只有一个根，求 $\lambda$ 的取值范围。</p>
+            </div>
+        </section>
+
+        <section class="q">
+            <h2>05 目标导向 <span class="src">出处：高一上期中考试 19题</span></h2>
+            <div class="problem-content">
+                <p>我们知道，函数 \(y=f(x)\) 的图象关于坐标原点成中心对称图形的充要条件是函数 \(y=f(x)\) 为奇函数。有同学发现可以将其推广为：函数 \(y=f(x)\) 的图象关于 \(P(a,b)\) 成中心对称图形的充要条件是函数 \(y=f(x+a)-b\) 为奇函数。</p>
+                <p>已知函数</p>
+                <div class="formula-block">$$f(x)=\dfrac{2x-2}{2x-x^{2}}+mx+n(x-1)^{3},$$</div>
+                <p class="domain">\(x\in(0,2).\)</p>
+                <p><strong>（1）</strong> 当 \(m=n=0\) 时，求证：\(y=f(x+1)\) <span class="keep">为奇函数；</span></p>
+                <p><strong>（2）</strong> 证明：函数 \(y=f(x)\) 的图象成中心对称图形；</p>
+                <p><strong>（3）</strong> 当 \(m=-2\) 时，若 \(f(x)\geqslant -2\) 当且仅当 <span class="keep">\(1\leqslant x&lt;2\)，</span>求 \(n\) 的取值范围。</p>
+            </div>
+        </section>
+    </article>
+    <script src="site.js"></script>
+</body>
+</html>

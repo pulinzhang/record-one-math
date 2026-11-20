@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="site.css">
+    <title>函数入门 · 换元</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+        (function () {
+            var sources = [
+                'vendor/tex-svg.js',
+                'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
+            ];
+            function giveUp() {
+                var note = document.createElement('p');
+                note.textContent = '数学公式未能渲染。请确认 vendor/tex-svg.js 和本页面放在一起后再打开。';
+                note.style.cssText = 'width:min(1440px,calc(100% - 1.5rem));margin:1rem auto;padding:0.8rem 1rem;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;color:#92400e;';
+                document.body.prepend(note);
+            }
+            function load(i) {
+                if (i >= sources.length) {
+                    if (document.body) giveUp();
+                    else document.addEventListener('DOMContentLoaded', giveUp);
+                    return;
+                }
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = sources[i];
+                s.onload = function () {
+                    if (!window.MathJax || !window.MathJax.version) load(i + 1);
+                };
+                s.onerror = function () { load(i + 1); };
+                document.head.appendChild(s);
+            }
+            load(0);
+        })();
+    </script>
+</head>
+<body class="lecture">
+    <div class="now-asking" id="nowAsking">
+        <div class="bar-tools">
+            <button type="button" class="home-link" onclick="printLecture()">打印讲义</button>
+            <button type="button" class="home-link" onclick="printProblems()">打印题目</button>
+            <a class="home-link" href="index.html">返回目录</a>
+        </div>
+        <div class="now-inner">
+            <span class="now-label" id="nowLabel">原题</span>
+            <div class="now-text" id="nowText">已知 $a,b&gt;0$，$ab=a+b+3$。<strong>（1）</strong> 求 $a+4b$ 的最小值；<strong>（2）</strong> 求 $ab$ 的取值范围。</div>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <div class="section-kicker">函数入门</div>
+            <h1>换元</h1>
+            <p>令 \(x=a-1\)，\(y=b-1\)。由 \(a&gt;1\)，\(b&gt;1\) 得 \(x&gt;0\)，\(y&gt;0\)，且 \((a,b)\) 与 \((x,y)\) 一一对应，故 \((a-1)(b-1)=4\) 转化为 \(xy=4\)。再代回 \(a=x+1\)，\(b=y+1\)。</p>
+            <p>元，就是一个整体、一个组合、一个包。换元，就是把这个包当成一个元素，先给它起个名字，算完再拆包还原。这里的包是 \(a-1\) 和 \(b-1\)。</p>
+            <div class="badge-group">
+                <span class="badge">换元</span>
+                <span class="badge">写下新字母的范围</span>
+                <span class="badge">所求一换，函数就换</span>
+            </div>
+        </header>
+
+        <section class="card problem-box">
+            <div class="problem-title">原题 <span class="src">出处：高一上期中考试 16题</span></div>
+            <div class="problem-content">
+                <p>已知 \(a,b&gt;0\)，且</p>
+                <div class="formula-block">$$ab=a+b+3.$$</div>
+                <p><strong>（1）</strong> 求 \(a+4b\) 的最小值；</p>
+                <p><strong>（2）</strong> 求 \(ab\) 的取值范围。</p>
+            </div>
+        </section>
+
+        <section class="card" data-nav="先看思路">
+            <div class="section-header">
+                <span class="step-num">想</span>
+                <h2>先观察，再动手</h2>
+            </div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>题目给出了关于 \(a,b\) 的等式。所求没有单独问 \(a\) 或 \(b\)，问的是它们合在一起的量。能不能把已知也写成一个乘积？先看等式里哪几项能乘在一起。</p>
+            </div>
+            <div class="solution-step">
+                <p>移项：\(ab-a-b=3\)。两边加 \(1\)：</p>
+                <div class="formula-block">$$ab-a-b+1=4,\qquad (a-1)(b-1)=4.$$</div>
+                <p>乘积是正的，所以 \(a-1\) 和 \(b-1\) 同号。若 \(0&lt;a&lt;1\) 且 \(0&lt;b&lt;1\)，则 \(0&lt;(1-a)(1-b)&lt;1\)，到不了 \(4\)。所以只能</p>
+                <div class="formula-block">$$a&gt;1,\qquad b&gt;1.$$</div>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">因式</div>
+                <p>条件已化为 \((a-1)(b-1)=4\)。这两个因式的乘积是常数。</p>
+                <p>乘积固定。一个变大，另一个就变小。后面就用这两个因式。</p>
+            </div>
+            <div class="solution-step">
+                <p>令 \(x=a-1\)，\(y=b-1\)。\(a&gt;1\)、\(b&gt;1\) 对应 \(x&gt;0\)、\(y&gt;0\)。\(a=x+1\)，\(b=y+1\)，一组 \((a,b)\) 对一组 \((x,y)\)，条件允许的 \(a\)、\(b\) 不变。条件变成</p>
+                <div class="formula-block">$$xy=4,\qquad x&gt;0,\ y&gt;0.$$</div>
+            </div>
+            <div class="canvas-wrap">
+                <svg viewBox="0 0 320 180" role="img" aria-label="长和宽的乘积固定为 4">
+                    <rect x="86" y="28" width="168" height="108" fill="#eff6ff" stroke="#2563eb" stroke-width="2.4"/>
+                    <text x="148" y="88" font-size="15" font-weight="700" fill="#1e3a8a">面积 4</text>
+                    <text x="158" y="160" font-size="15" font-weight="700" fill="#64748b">x</text>
+                    <text x="52" y="88" font-size="15" font-weight="700" fill="#64748b">y</text>
+                </svg>
+                <p class="cap">长和宽的乘积固定。长变大，宽就变小。</p>
+            </div>
+            <div class="motto">换完以后，条件是 \(xy=4\)。所求不同，写出的函数就换。</div>
+        </section>
+
+        <section class="card" data-q="第（1）问">
+            <div class="section-header">
+                <span class="step-num">1</span>
+                <h2>第（1）问：最小值</h2>
+            </div>
+            <div class="ask">求 \(a+4b\) 的最小值。</div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>所求是 \(a+4b\) 的最小值。条件已经把 \(a\) 和 \(b\) 绑在一起。能不能让一个字母代表另一个，使 \(a+4b\) 只跟着这一个字母变？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">换元</div>
+                <p>令 \(t=a-1\)。由 \(a&gt;1\) 得 \(t&gt;0\)。再代回 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。\(a+4b\) 的取值就是这个式子在 \(t&gt;0\) 上的取值。</p>
+                <p>\(a-1\) 这个包起名 \(t\)。\(t&gt;0\) 要写出来。算的时候只用 \(t\)，要回到 \(a\)、\(b\) 再拆开。</p>
+            </div>
+            <div class="solution-step">
+                <p>令 \(t=a-1\)。\(a&gt;1\) 对应 \(t&gt;0\)。由 \(xy=4\) 得 \(b-1=\dfrac{4}{t}\)，所以 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。一个 \(t&gt;0\) 对一组 \((a,b)\)。</p>
+                <div class="formula-block">$$a+4b=g(t)=t+5+\dfrac{16}{t}.$$</div>
+                <p>\(a+4b\) 能取到的数，就是 \(g(t)\) 在 \(t&gt;0\) 上能取到的数。</p>
+            </div>
+            <div class="canvas-wrap">
+                <svg viewBox="0 0 520 260" role="img" aria-label="t+5 升高，16/t 降低">
+                    <line x1="48" y1="230" x2="490" y2="230" stroke="#cbd5e1"/>
+                    <line x1="48" y1="18" x2="48" y2="230" stroke="#cbd5e1"/>
+                    <path d="M48 176 L134 149 L249 113 L478 41" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M48 86 L77 158 L134 194 L249 212 L478 221" fill="none" stroke="#ea580c" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="400" y="78" font-size="14" font-weight="700" fill="#2563eb">t+5</text>
+                    <text x="400" y="200" font-size="14" font-weight="700" fill="#ea580c">16/t</text>
+                    <text x="498" y="226" font-size="13" font-weight="700" fill="#64748b">t</text>
+                </svg>
+                <p class="cap">蓝线一直升高。橙线一直降低。\(t\) 很小，橙线很高；\(t\) 很大，蓝线很高。</p>
+            </div>
+            <div class="canvas-wrap">
+                <svg viewBox="0 0 520 300" role="img" aria-label="g(t)=t+5+16/t 在 t=4 取最小值 13">
+                    <line x1="48" y1="268" x2="490" y2="268" stroke="#cbd5e1"/>
+                    <line x1="48" y1="16" x2="48" y2="268" stroke="#cbd5e1"/>
+                    <line x1="48" y1="255" x2="490" y2="255" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="5 4"/>
+                    <path d="M48 129 L62 197 L77 227 L105 250 L134 255 L191 246 L249 227 L363 180 L478 129" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="134" cy="255" r="4.5" fill="#ea580c"/>
+                    <text x="70" y="158" font-size="14" font-weight="700" fill="#2563eb">下降</text>
+                    <text x="300" y="168" font-size="14" font-weight="700" fill="#2563eb">上升</text>
+                    <text x="168" y="228" font-size="14" font-weight="700" fill="#ea580c">最小值 13</text>
+                    <text x="498" y="264" font-size="13" font-weight="700" fill="#64748b">t</text>
+                    <text x="128" y="286" font-size="12" fill="#94a3b8">4</text>
+                </svg>
+                <p class="cap">两段加起来，图像先下降，再上升。最低落在哪里，下面用作差来定。</p>
+            </div>
+            <div class="solution-step">
+                <p>\(t\) 变大时，\(t+5\) 变大。\(0&lt;t_1&lt;t_2\) 时 \(\dfrac{1}{t_1}&gt;\dfrac{1}{t_2}\)，所以 \(\dfrac{16}{t}\) 变小。一段升、一段降，加起来先降还是先升，要作差，不能只看图。</p>
+                <p>任取 \(0&lt;t_1&lt;t_2\)：</p>
+                <div class="formula-block">$$\dfrac{1}{t_1}-\dfrac{1}{t_2}=\dfrac{t_2-t_1}{t_1 t_2},$$</div>
+                <div class="formula-block">$$g(t_1)-g(t_2)=(t_1-t_2)-\dfrac{16(t_1-t_2)}{t_1 t_2}=(t_1-t_2)\cdot\dfrac{t_1 t_2-16}{t_1 t_2}.$$</div>
+                <p>\(t_1-t_2&lt;0\)，分母 \(t_1 t_2&gt;0\)。差的正负看 \(t_1 t_2-16\)。</p>
+                <p>若 \(0&lt;t_1&lt;t_2\leqslant 4\)，则 \(t_1 t_2&lt;t_2^2\leqslant 16\)。\(t_2&lt;4\) 时 \(t_2^2&lt;16\)；\(t_2=4\) 时 \(t_1&lt;4\)，所以 \(t_1 t_2=4t_1&lt;16\)。于是 \(t_1 t_2-16&lt;0\)。负的乘负的，差是正的：\(g(t_1)&gt;g(t_2)\)。\(g\) 在 \((0,4]\) 上递减。</p>
+                <p>若 \(4\leqslant t_1&lt;t_2\)，则 \(t_1 t_2&gt;t_1^2\geqslant 16\)。\(t_1&gt;4\) 时 \(t_1^2&gt;16\)；\(t_1=4\) 时 \(t_1 t_2=4t_2&gt;16\)。于是 \(t_1 t_2-16&gt;0\)。负的乘正的，差是负的：\(g(t_1)&lt;g(t_2)\)。\(g\) 在 \([4,+\infty)\) 上递增。</p>
+                <p>因此最低在 \(t=4\)，\(g(4)=4+5+\dfrac{16}{4}=13\)。这时 \(a=5\)，\(b=2\)，满足 \(a&gt;1\)，\(b&gt;1\)。</p>
+            </div>
+            <div class="result-box">\(a+4b\) 的最小值是 \(13\)。</div>
+        </section>
+
+        <section class="card" data-q="第（2）问">
+            <div class="section-header">
+                <span class="step-num">2</span>
+                <h2>第（2）问：写成一个函数</h2>
+            </div>
+            <div class="ask">求 \(ab\) 的取值范围。</div>
+            <p class="link-note">条件与第（1）问相同，仍用换元 \(t=a-1&gt;0\)。这一问换的是所求：从 \(a+4b\) 换成 \(ab\)。</p>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>条件还是原来的，所求从 \(a+4b\) 换成了 \(ab\)。能不能仍用一个字母，把 \(ab\) 写成这个字母的函数？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">目标函数</div>
+                <p>约束 \((a-1)(b-1)=4\) 不变，仍取 \(t=a-1&gt;0\)。目标式由 \(a+4b\) 改为 \(ab\)，所研究的函数随之改变，其值域即新函数在 \(t&gt;0\) 上的值域。</p>
+                <p>条件还是原来的。问的量换了，写出来的函数就换。</p>
+            </div>
+            <div class="solution-step">
+                <p>仍用 \(t=a-1&gt;0\)，则 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。</p>
+                <div class="formula-block">$$ab=f(t)=t+5+\dfrac{4}{t}.$$</div>
+                <p>\(ab\) 能取到的数，就是 \(f(t)\) 在 \(t&gt;0\) 上能取到的数。</p>
+            </div>
+            <div class="canvas-wrap">
+                <svg viewBox="0 0 520 280" role="img" aria-label="f(t)=t+5+4/t 在 t=2 取最小值 9">
+                    <line x1="48" y1="236" x2="490" y2="236" stroke="#cbd5e1"/>
+                    <line x1="48" y1="20" x2="48" y2="236" stroke="#cbd5e1"/>
+                    <line x1="48" y1="220" x2="490" y2="220" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="5 4"/>
+                    <text x="280" y="212" font-size="13" font-weight="700" fill="#ea580c">最小值 9</text>
+                    <path d="M48 148 L66 191 L78 204 L107 217 L136 220 L195 215 L254 204 L372 177 L490 148" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="500" y="232" font-size="13" font-weight="700" fill="#64748b">t</text>
+                    <text x="128" y="254" font-size="12" fill="#94a3b8">2</text>
+                </svg>
+                <p class="cap">图上先降后升，最低看起来在 \(t=2\)。单调性下面用作差来定，定完再看能取到哪些数。</p>
+            </div>
+            <div class="solution-step">
+                <p>任取 \(0&lt;t_1&lt;t_2\)。和上一问一样作差：</p>
+                <div class="formula-block">$$f(t_1)-f(t_2)=(t_1-t_2)+4\left(\dfrac{1}{t_1}-\dfrac{1}{t_2}\right)=(t_1-t_2)\cdot\dfrac{t_1 t_2-4}{t_1 t_2}.$$</div>
+                <p>\(t_1-t_2&lt;0\)，分母为正。差的正负看 \(t_1 t_2-4\)。</p>
+                <p>若 \(0&lt;t_1&lt;t_2\leqslant 2\)，则 \(t_1 t_2&lt;t_2^2\leqslant 4\)。前一个不等号是严格的，所以 \(t_1 t_2&lt;4\)，差是正的。\(f\) 在 \((0,2]\) 上递减。</p>
+                <p>若 \(2\leqslant t_1&lt;t_2\)，则 \(t_1 t_2&gt;t_1^2\geqslant 4\)，所以 \(t_1 t_2&gt;4\)，差是负的。\(f\) 在 \([2,+\infty)\) 上递增。</p>
+                <p>因此最小在 \(t=2\)，\(f(2)=2+5+\dfrac{4}{2}=9\)。这时 \(a=3\)，\(b=3\)。</p>
+                <p>\(t\) 靠近 \(0\) 时 \(\dfrac{4}{t}\) 可以任意大，\(t\) 很大时 \(f(t)\) 也可以任意大。左边从任意大减到 \(9\)，右边从 \(9\) 增到任意大。大于 \(9\) 的每个数左右各取一次，\(9\) 只在 \(t=2\) 取到。\(ab\) 的取值范围是 \([9,+\infty)\)。</p>
+            </div>
+            <div class="result-box">\(ab\in[9,+\infty)\)。</div>
+        </section>
+
+        <section class="card">
+            <div class="section-header">
+                <span class="step-num">连</span>
+                <h2>条件不变，目标一换，函数就换</h2>
+            </div>
+            <div class="handoff">
+                <article>
+                    <div class="tag">目标 \(a+4b\)</div>
+                    <strong>\(t+5+\dfrac{16}{t}\)</strong>
+                    <div class="give">最小值 \(13\)</div>
+                </article>
+                <div class="arrow">同一个 \(t&gt;0\)</div>
+                <article>
+                    <div class="tag">目标 \(ab\)</div>
+                    <strong>\(t+5+\dfrac{4}{t}\)</strong>
+                    <div class="give">值域 \([9,+\infty)\)</div>
+                </article>
+                <div class="arrow"></div>
+                <article>
+                    <div class="tag">两问相同的是</div>
+                    <strong>条件都是 \((a-1)(b-1)=4\)</strong>
+                    <div class="give">所求一换，函数就换</div>
+                </article>
+            </div>
+            <div class="motto">条件相同。所求一换，换元以后的函数就换。</div>
+        </section>
+
+        <section class="card paper-card">
+            <div class="section-header">
+                <span class="step-num">写</span>
+                <h2>标准解答</h2>
+            </div>
+            <p class="paper-note">下面按试卷来写。步骤留全，不写想法。</p>
+            <div class="paper">
+                <p>由 \(ab=a+b+3\) 得 \(ab-a-b=3\)。两边加 \(1\)，</p>
+                <div class="formula-block">$$(a-1)(b-1)=4.$$</div>
+                <p>故 \(a-1\) 与 \(b-1\) 同号。若 \(0&lt;a&lt;1\) 且 \(0&lt;b&lt;1\)，则 \(0&lt;(1-a)(1-b)&lt;1\)，与乘积为 \(4\) 矛盾。又 \(a,b&gt;0\)，所以 \(a&gt;1\)，\(b&gt;1\)。</p>
+                <p>令 \(t=a-1\)。\(t\) 表示 \(a\) 比 \(1\) 大多少。\(t&gt;0\) 与 \(a&gt;1\) 一一对应，\(a=t+1\)，\(b-1=\dfrac{4}{t}\)，\(b=1+\dfrac{4}{t}\)。</p>
+                <p><strong>（1）</strong></p>
+                <div class="formula-block">$$a+4b=(t+1)+4\left(1+\dfrac{4}{t}\right)=t+5+\dfrac{16}{t}.$$</div>
+                <p>设 \(g(t)=t+5+\dfrac{16}{t}\)（\(t&gt;0\)）。任取 \(0&lt;t_1&lt;t_2\)，</p>
+                <div class="formula-block">$$g(t_1)-g(t_2)=(t_1-t_2)\cdot\dfrac{t_1 t_2-16}{t_1 t_2}.$$</div>
+                <p>当 \(0&lt;t_1&lt;t_2\leqslant 4\) 时，\(t_1 t_2&lt;t_2^2\leqslant 16\)，前一个不等号严格，故 \(t_1 t_2&lt;16\)，差为正，\(g\) 在 \((0,4]\) 上递减。当 \(4\leqslant t_1&lt;t_2\) 时，\(t_1 t_2&gt;t_1^2\geqslant 16\)，故 \(t_1 t_2&gt;16\)，差为负，\(g\) 在 \([4,+\infty)\) 上递增。</p>
+                <p>因此 \(t=4\) 时取得最小值 \(g(4)=13\)。此时 \(a=5\)，\(b=2\)，满足条件。故 \(a+4b\) 的最小值是 \(13\)。</p>
+                <p><strong>（2）</strong></p>
+                <div class="formula-block">$$ab=(t+1)\left(1+\dfrac{4}{t}\right)=t+5+\dfrac{4}{t}.$$</div>
+                <p>设 \(f(t)=t+5+\dfrac{4}{t}\)（\(t&gt;0\)）。任取 \(0&lt;t_1&lt;t_2\)，</p>
+                <div class="formula-block">$$f(t_1)-f(t_2)=(t_1-t_2)\cdot\dfrac{t_1 t_2-4}{t_1 t_2}.$$</div>
+                <p>当 \(0&lt;t_1&lt;t_2\leqslant 2\) 时，\(t_1 t_2&lt;t_2^2\leqslant 4\)，前一个不等号严格，故 \(t_1 t_2&lt;4\)，差为正，\(f\) 在 \((0,2]\) 上递减。当 \(2\leqslant t_1&lt;t_2\) 时，\(t_1 t_2&gt;t_1^2\geqslant 4\)，故 \(t_1 t_2&gt;4\)，差为负，\(f\) 在 \([2,+\infty)\) 上递增。</p>
+                <p>因此 \(t=2\) 时取得最小值 \(f(2)=9\)，此时 \(a=b=3\)。\(t\to 0^{+}\) 时 \(f(t)\to+\infty\)，\(t\to+\infty\) 时 \(f(t)\to+\infty\)。由上面的单调性，大于 \(9\) 的每个数在 \((0,2)\) 与 \((2,+\infty)\) 上各取一次，\(9\) 只在 \(t=2\) 取到。所以 \(ab\in[9,+\infty)\)。</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        (function () {
+            var bar = document.getElementById('nowAsking');
+            var label = document.getElementById('nowLabel');
+            var slot = document.getElementById('nowText');
+            if (!bar || !slot) return;
+            var sections = [].slice.call(document.querySelectorAll('section[data-q]'));
+            var saved = sections.map(function (section) {
+                return { label: section.getAttribute('data-q'), html: section.querySelector('.ask').innerHTML };
+            });
+            var home = { label: label.textContent, html: slot.innerHTML };
+            var current = null;
+            function fill(item) {
+                if (current === item) return;
+                current = item;
+                label.textContent = item.label;
+                slot.innerHTML = item.html;
+                var done = window.MathJax && MathJax.typesetPromise
+                    ? MathJax.typesetPromise([slot])
+                    : Promise.resolve();
+                done.then(function () {
+                    document.documentElement.style.setProperty('--ask-space', bar.offsetHeight + 'px');
+                }).catch(function () {});
+            }
+            function render() {
+                var line = bar.getBoundingClientRect().bottom;
+                var pick = -1;
+                sections.forEach(function (section, i) {
+                    if (section.getBoundingClientRect().top < line) pick = i;
+                });
+                fill(pick === -1 ? home : saved[pick]);
+            }
+            window.addEventListener('scroll', render, { passive: true });
+            window.addEventListener('resize', function () { current = null; render(); });
+            var start = window.MathJax && MathJax.startup && MathJax.startup.promise
+                ? MathJax.startup.promise
+                : Promise.resolve();
+            start.then(function () { current = null; render(); }).catch(function () { render(); });
+        })();
+    </script>
+    <script src="site.js"></script>
+</body>
+</html>

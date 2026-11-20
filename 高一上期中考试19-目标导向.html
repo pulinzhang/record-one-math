@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="site.css">
+    <title>目标导向 · 中心对称</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+        (function () {
+            var sources = [
+                'vendor/tex-svg.js',
+                'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
+            ];
+            function giveUp() {
+                var note = document.createElement('p');
+                note.textContent = '数学公式未能渲染。请确认 vendor/tex-svg.js 和本页面放在一起后再打开。';
+                note.style.cssText = 'width:min(1440px,calc(100% - 1.5rem));margin:1rem auto;padding:0.8rem 1rem;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;color:#92400e;';
+                document.body.prepend(note);
+            }
+            function load(i) {
+                if (i >= sources.length) {
+                    if (document.body) giveUp();
+                    else document.addEventListener('DOMContentLoaded', giveUp);
+                    return;
+                }
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = sources[i];
+                s.onload = function () {
+                    if (!window.MathJax || !window.MathJax.version) load(i + 1);
+                };
+                s.onerror = function () { load(i + 1); };
+                document.head.appendChild(s);
+            }
+            load(0);
+        })();
+    </script>
+</head>
+<body class="lecture">
+    <div class="now-asking" id="nowAsking">
+        <div class="bar-tools">
+            <button type="button" class="home-link" onclick="printLecture()">打印讲义</button>
+            <button type="button" class="home-link" onclick="printProblems()">打印题目</button>
+            <a class="home-link" href="index.html">返回目录</a>
+        </div>
+        <div class="now-inner">
+            <span class="now-label" id="nowLabel">原题</span>
+            <div class="now-text" id="nowText">已知 $f(x)=\dfrac{2x-2}{2x-x^2}+mx+n(x-1)^3$，$x\in(0,2)$。<strong>（1）</strong> $m=n=0$ 时，求证 $y=f(x+1)$ 为奇函数；<strong>（2）</strong> 证明图象成中心对称图形；<strong>（3）</strong> $m=-2$ 时，若 $f(x)\geqslant -2$ 当且仅当 $1\leqslant x&lt;2$，求 $n$ 的取值范围。</div>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <div class="section-kicker">目标导向</div>
+            <h1>中心对称</h1>
+            <p>\(y=f(x)\) 关于点 \((1,m)\) 中心对称，当且仅当 \(y=f(x+1)-m\) 为奇函数。令 \(t=x-1\)，记 \(G(t)=f(1+t)-m\)。</p>
+            <p>题干把判据写好了。把中心搬到原点，后面只检查是不是奇函数。\(x-1\) 先起个名字，三问都用 \(G(t)\)。</p>
+            <div class="badge-group">
+                <span class="badge">换元</span>
+                <span class="badge">只做一件</span>
+                <span class="badge">令 \(u=t^2\)</span>
+            </div>
+        </header>
+
+        <section class="card problem-box">
+            <div class="problem-title">原题 <span class="src">出处：高一上期中考试 19题</span></div>
+            <div class="problem-content">
+                <p>我们知道，函数 \(y=f(x)\) 的图象关于坐标原点成中心对称图形的充要条件是函数 \(y=f(x)\) 为奇函数。有同学发现可以将其推广为：函数 \(y=f(x)\) 的图象关于 \(P(a,b)\) 成中心对称图形的充要条件是函数 \(y=f(x+a)-b\) 为奇函数。</p>
+                <p>已知函数</p>
+                <div class="formula-block">$$f(x)=\dfrac{2x-2}{2x-x^{2}}+mx+n(x-1)^{3},$$</div>
+                <p class="domain">\(x\in(0,2).\)</p>
+                <p><strong>（1）</strong> 当 \(m=n=0\) 时，求证：\(y=f(x+1)\) <span class="keep">为奇函数；</span></p>
+                <p><strong>（2）</strong> 证明：函数 \(y=f(x)\) 的图象成中心对称图形；</p>
+                <p><strong>（3）</strong> 当 \(m=-2\) 时，若 \(f(x)\geqslant -2\) 当且仅当 <span class="keep">\(1\leqslant x&lt;2\)，</span>求 \(n\) 的取值范围。</p>
+            </div>
+        </section>
+
+        <section class="card" data-nav="先看思路">
+            <div class="section-header">
+                <span class="step-num">想</span>
+                <h2>看到对称，就平移</h2>
+            </div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>题干先给了一句推广：关于某一点中心对称，当且仅当平移之后是奇函数。\(f(x)\) 里的分式和 \((x-1)\)，都绕着同一个位置写。三问是不是都想先找到这个位置，再作同一次平移？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">为什么平移 \(1\) 和 \(m\)</div>
+                <p>平移：\(x\mapsto x+1\)，\(y\mapsto y-m\)。分式绕着 \(x=1\) 写：\(2x-2=2(x-1)\)，\(2x-x^2=1-(x-1)^2\)。</p>
+                <p>图往左搬 \(1\)、往下搬 \(m\)，中心落到原点。后面看搬完的这个函数。</p>
+            </div>
+            <div class="pics">
+                <figure>
+                    <svg viewBox="0 0 320 200" role="img" aria-label="f(x) 关于点 (1,m) 中心对称">
+                        <line x1="46" y1="102" x2="286" y2="102" stroke="#cbd5e1" stroke-width="1.4"/>
+                        <line x1="60" y1="22" x2="60" y2="182" stroke="#cbd5e1" stroke-width="1.4"/>
+                        <line x1="160" y1="90" x2="160" y2="102" stroke="#94a3b8" stroke-width="1" stroke-dasharray="3 3"/>
+                        <path d="M84.0 133.2 L92 120.4 L104 109.6 L116 103.1 L128 98.6 L140 95.0 L152 91.9 L160 90 L168 88.1 L180 85.0 L192 81.4 L204 76.9 L216 70.4 L228 59.6 L236 46.8" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="160" cy="90" r="4.6" fill="#fff" stroke="#ea580c" stroke-width="2.6"/>
+                        <text x="172" y="68" font-size="12" font-weight="700" fill="#ea580c">(1, m)</text>
+                        <text x="268" y="96" font-size="12" font-weight="700" fill="#64748b">x</text>
+                        <text x="66" y="30" font-size="12" font-weight="700" fill="#64748b">y</text>
+                        <text x="80" y="190" font-size="12" font-weight="700" fill="#2563eb">f(x)</text>
+                    </svg>
+                    <figcaption>中心在 \((1,m)\)，不在原点</figcaption>
+                </figure>
+                <figure>
+                    <svg viewBox="0 0 320 210" role="img" aria-label="y-t 图上，虚线标出原来的 x 撇轴和 y 撇轴">
+                        <line x1="40" y1="132" x2="292" y2="132" stroke="#ea580c" stroke-width="1.3" stroke-dasharray="4 3"/>
+                        <line x1="72" y1="14" x2="72" y2="196" stroke="#ea580c" stroke-width="1.3" stroke-dasharray="4 3"/>
+                        <line x1="40" y1="100" x2="292" y2="100" stroke="#94a3b8" stroke-width="1.4"/>
+                        <line x1="160" y1="14" x2="160" y2="196" stroke="#94a3b8" stroke-width="1.4"/>
+                        <path d="M84.0 143.2 L92 130.4 L104 119.6 L116 113.1 L128 108.6 L140 105.0 L152 101.9 L160 100 L168 98.1 L180 95.0 L192 91.4 L204 86.9 L216 80.4 L228 69.6 L236 56.8" fill="none" stroke="#2563eb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="160" cy="100" r="4.6" fill="#fff" stroke="#ea580c" stroke-width="2.6"/>
+                        <text x="172" y="78" font-size="12" font-weight="700" fill="#ea580c">新原点</text>
+                        <text x="274" y="94" font-size="12" font-weight="700" fill="#64748b">t</text>
+                        <text x="166" y="26" font-size="12" font-weight="700" fill="#64748b">y</text>
+                        <text x="274" y="146" font-size="12" font-weight="700" fill="#ea580c">x′</text>
+                        <text x="78" y="26" font-size="12" font-weight="700" fill="#ea580c">y′</text>
+                        <text x="110" y="86" font-size="12" font-weight="700" fill="#2563eb">1</text>
+                        <text x="176" y="124" font-size="12" font-weight="700" fill="#ea580c">m</text>
+                        <text x="112" y="188" font-size="12" font-weight="700" fill="#2563eb">G(t)</text>
+                    </svg>
+                    <figcaption>虚线是原来的 \(x'\)、\(y'\)。横着差 \(1\)，竖着差 \(m\)。</figcaption>
+                </figure>
+            </div>
+            <div class="matryoshka-box">
+                <div class="matryoshka-title">先换元写成 \(G(t)\)，三问都用它</div>
+                <p>令 \(t=x-1\)。由 \(x\in(0,2)\) 得 \(t\in(-1,1)\)，且 \(x=1+t\) 与 \(t\) 一一对应，\(f\) 的取值不变。\((-1,1)\) 关于原点对称。</p>
+                <p>元，就是一个整体、一个组合、一个包。换元，就是把这个包当成一个元素，先给它起个名字，算完再拆包还原。这里的包是 \(x-1\)，起名 \(t\)。\(x\) 比 \(1\) 大，\(t\) 就是正的；比 \(1\) 小，\(t\) 就是负的。算完用 \(x=1+t\) 拆回去。</p>
+                <p>分子 \(2(1+t)-2=2t\)。分母 \((1+t)^2=1+2t+t^2\)，所以 \(2+2t-(1+2t+t^2)=1-t^2\)。</p>
+                <div class="formula-block">$$G(t)=f(1+t)-m=\dfrac{2t}{1-t^2}+mt+nt^3.$$</div>
+                <div class="handoff">
+                    <article>
+                        <div class="tag">第（1）问：令 \(m=n=0\)</div>
+                        <strong>只看第一项换成 \(-t\) 是否变号</strong>
+                        <div class="give">得到：\(f(x+1)\) 是奇函数</div>
+                    </article>
+                    <div class="arrow">第（2）问接着用</div>
+                    <article>
+                        <div class="tag">第（2）问：第一项已经变号</div>
+                        <strong>只看后两项换成 \(-t\) 是否变号</strong>
+                        <div class="give">得到：图象关于 \((1,m)\) 对称</div>
+                    </article>
+                    <div class="arrow">第（3）问接着用</div>
+                    <article>
+                        <div class="tag">第（3）问：\(G\) 已经是奇函数</div>
+                        <strong>用到 \(f(x)\geqslant -2\)</strong>
+                        <div class="give">得到：\(n\) 的取值范围</div>
+                    </article>
+                </div>
+                <div class="motto">\(f\) 只化这一次。后面三问直接用这个 \(G(t)\)。</div>
+            </div>
+        </section>
+
+        <section class="card" data-q="第（1）问">
+            <div class="section-header">
+                <span class="step-num">1</span>
+                <h2>第（1）问：只看第一项</h2>
+            </div>
+            <div class="ask">当 \(m=n=0\) 时，求证：\(y=f(x+1)\) 为奇函数。</div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>要证的是 \(y=f(x+1)\) 为奇函数。\(m=n=0\) 时，只剩分式这一项。把自变量换成相反数，这一项怎么变？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">奇函数</div>
+                <p>函数为奇函数，当且仅当定义域关于原点对称，且 \(G(-t)=-G(t)\)。\(m=n=0\) 时只剩第一项。</p>
+                <p>把 \(t\) 换成 \(-t\)，看函数值是不是变成相反数。这一问后两项是 \(0\)，只看第一项。</p>
+            </div>
+            <div class="solution-step">
+                <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2},\qquad G(-t)=\dfrac{-2t}{1-t^2}=-G(t).$$</div>
+                <p>定义域 \((-1,1)\) 关于原点对称，所以 \(y=f(x+1)\) 是奇函数。</p>
+            </div>
+            <div class="result-box">\(y=f(x+1)\) 为奇函数。第（2）问接着用。</div>
+        </section>
+
+        <section class="card" data-q="第（2）问">
+            <div class="section-header">
+                <span class="step-num">2</span>
+                <h2>第（2）问：只看后两项</h2>
+            </div>
+            <div class="ask">证明：函数 \(y=f(x)\) 的图象成中心对称图形。</div>
+            <p class="link-note">第（1）问已经处理过第一项。这一问接着看后两项，用题目给出的对称判定。</p>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>题干的对称条件已经写好，第（1）问也看过第一项。这一问 \(m\)、\(n\) 还在，所求是图象成中心对称。能不能沿用同一次平移，只看后两项？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">中心对称</div>
+                <p>由（1），\(\dfrac{2t}{1-t^2}\) 为奇函数。若 \(mt+nt^3\) 亦为奇函数，则 \(G\) 为奇函数。由题设，取 \(a=1\)，\(b=m\)，图象关于点 \((1,m)\) 中心对称。</p>
+                <p>第一项已经会变号。这一问只看后两项。</p>
+            </div>
+            <div class="solution-step">
+                <div class="formula-block">$$m(-t)+n(-t)^3=-mt-nt^3.$$</div>
+                <p>由（1），第一项也变号，故 \(G(-t)=-G(t)\)。用题目的判定，取 \(a=1\)，\(b=m\)。</p>
+            </div>
+            <div class="result-box">图象关于点 \((1,m)\) 中心对称。\(G\) 是奇函数，第（3）问接着用。</div>
+        </section>
+
+        <section class="card" data-q="第（3）问" data-try>
+            <div class="section-header">
+                <span class="step-num">3</span>
+                <h2>第（3）问：奇函数，只看 \(t\in(0,1)\)</h2>
+            </div>
+            <div class="ask">当 \(m=-2\) 时，若 \(f(x)\geqslant -2\) 当且仅当 \(1\leqslant x&lt;2\)，求 \(n\) 的取值范围。</div>
+            <p class="link-note">第（2）问已经得到 \(G\) 是奇函数，中心也定了。这一问是把这件事用到 \(f(x)\geqslant -2\) 上。可以先自己做做看。</p>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>这一问写着「当且仅当」。意思是：\(1\leqslant x&lt;2\) 上要成立，这段以外不能成立。前两问已经得到对称。\(f(x)\geqslant -2\) 经过那一次平移，会变成什么样的不等式？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">奇函数已经有了</div>
+                <p>\(G\) 为奇函数，则 \(t\in(0,1)\) 时 \(G(t)&gt;0\) 蕴含 \(t\in(-1,0)\) 时 \(G(t)&lt;0\)。故只需讨论 \(t\in(0,1)\)。</p>
+                <p>右边是正的，左边就是负的。看右边就够了。</p>
+            </div>
+            <div class="canvas-wrap">
+                <svg viewBox="0 0 360 168" role="img" aria-label="图上移 2，负 2 这条线落到 0">
+                    <line x1="28" y1="46" x2="248" y2="46" stroke="#94a3b8" stroke-width="1.8"/>
+                    <line x1="28" y1="118" x2="248" y2="118" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="5 4"/>
+                    <line x1="138" y1="110" x2="138" y2="58" stroke="#2563eb" stroke-width="1.8"/>
+                    <polygon points="138,46 131,62 145,62" fill="#2563eb"/>
+                    <text x="150" y="90" font-size="15" font-weight="700" fill="#2563eb">2</text>
+                    <text x="258" y="51" font-size="15" font-weight="700" fill="#334155">0</text>
+                    <text x="258" y="123" font-size="15" font-weight="700" fill="#ea580c">−2</text>
+                </svg>
+                <p class="cap">\(m=-2\)，图上移 \(2\)。比 \(-2\) 高，就是比 \(0\) 高。后面只写 \(G(t)\geqslant 0\)。</p>
+            </div>
+            <div class="solution-step">
+                <div class="formula-block">$$G(t)=t^3\left(\dfrac{2}{1-t^2}+n\right).$$</div>
+                <p>\(t\in(0,1)\) 时 \(t^3&gt;0\)，正负看括号。只要 \(\dfrac{2}{1-t^2}+n&gt;0\)。</p>
+                <p>\(t=0\) 时 \(G(0)=0\)，对应 \(x=1\)，已经在 \(1\leqslant x&lt;2\) 里。</p>
+                <p>分式只含 \(t^2\)。令 \(u=t^2\)。\(t\in(0,1)\) 时 \(u\in(0,1)\)，且一一对应，分式的取值不变。</p>
+                <p>\(t^2\) 这个包起名 \(u\)。分式能取到的数还是那些数。</p>
+                <p>\(0&lt;u&lt;1\) 时 \(0&lt;1-u&lt;1\)，故 \(\dfrac{1}{1-u}&gt;1\)，且 \(u\) 靠近 \(1\) 时它可以任意大；\(u\) 增大则倒数增大。所以 \(\dfrac{2}{1-t^2}\) 在 \((0,1)\) 上严格递增，值域是 \((2,+\infty)\)。</p>
+            </div>
+            <div class="canvas-wrap">
+                <svg viewBox="0 0 520 280" role="img" aria-label="1/(1-u) 在 (0,1) 上严格递增，值域是 (1, 正无穷)">
+                    <line x1="48" y1="236" x2="490" y2="236" stroke="#cbd5e1"/>
+                    <line x1="48" y1="20" x2="48" y2="236" stroke="#cbd5e1"/>
+                    <line x1="48" y1="210" x2="490" y2="210" stroke="#ea580c" stroke-width="1.6" stroke-dasharray="5 4"/>
+                    <text x="300" y="202" font-size="13" font-weight="700" fill="#ea580c">1</text>
+                    <path d="M48 210 L136 204 L225 193 L291 178 L357 149 L402 106 L428 50 L437 19" fill="none" stroke="#2563eb" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    <text x="500" y="232" font-size="13" font-weight="700" fill="#64748b">u</text>
+                    <text x="36" y="254" font-size="12" fill="#94a3b8">0</text>
+                    <text x="468" y="254" font-size="12" fill="#94a3b8">1</text>
+                </svg>
+                <p class="cap">横虚线是 \(1\)。</p>
+            </div>
+            <div class="solution-step">
+                <p>\(n\geqslant -2\) 时，括号大于 \(2+n\geqslant 0\)。\(n=-2\) 时分式取不到 \(2\)，括号仍是正的。\(n&lt;-2\) 时，\(t\) 靠近 \(0\)，括号会变成负的。</p>
+                <p>题目要的是 \(1\leqslant x&lt;2\)，对应 \(0\leqslant t&lt;1\)。</p>
+            </div>
+            <div class="result-box">\(n\in[-2,+\infty)\)。</div>
+        </section>
+
+        <section class="card paper-card">
+            <div class="section-header">
+                <span class="step-num">写</span>
+                <h2>标准解答</h2>
+            </div>
+            <p class="paper-note">下面按试卷来写。步骤留全，不写想法。</p>
+            <div class="paper">
+                <p>令 \(t=x-1\)。由 \(x\in(0,2)\) 得 \(t\in(-1,1)\)，且 \(1-t^2\ne 0\)。</p>
+                <div class="formula-block">$$f(1+t)=\dfrac{2(1+t)-2}{2(1+t)-(1+t)^2}+m(1+t)+nt^3=\dfrac{2t}{1-t^2}+m+mt+nt^3.$$</div>
+                <p>定义</p>
+                <div class="formula-block">$$G(t)=f(1+t)-m=\dfrac{2t}{1-t^2}+mt+nt^3.$$</div>
+                <p><strong>（1）</strong> 当 \(m=n=0\) 时，\(y=f(x+1)\) 的定义域为 \(\{x\mid x+1\in(0,2)\}=(-1,1)\)，关于原点对称。且</p>
+                <div class="formula-block">$$f(x+1)=\dfrac{2x}{1-x^2},\qquad f(1-x)=\dfrac{-2x}{1-x^2}=-f(x+1).$$</div>
+                <p>故 \(y=f(x+1)\) 为奇函数。</p>
+                <p><strong>（2）</strong> 由（1），\(\dfrac{2t}{1-t^2}\) 换成 \(-t\) 变号。又 \(m(-t)+n(-t)^3=-mt-nt^3\)，故</p>
+                <div class="formula-block">$$G(-t)=-G(t).$$</div>
+                <p>定义域 \((-1,1)\) 关于原点对称，故 \(G(t)\) 为奇函数，即 \(y=f(x+1)-m\) 为奇函数。由题设，取 \(a=1\)，\(b=m\)，\(y=f(x)\) 的图象关于点 \(P(1,m)\) 中心对称。</p>
+                <p><strong>（3）</strong> 当 \(m=-2\) 时，\(G(t)=f(1+t)+2\)，故 \(f(x)\geqslant -2\iff G(t)\geqslant 0\)，\(1\leqslant x&lt;2\iff 0\leqslant t&lt;1\)。</p>
+                <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2}-2t+nt^3,\qquad \dfrac{2}{1-t^2}-2=\dfrac{2t^2}{1-t^2},$$</div>
+                <div class="formula-block">$$G(t)=t^3\left(\dfrac{2}{1-t^2}+n\right).$$</div>
+                <p>由（2），\(G\) 为奇函数，\(G(0)=0\)。\(t=0\) 对应 \(x=1\)，落在 \(0\leqslant t&lt;1\) 内。右边大于 \(0\) 时左边小于 \(0\)，故只要对任意 \(t\in(0,1)\)，\(G(t)&gt;0\)。</p>
+                <p>\(t\in(0,1)\) 时 \(t^3&gt;0\)，故 \(G(t)&gt;0\iff \dfrac{2}{1-t^2}+n&gt;0\)。令 \(u=t^2\)。\(u\) 在 \((0,1)\) 上严格递增，与 \(t\) 一一对应。\(0&lt;u&lt;1\) 时 \(0&lt;1-u&lt;1\)，故 \(\dfrac{1}{1-u}&gt;1\)，且 \(u\) 靠近 \(1\) 时它可以任意大；\(u\) 增大则倒数增大。所以 \(\dfrac{2}{1-t^2}\) 在 \((0,1)\) 上严格递增，值域为 \((2,+\infty)\)。</p>
+                <p>若 \(n\geqslant -2\)，则括号大于 \(2+n\geqslant 0\)，故 \(G(t)&gt;0\)。\(n=-2\) 时分式取不到 \(2\)，括号仍为正。</p>
+                <p>若 \(n&lt;-2\)，值域靠近 \(2\)，存在 \(t\in(0,1)\) 使括号为负，\(G(t)&lt;0\)，不合题意。</p>
+                <p>故 \(n\in[-2,+\infty)\)。</p>
+            </div>
+        </section>
+    </div>
+    <script>
+        (function () {
+            var bar = document.getElementById('nowAsking');
+            var label = document.getElementById('nowLabel');
+            var slot = document.getElementById('nowText');
+            if (!bar || !slot) return;
+            var sections = [].slice.call(document.querySelectorAll('section[data-q]'));
+            var saved = sections.map(function (section) {
+                return { label: section.getAttribute('data-q'), html: section.querySelector('.ask').innerHTML };
+            });
+            var home = { label: label.textContent, html: slot.innerHTML };
+            var current = null;
+            function fill(item) {
+                if (current === item) return;
+                current = item;
+                label.textContent = item.label;
+                slot.innerHTML = item.html;
+                var done = window.MathJax && MathJax.typesetPromise
+                    ? MathJax.typesetPromise([slot])
+                    : Promise.resolve();
+                done.then(function () {
+                    document.documentElement.style.setProperty('--ask-space', bar.offsetHeight + 'px');
+                }).catch(function () {});
+            }
+            function render() {
+                var line = bar.getBoundingClientRect().bottom;
+                var pick = -1;
+                sections.forEach(function (section, i) {
+                    if (section.getBoundingClientRect().top < line) pick = i;
+                });
+                fill(pick === -1 ? home : saved[pick]);
+            }
+            window.addEventListener('scroll', render, { passive: true });
+            window.addEventListener('resize', function () { current = null; render(); });
+            var start = window.MathJax && MathJax.startup && MathJax.startup.promise
+                ? MathJax.startup.promise
+                : Promise.resolve();
+            start.then(function () { current = null; render(); }).catch(function () { render(); });
+        })();
+    </script>
+    <script src="site.js"></script>
+</body>
+</html>

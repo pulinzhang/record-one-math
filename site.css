@@ -1,0 +1,1295 @@
+/* 记一数学共用排版。讲义用 body.lecture，目录用 body.catalog。 */
+
+:root {
+    --bg-color: #f3f5f7;
+    --card-bg: #ffffff;
+    --primary: #1e4b78;
+    --primary-light: #f0f4f8;
+    --secondary: #1c2430;
+    --accent: #1e4b78;
+    --accent-light: #f0f4f8;
+    --success: #1d6b4f;
+    --success-light: #f3f7f5;
+    --purple: #1e4b78;
+    --purple-light: #f0f4f8;
+    --text-main: #1c2430;
+    --text-muted: #5c6b7a;
+    --border: #e3e7ec;
+    --page-max: 1440px;
+    --gutter: clamp(0.75rem, 2.2vw, 2rem);
+    --bg: #f3f5f7;
+    --card: #ffffff;
+    --ink: #1c2430;
+    --muted: #5c6b7a;
+    --line: #e3e7ec;
+    --blue: #1e4b78;
+    --blue-soft: #f0f4f8;
+    --amber: #9a6b2f;
+    --rose: #6b4a42;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", Roboto, sans-serif;
+    background: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.75;
+}
+
+.container {
+    width: 100%;
+    max-width: none;
+    margin-inline: auto;
+}
+
+/* ---------- 讲义 ---------- */
+
+body.lecture {
+    padding: 1.35rem var(--gutter) 4.75rem;
+    padding-top: calc(var(--ask-space, 4.75rem) + 1rem);
+    padding-left: max(var(--gutter), env(safe-area-inset-left));
+    padding-right: max(var(--gutter), env(safe-area-inset-right));
+    font-size: 1.0625rem;
+    line-height: 1.82;
+}
+
+body.lecture header {
+    background: #1c3d5a;
+    color: #f4f7fa;
+    padding: clamp(1.35rem, 2.6vw, 2.1rem) clamp(1.15rem, 2.5vw, 2.1rem);
+    border-radius: 12px;
+    margin-bottom: clamp(1.25rem, 2vw, 1.85rem);
+}
+
+body.lecture .section-kicker {
+    font-size: 0.82rem;
+    letter-spacing: 0.14em;
+    opacity: 0.8;
+    margin-bottom: 0.45rem;
+}
+
+body.lecture header h1 {
+    font-size: clamp(1.45rem, 2.4vw, 2.05rem);
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+body.lecture header p { font-size: 1.05rem; opacity: 0.92; }
+
+body.lecture .badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+}
+
+body.lecture .badge {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    padding: 0.22rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.84rem;
+    font-weight: 500;
+}
+
+body.lecture .card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: clamp(1.2rem, 2vw, 1.85rem);
+    margin-bottom: 1.35rem;
+    border: 1px solid var(--border);
+    min-width: 0;
+    max-width: 100%;
+}
+
+body.lecture .problem-box { border-left: 3px solid var(--primary); background: #f7f9fb; }
+
+body.lecture .problem-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+body.lecture .problem-title .src {
+    font-size: 0.86rem;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+body.lecture .problem-content { font-size: 1.08rem; color: var(--secondary); }
+body.lecture .problem-content p { margin-bottom: 0.6rem; }
+body.lecture .domain { text-align: center; }
+body.lecture .keep { white-space: nowrap; }
+
+body.lecture .section-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--border);
+}
+
+body.lecture .step-num {
+    background: var(--primary);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+body.lecture .section-header h2 { font-size: clamp(1.15rem, 2vw, 1.35rem); color: var(--secondary); }
+
+body.lecture .mindset-box {
+    background: transparent;
+    border-left: 3px solid #c5d0dc;
+    padding: 0.1rem 0 0.1rem 0.9rem;
+    border-radius: 0;
+    margin: 0.35rem 0 1.2rem;
+}
+
+body.lecture .mindset-title {
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.35rem;
+    font-size: 1.02rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+body.lecture .solution-step { margin-bottom: 1.5rem; }
+body.lecture .solution-step h3 { font-size: 1.08rem; color: var(--primary); margin-bottom: 0.5rem; }
+body.lecture .solution-step p { margin-bottom: 0.6rem; }
+
+body.lecture .formula-block {
+    background: #f6f8fa;
+    border: none;
+    border-radius: 8px;
+    padding: 0.85rem 0.85rem 1rem;
+    margin: 0.9rem 0 1.05rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+body.lecture mjx-container[display="true"] { margin: 0.45em 0 !important; }
+
+@media screen {
+    body.lecture .container mjx-container[display="true"] {
+        display: block;
+        font-size: 116%;
+    }
+    body.lecture .container mjx-container:not([display="true"]) { font-size: 108%; }
+}
+
+body.lecture .formula-block mjx-container[display="true"] {
+    max-width: none;
+    overflow: visible;
+}
+
+body.lecture mjx-container[display="true"] {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+body.lecture .ask,
+body.lecture .result-box,
+body.lecture .now-text {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+}
+
+body.lecture .result-box {
+    background: var(--success-light);
+    border: 1px solid #d5e6dc;
+    border-left: 3px solid var(--success);
+    padding: 0.95rem 1.1rem;
+    border-radius: 0 8px 8px 0;
+    margin-top: 1.35rem;
+    color: #1a3d30;
+    font-weight: 600;
+}
+
+body.lecture .pics {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    margin: 0.4rem 0 1.1rem;
+}
+
+body.lecture figure {
+    margin: 0;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.35rem 0.35rem 0.55rem;
+    min-width: 0;
+}
+
+body.lecture figcaption,
+body.lecture .cap {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    margin-top: 0.25rem;
+}
+
+body.lecture figure > svg,
+body.lecture .canvas-wrap > svg {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+body.lecture .canvas-wrap {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    padding: 0.75rem;
+    text-align: center;
+    margin: 0.75rem 0 1rem;
+    max-width: 100%;
+}
+
+body.lecture .handoff {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.45rem;
+    align-items: stretch;
+    margin-top: 0.9rem;
+}
+
+body.lecture .handoff article {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 0.8rem;
+    min-width: 0;
+}
+
+body.lecture .handoff .tag { font-size: 0.8rem; font-weight: 700; color: var(--text-muted); }
+body.lecture .handoff strong { display: block; color: var(--primary); margin: 0.3rem 0; overflow-wrap: anywhere; }
+body.lecture .handoff .give { color: var(--primary); font-weight: 700; overflow-wrap: anywhere; }
+body.lecture .handoff .arrow {
+    align-self: center;
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0.1rem 0;
+}
+
+body.lecture .screen {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.45rem;
+    align-items: stretch;
+    margin-top: 0.9rem;
+}
+
+body.lecture .screen article {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 0.8rem;
+    min-width: 0;
+}
+
+body.lecture .screen .tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+body.lecture .screen strong {
+    display: block;
+    color: var(--primary);
+    margin: 0.35rem 0 0.15rem;
+    overflow-wrap: anywhere;
+}
+
+body.lecture .screen .down {
+    align-self: center;
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-align: center;
+    padding: 0.1rem 0;
+}
+
+body.lecture .route {
+    display: grid;
+    gap: 0;
+    margin-top: 0.4rem;
+}
+
+body.lecture .route article {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 0.75rem 0.9rem;
+}
+
+body.lecture .route .tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--text-muted);
+}
+
+body.lecture .route strong {
+    display: block;
+    color: var(--primary);
+    margin: 0.3rem 0 0.1rem;
+    overflow-wrap: anywhere;
+}
+
+body.lecture .route p {
+    margin: 0.15rem 0 0;
+    color: var(--text-main);
+}
+
+body.lecture .route .down {
+    color: var(--muted);
+    font-weight: 700;
+    font-size: 0.85rem;
+    padding: 0.28rem 0 0.28rem 0.15rem;
+}
+
+body.lecture .model {
+    margin: 0.9rem 0 0;
+    padding-left: 1.25rem;
+}
+
+body.lecture .model li { margin: 0.35rem 0; }
+
+body.lecture .matryoshka-box {
+    background: transparent;
+    border: none;
+    border-left: 3px solid var(--primary);
+    padding: 0.15rem 0 0.15rem 0.95rem;
+    border-radius: 0;
+    margin: 1rem 0 0;
+}
+
+body.lecture .matryoshka-title {
+    font-weight: 700;
+    color: var(--purple);
+    font-size: 1.05rem;
+    margin-bottom: 0.55rem;
+}
+
+body.lecture .flow-chain {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.55rem;
+    background: #f7f9fb;
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin: 0.75rem 0;
+    border: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+body.lecture .flow-node {
+    background: #fff;
+    color: var(--secondary);
+    border: 1px solid var(--border);
+    padding: 0.35rem 0.7rem;
+    border-radius: 6px;
+}
+
+body.lecture .flow-arrow { color: var(--muted); font-weight: 700; }
+
+body.lecture .motto {
+    margin-top: 0.85rem;
+    padding: 0;
+    background: none;
+    border-radius: 0;
+    color: var(--secondary);
+    font-weight: 600;
+}
+
+body.lecture .interactive-panel {
+    background: #f4f6f8;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.15rem 1.2rem;
+    margin-top: 1.35rem;
+}
+
+body.lecture .interactive-title {
+    font-weight: 700;
+    color: var(--secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+}
+
+body.lecture .slider-control {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+body.lecture input[type="range"] {
+    flex: 1 1 12rem;
+    min-width: 0;
+    width: 100%;
+    accent-color: var(--primary);
+    cursor: pointer;
+}
+
+body.lecture .status-readout {
+    margin-top: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: white;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    border-left: 4px solid var(--primary);
+}
+
+body.lecture .case-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+body.lecture .case-card {
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.15rem;
+}
+
+body.lecture .case-card h4 {
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+}
+
+body.lecture .paper-card { background: #fbfaf7; }
+
+body.lecture .paper-note {
+    color: var(--text-muted);
+    margin-bottom: 0.9rem;
+}
+
+body.lecture .paper {
+    position: relative;
+    background: #fbfaf6;
+    border: 1px solid #e6e0d4;
+    border-radius: 4px;
+    padding: 1.15rem 1.2rem 1.2rem 1.7rem;
+    font-family: "KaiTi", "楷体", "STKaiti", serif;
+    font-size: 1.16rem;
+    line-height: 1.85;
+    color: #1c1917;
+}
+
+body.lecture .paper::before {
+    content: "";
+    position: absolute;
+    left: 0.7rem;
+    top: 0.6rem;
+    bottom: 0.6rem;
+    width: 1px;
+    background: #d5dbe3;
+}
+
+body.lecture .paper p { margin-bottom: 0.35rem; }
+
+body.lecture .paper .formula-block {
+    background: transparent;
+    border: none;
+    padding: 0.15rem 0.2rem 0.35rem;
+    margin: 0.15rem 0 0.45rem;
+}
+
+body.lecture .now-asking {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 40;
+    background: #f3f5f7;
+    border-bottom: 1px solid var(--border);
+    padding: max(0.55rem, env(safe-area-inset-top)) max(var(--gutter), env(safe-area-inset-right)) 0.55rem max(var(--gutter), env(safe-area-inset-left));
+}
+
+body.lecture .bar-tools {
+    position: absolute;
+    right: max(0.9rem, env(safe-area-inset-right));
+    bottom: 0.35rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.35rem 0.85rem;
+    align-items: center;
+    max-width: min(16rem, 46vw);
+}
+
+body.lecture .home-link {
+    background: none;
+    border: 0;
+    padding: 0.15rem 0.05rem;
+    font: inherit;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+body.lecture .home-link:hover { color: var(--text-main); }
+
+body.lecture .now-inner {
+    width: 100%;
+    margin-inline: auto;
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-start;
+    padding-right: 0;
+}
+
+body.lecture .now-label {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    background: var(--primary-light);
+    color: var(--primary);
+    border-radius: 6px;
+    padding: 0.08rem 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+body.lecture .now-text {
+    font-size: 1rem;
+    line-height: 1.55;
+    color: var(--secondary);
+    min-width: 0;
+}
+
+body.lecture .ask {
+    background: var(--primary-light);
+    border-left: 3px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    padding: 0.75rem 1rem;
+    margin-bottom: 1.15rem;
+    color: var(--secondary);
+    font-size: 1.05rem;
+}
+
+body.lecture .guide,
+body.lecture .card { scroll-margin-top: calc(var(--ask-space, 4.75rem) + 0.7rem); }
+
+body.lecture .guide {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.95rem 1.05rem 1.05rem;
+    margin-bottom: 1.5rem;
+}
+
+body.lecture .path-note {
+    font-weight: 700;
+    color: var(--secondary);
+}
+
+body.lecture .q-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.65rem;
+}
+
+body.lecture .q-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    color: var(--secondary);
+    background: #f4f6f8;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    padding: 0.42rem 0.75rem;
+    min-height: 2.5rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+}
+
+body.lecture .q-nav a:hover { border-color: #c5d4e4; background: #fff; color: var(--primary); }
+
+body.lecture .q-nav a:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+body.lecture .q-nav a.is-answer {
+    background: var(--primary-light);
+    border-color: #c5d4e4;
+    color: var(--primary);
+}
+
+body.lecture .to-top {
+    position: fixed;
+    right: max(0.85rem, env(safe-area-inset-right));
+    bottom: max(0.85rem, env(safe-area-inset-bottom));
+    z-index: 35;
+    display: none;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.4rem 0.75rem;
+    background: #fff;
+    color: var(--ink);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+body.lecture .to-top.is-on { display: inline-flex; }
+
+body.lecture .to-top:focus-visible,
+body.lecture .home-link:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+body.lecture .tip-hero {
+    background: var(--primary-light);
+    border: none;
+    border-left: 3px solid var(--primary);
+    border-radius: 0 8px 8px 0;
+    padding: 0.85rem 1rem;
+    margin-bottom: 1.15rem;
+}
+
+body.lecture .tip-hero .tip-kicker {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+}
+
+body.lecture .tip-hero strong { color: var(--secondary); }
+
+body.lecture .link-note {
+    background: transparent;
+    border-left: 3px solid #c5d0dc;
+    border-radius: 0;
+    padding: 0.1rem 0 0.1rem 0.85rem;
+    margin: 0.85rem 0 1rem;
+    color: var(--secondary);
+}
+
+
+/* ---------- 目录 ---------- */
+
+body.catalog {
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.6;
+    padding: 1.6rem var(--gutter) 2.5rem;
+    padding-left: max(var(--gutter), env(safe-area-inset-left));
+    padding-right: max(var(--gutter), env(safe-area-inset-right));
+}
+
+body.catalog .series {
+    color: var(--blue);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+}
+
+body.catalog header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem 1.25rem;
+}
+
+body.catalog header .brand { flex: 1 1 12rem; min-width: 0; }
+
+body.catalog header h1 { margin-top: 0; }
+
+body.catalog h1 {
+    margin-top: 0.3rem;
+    font-size: clamp(1.7rem, 3vw, 2.15rem);
+    letter-spacing: 0.02em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+body.catalog h1 span {
+    font-size: 0.92rem;
+    font-weight: 700;
+    color: var(--rose);
+    background: #fff1f2;
+    border-radius: 999px;
+    padding: 0.18rem 0.7rem;
+}
+
+body.catalog header p {
+    margin-top: 0.75rem;
+    color: var(--ink);
+    font-size: 1.02rem;
+    line-height: 1.75;
+}
+
+body.catalog header .lead {
+    margin-top: 0.4rem;
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    font-weight: 700;
+    line-height: 1.45;
+}
+
+body.catalog .how {
+    margin-top: 1.2rem;
+    color: var(--ink);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+
+body.catalog .how h2 {
+    font-size: 1.08rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+}
+
+body.catalog .how > p { margin-top: 0.45rem; }
+
+body.catalog .how ol { margin: 0.45rem 0 0.2rem 1.2rem; }
+
+body.catalog .how li { margin: 0.28rem 0; }
+
+body.catalog .how .close {
+    margin-top: 0.75rem;
+    font-weight: 600;
+}
+
+body.catalog .list-title {
+    margin-top: 1.45rem;
+    margin-bottom: 0.15rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+
+body.catalog .sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+}
+
+body.catalog .catalog {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.85rem;
+    margin-top: 0.7rem;
+}
+
+body.catalog .topic {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 0.9rem;
+    align-items: center;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    padding: 0.95rem 1.1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s ease;
+    min-width: 0;
+}
+
+body.catalog .topic:hover { border-color: #b7c9dc; }
+
+body.catalog .topic:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+body.catalog .topic-index {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--blue-soft);
+    color: var(--blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+}
+
+body.catalog .find {
+    display: block;
+    margin-top: 1.15rem;
+}
+
+body.catalog .find span {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 0.35rem;
+}
+
+body.catalog .find input {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.7rem 0.9rem;
+}
+
+body.catalog .find input:focus {
+    outline: 2px solid #bfdbfe;
+    border-color: #93c5fd;
+}
+
+body.catalog .find-hint,
+body.catalog .find-empty {
+    color: var(--muted);
+    margin-top: 0.55rem;
+    font-size: 0.9rem;
+}
+
+body.catalog .find-empty { display: none; }
+body.catalog .find-empty.is-shown { display: block; }
+body.catalog.is-searching .find-hint { display: none; }
+
+body.catalog .topic.is-hidden { display: none; }
+
+body.catalog .print-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.65rem 1rem;
+    margin-top: 0;
+    margin-left: auto;
+}
+
+body.catalog .print-all {
+    appearance: none;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    font: inherit;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.48rem 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+body.catalog .print-all:hover { border-color: var(--blue); color: var(--blue); }
+body.catalog .print-all:disabled { opacity: 0.6; cursor: wait; }
+body.catalog .print-row p { color: var(--muted); font-size: 0.9rem; }
+
+/* 全部题目。先按打印宽度排好，屏幕上不占位置，方便公式按纸宽折行。 */
+body.catalog .sheet {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 186mm;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    color: #111;
+    line-height: 1.7;
+    font-size: 12pt;
+}
+
+body.catalog .sheet .sheet-head {
+    border-bottom: 1.5px solid #111;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+body.catalog .sheet .sheet-head .series {
+    color: #111;
+    font-size: 11pt;
+    letter-spacing: 0.12em;
+}
+
+body.catalog .sheet h1 {
+    display: block;
+    margin: 0.12rem 0 0.25rem;
+    font-size: 18pt;
+    font-weight: 700;
+    letter-spacing: 0;
+    gap: 0;
+}
+
+body.catalog .sheet .sheet-head p { color: #333; font-size: 11pt; margin-top: 0.15rem; }
+
+body.catalog .sheet .q {
+    margin: 0;
+    padding-top: 0.2rem;
+    padding-bottom: 6.8em;
+}
+
+body.catalog .sheet h2 {
+    display: block;
+    font-size: 13.5pt;
+    font-weight: 700;
+    margin: 0 0 0.4rem;
+}
+
+body.catalog .sheet h2 .src {
+    font-size: 10.5pt;
+    font-weight: 600;
+    color: #333;
+    margin-left: 0.45rem;
+}
+
+body.catalog .sheet .problem-content p { margin-bottom: 0.4rem; }
+body.catalog .sheet .domain { text-align: center; }
+body.catalog .sheet .keep { white-space: nowrap; }
+body.catalog .sheet .formula-block { margin: 0.3rem 0 0.5rem; overflow: visible; }
+
+body.catalog .topic h2 { font-size: 1.08rem; }
+body.catalog .topic p { color: var(--muted); font-size: 0.92rem; }
+
+body.catalog .topic .src {
+    color: var(--blue);
+    font-size: 0.86rem;
+    font-weight: 700;
+    margin-top: 0.12rem;
+}
+body.catalog .topic .file { display: none; }
+
+body.catalog .go { color: var(--blue); font-weight: 700; font-size: 0.92rem; }
+
+/* ---------- 平板、手机 ---------- */
+
+@media (min-width: 721px) {
+    body.lecture .now-inner { padding-right: 15rem; }
+}
+
+@media (min-width: 700px) {
+    body.catalog .catalog { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 961px) {
+    body.lecture .handoff,
+    body.lecture .screen {
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+    }
+}
+
+@media (min-width: 1100px) {
+    body.catalog .catalog { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+    body.lecture .now-asking { display: block; }
+    body.lecture .bar-tools {
+        position: static;
+        justify-content: flex-end;
+        margin-bottom: 0.2rem;
+    }
+    body.lecture .now-inner { padding-right: 0; }
+}
+
+@media (max-width: 640px) {
+    body.lecture {
+        padding: 0.85rem 0.7rem 4.5rem;
+        padding-top: calc(var(--ask-space, 6.2rem) + 0.5rem);
+        padding-left: max(0.7rem, env(safe-area-inset-left));
+        padding-right: max(0.7rem, env(safe-area-inset-right));
+        font-size: 1.05rem;
+    }
+    body.lecture .card { padding: 1.15rem 0.95rem; }
+    body.lecture header { padding: 1.45rem 1.05rem; border-radius: 12px; }
+    body.lecture .pics { grid-template-columns: 1fr; }
+    body.lecture .paper {
+        font-size: 1.05rem;
+        padding: 0.9rem 0.7rem 1rem 1.15rem;
+    }
+    body.lecture .formula-block { padding: 0.75rem 0.6rem 0.9rem; }
+    body.lecture .interactive-panel { padding: 1rem; }
+    body.lecture .keep { white-space: normal; }
+
+    body.catalog { padding: 1.15rem 0.75rem 2rem; }
+    body.catalog .topic { grid-template-columns: auto minmax(0, 1fr); }
+    body.catalog .go { display: none; }
+}
+
+@media (pointer: coarse) {
+    body.lecture .home-link {
+        display: inline-flex;
+        align-items: center;
+        min-height: 44px;
+        padding: 0.45rem 0.35rem;
+    }
+    body.lecture .q-nav a { min-height: 44px; padding: 0.5rem 0.85rem; }
+    body.catalog .topic { padding: 1rem 1rem; }
+    body.catalog .print-all { min-height: 44px; }
+    body.catalog .find input { min-height: 48px; font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body.catalog .topic { transition: none; }
+}
+
+/* ---------- 打印 ---------- */
+
+@media print {
+    @page {
+        size: A4;
+        margin: 14mm 12mm 16mm;
+        @bottom-center {
+            content: "第" counter(page) "页 共" counter(pages) "页";
+            font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+            font-size: 11pt;
+            color: #333;
+        }
+    }
+
+    body.lecture {
+        background: #fff !important;
+        color: #111 !important;
+        padding: 0 !important;
+    }
+
+    body.lecture .container { width: auto; max-width: none; }
+
+    body.lecture .now-asking,
+    body.lecture .home-link,
+    body.lecture .guide,
+    body.lecture .to-top,
+    body.lecture .slider-control,
+    body.lecture .interactive-title,
+    body.lecture .status-readout { display: none !important; }
+
+    body.lecture .tip-hero,
+    body.lecture .link-note,
+    body.lecture .hold-solution {
+        background: #fff !important;
+        color: #111 !important;
+        break-inside: avoid;
+    }
+
+    body.lecture details.hold-solution,
+    body.lecture details.hold-solution > * { display: block !important; }
+
+    body.lecture details.hold-solution > summary { display: none !important; }
+
+    body.lecture .hold-solution > :not(summary) {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    body.lecture .tip-hero strong,
+    body.lecture .tip-kicker { color: #111 !important; }
+
+    body.lecture header {
+        background: none !important;
+        color: #111 !important;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0 0 0.7rem;
+        margin-bottom: 0.8rem;
+        border-bottom: 1.5px solid #111;
+        break-after: avoid;
+    }
+
+    body.lecture header p,
+    body.lecture .section-kicker { color: #333; opacity: 1; }
+
+    body.lecture .badge {
+        background: none;
+        color: #333;
+        border: 1px solid #bbb;
+    }
+
+    body.lecture .card {
+        background: #fff !important;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+        padding: 0.4rem 0 0.8rem;
+        margin-bottom: 0.4rem;
+    }
+
+    body.lecture .problem-box {
+        background: #fff !important;
+        border: 1px solid #ccc;
+        border-left: 3px solid #111;
+        padding: 0.7rem 0.9rem;
+        break-inside: avoid;
+    }
+
+    body.lecture .step-num {
+        background: #fff !important;
+        color: #111 !important;
+        border: 1.5px solid #111;
+    }
+
+    body.lecture .mindset-box,
+    body.lecture .result-box,
+    body.lecture .ask,
+    body.lecture .matryoshka-box,
+    body.lecture .case-card,
+    body.lecture .motto,
+    body.lecture .flow-node,
+    body.lecture figure,
+    body.lecture .canvas-wrap {
+        background: #fff !important;
+        color: #111 !important;
+        break-inside: avoid;
+    }
+
+    body.lecture .mindset-title,
+    body.lecture .matryoshka-title,
+    body.lecture .result-box,
+    body.lecture .case-card h4,
+    body.lecture .flow-node,
+    body.lecture .flow-arrow,
+    body.lecture .motto,
+    body.lecture .handoff strong,
+    body.lecture .handoff .give,
+    body.lecture .handoff .arrow,
+    body.lecture .screen strong,
+    body.lecture .screen .down,
+    body.lecture .route strong,
+    body.lecture .route .down { color: #111 !important; }
+
+    body.lecture .route article {
+        background: #fff !important;
+        break-inside: avoid;
+    }
+
+    body.lecture .flow-chain {
+        background: #fff !important;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+        justify-content: flex-start;
+    }
+
+    body.lecture .formula-block {
+        background: #fff !important;
+        border: none;
+        overflow: visible;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    body.lecture .paper {
+        background: #fff !important;
+        border: none;
+        border-left: 1px solid #bbb;
+    }
+
+    body.lecture .paper::before { display: none; }
+
+    body.lecture .interactive-panel,
+    body.lecture .canvas-wrap {
+        background: #fff !important;
+        border: none;
+        box-shadow: none;
+        padding-left: 0;
+        padding-right: 0;
+        break-inside: avoid;
+    }
+
+    body.lecture .section-header,
+    body.lecture h2,
+    body.lecture h3 {
+        break-after: avoid;
+        page-break-after: avoid;
+    }
+
+    body.lecture .paper-card {
+        break-before: page;
+        page-break-before: always;
+    }
+
+    body.lecture.print-book .lecture-part + .lecture-part {
+        break-before: page;
+        page-break-before: always;
+    }
+
+    body.lecture a { color: inherit; text-decoration: none; }
+
+    body.lecture.print-problems .container > *:not(.problem-box) { display: none !important; }
+
+    body.lecture.print-problems .problem-box {
+        border: none;
+        border-left: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    body.lecture.print-problems .problem-title { color: #111; }
+
+    body.catalog .sheet { display: none !important; }
+
+    body.catalog.print-all {
+        background: #fff !important;
+        color: #111 !important;
+        padding: 0 !important;
+    }
+
+    body.catalog.print-all .container { display: none !important; }
+
+    body.catalog.print-all .sheet {
+        display: block !important;
+        position: static !important;
+        width: auto !important;
+        max-height: none !important;
+        overflow: visible !important;
+        pointer-events: auto;
+    }
+
+    body.catalog.print-all .sheet .q {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        padding-bottom: 6.8em;
+    }
+
+    body.catalog.print-all .sheet h2 { break-after: avoid; page-break-after: avoid; }
+
+    body.catalog.print-all .sheet .formula-block {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+}
