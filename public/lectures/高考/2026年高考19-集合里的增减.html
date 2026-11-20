@@ -5,32 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <link rel="stylesheet" href="../../css/site.css">
     <style>
-        #f-half.jxgbox,
-        #f-odd.jxgbox,
-        #f-case-left.jxgbox,
-        #f-case-mix.jxgbox,
-        #f-venn.jxgbox {
-            width: 100%;
-            height: auto;
-            aspect-ratio: 1.8 / 1;
-            margin: 0 auto;
-            overflow: hidden;
-            border: 0;
-            border-radius: 0;
-            background: #fff;
-            user-select: none;
-            touch-action: none;
-        }
-        #f-odd.jxgbox,
-        #f-case-left.jxgbox,
-        #f-case-mix.jxgbox { aspect-ratio: 1.9 / 1; }
-        #f-venn.jxgbox { aspect-ratio: 1.35 / 1; }
-        @media (min-width: 721px) {
-            .venn-wrap {
-                width: min(26rem, 100%);
-                margin-inline: auto;
-            }
-        }
         body.lecture .formula-block mjx-container[display="true"] {
             max-width: 100%;
         }
@@ -266,7 +240,7 @@
                 <h3>用韦恩图看包含</h3>
                 <p>集合在这里表达包含。橙圈收 \(D(x_2)\) 里的 \(d\)，蓝圈收 \(D(x_1)\) 里的 \(d\)。要证的是橙圈整圈都在蓝圈里。图只负责看懂，证明在下一步用代数完成。</p>
             </div>
-            <div class="canvas-wrap venn-wrap">
+            <div class="canvas-wrap">
                 <div id="f-venn" class="jxgbox" role="img" aria-label="韦恩图：橙色小圈 D(x2) 完全落在蓝色大圈 D(x1) 里面。小圈里有一个点 d。"></div>
                 <p class="cap">点 \(d\) 在橙圈里，就一定也在蓝圈里。蓝圈里、橙圈外还可以有别的 \(d\)，那些只属于 \(D(x_1)\)。三种情形都是这张图。</p>
             </div>

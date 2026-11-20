@@ -34,7 +34,8 @@ alwaysApply: true
 
 数形结合要画图时，只用本地的 `public/js/jsxgraphcore.js`。讲义用相对路径引入，例如 `../../js/jsxgraphcore.js`。不画静态图片，不用别的画图库，不从网上另引一份，也不手写 SVG 代替。
 
-- 容器是带 `jxgbox` 的 `div`。用 `JXG.JSXGraph.initBoard` 建板。点、线、函数图象、刻度和文字都用 `board.create`。
+- 图是次主题，帮助看，不铺满正文。外层只用 `canvas-wrap`，里层是带 `jxgbox` 的 `div`。尺寸只写在 `public/css/site.css` 的 `.canvas-wrap`：宽不超过 `30rem`，居中。讲义页不再写图的宽度、高度或比例，也不另做一套类。
+- 用 `JXG.JSXGraph.initBoard` 建板。点、线、函数图象、刻度和文字都用 `board.create`。
 - 关掉版权、导航、信息框，以及平移和缩放。库没载入时，容器里写「图像未能载入。」
 - 图只画这一问已经用到的对象。坐标范围、开闭点和标注与解答一致。
 
