@@ -69,6 +69,7 @@
                 <span class="badge">换元</span>
                 <span class="badge">写下新字母的范围</span>
                 <span class="badge">所求一换，函数就换</span>
+                <span class="badge">定义域到值域</span>
             </div>
         </header>
 
@@ -89,7 +90,7 @@
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>题目给出了关于 \(a,b\) 的等式。所求没有单独问 \(a\) 或 \(b\)，问的是它们合在一起的量。能不能把已知也写成一个乘积？先看等式里哪几项能乘在一起。</p>
+                <p>题目给出了关于 \(a,b\) 的等式。所求没有单独问 \(a\) 或 \(b\)。能不能先不把它们求出来，只看这个等式能写成什么结构？</p>
             </div>
             <div class="solution-step">
                 <p>移项：\(ab-a-b=3\)。两边加 \(1\)：</p>
@@ -99,23 +100,19 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">因式</div>
-                <p>条件已化为 \((a-1)(b-1)=4\)。这两个因式的乘积是常数。</p>
-                <p>乘积固定。一个变大，另一个就变小。后面就用这两个因式。</p>
+                <p>条件转化为 \((a-1)(b-1)=4\)。这两个因式的乘积是常数。</p>
+                <p>先看这个结构。不急着把 \(a\)、\(b\) 分别求出来。乘积固定，一个变大，另一个就变小。</p>
             </div>
             <div class="solution-step">
-                <p>令 \(x=a-1\)，\(y=b-1\)。\(a&gt;1\)、\(b&gt;1\) 对应 \(x&gt;0\)、\(y&gt;0\)。\(a=x+1\)，\(b=y+1\)，一组 \((a,b)\) 对一组 \((x,y)\)，条件允许的 \(a\)、\(b\) 不变。条件变成</p>
+                <p>令 \(x=a-1\)，\(y=b-1\)。\(a&gt;1\)、\(b&gt;1\) 对应 \(x&gt;0\)、\(y&gt;0\)。再代回 \(a=x+1\)，\(b=y+1\)。一组 \((a,b)\) 对一组 \((x,y)\)。条件转化为</p>
                 <div class="formula-block">$$xy=4,\qquad x&gt;0,\ y&gt;0.$$</div>
+                <p>再转化为 \(y=\dfrac{4}{x}\)（\(x&gt;0\)）。\(x\) 定了，\(y\) 就定了。两个字母不能各自随便变。例如 \(x=1\) 时 \(y=4\)，\(x=4\) 时 \(y=1\)。</p>
             </div>
             <div class="canvas-wrap">
-                <svg viewBox="0 0 320 180" role="img" aria-label="长和宽的乘积固定为 4">
-                    <rect x="86" y="28" width="168" height="108" fill="#eff6ff" stroke="#2563eb" stroke-width="2.4"/>
-                    <text x="148" y="88" font-size="15" font-weight="700" fill="#1e3a8a">面积 4</text>
-                    <text x="158" y="160" font-size="15" font-weight="700" fill="#64748b">x</text>
-                    <text x="52" y="88" font-size="15" font-weight="700" fill="#64748b">y</text>
-                </svg>
-                <p class="cap">长和宽的乘积固定。长变大，宽就变小。</p>
+                <div id="g-xy" class="jxgbox" role="img" aria-label="y 等于 4 除以 x。点 (1, 4) 和 (4, 1) 都在曲线上。x 从 1 到 4，y 从 4 降到 1。"></div>
+                <p class="cap">\(x&gt;0\) 时，\(y=\dfrac{4}{x}\)。\(x\) 从 \(1\) 到 \(4\)，\(y\) 从 \(4\) 降到 \(1\)。</p>
             </div>
-            <div class="motto">换完以后，条件是 \(xy=4\)。所求不同，写出的函数就换。</div>
+            <div class="motto">先看见乘积 \((a-1)(b-1)=4\)。两个因式不能各自随便变。</div>
         </section>
 
         <section class="card" data-q="第（1）问">
@@ -130,24 +127,23 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">换元</div>
-                <p>令 \(t=a-1\)。由 \(a&gt;1\) 得 \(t&gt;0\)。再代回 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。\(a+4b\) 的取值就是这个式子在 \(t&gt;0\) 上的取值。</p>
-                <p>\(a-1\) 这个包起名 \(t\)。\(t&gt;0\) 要写出来。算的时候只用 \(t\)，要回到 \(a\)、\(b\) 再拆开。</p>
+                <p>令 \(t=a-1\)。由 \(a&gt;1\) 得 \(t&gt;0\)。再代回 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。\(a+4b\) 的取值，就是这个式子在 \(t&gt;0\) 上的取值。</p>
+                <p>这一问的包是 \(a-1\)，起名 \(t\)。</p>
             </div>
             <div class="solution-step">
                 <p>令 \(t=a-1\)。\(a&gt;1\) 对应 \(t&gt;0\)。由 \(xy=4\) 得 \(b-1=\dfrac{4}{t}\)，所以 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。一个 \(t&gt;0\) 对一组 \((a,b)\)。</p>
                 <div class="formula-block">$$a+4b=g(t)=t+5+\dfrac{16}{t}.$$</div>
                 <p>\(a+4b\) 能取到的数，就是 \(g(t)\) 在 \(t&gt;0\) 上能取到的数。</p>
             </div>
+            <div class="solution-step">
+                <p>\(t\) 变大时，\(t+5\) 变大。\(0&lt;t_1&lt;t_2\) 时 \(\dfrac{1}{t_1}&gt;\dfrac{1}{t_2}\)，所以 \(\dfrac{16}{t}\) 变小。</p>
+            </div>
             <div class="canvas-wrap">
                 <div id="g-parts" class="jxgbox" role="img" aria-label="t+5 升高，16 除以 t 降低"></div>
-                <p class="cap">蓝线一直升高。橙线一直降低。\(t\) 很小，橙线很高；\(t\) 很大，蓝线很高。</p>
-            </div>
-            <div class="canvas-wrap">
-                <div id="g-sum" class="jxgbox" role="img" aria-label="g(t) 等于 t+5+16/t，在 t=4 取到 13"></div>
-                <p class="cap">两段加起来，图像先下降，再上升。最低落在哪里，下面用作差来定。</p>
+                <p class="cap">蓝线是 \(t+5\)。橙线是 \(\dfrac{16}{t}\)。</p>
             </div>
             <div class="solution-step">
-                <p>\(t\) 变大时，\(t+5\) 变大。\(0&lt;t_1&lt;t_2\) 时 \(\dfrac{1}{t_1}&gt;\dfrac{1}{t_2}\)，所以 \(\dfrac{16}{t}\) 变小。一段升、一段降，加起来先降还是先升，要作差，不能只看图。</p>
+                <p>两个部分的变化方向相反，不能直接判断整体的变化方向。比较两个不同的 \(t\) 对应的函数值。</p>
                 <p>任取 \(0&lt;t_1&lt;t_2\)：</p>
                 <div class="formula-block">$$\dfrac{1}{t_1}-\dfrac{1}{t_2}=\dfrac{t_2-t_1}{t_1 t_2},$$</div>
                 <div class="formula-block">$$g(t_1)-g(t_2)=(t_1-t_2)-\dfrac{16(t_1-t_2)}{t_1 t_2}=(t_1-t_2)\cdot\dfrac{t_1 t_2-16}{t_1 t_2}.$$</div>
@@ -156,33 +152,33 @@
                 <p>若 \(4\leqslant t_1&lt;t_2\)，则 \(t_1 t_2&gt;t_1^2\geqslant 16\)。\(t_1&gt;4\) 时 \(t_1^2&gt;16\)；\(t_1=4\) 时 \(t_1 t_2=4t_2&gt;16\)。于是 \(t_1 t_2-16&gt;0\)。负的乘正的，差是负的：\(g(t_1)&lt;g(t_2)\)。\(g\) 在 \([4,+\infty)\) 上递增。</p>
                 <p>因此最低在 \(t=4\)，\(g(4)=4+5+\dfrac{16}{4}=13\)。这时 \(a=5\)，\(b=2\)，满足 \(a&gt;1\)，\(b&gt;1\)。</p>
             </div>
+            <div class="canvas-wrap">
+                <div id="g-sum" class="jxgbox" role="img" aria-label="g(t) 等于 t 加 5 加 16 除以 t。在 (0,4] 上下降，在 [4, 正无穷) 上上升，t=4 时函数值是 13。"></div>
+                <p class="cap">\(t=4\) 时最低，\(g(4)=13\)。左边下降，右边上升。</p>
+            </div>
             <div class="result-box">\(a+4b\) 的最小值是 \(13\)。</div>
         </section>
 
         <section class="card" data-q="第（2）问">
             <div class="section-header">
                 <span class="step-num">2</span>
-                <h2>第（2）问：写成一个函数</h2>
+                <h2>第（2）问：值域</h2>
             </div>
             <div class="ask">求 \(ab\) 的取值范围。</div>
-            <p class="link-note">条件与第（1）问相同，仍用换元 \(t=a-1&gt;0\)。这一问换的是所求：从 \(a+4b\) 换成 \(ab\)。</p>
+            <p class="link-note">条件与第（1）问相同，仍用 \(t=a-1&gt;0\)。所求从 \(a+4b\) 换成 \(ab\)。上一问要的是最小值，这一问要的是全部取值。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>条件还是原来的，所求从 \(a+4b\) 换成了 \(ab\)。能不能仍用一个字母，把 \(ab\) 写成这个字母的函数？</p>
+                <p>条件还是原来的，所求从 \(a+4b\) 换成了 \(ab\)。能不能仍用一个字母，把 \(ab\) 写成这个字母的函数？这一问要的是能取到的所有数。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">目标函数</div>
-                <p>约束 \((a-1)(b-1)=4\) 不变，仍取 \(t=a-1&gt;0\)。目标式由 \(a+4b\) 改为 \(ab\)，所研究的函数随之改变，其值域即新函数在 \(t&gt;0\) 上的值域。</p>
-                <p>条件还是原来的。问的量换了，写出来的函数就换。</p>
+                <p>约束 \((a-1)(b-1)=4\) 不变，仍取 \(t=a-1&gt;0\)。目标式由 \(a+4b\) 改为 \(ab\)，所研究的函数随之改变。</p>
+                <p>条件、换元、自变量都没变。问的量换了，函数就换。要看的是值域。</p>
             </div>
             <div class="solution-step">
                 <p>仍用 \(t=a-1&gt;0\)，则 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。</p>
                 <div class="formula-block">$$ab=f(t)=t+5+\dfrac{4}{t}.$$</div>
                 <p>\(ab\) 能取到的数，就是 \(f(t)\) 在 \(t&gt;0\) 上能取到的数。</p>
-            </div>
-            <div class="canvas-wrap">
-                <div id="g-ab" class="jxgbox" role="img" aria-label="f(t) 等于 t+5+4/t，在 t=2 取到 9"></div>
-                <p class="cap">图上先降后升，最低看起来在 \(t=2\)。单调性下面用作差来定，定完再看能取到哪些数。</p>
             </div>
             <div class="solution-step">
                 <p>任取 \(0&lt;t_1&lt;t_2\)。和上一问一样作差：</p>
@@ -191,7 +187,22 @@
                 <p>若 \(0&lt;t_1&lt;t_2\leqslant 2\)，则 \(t_1 t_2&lt;t_2^2\leqslant 4\)。前一个不等号是严格的，所以 \(t_1 t_2&lt;4\)，差是正的。\(f\) 在 \((0,2]\) 上递减。</p>
                 <p>若 \(2\leqslant t_1&lt;t_2\)，则 \(t_1 t_2&gt;t_1^2\geqslant 4\)，所以 \(t_1 t_2&gt;4\)，差是负的。\(f\) 在 \([2,+\infty)\) 上递增。</p>
                 <p>因此最小在 \(t=2\)，\(f(2)=2+5+\dfrac{4}{2}=9\)。这时 \(a=3\)，\(b=3\)。</p>
-                <p>\(t\) 靠近 \(0\) 时 \(\dfrac{4}{t}\) 可以任意大，\(t\) 很大时 \(f(t)\) 也可以任意大。左边从任意大减到 \(9\)，右边从 \(9\) 增到任意大。大于 \(9\) 的每个数左右各取一次，\(9\) 只在 \(t=2\) 取到。\(ab\) 的取值范围是 \([9,+\infty)\)。</p>
+                <p>最小是 \(9\)。这一问要的不是这一个数。\(t\) 靠近 \(0\) 时 \(\dfrac{4}{t}\) 可以任意大，\(t\) 很大时 \(f(t)\) 也可以任意大。左边从任意大减到 \(9\)，右边从 \(9\) 增到任意大。大于 \(9\) 的每个数左右各取一次，\(9\) 只在 \(t=2\) 取到。所以 \(ab\) 的取值范围是 \([9,+\infty)\)。</p>
+            </div>
+            <div class="matryoshka-box">
+                <div class="matryoshka-title">定义域 → 函数 → 值域</div>
+                <div class="flow-chain">
+                    <span class="flow-node">定义域 \(t\in(0,+\infty)\)</span>
+                    <span class="flow-arrow">\(\rightarrow\)</span>
+                    <span class="flow-node">函数 \(f(t)=t+5+\dfrac{4}{t}\)</span>
+                    <span class="flow-arrow">\(\rightarrow\)</span>
+                    <span class="flow-node">值域 \([9,+\infty)\)</span>
+                </div>
+            </div>
+            <p>定义域规定输入可以是什么。函数规定输入和输出怎么对应。值域规定实际能得到哪些输出。</p>
+            <div class="canvas-wrap">
+                <div id="g-ab" class="jxgbox" role="img" aria-label="f(t) 等于 t 加 5 加 4 除以 t。t 大于 0。在 (0,2] 上下降，在 [2, 正无穷) 上上升。t=2 时函数值是 9。值域是 [9, 正无穷)。"></div>
+                <p class="cap">横轴上 \(t&gt;0\) 是定义域。曲线是 \(f\)。从 \(9\) 往上都能取到，\(9\) 取得到。值域是 \([9,+\infty)\)。</p>
             </div>
             <div class="result-box">\(ab\in[9,+\infty)\)。</div>
         </section>
@@ -203,24 +214,24 @@
             </div>
             <div class="handoff">
                 <article>
-                    <div class="tag">目标 \(a+4b\)</div>
-                    <strong>\(t+5+\dfrac{16}{t}\)</strong>
+                    <div class="tag">两问相同</div>
+                    <strong>条件 \((a-1)(b-1)=4\)</strong>
+                    <div class="give">换元都是 \(t=a-1\)，\(t&gt;0\)</div>
+                </article>
+                <div class="arrow">所求一换</div>
+                <article>
+                    <div class="tag">第（1）问 · \(a+4b\)</div>
+                    <strong>\(g(t)=t+5+\dfrac{16}{t}\)</strong>
                     <div class="give">最小值 \(13\)</div>
                 </article>
-                <div class="arrow">同一个 \(t&gt;0\)</div>
+                <div class="arrow">函数就换</div>
                 <article>
-                    <div class="tag">目标 \(ab\)</div>
-                    <strong>\(t+5+\dfrac{4}{t}\)</strong>
+                    <div class="tag">第（2）问 · \(ab\)</div>
+                    <strong>\(f(t)=t+5+\dfrac{4}{t}\)</strong>
                     <div class="give">值域 \([9,+\infty)\)</div>
                 </article>
-                <div class="arrow"></div>
-                <article>
-                    <div class="tag">两问相同的是</div>
-                    <strong>条件都是 \((a-1)(b-1)=4\)</strong>
-                    <div class="give">所求一换，函数就换</div>
-                </article>
             </div>
-            <div class="motto">条件相同。所求一换，换元以后的函数就换。</div>
+            <div class="motto">条件、换元、自变量都没变。所求一换，函数就换。第一问停在最小值，第二问要看值域。</div>
         </section>
 
         <section class="card paper-card">
@@ -245,7 +256,7 @@
                 <p>设 \(f(t)=t+5+\dfrac{4}{t}\)（\(t&gt;0\)）。任取 \(0&lt;t_1&lt;t_2\)，</p>
                 <div class="formula-block">$$f(t_1)-f(t_2)=(t_1-t_2)\cdot\dfrac{t_1 t_2-4}{t_1 t_2}.$$</div>
                 <p>当 \(0&lt;t_1&lt;t_2\leqslant 2\) 时，\(t_1 t_2&lt;t_2^2\leqslant 4\)，前一个不等号严格，故 \(t_1 t_2&lt;4\)，差为正，\(f\) 在 \((0,2]\) 上递减。当 \(2\leqslant t_1&lt;t_2\) 时，\(t_1 t_2&gt;t_1^2\geqslant 4\)，故 \(t_1 t_2&gt;4\)，差为负，\(f\) 在 \([2,+\infty)\) 上递增。</p>
-                <p>因此 \(t=2\) 时取得最小值 \(f(2)=9\)，此时 \(a=b=3\)。\(t\to 0^{+}\) 时 \(f(t)\to+\infty\)，\(t\to+\infty\) 时 \(f(t)\to+\infty\)。由上面的单调性，大于 \(9\) 的每个数在 \((0,2)\) 与 \((2,+\infty)\) 上各取一次，\(9\) 只在 \(t=2\) 取到。所以 \(ab\in[9,+\infty)\)。</p>
+                <p>因此 \(t=2\) 时取得最小值 \(f(2)=9\)，此时 \(a=b=3\)。\(t\) 靠近 \(0\) 时 \(f(t)\) 可以任意大，\(t\) 很大时 \(f(t)\) 也可以任意大。由上面的单调性，大于 \(9\) 的每个数在 \((0,2)\) 与 \((2,+\infty)\) 上各取一次，\(9\) 只在 \(t=2\) 取到。所以 \(ab\in[9,+\infty)\)。</p>
             </div>
         </section>
     </div>
@@ -293,8 +304,18 @@
     <script src="../../js/jsxgraphcore.js"></script>
     <script>
         (function () {
-            if (!window.JXG) return;
-            function board(id, box, xStep, yStep) {
+            var ids = ["g-xy", "g-parts", "g-sum", "g-ab"];
+            function failAll() {
+                ids.forEach(function (id) {
+                    var box = document.getElementById(id);
+                    if (box) box.textContent = "图像未能载入。";
+                });
+            }
+            if (!window.JXG) {
+                failAll();
+                return;
+            }
+            function board(id, box, xName, xStep, yStep) {
                 return JXG.JSXGraph.initBoard(id, {
                     boundingbox: box,
                     axis: true,
@@ -307,7 +328,7 @@
                     zoom: { enabled: false, wheel: false, pinch: false },
                     defaultAxes: {
                         x: {
-                            name: "t", withLabel: true, strokeColor: "#94a3b8",
+                            name: xName, withLabel: true, strokeColor: "#94a3b8",
                             label: { position: "rt", offset: [-2, 12], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
                             ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: xStep, minorTicks: 0, majorHeight: 6, drawZero: false, label: { fontSize: 12, strokeColor: "#64748b", offset: [0, -5] } }
                         },
@@ -321,25 +342,38 @@
             }
             var blue = { strokeColor: "#2563eb", strokeWidth: 2.6, highlight: false, numberPoints: 180 };
             var orange = { strokeColor: "#ea580c", strokeWidth: 2.6, highlight: false, numberPoints: 180 };
+            var dash = { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false };
             var dot = { name: "", size: 2.6, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", fixed: true, highlight: false, showInfobox: false, withLabel: false };
             var label = { fixed: true, highlight: false, parse: false, fontSize: 14, cssStyle: "font-weight:700" };
-            var parts = board("g-parts", [0, 28, 12, -3], 2, 5);
+            var xy = board("g-xy", [-0.8, 8.6, 8.8, -1.2], "x", 1, 1);
+            xy.create("functiongraph", [function (x) { return 4 / x; }, 0.5, 8.4], blue);
+            xy.create("point", [1, 4], dot);
+            xy.create("point", [4, 1], dot);
+            xy.create("text", [1.35, 5.15, "(1, 4)"], Object.assign({ strokeColor: "#ea580c" }, label));
+            xy.create("text", [4.4, 1.85, "(4, 1)"], Object.assign({ strokeColor: "#ea580c" }, label));
+            xy.create("text", [5.5, 3.5, "y=4/x"], Object.assign({ strokeColor: "#2563eb" }, label));
+            var parts = board("g-parts", [0, 28, 12, -3], "t", 2, 5);
             parts.create("functiongraph", [function (t) { return t + 5; }, 0.5, 11.5], blue);
-            parts.create("functiongraph", [function (t) { return 16 / t; }, 0.55, 11.5], orange);
+            parts.create("functiongraph", [function (t) { return 16 / t; }, 0.6, 11.5], orange);
             parts.create("text", [7.2, 16.5, "t+5"], Object.assign({ strokeColor: "#2563eb" }, label));
             parts.create("text", [6.4, 5.4, "16/t"], Object.assign({ strokeColor: "#ea580c" }, label));
-            var sum = board("g-sum", [0, 34, 14, -3], 2, 5);
-            sum.create("segment", [[0.4, 13], [13.4, 13]], { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false });
-            sum.create("functiongraph", [function (t) { return t + 5 + 16 / t; }, 0.6, 13.2], blue);
+            var sum = board("g-sum", [0, 34, 14, -3], "t", 2, 5);
+            sum.create("segment", [[0.4, 13], [13.4, 13]], dash);
+            sum.create("segment", [[4, 0], [4, 13]], dash);
+            sum.create("functiongraph", [function (t) { return t + 5 + 16 / t; }, 0.62, 13.2], blue);
             sum.create("point", [4, 13], dot);
-            sum.create("text", [1.2, 24, "下降"], Object.assign({ strokeColor: "#2563eb" }, label));
-            sum.create("text", [8.2, 24, "上升"], Object.assign({ strokeColor: "#2563eb" }, label));
-            sum.create("text", [5.1, 16.2, "最小值 13"], Object.assign({ strokeColor: "#ea580c" }, label));
-            var ab = board("g-ab", [0, 22, 11, -2], 2, 5);
-            ab.create("segment", [[0.3, 9], [10.6, 9]], { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false });
-            ab.create("functiongraph", [function (t) { return t + 5 + 4 / t; }, 0.35, 10.6], blue);
+            sum.create("text", [1.2, 26, "下降"], Object.assign({ strokeColor: "#2563eb" }, label));
+            sum.create("text", [8.6, 26, "上升"], Object.assign({ strokeColor: "#2563eb" }, label));
+            sum.create("text", [4.8, 22, "最小值 13"], Object.assign({ strokeColor: "#ea580c" }, label));
+            var ab = board("g-ab", [0, 24, 11.2, -2], "t", 2, 5);
+            ab.create("segment", [[0.25, 9], [10.8, 9]], dash);
+            ab.create("segment", [[2, 0], [2, 9]], dash);
+            ab.create("functiongraph", [function (t) { return t + 5 + 4 / t; }, 0.26, 10.8], blue);
             ab.create("point", [2, 9], dot);
-            ab.create("text", [3.1, 12.2, "最小值 9"], Object.assign({ strokeColor: "#ea580c" }, label));
+            ab.create("text", [0.45, 21.8, "下降"], Object.assign({ strokeColor: "#2563eb" }, label));
+            ab.create("text", [8.4, 21.2, "上升"], Object.assign({ strokeColor: "#2563eb" }, label));
+            ab.create("text", [3.15, 14.2, "最小值 9"], Object.assign({ strokeColor: "#ea580c" }, label));
+            ab.create("text", [3.5, 18.6, "值域 [9, +\u221e)"], Object.assign({ strokeColor: "#ea580c" }, label));
         })();
     </script>
     <script src="../../js/site.js"></script>
