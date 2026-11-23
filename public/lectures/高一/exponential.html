@@ -122,6 +122,10 @@
             <div class="result-box">
                 \(f(x)=\dfrac{2^x-2^{-x}}{2}\)，\(g(x)=\dfrac{2^x+2^{-x}}{2}\)。
             </div>
+            <div class="canvas-wrap">
+                <div id="fg-curves" class="jxgbox" role="img" aria-label="f 与 g 两条曲线。f(0) 等于 0，g(0) 等于 1，f(1) 等于 3/4，g(1) 等于 5/4"></div>
+                <p class="cap">蓝线是 \(f\)，橙线是 \(g\)。标出的是 \(x=0\) 和 \(x=1\) 处的值。</p>
+            </div>
         </section>
 
         <!-- 第二问 -->
@@ -174,19 +178,26 @@
         <section class="card" data-q="第（3）问" data-try>
             <div class="section-header">
                 <span class="step-num">3</span>
-                <h2>第（3）问：先消掉 \(g\)，再看 \(t\) 离 \(-a\) 有多近</h2>
+                <h2>第（3）问：这个最小值是 \(a\) 的函数，写出解析式</h2>
             </div>
             <div class="ask">$h(x)=2af(x)+[g(x)]^2$，求 $h(x)$ 在 $[0,1]$ 上的最小值。</div>
-            <p class="link-note">仍用第（1）问的 \(f\) 和 \(g\)。把它们代进 \(h(x)\)，再在 \([0,1]\) 上看最小值。可以先自己做做看。</p>
+            <p class="link-note">仍用第（1）问的 \(f\) 和 \(g\)。所求是这个最小值的解析式。可以先自己做做看。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>\(h(x)\) 里既有 \(f\)，又有 \(g\) 的平方，还带着 \(a\)。所求是 \([0,1]\) 上的最小值。能不能先在 \(f\) 和 \(g\) 之间消去一个，让 \(h\) 只跟着一个量变？</p>
+                <p>已知是 \(h(x)=2af(x)+[g(x)]^2\)，所求是它在 \([0,1]\) 上的最小值。式子里有 \(a\)，这个最小值跟着 \(a\) 变。要写的是这个函数的解析式。能不能先让 \(h\) 只跟着一个量变？</p>
             </div>
-
             <div class="mindset-box">
-                <div class="mindset-title">消元，再换元</div>
-                <p>由（1），将 \(g^2\) 转化为含 \(f^2\) 的式子，从而将 \(h=2af+g^2\) 转化为只含 \(f\) 的二次函数。令 \(t=f(x)\)，\(t\) 的范围就是 \(f\) 在 \([0,1]\) 上的值域。闭区间上二次函数的最小值，由对称轴与该区间的位置关系决定。</p>
-                <p>先把 \(g\) 消掉，\(h\) 只跟着 \(f\) 变。\(f(x)\) 起名 \(t\)。最小，就是让 \(t\) 离对称轴尽量近。</p>
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>「最小值」容易写成一个定值。\(a\) 还在 \(h\) 里，这个最小跟着 \(a\) 变，要写成 \(a\) 的解析式。分界正好取到等号时，等号归哪一边，也容易漏。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>题干把带着 \(a\) 的 \(h\)，和「在 \([0,1]\) 上的最小值」放在一起。这一处在招呼最小值函数。所求是这个函数的解析式。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">最小值函数</div>
+                <p>含参数 \(a\) 的函数在闭区间上的最小值，是 \(a\) 的函数。先固定 \(a\)，再就 \(a\) 写出这个最小的解析式。</p>
+                <p>\(a\) 先定住。这段上的最小写成 \(a\) 的式子。这个式子就是所求。</p>
             </div>
 
             <div class="solution-step">
@@ -211,7 +222,7 @@
                 <p>\(x\) 变大时，\(2^x\) 变大。同时 \(-x\) 变小，\(2^{-x}\) 变小。大的更大、小的更小，差 \(2^x-2^{-x}\) 变大，所以 \(t\) 变大。</p>
                 <div class="formula-block">$$f(0)=\dfrac{2^0-2^{0}}{2}=\dfrac{1-1}{2}=0$$</div>
                 <div class="formula-block">$$f(1)=\dfrac{2-\dfrac{1}{2}}{2}=\dfrac{\dfrac{3}{2}}{2}=\dfrac{3}{4}$$</div>
-                <p>\(x\) 从 \(0\) 到 \(1\)，\(t\) 从 \(0\) 到 \(\dfrac{3}{4}\)。令 \(t=f(x)\)，则 \(t\in\left[0,\dfrac{3}{4}\right]\)。\(h\) 的取值即该式在此区间上的取值。</p>
+                <p>\(x\) 从 \(0\) 到 \(1\)，\(t\) 从 \(0\) 到 \(\dfrac{3}{4}\)。令 \(t=f(x)\)，则 \(t\in\left[0,\dfrac{3}{4}\right]\)。最小值就在这段 \(t\) 上取。</p>
             </div>
             <div class="matryoshka-box">
                 <div class="matryoshka-title">\(x\) 在 \([0,1]\) 上，\(t=f(x)\) 就在 \(\left[0,\dfrac{3}{4}\right]\) 上</div>
@@ -223,26 +234,28 @@
             </div>
 
             <div class="solution-step">
-                <h3>配方：看 \(t\) 离 \(-a\) 有多近</h3>
+                <h3>记 \(M(a)\)，写出解析式</h3>
                 <div class="formula-block">$$h=t^2+2at+1$$</div>
+                <p>所求就是下面这个函数的解析式。\(a\) 先定住，再在 \(t\in\left[0,\dfrac{3}{4}\right]\) 上求最小。记</p>
+                <div class="formula-block">$$M(a)=\min_{0\le t\le \dfrac{3}{4}}\left(t^2+2at+1\right).$$</div>
                 <p>\(t^2+2at\) 凑成完全平方，要补 \(a^2\)，所以再减去它：</p>
                 <div class="formula-block">$$t^2+2at=(t+a)^2-a^2$$</div>
                 <div class="formula-block">$$h=(t+a)^2+1-a^2$$</div>
                 <p>\(t+a=t-(-a)\)。\((t+a)^2\) 是 \(t\) 到 \(-a\) 的距离的平方。\(1-a^2\) 不随 \(t\) 变。</p>
-                <p>\(t\) 只能在 \(\left[0,\dfrac{3}{4}\right]\) 上。\(h\) 最小，就是让 \(t\) 离 \(-a\) 尽量近。\(-a\) 在这段的左边、里面、右边，是三种情况。</p>
+                <p>\(t\) 只能在 \(\left[0,\dfrac{3}{4}\right]\) 上。\(M(a)\) 就是 \(t\) 离 \(-a\) 尽量近时的值。\(-a\) 在这段的左边、里面、右边，是三种情况。</p>
                 <h3>\(-a\) 在 \(0\) 的左边或正好是 \(0\)</h3>
                 <p>\(-a\le 0\)。两边乘 \(-1\)，不等号反过来：\(a\ge 0\)。最近点是左端 \(t=0\)。</p>
-                <div class="formula-block">$$h=(0+a)^2+1-a^2=a^2+1-a^2=1$$</div>
+                <div class="formula-block">$$M(a)=(0+a)^2+1-a^2=a^2+1-a^2=1$$</div>
                 <h3>\(-a\) 在 \(0\) 和 \(\dfrac{3}{4}\) 之间</h3>
                 <p>\(0&lt;-a&lt;\dfrac{3}{4}\)。两边乘 \(-1\)：\(-\dfrac{3}{4}&lt;a&lt;0\)。\(t\) 可以取到 \(-a\)，距离平方是 \(0\)。</p>
-                <div class="formula-block">$$h=0+1-a^2=1-a^2$$</div>
+                <div class="formula-block">$$M(a)=1-a^2$$</div>
                 <h3>\(-a\) 在 \(\dfrac{3}{4}\) 的右边或正好是 \(\dfrac{3}{4}\)</h3>
                 <p>\(-a\ge\dfrac{3}{4}\)。两边乘 \(-1\)：\(a\le-\dfrac{3}{4}\)。最近点是右端 \(t=\dfrac{3}{4}\)。</p>
-                <div class="formula-block">$$h=\left(\dfrac{3}{4}+a\right)^2+1-a^2$$</div>
+                <div class="formula-block">$$M(a)=\left(\dfrac{3}{4}+a\right)^2+1-a^2$$</div>
                 <p>先把平方展开。\(a^2\) 和 \(-a^2\) 消掉：</p>
                 <div class="formula-block">$$\left(\dfrac{3}{4}+a\right)^2=\dfrac{9}{16}+\dfrac{3}{2}a+a^2$$</div>
-                <div class="formula-block">$$h=\dfrac{9}{16}+\dfrac{3}{2}a+a^2+1-a^2=\dfrac{3}{2}a+\dfrac{9}{16}+1$$</div>
-                <div class="formula-block">$$1=\dfrac{16}{16},\qquad h=\dfrac{3}{2}a+\dfrac{25}{16}$$</div>
+                <div class="formula-block">$$M(a)=\dfrac{9}{16}+\dfrac{3}{2}a+a^2+1-a^2=\dfrac{3}{2}a+\dfrac{9}{16}+1$$</div>
+                <div class="formula-block">$$1=\dfrac{16}{16},\qquad M(a)=\dfrac{3}{2}a+\dfrac{25}{16}$$</div>
             </div>
 
             <!-- 交互式靶心可视化演示 -->
@@ -290,7 +303,12 @@
             </div>
 
             <div class="result-box">
-                \(h\) 的最小值：\(a\ge 0\) 时是 \(1\)；\(-\dfrac{3}{4}&lt;a&lt;0\) 时是 \(1-a^2\)；\(a\le -\dfrac{3}{4}\) 时是 \(\dfrac{3}{2}a+\dfrac{25}{16}\)。
+                <p>最小值函数的解析式是</p>
+                <div class="formula-block">$$M(a)=\begin{cases} 1, & a\ge 0, \\ 1-a^2, & -\dfrac{3}{4}&lt;a&lt;0, \\ \dfrac{3}{2}a+\dfrac{25}{16}, & a\le -\dfrac{3}{4}. \end{cases}$$</div>
+            </div>
+            <div class="canvas-wrap">
+                <div id="m-graph" class="jxgbox" role="img" aria-label="M(a) 的图像。a 不大于 -3/4 时是直线，-3/4 到 0 是 1 减 a 的平方，a 不小于 0 时是高度 1 的水平线"></div>
+                <p class="cap">左边是 \(\dfrac{3}{2}a+\dfrac{25}{16}\)，中间是 \(1-a^2\)，右边是 \(1\)。在 \(a=-\dfrac{3}{4}\) 和 \(a=0\) 处接上。</p>
             </div>
         </section>
 
@@ -325,17 +343,18 @@
                 <div class="formula-block">$$h(x)=[f(x)]^2+2af(x)+1.$$</div>
                 <p>令 \(t=f(x)\)。\(x\) 增大时 \(2^x\) 增大、\(2^{-x}\) 减小，所以 \(f\) 在 \([0,1]\) 上递增。</p>
                 <div class="formula-block">$$f(0)=0,\qquad f(1)=\dfrac{3}{4}.$$</div>
-                <p>因此 \(t\in\left[0,\dfrac{3}{4}\right]\)，且</p>
-                <div class="formula-block">$$h=(t+a)^2+1-a^2.$$</div>
+                <p>因此 \(t\in\left[0,\dfrac{3}{4}\right]\)。\(h(x)\) 在 \([0,1]\) 上的最小值即</p>
+                <div class="formula-block">$$M(a)=\min_{0\le t\le \dfrac{3}{4}}\left(t^2+2at+1\right).$$</div>
+                <div class="formula-block">$$t^2+2at+1=(t+a)^2+1-a^2.$$</div>
                 <p>（i）当 \(a\ge 0\) 时，\(-a\le 0\)，\(t=0\) 离 \(-a\) 最近，</p>
-                <div class="formula-block">$$h_{\min}=(0+a)^2+1-a^2=1.$$</div>
+                <div class="formula-block">$$M(a)=(0+a)^2+1-a^2=a^2+1-a^2=1.$$</div>
                 <p>（ii）当 \(-\dfrac{3}{4}&lt;a&lt;0\) 时，\(0&lt;-a&lt;\dfrac{3}{4}\)，\(t\) 可以取到 \(-a\)，</p>
-                <div class="formula-block">$$h_{\min}=1-a^2.$$</div>
+                <div class="formula-block">$$M(a)=1-a^2.$$</div>
                 <p>（iii）当 \(a\le -\dfrac{3}{4}\) 时，\(-a\ge\dfrac{3}{4}\)，\(t=\dfrac{3}{4}\) 离 \(-a\) 最近，</p>
-                <div class="formula-block">$$h_{\min}=\left(\dfrac{3}{4}+a\right)^2+1-a^2$$</div>
+                <div class="formula-block">$$M(a)=\left(\dfrac{3}{4}+a\right)^2+1-a^2$$</div>
                 <div class="formula-block">$$=\dfrac{3}{2}a+\dfrac{25}{16}.$$</div>
-                <p>综上，</p>
-                <div class="formula-block">$$h_{\min}=\begin{cases} 1, & a\ge 0, \\ 1-a^2, & -\dfrac{3}{4}&lt;a&lt;0, \\ \dfrac{3}{2}a+\dfrac{25}{16}, & a\le -\dfrac{3}{4}. \end{cases}$$</div>
+                <p>综上，\(h(x)\) 在 \([0,1]\) 上的最小值为</p>
+                <div class="formula-block">$$M(a)=\begin{cases} 1, & a\ge 0, \\ 1-a^2, & -\dfrac{3}{4}&lt;a&lt;0, \\ \dfrac{3}{2}a+\dfrac{25}{16}, & a\le -\dfrac{3}{4}. \end{cases}$$</div>
             </div>
         </section>
 
@@ -368,17 +387,17 @@
             if (target <= 0) {
                 nearestT = 0;
                 caseDesc = "−a 在 0 的左边。最近点是左端 t = 0。";
-                minFormula = `h(x)_min = 1`;
+                minFormula = `M(a) = 1`;
             } else if (target < 0.75) {
                 nearestT = target;
                 caseDesc = "−a 在 [0, 3/4] 里面。t 可以取到 −a，距离平方是 0。";
                 const val = (1 - a * a).toFixed(4);
-                minFormula = `h(x)_min = 1 - a² = ${val}`;
+                minFormula = `M(a) = 1 − a² = ${val}`;
             } else {
                 nearestT = 0.75;
                 caseDesc = "−a 在 3/4 的右边。最近点是右端 t = 3/4。";
                 const val = (1.5 * a + 25 / 16).toFixed(4);
-                minFormula = `h(x)_min = (3/2)a + 25/16 = ${val}`;
+                minFormula = `M(a) = (3/2)a + 25/16 = ${val}`;
             }
 
             const nearestX = tToX(nearestT);
@@ -432,6 +451,153 @@
                 ? MathJax.startup.promise
                 : Promise.resolve();
             start.then(function () { current = null; render(); }).catch(function () { render(); });
+        })();
+    </script>
+    <script src="../../js/jsxgraphcore.js"></script>
+    <script>
+        (function () {
+            var box = document.getElementById("fg-curves");
+            if (!box || !window.JXG) {
+                if (box) box.textContent = "图像未能载入。";
+                return;
+            }
+            function f(x) { return (Math.pow(2, x) - Math.pow(2, -x)) / 2; }
+            function g(x) { return (Math.pow(2, x) + Math.pow(2, -x)) / 2; }
+            var board = JXG.JSXGraph.initBoard("fg-curves", {
+                boundingbox: [-0.72, 2.28, 1.78, -0.58],
+                axis: true,
+                grid: false,
+                keepAspectRatio: false,
+                showCopyright: false,
+                showNavigation: false,
+                showInfobox: false,
+                pan: { enabled: false },
+                zoom: { enabled: false, wheel: false, pinch: false },
+                defaultAxes: {
+                    x: {
+                        name: "x", withLabel: true, strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [-4, 14], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: {
+                            strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0,
+                            majorHeight: 8, drawZero: false,
+                            label: { fontSize: 13, strokeColor: "#64748b", offset: [0, -8] }
+                        }
+                    },
+                    y: {
+                        name: "y", withLabel: true, strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [8, 4], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: {
+                            strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0,
+                            majorHeight: 8, drawZero: false,
+                            label: { fontSize: 13, strokeColor: "#64748b", offset: [-12, 0], anchorX: "right" }
+                        }
+                    }
+                }
+            });
+            var label = { fixed: true, highlight: false, parse: false, fontSize: 14, cssStyle: "font-weight:700" };
+            board.create("segment", [[1, 0], [1, 5 / 4]], { strokeColor: "#cbd5e1", strokeWidth: 1.4, dash: 2, highlight: false });
+            board.create("functiongraph", [g, -0.28, 1.48], { strokeColor: "#ea580c", strokeWidth: 2.6, highlight: false, numberPoints: 180 });
+            board.create("functiongraph", [f, -0.28, 1.48], { strokeColor: "#2563eb", strokeWidth: 2.6, highlight: false, numberPoints: 180 });
+            function mark(xy, color) {
+                board.create("point", xy, {
+                    name: "", size: 3, face: "o", fillColor: color, strokeColor: color, strokeWidth: 2,
+                    fixed: true, highlight: false, showInfobox: false, withLabel: false
+                });
+            }
+            mark([0, 0], "#2563eb");
+            mark([1, 3 / 4], "#2563eb");
+            mark([0, 1], "#ea580c");
+            mark([1, 5 / 4], "#ea580c");
+            board.create("text", [0.12, -0.3, "f(0)=0"], Object.assign({ strokeColor: "#2563eb", anchorX: "left" }, label));
+            board.create("text", [0.14, 1.28, "g(0)=1"], Object.assign({ strokeColor: "#ea580c", anchorX: "left" }, label));
+            board.create("text", [1.1, 0.46, "f(1)=3/4"], Object.assign({ strokeColor: "#2563eb", anchorX: "left" }, label));
+            board.create("text", [0.62, 1.68, "g(1)=5/4"], Object.assign({ strokeColor: "#ea580c", anchorX: "left" }, label));
+            board.create("text", [1.38, 0.82, "f"], Object.assign({ strokeColor: "#2563eb" }, label));
+            board.create("text", [1.5, 1.95, "g"], Object.assign({ strokeColor: "#ea580c" }, label));
+            board.create("ticks", [board.defaultAxes.y, [3 / 4, 5 / 4]], {
+                drawLabels: true,
+                strokeColor: "#94a3b8",
+                majorHeight: 8,
+                label: { offset: [-12, 0], fontSize: 13, strokeColor: "#64748b", anchorX: "right" },
+                generateLabelText: function (tick) {
+                    var v = tick.usrCoords[2];
+                    if (Math.abs(v - 3 / 4) < 1e-6) return "3/4";
+                    if (Math.abs(v - 5 / 4) < 1e-6) return "5/4";
+                    return "";
+                }
+            });
+        })();
+    </script>
+    <script>
+        (function () {
+            var box = document.getElementById("m-graph");
+            if (!box || !window.JXG) {
+                if (box) box.textContent = "图像未能载入。";
+                return;
+            }
+            function line(a) { return 1.5 * a + 25 / 16; }
+            var board = JXG.JSXGraph.initBoard("m-graph", {
+                boundingbox: [-1.95, 1.72, 1.45, -1.48],
+                axis: true,
+                grid: false,
+                keepAspectRatio: false,
+                showCopyright: false,
+                showNavigation: false,
+                showInfobox: false,
+                pan: { enabled: false },
+                zoom: { enabled: false, wheel: false, pinch: false },
+                defaultAxes: {
+                    x: {
+                        name: "a", withLabel: true, strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [-4, 14], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: {
+                            strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0,
+                            majorHeight: 8, drawZero: false,
+                            label: { fontSize: 13, strokeColor: "#64748b", offset: [0, -8] }
+                        }
+                    },
+                    y: {
+                        name: "M", withLabel: true, strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [8, 4], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: {
+                            strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0,
+                            majorHeight: 8, drawZero: false,
+                            label: { fontSize: 13, strokeColor: "#64748b", offset: [-12, 0], anchorX: "right" }
+                        }
+                    }
+                }
+            });
+            var label = { fixed: true, highlight: false, parse: false, fontSize: 14, cssStyle: "font-weight:700" };
+            var curve = { strokeColor: "#2563eb", strokeWidth: 2.6, highlight: false };
+            board.create("segment", [[-3 / 4, 0], [-3 / 4, 7 / 16]], { strokeColor: "#cbd5e1", strokeWidth: 1.4, dash: 2, highlight: false });
+            board.create("functiongraph", [line, -1.82, -3 / 4], Object.assign({ numberPoints: 2 }, curve));
+            board.create("functiongraph", [function (a) { return 1 - a * a; }, -3 / 4, 0], Object.assign({ numberPoints: 80 }, curve));
+            board.create("functiongraph", [function () { return 1; }, 0, 1.28], Object.assign({ numberPoints: 2 }, curve));
+            function mark(xy) {
+                board.create("point", xy, {
+                    name: "", size: 3, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", strokeWidth: 2,
+                    fixed: true, highlight: false, showInfobox: false, withLabel: false
+                });
+            }
+            mark([-3 / 4, 7 / 16]);
+            mark([0, 1]);
+            board.create("text", [-1.88, -1.22, "(3/2)a+25/16"], Object.assign({ strokeColor: "#2563eb", anchorX: "left" }, label));
+            board.create("text", [-0.58, 0.28, "1−a²"], Object.assign({ strokeColor: "#2563eb", anchorX: "left" }, label));
+            board.create("text", [0.42, 1.22, "1"], Object.assign({ strokeColor: "#2563eb" }, label));
+            board.create("ticks", [board.defaultAxes.x, [-3 / 4]], {
+                drawLabels: true,
+                strokeColor: "#ea580c",
+                majorHeight: 10,
+                label: { offset: [0, -16], fontSize: 13, strokeColor: "#ea580c", cssStyle: "font-weight:700" },
+                generateLabelText: function () { return "−3/4"; }
+            });
+            board.create("ticks", [board.defaultAxes.y, [7 / 16]], {
+                drawLabels: true,
+                strokeColor: "#94a3b8",
+                majorHeight: 8,
+                label: { offset: [-12, 0], fontSize: 13, strokeColor: "#64748b", anchorX: "right" },
+                generateLabelText: function () { return "7/16"; }
+            });
         })();
     </script>
     <script src="../../js/site.js"></script>
