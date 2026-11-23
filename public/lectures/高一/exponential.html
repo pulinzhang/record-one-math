@@ -57,7 +57,7 @@
         </div>
         <div class="now-inner">
             <span class="now-label" id="nowLabel">原题</span>
-            <div class="now-text" id="nowText">已知奇函数 $f(x)$ 与偶函数 $g(x)$ 满足 $f(x)+g(x)=2^x$。<strong>（1）</strong> 求 $f(x)$，$g(x)$；<strong>（2）</strong> $g(m)=4$（$m&lt;0$），求 $f\left(\dfrac{3m}{2}\right)$；<strong>（3）</strong> $h(x)=2af(x)+[g(x)]^2$ 在 $[0,1]$ 上的最小值。</div>
+            <div class="now-text" id="nowText">已知奇函数 $f(x)$ 与偶函数 $g(x)$ 满足 $f(x)+g(x)=2^x$。<strong>（1）</strong> 求 $f(x)$，$g(x)$；<strong>（2）</strong> $g(m)=4$（$m&lt;0$），求 $f\left(\dfrac{3m}{2}\right)$；<strong>（3）</strong> 设 $a\in\mathbb{R}$，$h(x)=2af(x)+[g(x)]^2$ 在 $[0,1]$ 上的最小值。</div>
         </div>
     </div>
     <div class="container">
@@ -81,7 +81,7 @@
                 <p>已知奇函数 $f(x)$ 与偶函数 $g(x)$ 满足 $f(x) + g(x) = 2^x$ 。</p>
                 <p><strong>（1）</strong> 求 $f(x)$ ， $g(x)$ 的解析式；</p>
                 <p><strong>（2）</strong> 若 $g(m) = 4 \ (m < 0)$ ，求 $f\left(\dfrac{3m}{2}\right)$ 的值；</p>
-                <p><strong>（3）</strong> 若函数 $h(x) = 2af(x) + [g(x)]^2$ ，求 $h(x)$ 在 $x \in [0, 1]$ 上的最小值。</p>
+                <p><strong>（3）</strong> 设 $a\in\mathbb{R}$。若函数 $h(x) = 2af(x) + [g(x)]^2$ ，求 $h(x)$ 在 $x \in [0, 1]$ 上的最小值。</p>
             </div>
         </section>
 
@@ -178,26 +178,26 @@
         <section class="card" data-q="第（3）问" data-try>
             <div class="section-header">
                 <span class="step-num">3</span>
-                <h2>第（3）问：\(a\) 没给定，最小值跟着 \(a\) 变</h2>
+                <h2>第（3）问：谁没给定，最小值就依赖谁</h2>
             </div>
-            <div class="ask">$h(x)=2af(x)+[g(x)]^2$，求 $h(x)$ 在 $[0,1]$ 上的最小值。</div>
-            <p class="link-note">仍用第（1）问的 \(f\) 和 \(g\)。题面只写了求最小值。可以先自己做做看。</p>
+            <div class="ask">设 $a\in\mathbb{R}$。$h(x)=2af(x)+[g(x)]^2$，求 $h(x)$ 在 $[0,1]$ 上的最小值。</div>
+            <p class="link-note">仍用第（1）问的 \(f\) 和 \(g\)。先问：谁没给定？谁在变？最小值依赖谁？可以先自己做做看。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>题面只写了「求最小值」。单看这四个字，会去求一个数。\(a\) 没有给定。\(a\) 一变，最小值就变。要问的是：对每一个 \(a\)，最小值分别是多少？能不能先让 \(h\) 只跟着一个量变？</p>
+                <p>题面写了「求最小值」，也写了 \(a\in\mathbb{R}\)，区间是 \([0,1]\)，式子里还有 \([g(x)]^2\)。谁没给定？谁在变？最小值依赖谁？\(a\) 没给具体的数，\(a\) 在变，最小值依赖 \(a\)。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>「最小值」写成一个定值。\(a\) 还在 \(h\) 里，这个最小跟着 \(a\) 变。分界正好取到等号时，等号归哪一边，也容易漏。</p>
+                <p>把没给数的 \(a\) 读成待定的常数，最小值就剩一个数。闭区间上最低点落在哪，题面没说死，分界上的等号也容易归错。第三问出现 \([g(x)]^2\)，不用前面的平方关系，式子消不干净。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号不在「求最小值」四个字上。暗号是 \(h\) 里还有 \(a\)。有参数，最小值就不是一个数，而是关于这个参数的函数。这一处在招呼最小值函数。</p>
+                <p>看到参数，翻译成变量。看到闭区间再加上参数，翻译成最低点位置不定，要分类。看到「求最小值」但参数没给，翻译成求最小值函数 \(M(a)\)。看到 \([g(x)]^2\)，翻译成用平方关系化简。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">最小值函数</div>
-                <p>含参数的函数在闭区间上的最小值，先问它依不依赖这个参数。依赖，就把这个最小记成参数的函数，再写出它的解析式。</p>
-                <p>先别急着算一个数。\(a\) 没给定，最小就跟着 \(a\) 变。最后写出这个函数。</p>
+                <p>谁没给定，谁就是变量。最小值依赖谁，最小值就是谁的函数。所求是这个函数的解析式。</p>
+                <p>读题先找谁在变。题目说求最小值，就说求 \(M(a)\)。题目若说 \(a\) 变时最小值怎么变，就说研究 \(M(a)\) 的单调性。</p>
             </div>
 
             <div class="solution-step">
@@ -236,8 +236,9 @@
             <div class="solution-step">
                 <h3>记 \(M(a)\)，写出解析式</h3>
                 <div class="formula-block">$$h=t^2+2at+1$$</div>
-                <p>\(a\) 先定住。对每一个 \(a\)，在 \(t\in\left[0,\dfrac{3}{4}\right]\) 上的最小记成</p>
-                <div class="formula-block">$$M(a)=\min_{0\le t\le \dfrac{3}{4}}\left(t^2+2at+1\right).$$</div>
+                <p>设 \(a\in\mathbb{R}\)。\(a\) 若是给定的一个数，最小值是一个数。这里 \(a\in\mathbb{R}\)，\(a\) 可以变，最小值跟着变，所以这个最小是 \(a\) 的函数。求</p>
+                <div class="formula-block">$$M(a)=\min_{t\in\left[0,\dfrac{3}{4}\right]}\left(t^2+2at+1\right)$$</div>
+                <p>的解析式。</p>
                 <p>\(t^2+2at\) 凑成完全平方，要补 \(a^2\)，所以再减去它：</p>
                 <div class="formula-block">$$t^2+2at=(t+a)^2-a^2$$</div>
                 <div class="formula-block">$$h=(t+a)^2+1-a^2$$</div>
@@ -303,7 +304,7 @@
             </div>
 
             <div class="result-box">
-                <p>最小值函数的解析式是</p>
+                <p>最小值函数的解析式是（\(a\in\mathbb{R}\)）</p>
                 <div class="formula-block">$$M(a)=\begin{cases} 1, & a\ge 0, \\ 1-a^2, & -\dfrac{3}{4}&lt;a&lt;0, \\ \dfrac{3}{2}a+\dfrac{25}{16}, & a\le -\dfrac{3}{4}. \end{cases}$$</div>
             </div>
             <div class="canvas-wrap">
@@ -343,8 +344,9 @@
                 <div class="formula-block">$$h(x)=[f(x)]^2+2af(x)+1.$$</div>
                 <p>令 \(t=f(x)\)。\(x\) 增大时 \(2^x\) 增大、\(2^{-x}\) 减小，所以 \(f\) 在 \([0,1]\) 上递增。</p>
                 <div class="formula-block">$$f(0)=0,\qquad f(1)=\dfrac{3}{4}.$$</div>
-                <p>因此 \(t\in\left[0,\dfrac{3}{4}\right]\)。\(h(x)\) 在 \([0,1]\) 上的最小值即</p>
-                <div class="formula-block">$$M(a)=\min_{0\le t\le \dfrac{3}{4}}\left(t^2+2at+1\right).$$</div>
+                <p>因此 \(t\in\left[0,\dfrac{3}{4}\right]\)。设 \(a\in\mathbb{R}\)，\(h(x)\) 在 \([0,1]\) 上的最小值即</p>
+                <div class="formula-block">$$M(a)=\min_{t\in\left[0,\dfrac{3}{4}\right]}\left(t^2+2at+1\right).$$</div>
+                <p>下面求 \(M(a)\) 的解析式。</p>
                 <div class="formula-block">$$t^2+2at+1=(t+a)^2+1-a^2.$$</div>
                 <p>（i）当 \(a\ge 0\) 时，\(-a\le 0\)，\(t=0\) 离 \(-a\) 最近，</p>
                 <div class="formula-block">$$M(a)=(0+a)^2+1-a^2=a^2+1-a^2=1.$$</div>
@@ -353,7 +355,7 @@
                 <p>（iii）当 \(a\le -\dfrac{3}{4}\) 时，\(-a\ge\dfrac{3}{4}\)，\(t=\dfrac{3}{4}\) 离 \(-a\) 最近，</p>
                 <div class="formula-block">$$M(a)=\left(\dfrac{3}{4}+a\right)^2+1-a^2$$</div>
                 <div class="formula-block">$$=\dfrac{3}{2}a+\dfrac{25}{16}.$$</div>
-                <p>综上，\(h(x)\) 在 \([0,1]\) 上的最小值为</p>
+                <p>综上，当 \(a\in\mathbb{R}\) 时，</p>
                 <div class="formula-block">$$M(a)=\begin{cases} 1, & a\ge 0, \\ 1-a^2, & -\dfrac{3}{4}&lt;a&lt;0, \\ \dfrac{3}{2}a+\dfrac{25}{16}, & a\le -\dfrac{3}{4}. \end{cases}$$</div>
             </div>
         </section>
