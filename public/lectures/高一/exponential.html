@@ -223,51 +223,17 @@
                 <div class="formula-block">$$M(a)=\left(\dfrac{3}{4}+a\right)^2+1-a^2=\dfrac{3}{2}a+\dfrac{25}{16}.$$</div>
             </div>
 
-            <!-- 交互式靶心可视化演示 -->
             <div class="interactive-panel">
                 <div class="interactive-title">拖动 \(a\)，看谷底落在 \(\left[0,\dfrac{3}{4}\right]\) 的左边、里面还是右边</div>
                 <div class="slider-control">
                     <label for="paramA"><strong>参数 $a$ 的值：</strong></label>
                     <input type="range" id="paramA" min="-1.5" max="1.0" step="0.05" value="-0.4">
-                    <span id="aValDisplay" style="font-weight: 700; color: var(--primary); min-width: 70px;">a = -0.40</span>
-                </div>
-                <div class="canvas-wrap">
-                    <svg id="targetSvg" viewBox="0 0 600 130" width="600" height="130">
-                        <!-- 数轴主线 -->
-                        <line x1="40" y1="75" x2="560" y2="75" stroke="#94a3b8" stroke-width="2" />
-                        <polygon points="560,75 550,70 550,80" fill="#94a3b8" />
-                        <text x="568" y="80" fill="#64748b" font-size="14" font-weight="bold">t</text>
-
-                        <!-- 刻度参考线 -->
-                        <line x1="250" y1="68" x2="250" y2="82" stroke="#475569" stroke-width="2" />
-                        <text x="245" y="102" fill="#334155" font-size="13" font-weight="bold">0</text>
-
-                        <line x1="370" y1="68" x2="370" y2="82" stroke="#475569" stroke-width="2" />
-                        <text x="355" y="102" fill="#334155" font-size="13" font-weight="bold">3/4 (0.75)</text>
-
-                        <!-- 固定靶道 [0, 3/4] -->
-                        <rect x="250" y="69" width="120" height="12" fill="#3b82f6" opacity="0.35" rx="3" />
-                        <line x1="250" y1="75" x2="370" y2="75" stroke="#2563eb" stroke-width="5" />
-                        <circle cx="250" cy="75" r="5" fill="#2563eb" />
-                        <circle cx="370" cy="75" r="5" fill="#2563eb" />
-                        <text x="275" y="55" fill="#1d4ed8" font-size="13" font-weight="bold">t 的范围 [0, 3/4]</text>
-
-                        <!-- 最近点高亮连线 -->
-                        <line id="distLine" x1="314" y1="32" x2="314" y2="75" stroke="#10b981" stroke-width="2" stroke-dasharray="4,3" />
-                        <circle id="nearestDot" cx="314" cy="75" r="6" fill="#10b981" />
-
-                        <!-- 靶心 -a -->
-                        <g id="targetMarker" transform="translate(314, 75)">
-                            <circle cx="0" cy="0" r="10" fill="none" stroke="#ef4444" stroke-width="2" />
-                            <circle cx="0" cy="0" r="4" fill="#ef4444" />
-                            <text id="targetLabel" x="-28" y="-18" fill="#dc2626" font-size="13" font-weight="bold">-a = 0.40</text>
-                        </g>
-                    </svg>
+                    <span id="aValDisplay" style="font-weight: 700; color: var(--primary); min-width: 70px;">a = −0.4</span>
                 </div>
                 <div class="status-readout" id="statusText"></div>
                 <div class="canvas-wrap">
                     <div id="g-para" class="jxgbox" role="img" aria-label="开口向上的抛物线，对称轴是 -a。加粗的是 t 从 0 到 3/4。谷底在左边时最低点在 0，在里面时最低点在谷底，在右边时最低点在 3/4。"></div>
-                    <p class="cap">竖虚线是 \(t=\dfrac{3}{4}\)。加粗的是 \(\left[0,\dfrac{3}{4}\right]\)，两头都算。谷底放在横轴上：上下移动整条抛物线，最低点还在原来的 \(t\)。</p>
+                    <p class="cap">先看横轴上哪一点最低，再把这个 \(t\) 代回 \(t^2+2at+1\) 算高度。</p>
                 </div>
             </div>
 
@@ -332,35 +298,22 @@
     </div>
 
     <script>
-        const slider = document.getElementById('paramA');
-        const aValDisplay = document.getElementById('aValDisplay');
-        const targetMarker = document.getElementById('targetMarker');
-        const targetLabel = document.getElementById('targetLabel');
-        const nearestDot = document.getElementById('nearestDot');
-        const distLine = document.getElementById('distLine');
-        const statusText = document.getElementById('statusText');
-
-        // 映射 t 值到 SVG x 坐标: t=0 -> 250, t=0.75 -> 370 (每 0.25 对应 40px, 即 1 单位 = 160px)
-        function tToX(t) {
-            return 250 + t * 160;
-        }
-
+        var slider = document.getElementById("paramA");
+        var aValDisplay = document.getElementById("aValDisplay");
+        var statusText = document.getElementById("statusText");
+        if (slider && statusText) {
         function show(x) {
             var n = Math.round(x * 1e8) / 1e8;
             if (Math.abs(n - Math.round(n)) < 1e-8) return String(Math.round(n));
-            return String(n);
+            return n.toFixed(4).replace(/0+$/, "").replace(/\.$/, "");
         }
 
         function updateVisual() {
-            const a = parseFloat(slider.value);
-            const target = -a;
+            var a = parseFloat(slider.value);
+            var target = -a;
             aValDisplay.textContent = "a = " + show(a);
 
-            const targetX = tToX(target);
-            targetMarker.setAttribute('transform', `translate(${targetX}, 75)`);
-            targetLabel.textContent = "−a = " + show(target);
-
-            let nearestT, caseDesc, minFormula;
+            var nearestT, caseDesc, minFormula;
             if (target <= 0) {
                 nearestT = 0;
                 caseDesc = "顶点在 0 的左边或正好是 0。最低点在 t = 0。";
@@ -375,19 +328,13 @@
                 minFormula = "M(a) = (3/2)a + 25/16 = " + show(1.5 * a + 25 / 16);
             }
 
-            const nearestX = tToX(nearestT);
-            nearestDot.setAttribute('cx', nearestX);
-            distLine.setAttribute('x1', targetX);
-            distLine.setAttribute('y1', 75);
-            distLine.setAttribute('x2', nearestX);
-            distLine.setAttribute('y2', 75);
-
             var where = nearestT === 0 ? "0" : (nearestT === 0.75 ? "3/4" : show(nearestT));
             statusText.innerHTML = "<strong>" + caseDesc + "</strong><br>现在 −a = <code>" + show(target) + "</code>，最低点 t = <code>" + where + "</code>，最小值：<strong>" + minFormula + "</strong>";
         }
 
-        slider.addEventListener('input', updateVisual);
+        slider.addEventListener("input", updateVisual);
         updateVisual();
+        }
     </script>
     <script>
         (function () {

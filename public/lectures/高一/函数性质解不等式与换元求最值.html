@@ -92,11 +92,11 @@
             <div class="ask">求 \(f(1-2x)+f(2-x^2)&gt;0\) 的解集。</div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>外面套着 \(f\)，里面才是要解的式子。先不把指数代开。</p>
+                <p>外面套着 \(f\)，里面才是要解的式子。先不把指数代入。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>硬代会搅成四项。相加大于 \(0\) 就让两个括号直接比大小，负号会漏。</p>
+                <p>硬代入会搅成四项。相加大于 \(0\) 就让两个括号直接比大小，负号会漏。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
@@ -108,7 +108,7 @@
                 <p>递增就顺着脱，不等号不掉头。</p>
             </div>
             <div class="solution-step">
-                <p>不等式的定义域是 \(\mathbb{R}\)。硬代是</p>
+                <p>不等式的定义域是 \(\mathbb{R}\)。硬代入是</p>
                 <div class="formula-block">$$3^{1-2x}-3^{2x-1}+3^{2-x^2}-3^{x^2-2}&gt;0,$$</div>
                 <p>四项没有公因式。下面不走这条。</p>
             </div>
@@ -159,7 +159,7 @@
             <div class="mindset-box">
                 <div class="mindset-title">最小值函数</div>
                 <p>没给定的参数是变量。最小值依赖它，就把它记成最小值函数，再求解析式。</p>
-                <p>谁没给定是 \(m\)。设 \(M(m)\)。</p>
+                <p>没给定的是 \(m\)，最小值随 \(m\) 变，记作 \(M(m)\)。</p>
             </div>
             <div class="solution-step">
                 <div class="formula-block">$$(3^x-3^{-x})^2=9^x+9^{-x}-2.$$</div>
@@ -185,39 +185,12 @@
                 <div class="slider-control">
                     <label for="paramM"><strong>参数 \(m\) 的值：</strong></label>
                     <input type="range" id="paramM" min="-6" max="1" step="0.05" value="-3">
-                    <span id="mValDisplay" style="font-weight: 700; color: var(--primary); min-width: 88px;">m = −3.00</span>
-                </div>
-                <div class="canvas-wrap">
-                    <svg id="targetSvg" viewBox="0 0 600 130" role="img" aria-label="数轴上 t 从 8/3 起一直往右。红圈是 -m，绿点是这段上离它最近的 t。">
-                        <line x1="40" y1="75" x2="555" y2="75" stroke="#94a3b8" stroke-width="2" />
-                        <polygon points="560,75 550,70 550,80" fill="#94a3b8" />
-                        <text x="568" y="80" fill="#64748b" font-size="14" font-weight="bold">t</text>
-
-                        <line x1="126.3" y1="68" x2="126.3" y2="82" stroke="#475569" stroke-width="2" />
-                        <text x="122" y="102" fill="#334155" font-size="13" font-weight="bold">0</text>
-
-                        <line x1="276.3" y1="68" x2="276.3" y2="82" stroke="#475569" stroke-width="2" />
-                        <text x="262" y="102" fill="#334155" font-size="13" font-weight="bold">8/3</text>
-
-                        <rect x="276.3" y="69" width="272" height="12" fill="#3b82f6" opacity="0.35" rx="3" />
-                        <line x1="276.3" y1="75" x2="548" y2="75" stroke="#2563eb" stroke-width="5" />
-                        <circle cx="276.3" cy="75" r="5" fill="#2563eb" />
-                        <text x="330" y="42" fill="#1d4ed8" font-size="13" font-weight="bold">t 的范围 [8/3, +∞)</text>
-
-                        <line id="distLine" x1="295" y1="75" x2="295" y2="75" stroke="#10b981" stroke-width="2" stroke-dasharray="4,3" />
-                        <circle id="nearestDot" cx="295" cy="75" r="6" fill="#10b981" />
-
-                        <g id="targetMarker" transform="translate(295, 75)">
-                            <circle cx="0" cy="0" r="10" fill="none" stroke="#ef4444" stroke-width="2" />
-                            <circle cx="0" cy="0" r="4" fill="#ef4444" />
-                            <text id="targetLabel" x="0" y="-16" text-anchor="middle" fill="#dc2626" font-size="13" font-weight="bold">−m = 3.00</text>
-                        </g>
-                    </svg>
+                    <span id="mValDisplay" style="font-weight: 700; color: var(--primary); min-width: 88px;">m = −3</span>
                 </div>
                 <div class="status-readout" id="statusText"></div>
                 <div class="canvas-wrap">
                     <div id="g-para" class="jxgbox" role="img" aria-label="开口向上的抛物线，对称轴是 -m。竖虚线右边加粗的是 t 从 8/3 起的跑道。谷底在跑道左边时，最低点在 8/3；谷底滑进跑道时，最低点在谷底。"></div>
-                    <p class="cap">竖虚线是 \(t=\dfrac{8}{3}\)。加粗的那段才算数。谷底放在横轴上：上下移动整条抛物线，最低点还在原来的 \(t\)。</p>
+                    <p class="cap">先看横轴上哪一点最低，再把这个 \(t\) 代回 \(t^2+2mt+2\) 算高度。</p>
                 </div>
             </div>
             <div class="canvas-wrap">
@@ -317,39 +290,30 @@ f(1-2x)&gt;f(x^2-2)
         (function () {
             var slider = document.getElementById("paramM");
             var readout = document.getElementById("mValDisplay");
-            var marker = document.getElementById("targetMarker");
-            var label = document.getElementById("targetLabel");
-            var nearest = document.getElementById("nearestDot");
-            var line = document.getElementById("distLine");
             var status = document.getElementById("statusText");
-            if (!slider || !marker) return;
+            if (!slider || !status) return;
             var left = 8 / 3;
-            function tToX(t) {
-                return 70 + (t + 1) * (450 / 8);
+            function show(x) {
+                var n = Math.round(x * 1e8) / 1e8;
+                if (Math.abs(n - Math.round(n)) < 1e-8) return String(Math.round(n));
+                return n.toFixed(4).replace(/0+$/, "").replace(/\.$/, "");
             }
             function update() {
                 var m = parseFloat(slider.value);
                 var target = -m;
-                readout.textContent = "m = " + m.toFixed(2);
-                var targetX = tToX(target);
-                marker.setAttribute("transform", "translate(" + targetX + ", 75)");
-                label.textContent = "−m = " + target.toFixed(2);
+                readout.textContent = "m = " + show(m);
                 var nearestT, words, formula;
                 if (target <= left) {
                     nearestT = left;
                     words = "顶点在 8/3 的左边或正好是 8/3。最低点在 t = 8/3。";
-                    formula = "M(m) = (16/3)m + 82/9 = " + ((16 / 3) * m + 82 / 9).toFixed(4);
+                    formula = "M(m) = (16/3)m + 82/9 = " + show((16 / 3) * m + 82 / 9);
                 } else {
                     nearestT = target;
                     words = "顶点在 8/3 的右边。最低点就在这个顶点。";
-                    formula = "M(m) = 2 − m² = " + (2 - m * m).toFixed(4);
+                    formula = "M(m) = 2 − m² = " + show(2 - m * m);
                 }
-                var nearestX = tToX(nearestT);
-                nearest.setAttribute("cx", nearestX);
-                line.setAttribute("x1", targetX);
-                line.setAttribute("x2", nearestX);
-                var where = nearestT === left ? "8/3" : nearestT.toFixed(2);
-                status.innerHTML = "<strong>" + words + "</strong><br>现在 −m = <code>" + target.toFixed(2) + "</code>，最近点 t = <code>" + where + "</code>，最小值：<strong>" + formula + "</strong>";
+                var where = nearestT === left ? "8/3" : show(nearestT);
+                status.innerHTML = "<strong>" + words + "</strong><br>现在 −m = <code>" + show(target) + "</code>，最低点 t = <code>" + where + "</code>，最小值：<strong>" + formula + "</strong>";
             }
             slider.addEventListener("input", update);
             update();
@@ -418,22 +382,22 @@ f(1-2x)&gt;f(x^2-2)
             min.create("text", [-4.2, -12, "2-m^2"], Object.assign({ strokeColor: "#2563eb" }, label));
             min.create("text", [0.45, 7.2, "16m/3+82/9"], Object.assign({ strokeColor: "#ea580c" }, label));
 
-            var para = board("g-para", [-2.2, 17.2, 8.3, -2.4], "t", 1, 4);
+            var para = board("g-para", [-2.2, 20, 8.3, -3.4], "t", 1, 4);
             var leftT = 8 / 3;
             var mNow = -3;
             var tStar = 3;
             var yStar = 0;
             function wire(t) { return (t + mNow) * (t + mNow); }
-            para.create("segment", [[leftT, 0], [leftT, 15.6]], { strokeColor: "#64748b", strokeWidth: 1.4, dash: 2, highlight: false });
+            para.create("segment", [[leftT, 0], [leftT, 16.2]], { strokeColor: "#64748b", strokeWidth: 1.4, dash: 2, highlight: false });
             var axisLo = para.create("point", [-mNow, 0], { visible: false, fixed: true, withLabel: false });
-            var axisHi = para.create("point", [-mNow, 15.2], { visible: false, fixed: true, withLabel: false });
+            var axisHi = para.create("point", [-mNow, 16], { visible: false, fixed: true, withLabel: false });
             para.create("segment", [axisLo, axisHi], { strokeColor: "#dc2626", strokeWidth: 1.2, dash: 2, highlight: false });
             para.create("functiongraph", [wire, -2, leftT], { strokeColor: "#94a3b8", strokeWidth: 1.6, highlight: false, numberPoints: 80 });
             para.create("functiongraph", [wire, leftT, 8], { strokeColor: "#ea580c", strokeWidth: 3, highlight: false, numberPoints: 120 });
             para.create("segment", [[leftT, 0], [8.05, 0]], { strokeColor: "#ea580c", strokeWidth: 5, highlight: false });
             para.create("point", [leftT, 0], { name: "", size: 2.2, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", fixed: true, highlight: false, showInfobox: false, withLabel: false });
             para.create("text", [leftT, -1.7, "8/3"], { fixed: true, highlight: false, parse: false, fontSize: 13, anchorX: "middle", strokeColor: "#334155", cssStyle: "font-weight:700" });
-            para.create("text", [function () { return -mNow; }, 15.6, "−m"], { fixed: true, highlight: false, parse: false, fontSize: 13, anchorX: "middle", strokeColor: "#dc2626", cssStyle: "font-weight:700" });
+            para.create("text", [function () { return -mNow; }, 16.8, "−m"], { fixed: true, highlight: false, parse: false, fontSize: 13, anchorX: "middle", strokeColor: "#dc2626", cssStyle: "font-weight:700" });
             var low = para.create("point", [tStar, yStar], { name: "", size: 3, face: "o", fillColor: "#059669", strokeColor: "#059669", fixed: true, highlight: false, showInfobox: false, withLabel: false });
             para.create("text", [
                 function () { return tStar <= leftT + 1e-9 ? tStar - 1.15 : tStar; },
@@ -448,7 +412,7 @@ f(1-2x)&gt;f(x^2-2)
                 tStar = target <= leftT ? leftT : target;
                 yStar = wire(tStar);
                 axisLo.setPosition(JXG.COORDS_BY_USER, [target, 0]);
-                axisHi.setPosition(JXG.COORDS_BY_USER, [target, 15.2]);
+                axisHi.setPosition(JXG.COORDS_BY_USER, [target, 16]);
                 low.setPosition(JXG.COORDS_BY_USER, [tStar, yStar]);
                 para.update();
             }
