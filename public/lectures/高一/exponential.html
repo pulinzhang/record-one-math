@@ -272,7 +272,7 @@
 
             <!-- 交互式靶心可视化演示 -->
             <div class="interactive-panel">
-                <div class="interactive-title">拖动 \(a\)，看 \(-a\) 离 \(\left[0,\dfrac{3}{4}\right]\) 哪一头更近</div>
+                <div class="interactive-title">拖动 \(a\)，看谷底落在 \(\left[0,\dfrac{3}{4}\right]\) 的左边、里面还是右边</div>
                 <div class="slider-control">
                     <label for="paramA"><strong>参数 $a$ 的值：</strong></label>
                     <input type="range" id="paramA" min="-1.5" max="1.0" step="0.05" value="-0.4">
@@ -312,6 +312,10 @@
                     </svg>
                 </div>
                 <div class="status-readout" id="statusText"></div>
+                <div class="canvas-wrap">
+                    <div id="g-para" class="jxgbox" role="img" aria-label="开口向上的抛物线，对称轴是 -a。加粗的是 t 从 0 到 3/4。谷底在左边时最低点在 0，在里面时最低点在谷底，在右边时最低点在 3/4。"></div>
+                    <p class="cap">竖虚线是 \(t=\dfrac{3}{4}\)。加粗的是 \(\left[0,\dfrac{3}{4}\right]\)，两头都算。谷底放在横轴上：上下移动整条抛物线，最低点还在原来的 \(t\)。</p>
+                </div>
             </div>
 
             <div class="result-box">
@@ -618,6 +622,89 @@
                 label: { offset: [-12, 0], fontSize: 13, strokeColor: "#64748b", anchorX: "right" },
                 generateLabelText: function () { return "7/16"; }
             });
+        })();
+    </script>
+    <script>
+        (function () {
+            var box = document.getElementById("g-para");
+            if (!box || !window.JXG) {
+                if (box) box.textContent = "图像未能载入。";
+                return;
+            }
+            var rightT = 3 / 4;
+            var aNow = -0.4;
+            var tStar = 0.4;
+            var yStar = 0;
+            function wire(t) { return (t + aNow) * (t + aNow); }
+            var para = JXG.JSXGraph.initBoard("g-para", {
+                boundingbox: [-1.45, 3.15, 2.15, -0.72],
+                axis: true,
+                grid: false,
+                keepAspectRatio: false,
+                showCopyright: false,
+                showNavigation: false,
+                showInfobox: false,
+                pan: { enabled: false },
+                zoom: { enabled: false, wheel: false, pinch: false },
+                defaultAxes: {
+                    x: {
+                        name: "t", withLabel: true, strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [-2, 12], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0, majorHeight: 6, drawZero: false, label: { fontSize: 12, strokeColor: "#64748b", offset: [0, -5] } }
+                    },
+                    y: {
+                        name: "y", withLabel: true, strokeColor: "#94a3b8",
+                        label: { position: "rt", offset: [4, 2], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                        ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0, majorHeight: 6, drawZero: false, label: { fontSize: 12, strokeColor: "#64748b", offset: [-6, 0], anchorX: "right" } }
+                    }
+                }
+            });
+            para.create("segment", [[rightT, 0], [rightT, 2.7]], { strokeColor: "#64748b", strokeWidth: 1.4, dash: 2, highlight: false });
+            var axisLo = para.create("point", [-aNow, 0], { visible: false, fixed: true, withLabel: false });
+            var axisHi = para.create("point", [-aNow, 2.55], { visible: false, fixed: true, withLabel: false });
+            para.create("segment", [axisLo, axisHi], { strokeColor: "#dc2626", strokeWidth: 1.2, dash: 2, highlight: false });
+            var gray = { strokeColor: "#94a3b8", strokeWidth: 1.6, highlight: false, numberPoints: 80 };
+            var hot = { strokeColor: "#ea580c", strokeWidth: 3, highlight: false, numberPoints: 60 };
+            para.create("functiongraph", [wire, -1.3, 0], gray);
+            para.create("functiongraph", [wire, 0, rightT], hot);
+            para.create("functiongraph", [wire, rightT, 2], gray);
+            para.create("segment", [[0, 0], [rightT, 0]], { strokeColor: "#ea580c", strokeWidth: 5, highlight: false });
+            var endDot = { name: "", size: 2.2, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", fixed: true, highlight: false, showInfobox: false, withLabel: false };
+            para.create("point", [0, 0], endDot);
+            para.create("point", [rightT, 0], endDot);
+            para.create("text", [rightT, -0.48, "3/4"], { fixed: true, highlight: false, parse: false, fontSize: 13, anchorX: "middle", strokeColor: "#334155", cssStyle: "font-weight:700" });
+            para.create("text", [function () { return -aNow; }, 2.72, "−a"], { fixed: true, highlight: false, parse: false, fontSize: 13, anchorX: "middle", strokeColor: "#dc2626", cssStyle: "font-weight:700" });
+            var low = para.create("point", [tStar, yStar], { name: "", size: 3, face: "o", fillColor: "#059669", strokeColor: "#059669", fixed: true, highlight: false, showInfobox: false, withLabel: false });
+            para.create("text", [
+                function () {
+                    if (tStar <= 1e-9) return -0.48;
+                    if (tStar >= rightT - 1e-9) return tStar + 0.42;
+                    return tStar;
+                },
+                function () {
+                    if (tStar > 1e-9 && tStar < rightT - 1e-9) return 0.58;
+                    return yStar + 0.32;
+                },
+                "最低点"
+            ], { fixed: true, highlight: false, parse: false, fontSize: 14, anchorX: "middle", strokeColor: "#059669", cssStyle: "font-weight:700" });
+            var paramA = document.getElementById("paramA");
+            function slidePara() {
+                if (!paramA) return;
+                aNow = parseFloat(paramA.value);
+                var target = -aNow;
+                if (target <= 0) tStar = 0;
+                else if (target < rightT) tStar = target;
+                else tStar = rightT;
+                yStar = wire(tStar);
+                axisLo.setPosition(JXG.COORDS_BY_USER, [target, 0]);
+                axisHi.setPosition(JXG.COORDS_BY_USER, [target, 2.55]);
+                low.setPosition(JXG.COORDS_BY_USER, [tStar, yStar]);
+                para.update();
+            }
+            if (paramA) {
+                paramA.addEventListener("input", slidePara);
+                slidePara();
+            }
         })();
     </script>
     <script src="../../js/site.js"></script>
