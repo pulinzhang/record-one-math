@@ -1074,6 +1074,22 @@ body.catalog .bank a {
     font-weight: 700;
 }
 
+body.catalog .repo {
+    margin-top: 0.85rem;
+    font-size: 0.78rem;
+}
+
+body.catalog .repo a {
+    color: var(--muted);
+    font-weight: 500;
+    text-decoration: none;
+}
+
+body.catalog .repo a:hover {
+    color: var(--ink);
+    text-decoration: underline;
+}
+
 /* ---------- 平板、手机 ---------- */
 
 @media (min-width: 721px) {
