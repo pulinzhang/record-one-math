@@ -131,33 +131,27 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>\(t+5\) 升高、\(\dfrac{16}{t}\) 降低，对着走，不能只看一项就断定整体的增减。</p>
+                <p>用均值不等式时漏掉等号。\(t&gt;0\) 时等号要卡在 \(t=\dfrac{16}{t}\)。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是「求最小值」，再加上条件已经绑在一起。它招呼的是：换元，再作差看增减。</p>
+                <p>暗号是「求最小值」，再加上 \(t&gt;0\) 上的 \(t+\dfrac{16}{t}\)。它招呼的是：均值不等式。</p>
             </div>
             <div class="mindset-box">
-                <div class="mindset-title">换元</div>
-                <p>令 \(t=a-1\)。由 \(a&gt;1\) 得 \(t&gt;0\)。再代回后，\(a+4b\) 就是 \(t&gt;0\) 上的一个函数。</p>
-                <p>这一问的包是 \(a-1\)，起名 \(t\)。</p>
+                <div class="mindset-title">均值不等式</div>
+                <p>对正数 \(u,v\)，有 \(u+v\geqslant 2\sqrt{uv}\)，当且仅当 \(u=v\) 时等号成立。</p>
+                <p>\(t\) 和 \(\dfrac{16}{t}\) 都是正的，凑成一对去加。</p>
             </div>
             <div class="solution-step">
                 <p>令 \(t=a-1\)（\(t&gt;0\)）。由 \(xy=4\) 得 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。</p>
                 <div class="formula-block">$$a+4b=g(t)=t+5+\dfrac{16}{t}.$$</div>
+                <p>由均值不等式，\(t+\dfrac{16}{t}\geqslant 2\sqrt{t\cdot\dfrac{16}{t}}=8\)，当且仅当 \(t=\dfrac{16}{t}\)，即 \(t=4\) 时等号成立。故</p>
+                <div class="formula-block">$$g(t)\geqslant 13,$$</div>
+                <p>最小值是 \(13\)。这时 \(a=5\)，\(b=2\)。</p>
             </div>
             <div class="canvas-wrap">
-                <div id="g-parts" class="jxgbox" role="img" aria-label="t+5 升高，16 除以 t 降低"></div>
-                <p class="cap">蓝线是 \(t+5\)。橙线是 \(\dfrac{16}{t}\)。</p>
-            </div>
-            <div class="solution-step">
-                <p>两部分对着走。\(g\) 在 \((0,4]\) 上递减、在 \([4,+\infty)\) 上递增，作差写在标准解答里。最低在 \(t=4\)，</p>
-                <div class="formula-block">$$g(4)=13.$$</div>
-                <p>这时 \(a=5\)，\(b=2\)。</p>
-            </div>
-            <div class="canvas-wrap">
-                <div id="g-sum" class="jxgbox" role="img" aria-label="g(t) 等于 t 加 5 加 16 除以 t。在 (0,4] 上下降，在 [4, 正无穷) 上上升，t=4 时函数值是 13。"></div>
-                <p class="cap">\(t=4\) 时最低，\(g(4)=13\)。左边下降，右边上升。</p>
+                <div id="g-sum" class="jxgbox" role="img" aria-label="g(t) 等于 t 加 5 加 16 除以 t。t=4 时函数值是 13。"></div>
+                <p class="cap">看 \(t=4\) 这一点。\(g(4)=13\)。</p>
             </div>
             <div class="result-box">\(a+4b\) 的最小值是 \(13\)。</div>
         </section>
@@ -174,11 +168,11 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>只求出最小值 \(9\) 就停。这一问要的是值域，不是这一个数。</p>
+                <p>均值不等式只给出下界 \(9\)。这一问要的是值域，还要说明从 \(9\) 往上都能取到。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是「求取值范围」。它招呼的是：同一个换元，目标一换，函数就换，再看值域。</p>
+                <p>暗号是「求取值范围」。它招呼的是：同一个换元，目标一换，函数就换；下界用均值不等式，往上用 \([2,+\infty)\) 上的递增。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">目标函数</div>
@@ -186,14 +180,15 @@
                 <p>问的量换了，函数就换。要看的是值域。</p>
             </div>
             <div class="solution-step">
-                <p>仍用已经求出的 \(t=a-1&gt;0\)，\(a=t+1\)，\(b=1+\dfrac{4}{t}\)。</p>
+                <p>仍用 \(t=a-1&gt;0\)，\(a=t+1\)，\(b=1+\dfrac{4}{t}\)。</p>
                 <div class="formula-block">$$ab=f(t)=t+5+\dfrac{4}{t}.$$</div>
-                <p>\(f\) 在 \((0,2]\) 上递减、在 \([2,+\infty)\) 上递增，作差写在标准解答里。最低在 \(t=2\)，\(f(2)=9\)。\(t\) 靠近 \(0\) 或很大时 \(f(t)\) 都可以任意大。大于 \(9\) 的每个数左右各取一次，\(9\) 只在 \(t=2\) 取到。所以</p>
+                <p>由均值不等式，\(t+\dfrac{4}{t}\geqslant 2\sqrt{t\cdot\dfrac{4}{t}}=4\)，当且仅当 \(t=2\) 时等号成立。故 \(f(t)\geqslant 9\)，且 \(f(2)=9\)。再作差看 \(f\) 在 \([2,+\infty)\) 上递增，又 \(f(t)&gt;t\)，故</p>
                 <div class="formula-block">$$ab\in[9,+\infty).$$</div>
+                <p>作差写在标准解答里。</p>
             </div>
             <div class="canvas-wrap">
-                <div id="g-ab" class="jxgbox" role="img" aria-label="f(t) 等于 t 加 5 加 4 除以 t。t 大于 0。在 (0,2] 上下降，在 [2, 正无穷) 上上升。t=2 时函数值是 9。值域是 [9, 正无穷)。"></div>
-                <p class="cap">横轴上 \(t&gt;0\) 是定义域。曲线是 \(f\)。从 \(9\) 往上都能取到，\(9\) 取得到。值域是 \([9,+\infty)\)。</p>
+                <div id="g-ab" class="jxgbox" role="img" aria-label="f(t) 等于 t 加 5 加 4 除以 t。t 大于 0。t=2 时函数值是 9。值域是 [9, 正无穷)。"></div>
+                <p class="cap">看 \(t=2\) 这一点。从 \(9\) 往上都能取到。值域是 \([9,+\infty)\)。</p>
             </div>
             <div class="result-box">\(ab\in[9,+\infty)\)。</div>
         </section>
@@ -235,19 +230,20 @@
                 <p>由 \(ab=a+b+3\) 得 \(ab-a-b=3\)。两边加 \(1\)，</p>
                 <div class="formula-block">$$(a-1)(b-1)=4.$$</div>
                 <p>故 \(a-1\) 与 \(b-1\) 同号。若 \(0&lt;a&lt;1\) 且 \(0&lt;b&lt;1\)，则 \(0&lt;(1-a)(1-b)&lt;1\)，与乘积为 \(4\) 矛盾。又 \(a,b&gt;0\)，所以 \(a&gt;1\)，\(b&gt;1\)。</p>
-                <p>令 \(t=a-1\)。\(t\) 表示 \(a\) 比 \(1\) 大多少。\(t&gt;0\) 与 \(a&gt;1\) 一一对应，\(a=t+1\)，\(b-1=\dfrac{4}{t}\)，\(b=1+\dfrac{4}{t}\)。</p>
+                <p>令 \(t=a-1\)。\(t&gt;0\) 与 \(a&gt;1\) 一一对应，\(a=t+1\)，\(b-1=\dfrac{4}{t}\)，\(b=1+\dfrac{4}{t}\)。</p>
                 <p><strong>（1）</strong></p>
                 <div class="formula-block">$$a+4b=(t+1)+4\left(1+\dfrac{4}{t}\right)=t+5+\dfrac{16}{t}.$$</div>
-                <p>设 \(g(t)=t+5+\dfrac{16}{t}\)（\(t&gt;0\)）。任取 \(0&lt;t_1&lt;t_2\)，</p>
-                <div class="formula-block">$$g(t_1)-g(t_2)=(t_1-t_2)\cdot\dfrac{t_1 t_2-16}{t_1 t_2}.$$</div>
-                <p>当 \(0&lt;t_1&lt;t_2\leqslant 4\) 时，\(t_1 t_2&lt;t_2^2\leqslant 16\)，前一个不等号严格，故 \(t_1 t_2&lt;16\)，差为正，\(g\) 在 \((0,4]\) 上递减。当 \(4\leqslant t_1&lt;t_2\) 时，\(t_1 t_2&gt;t_1^2\geqslant 16\)，故 \(t_1 t_2&gt;16\)，差为负，\(g\) 在 \([4,+\infty)\) 上递增。</p>
-                <p>因此 \(t=4\) 时取得最小值 \(g(4)=13\)。此时 \(a=5\)，\(b=2\)，满足条件。故 \(a+4b\) 的最小值是 \(13\)。</p>
+                <p>设 \(g(t)=t+5+\dfrac{16}{t}\)（\(t&gt;0\)）。由均值不等式，</p>
+                <div class="formula-block">$$t+\dfrac{16}{t}\geqslant 2\sqrt{t\cdot\dfrac{16}{t}}=8,$$</div>
+                <p>当且仅当 \(t=\dfrac{16}{t}\)，即 \(t=4\) 时等号成立。故 \(g(t)\geqslant 13\)，最小值是 \(13\)。此时 \(a=5\)，\(b=2\)，满足条件。故 \(a+4b\) 的最小值是 \(13\)。</p>
                 <p><strong>（2）</strong></p>
                 <div class="formula-block">$$ab=(t+1)\left(1+\dfrac{4}{t}\right)=t+5+\dfrac{4}{t}.$$</div>
-                <p>设 \(f(t)=t+5+\dfrac{4}{t}\)（\(t&gt;0\)）。任取 \(0&lt;t_1&lt;t_2\)，</p>
-                <div class="formula-block">$$f(t_1)-f(t_2)=(t_1-t_2)\cdot\dfrac{t_1 t_2-4}{t_1 t_2}.$$</div>
-                <p>当 \(0&lt;t_1&lt;t_2\leqslant 2\) 时，\(t_1 t_2&lt;t_2^2\leqslant 4\)，前一个不等号严格，故 \(t_1 t_2&lt;4\)，差为正，\(f\) 在 \((0,2]\) 上递减。当 \(2\leqslant t_1&lt;t_2\) 时，\(t_1 t_2&gt;t_1^2\geqslant 4\)，故 \(t_1 t_2&gt;4\)，差为负，\(f\) 在 \([2,+\infty)\) 上递增。</p>
-                <p>因此 \(t=2\) 时取得最小值 \(f(2)=9\)，此时 \(a=b=3\)。\(t\) 靠近 \(0\) 时 \(f(t)\) 可以任意大，\(t\) 很大时 \(f(t)\) 也可以任意大。由上面的单调性，大于 \(9\) 的每个数在 \((0,2)\) 与 \((2,+\infty)\) 上各取一次，\(9\) 只在 \(t=2\) 取到。所以 \(ab\in[9,+\infty)\)。</p>
+                <p>设 \(f(t)=t+5+\dfrac{4}{t}\)（\(t&gt;0\)）。由均值不等式，</p>
+                <div class="formula-block">$$t+\dfrac{4}{t}\geqslant 2\sqrt{t\cdot\dfrac{4}{t}}=4,$$</div>
+                <p>当且仅当 \(t=2\) 时等号成立。故 \(f(t)\geqslant 9\)，且 \(f(2)=9\)。</p>
+                <p>对 \(2\leqslant t_1&lt;t_2\)，</p>
+                <div class="formula-block">$$f(t_2)-f(t_1)=(t_2-t_1)\left(1-\dfrac{4}{t_1t_2}\right).$$</div>
+                <p>此时 \(t_1t_2&gt;4\)，故 \(f(t_2)-f(t_1)&gt;0\)，\(f\) 在 \([2,+\infty)\) 上严格递增。又 \(f(t)&gt;t\)，故 \(f\) 在 \([2,+\infty)\) 上的值域是 \([9,+\infty)\)。所以 \(ab\in[9,+\infty)\)。</p>
             </div>
         </section>
     </div>
@@ -295,7 +291,7 @@
     <script src="../../js/jsxgraphcore.js"></script>
     <script>
         (function () {
-            var ids = ["g-xy", "g-parts", "g-sum", "g-ab"];
+            var ids = ["g-xy", "g-sum", "g-ab"];
             function failAll() {
                 ids.forEach(function (id) {
                     var box = document.getElementById(id);
@@ -343,26 +339,17 @@
             xy.create("text", [1.35, 5.15, "(1, 4)"], Object.assign({ strokeColor: "#ea580c" }, label));
             xy.create("text", [4.4, 1.85, "(4, 1)"], Object.assign({ strokeColor: "#ea580c" }, label));
             xy.create("text", [5.5, 3.5, "y=4/x"], Object.assign({ strokeColor: "#2563eb" }, label));
-            var parts = board("g-parts", [0, 28, 12, -3], "t", 2, 5);
-            parts.create("functiongraph", [function (t) { return t + 5; }, 0.5, 11.5], blue);
-            parts.create("functiongraph", [function (t) { return 16 / t; }, 0.6, 11.5], orange);
-            parts.create("text", [7.2, 16.5, "t+5"], Object.assign({ strokeColor: "#2563eb" }, label));
-            parts.create("text", [6.4, 5.4, "16/t"], Object.assign({ strokeColor: "#ea580c" }, label));
             var sum = board("g-sum", [0, 34, 14, -3], "t", 2, 5);
             sum.create("segment", [[0.4, 13], [13.4, 13]], dash);
             sum.create("segment", [[4, 0], [4, 13]], dash);
             sum.create("functiongraph", [function (t) { return t + 5 + 16 / t; }, 0.62, 13.2], blue);
             sum.create("point", [4, 13], dot);
-            sum.create("text", [1.2, 26, "下降"], Object.assign({ strokeColor: "#2563eb" }, label));
-            sum.create("text", [8.6, 26, "上升"], Object.assign({ strokeColor: "#2563eb" }, label));
             sum.create("text", [4.8, 22, "最小值 13"], Object.assign({ strokeColor: "#ea580c" }, label));
             var ab = board("g-ab", [0, 24, 11.2, -2], "t", 2, 5);
             ab.create("segment", [[0.25, 9], [10.8, 9]], dash);
             ab.create("segment", [[2, 0], [2, 9]], dash);
             ab.create("functiongraph", [function (t) { return t + 5 + 4 / t; }, 0.26, 10.8], blue);
             ab.create("point", [2, 9], dot);
-            ab.create("text", [0.45, 21.8, "下降"], Object.assign({ strokeColor: "#2563eb" }, label));
-            ab.create("text", [8.4, 21.2, "上升"], Object.assign({ strokeColor: "#2563eb" }, label));
             ab.create("text", [3.15, 14.2, "最小值 9"], Object.assign({ strokeColor: "#ea580c" }, label));
             ab.create("text", [3.5, 18.6, "值域 [9, +\u221e)"], Object.assign({ strokeColor: "#ea580c" }, label));
         })();
