@@ -117,14 +117,17 @@
                 <p>左边是 \((f+g)-(-f+g)=2f\)：</p>
                 <div class="formula-block">$$2f(x)=2^x-2^{-x}$$</div>
                 <div class="formula-block">$$f(x)=\dfrac{2^x-2^{-x}}{2}$$</div>
+                <h3>\(x=-1\)</h3>
+                <div class="formula-block">$$f(-1)=\dfrac{2^{-1}-2^{1}}{2}=\dfrac{\dfrac{1}{2}-2}{2}=-\dfrac{3}{4}$$</div>
+                <div class="formula-block">$$g(-1)=\dfrac{2^{-1}+2^{1}}{2}=\dfrac{\dfrac{1}{2}+2}{2}=\dfrac{5}{4}$$</div>
             </div>
 
             <div class="result-box">
                 \(f(x)=\dfrac{2^x-2^{-x}}{2}\)，\(g(x)=\dfrac{2^x+2^{-x}}{2}\)。
             </div>
             <div class="canvas-wrap">
-                <div id="fg-curves" class="jxgbox" role="img" aria-label="f 与 g 两条曲线。f(0) 等于 0，g(0) 等于 1，f(1) 等于 3/4，g(1) 等于 5/4"></div>
-                <p class="cap">蓝线是 \(f\)，橙线是 \(g\)。标出的是 \(x=0\) 和 \(x=1\) 处的值。</p>
+                <div id="fg-curves" class="jxgbox" role="img" aria-label="f 与 g 两条曲线。f(-1) 等于 -3/4，g(-1) 等于 5/4，f(0) 等于 0，g(0) 等于 1，f(1) 等于 3/4，g(1) 等于 5/4"></div>
+                <p class="cap">蓝线是 \(f\)，橙线是 \(g\)。标出的是 \(x=-1\)、\(x=0\) 和 \(x=1\) 处的值。</p>
             </div>
         </section>
 
@@ -132,30 +135,39 @@
         <section class="card" data-q="第（2）问">
             <div class="section-header">
                 <span class="step-num">2</span>
-                <h2>第（2）问：指数里有 \(3\)，先设 \(A\)、\(B\) 再立方</h2>
+                <h2>第（2）问：从 \(m\) 走到 \(\dfrac{3m}{2}\)，先开方再立方</h2>
             </div>
             <div class="ask">$g(m)=4$，且 $m&lt;0$。求 $f\left(\dfrac{3m}{2}\right)$ 的值。</div>
-            <p class="link-note">用第（1）问求出的 \(f(x)\) 和 \(g(x)\)。已知落在 \(g\) 上，要求的值落在 \(f\) 上。</p>
+            <p class="link-note">用第（1）问求出的 \(f(x)\) 和 \(g(x)\)。先看所求的指数，再看已知的指数。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>已知是 \(g(m)=4\)，所求是 \(f\left(\dfrac{3m}{2}\right)\)。从 \(\dfrac{m}{2}\) 到 \(\dfrac{3m}{2}\)，指数乘了 \(3\)。能不能先抓住和 \(\dfrac{m}{2}\) 有关的量？</p>
+                <p>先把所求写成</p>
+                <div class="formula-block">$$f\left(\dfrac{3m}{2}\right)=\dfrac{2^{\frac{3m}{2}}-2^{-\frac{3m}{2}}}{2}$$</div>
+                <p>指数是 \(\dfrac{3m}{2}\)。已知 \(g(m)=4\) 能定下来的是 \(2^m+2^{-m}\)。怎么从 \(m\) 走到 \(\dfrac{3m}{2}\)？</p>
             </div>
 
             <div class="mindset-box">
                 <div class="mindset-title">换元</div>
-                <p>令 \(A=2^{\frac{m}{2}}\)，\(B=2^{-\frac{m}{2}}\)。则 \(AB=1\)，且 \(2^{\frac{3m}{2}}=A^3\)，\(2^{-\frac{3m}{2}}=B^3\)。\(A\)、\(B\) 的范围由 \(m&lt;0\) 确定。</p>
-                <p>元，就是一个整体、一个组合、一个包。换元，就是把这个包当成一个元素，先给它起个名字，算完再拆包还原。这里两个包起名 \(A\)、\(B\)。算完再拆回原来的指数。</p>
+                <p>\(\dfrac{3m}{2}=3\cdot\dfrac{m}{2}\)。新元取 \(2^{\frac{m}{2}}\)：平方是已知的 \(2^m\)，立方是所求的 \(2^{\frac{3m}{2}}\)。范围由 \(m&lt;0\) 确定。</p>
+                <p>这一问的包是 \(2^{\frac{m}{2}}\) 和 \(2^{-\frac{m}{2}}\)。起名之后当元素算，算完再拆回指数。</p>
             </div>
 
             <div class="solution-step">
+                <h3>先写下所求的指数</h3>
+                <div class="formula-block">$$f\left(\dfrac{3m}{2}\right)=\dfrac{2^{\frac{3m}{2}}-2^{-\frac{3m}{2}}}{2}$$</div>
+                <p>指数是 \(\dfrac{3m}{2}\)。</p>
                 <h3>已知的是 \(2^m+2^{-m}\)</h3>
                 <div class="formula-block">$$g(m)=\dfrac{2^m+2^{-m}}{2}=4$$</div>
                 <div class="formula-block">$$2^m+2^{-m}=8$$</div>
-                <h3>令 \(A\)、\(B\)，先求 \(A-B\)</h3>
+                <h3>从 \(m\) 走到 \(\dfrac{3m}{2}\)：先开方，再立方</h3>
+                <p>\(2^m\) 开方，指数变成 \(\dfrac{m}{2}\)。再立方，指数变成 \(\dfrac{3m}{2}\)。</p>
+                <div class="formula-block">$$\left(2^m\right)^{\frac{1}{2}}=2^{\frac{m}{2}},\qquad \left(2^{\frac{m}{2}}\right)^3=2^{\frac{3m}{2}}$$</div>
+                <p>负指数同样：先开方得到 \(2^{-\frac{m}{2}}\)，再立方得到 \(2^{-\frac{3m}{2}}\)。</p>
+                <p>所以令</p>
                 <div class="formula-block">$$A=2^{\frac{m}{2}},\qquad B=2^{-\frac{m}{2}}$$</div>
-                <p>乘积是 \(1\)，平方和就是刚算出的 \(8\)：</p>
+                <p>于是 \(A^2=2^m\)，\(B^2=2^{-m}\)，\(A^3=2^{\frac{3m}{2}}\)，\(B^3=2^{-\frac{3m}{2}}\)。乘积是 \(1\)，平方和就是刚算出的 \(8\)：</p>
                 <div class="formula-block">$$AB=1,\qquad A^2+B^2=8$$</div>
-                <p>先平方 \(A-B\)，开方的符号留到下一步：</p>
+                <p>先平方 \(A-B\)，根号前的符号由 \(m&lt;0\) 决定：</p>
                 <div class="formula-block">$$(A-B)^2=A^2-2AB+B^2=A^2+B^2-2$$</div>
                 <div class="formula-block">$$(A-B)^2=8-2=6$$</div>
                 <p>\(m&lt;0\)，所以 \(\dfrac{m}{2}&lt;0\)。\(2^x\) 递增，\(2^{\frac{m}{2}}&lt;2^0=1\)，也就是 \(A&lt;1\)。</p>
@@ -165,7 +177,7 @@
                 <p>\(A^3-B^3=(A-B)(A^2+AB+B^2)\)。因为 \(AB=1\)，括号里是 \(A^2+B^2+1\)：</p>
                 <div class="formula-block">$$A^2+AB+B^2=8+1=9$$</div>
                 <div class="formula-block">$$A^3-B^3=(-\sqrt{6})\times 9=-9\sqrt{6}$$</div>
-                <p>\(2^{\frac{3m}{2}}=A^3\)，\(2^{-\frac{3m}{2}}=B^3\)，代回 \(f\)：</p>
+                <p>再代回 \(f\)：</p>
                 <div class="formula-block">$$f\left(\dfrac{3m}{2}\right)=\dfrac{A^3-B^3}{2}=-\dfrac{9\sqrt{6}}{2}$$</div>
             </div>
 
@@ -181,10 +193,10 @@
                 <h2>第（3）问：谁没给定，最小值就依赖谁</h2>
             </div>
             <div class="ask">设 $a\in\mathbb{R}$。$h(x)=2af(x)+[g(x)]^2$，求 $h(x)$ 在 $[0,1]$ 上的最小值。</div>
-            <p class="link-note">仍用第（1）问的 \(f\) 和 \(g\)。先问：谁没给定？谁在变？最小值依赖谁？可以先自己做做看。</p>
+            <p class="link-note">仍用第（1）问的 \(f\) 和 \(g\)。先念：谁没给定？最小值依赖谁？可以先自己做做看。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>题面写了「求最小值」，也写了 \(a\in\mathbb{R}\)，区间是 \([0,1]\)，式子里还有 \([g(x)]^2\)。谁没给定？谁在变？最小值依赖谁？\(a\) 没给具体的数，\(a\) 在变，最小值依赖 \(a\)。</p>
+                <p>题面写了「求最小值」，\(a\) 没有具体的数。谁没给定？最小值依赖谁？</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
@@ -192,12 +204,12 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>看到参数，翻译成变量。看到闭区间再加上参数，翻译成最低点位置不定，要分类。看到「求最小值」但参数没给，翻译成求最小值函数 \(M(a)\)。看到 \([g(x)]^2\)，翻译成用平方关系化简。</p>
+                <p>暗号是 \(a\) 没给数，又写「求最小值」。动作是：设 \(M(a)=\min\cdots\)。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">最小值函数</div>
-                <p>谁没给定，谁就是变量。最小值依赖谁，最小值就是谁的函数。所求是这个函数的解析式。</p>
-                <p>读题先找谁在变。题目说求最小值，就说求 \(M(a)\)。题目若说 \(a\) 变时最小值怎么变，就说研究 \(M(a)\) 的单调性。</p>
+                <p>没给定的参数是变量。最小值依赖它，就把它记成最小值函数，再求解析式。</p>
+                <p>谁没给定？→ \(a\)。最小值依赖谁？→ 依赖 \(a\)。所以设 \(M(a)=\min\cdots\)。</p>
             </div>
 
             <div class="solution-step">
@@ -236,9 +248,8 @@
             <div class="solution-step">
                 <h3>记 \(M(a)\)，写出解析式</h3>
                 <div class="formula-block">$$h=t^2+2at+1$$</div>
-                <p>设 \(a\in\mathbb{R}\)。\(a\) 若是给定的一个数，最小值是一个数。这里 \(a\in\mathbb{R}\)，\(a\) 可以变，最小值跟着变，所以这个最小是 \(a\) 的函数。求</p>
+                <p>谁没给定？→ \(a\)。最小值依赖谁？→ 依赖 \(a\)。所以设</p>
                 <div class="formula-block">$$M(a)=\min_{t\in\left[0,\dfrac{3}{4}\right]}\left(t^2+2at+1\right)$$</div>
-                <p>的解析式。</p>
                 <p>\(t^2+2at\) 凑成完全平方，要补 \(a^2\)，所以再减去它：</p>
                 <div class="formula-block">$$t^2+2at=(t+a)^2-a^2$$</div>
                 <div class="formula-block">$$h=(t+a)^2+1-a^2$$</div>
@@ -328,14 +339,15 @@
                 <p>①＋② 得 \(2g(x)=2^x+2^{-x}\)，①－② 得 \(2f(x)=2^x-2^{-x}\)。所以</p>
                 <div class="formula-block">$$f(x)=\dfrac{2^x-2^{-x}}{2}.$$</div>
                 <div class="formula-block">$$g(x)=\dfrac{2^x+2^{-x}}{2}.$$</div>
-                <p><strong>（2）</strong> 由 \(g(m)=4\) 得 \(2^m+2^{-m}=8\)。</p>
-                <p>令 \(A=2^{\frac{m}{2}}\)，\(B=2^{-\frac{m}{2}}\)，则 \(AB=1\)，\(A^2+B^2=8\)。</p>
+                <p><strong>（2）</strong> 由 \(g(m)=4\) 得 \(2^m+2^{-m}=8\)。所求为</p>
+                <div class="formula-block">$$f\left(\dfrac{3m}{2}\right)=\dfrac{2^{\frac{3m}{2}}-2^{-\frac{3m}{2}}}{2}.$$</div>
+                <p>\(\dfrac{3m}{2}=3\cdot\dfrac{m}{2}\)。\(2^m\) 开方得 \(2^{\frac{m}{2}}\)，再立方得 \(2^{\frac{3m}{2}}\)。令 \(A=2^{\frac{m}{2}}\)，\(B=2^{-\frac{m}{2}}\)，则 \(AB=1\)，\(A^2+B^2=8\)，且 \(2^{\frac{3m}{2}}=A^3\)，\(2^{-\frac{3m}{2}}=B^3\)。</p>
                 <div class="formula-block">$$(A-B)^2=A^2+B^2-2AB=6.$$</div>
                 <p>\(m&lt;0\)，故 \(\dfrac{m}{2}&lt;0\)，\(A=2^{\frac{m}{2}}&lt;1\)，\(B=2^{-\frac{m}{2}}&gt;1\)，从而 \(A-B&lt;0\)，</p>
                 <div class="formula-block">$$A-B=-\sqrt{6}.$$</div>
                 <div class="formula-block">$$A^3-B^3=(A-B)(A^2+AB+B^2)$$</div>
                 <div class="formula-block">$$=(A-B)(8+1)=(-\sqrt{6})\times 9=-9\sqrt{6}.$$</div>
-                <p>又 \(2^{\frac{3m}{2}}=A^3\)，\(2^{-\frac{3m}{2}}=B^3\)，所以</p>
+                <p>又 \(A^3-B^3\) 就是所求的分子，所以</p>
                 <div class="formula-block">$$f\left(\dfrac{3m}{2}\right)=\dfrac{A^3-B^3}{2}=-\dfrac{9\sqrt{6}}{2}.$$</div>
                 <p><strong>（3）</strong> 令 \(A=2^x\)，\(B=2^{-x}\)，则 \(AB=1\)，且 \(g=\dfrac{A+B}{2}\)，\(f=\dfrac{A-B}{2}\)。</p>
                 <div class="formula-block">$$g^2-f^2=\dfrac{(A+B)^2-(A-B)^2}{4}$$</div>
@@ -466,7 +478,7 @@
             function f(x) { return (Math.pow(2, x) - Math.pow(2, -x)) / 2; }
             function g(x) { return (Math.pow(2, x) + Math.pow(2, -x)) / 2; }
             var board = JXG.JSXGraph.initBoard("fg-curves", {
-                boundingbox: [-0.72, 2.28, 1.78, -0.58],
+                boundingbox: [-2.2, 2.35, 1.85, -1.35],
                 axis: true,
                 grid: false,
                 keepAspectRatio: false,
@@ -497,32 +509,38 @@
                 }
             });
             var label = { fixed: true, highlight: false, parse: false, fontSize: 14, cssStyle: "font-weight:700" };
+            board.create("segment", [[-1, -3 / 4], [-1, 5 / 4]], { strokeColor: "#cbd5e1", strokeWidth: 1.4, dash: 2, highlight: false });
             board.create("segment", [[1, 0], [1, 5 / 4]], { strokeColor: "#cbd5e1", strokeWidth: 1.4, dash: 2, highlight: false });
-            board.create("functiongraph", [g, -0.28, 1.48], { strokeColor: "#ea580c", strokeWidth: 2.6, highlight: false, numberPoints: 180 });
-            board.create("functiongraph", [f, -0.28, 1.48], { strokeColor: "#2563eb", strokeWidth: 2.6, highlight: false, numberPoints: 180 });
+            board.create("functiongraph", [g, -1.4, 1.48], { strokeColor: "#ea580c", strokeWidth: 2.6, highlight: false, numberPoints: 180 });
+            board.create("functiongraph", [f, -1.4, 1.48], { strokeColor: "#2563eb", strokeWidth: 2.6, highlight: false, numberPoints: 180 });
             function mark(xy, color) {
                 board.create("point", xy, {
                     name: "", size: 3, face: "o", fillColor: color, strokeColor: color, strokeWidth: 2,
                     fixed: true, highlight: false, showInfobox: false, withLabel: false
                 });
             }
+            mark([-1, -3 / 4], "#2563eb");
+            mark([-1, 5 / 4], "#ea580c");
             mark([0, 0], "#2563eb");
             mark([1, 3 / 4], "#2563eb");
             mark([0, 1], "#ea580c");
             mark([1, 5 / 4], "#ea580c");
+            board.create("text", [-2.02, 1.95, "g(-1)=5/4"], Object.assign({ strokeColor: "#ea580c", anchorX: "left" }, label));
+            board.create("text", [-0.78, -1.15, "f(-1)=−3/4"], Object.assign({ strokeColor: "#2563eb", anchorX: "left" }, label));
             board.create("text", [0.12, -0.3, "f(0)=0"], Object.assign({ strokeColor: "#2563eb", anchorX: "left" }, label));
             board.create("text", [0.14, 1.28, "g(0)=1"], Object.assign({ strokeColor: "#ea580c", anchorX: "left" }, label));
             board.create("text", [1.1, 0.46, "f(1)=3/4"], Object.assign({ strokeColor: "#2563eb", anchorX: "left" }, label));
             board.create("text", [0.62, 1.68, "g(1)=5/4"], Object.assign({ strokeColor: "#ea580c", anchorX: "left" }, label));
             board.create("text", [1.38, 0.82, "f"], Object.assign({ strokeColor: "#2563eb" }, label));
             board.create("text", [1.5, 1.95, "g"], Object.assign({ strokeColor: "#ea580c" }, label));
-            board.create("ticks", [board.defaultAxes.y, [3 / 4, 5 / 4]], {
+            board.create("ticks", [board.defaultAxes.y, [-3 / 4, 3 / 4, 5 / 4]], {
                 drawLabels: true,
                 strokeColor: "#94a3b8",
                 majorHeight: 8,
                 label: { offset: [-12, 0], fontSize: 13, strokeColor: "#64748b", anchorX: "right" },
                 generateLabelText: function (tick) {
                     var v = tick.usrCoords[2];
+                    if (Math.abs(v + 3 / 4) < 1e-6) return "−3/4";
                     if (Math.abs(v - 3 / 4) < 1e-6) return "3/4";
                     if (Math.abs(v - 5 / 4) < 1e-6) return "5/4";
                     return "";
