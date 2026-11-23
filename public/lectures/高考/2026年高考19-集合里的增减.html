@@ -280,6 +280,7 @@
                 <p>左边的指数函数算得清。函数值更小的点，能变大的移动更多。用这一点把右边的比较拉回来。</p>
             </div>
             <div class="solution-step">
+                <p>第（2）问的结论是：\(f(x_1)\leqslant f(x_2)\) 时 \(D(x_2)\subseteq D(x_1)\)。这一问把它当作条件①，直接用，不再证明。</p>
                 <p><strong>（i）</strong> \(x&lt;0\) 时 \(2^x\) 严格递增，值域为 \((0,1)\)。反设 \(f(0)&lt;1\)，则存在 \(u&lt;0\) 使 \(f(0)&lt;f(u)&lt;1\)。由①，\(D(u)\subseteq D(0)\)。</p>
                 <p>取 \(0&lt;h&lt;\min\{-u,1\}\)。则 \(u+h&lt;0\)，且 \(2^{u+h}&gt;2^u\)，故 \(h\in D(u)\subseteq D(0)\)，即 \(f(h)&gt;f(0)\)。又 \(0&lt;h&lt;1\)，由②得 \(f(h)&lt;f(0)\)，矛盾。所以 \(f(0)\geqslant 1\)。</p>
             </div>
@@ -318,7 +319,7 @@
                 <p>若 \(x_1&gt;0\)，\(x_2&lt;0\)，则 \(f(x_1)&lt;0&lt;f(x_2)\)，且 \(D(x_2)=(0,-x_2)\subseteq(0,+\infty)\subseteq D(x_1)\)。</p>
                 <p>若 \(x_1&lt;0&lt;x_2\)，则 \(f(x_1)&gt;0&gt;f(x_2)\)，与 \(f(x_1)\leqslant f(x_2)\) 矛盾，故不出现。因此 \(D(x_2)\subseteq D(x_1)\)。</p>
 
-                <p><strong>（3）（i）</strong> \(x&lt;0\) 时 \(2^x\) 严格递增，值域为 \((0,1)\)。反设 \(f(0)&lt;1\)，则存在 \(u&lt;0\) 使 \(f(0)&lt;2^u&lt;1\)，即 \(f(0)&lt;f(u)\)。由①，\(D(u)\subseteq D(0)\)。</p>
+                <p><strong>（3）（i）</strong> 由第（2）问的结论，\(f(x_1)\leqslant f(x_2)\) 时 \(D(x_2)\subseteq D(x_1)\)。此即条件①。\(x&lt;0\) 时 \(2^x\) 严格递增，值域为 \((0,1)\)。反设 \(f(0)&lt;1\)，则存在 \(u&lt;0\) 使 \(f(0)&lt;2^u&lt;1\)，即 \(f(0)&lt;f(u)\)。由①，\(D(u)\subseteq D(0)\)。</p>
                 <p>取 \(0&lt;h&lt;\min\{-u,1\}\)，则 \(u+h&lt;0\)，且 \(2^{u+h}&gt;2^u\)，故 \(h\in D(u)\subseteq D(0)\)，即 \(f(h)&gt;f(0)\)。但 \(0&lt;h&lt;1\)，由②得 \(f(h)&lt;f(0)\)，矛盾。所以 \(f(0)\geqslant 1\)。</p>
 
                 <p><strong>（ii）</strong> 先证两条比较。</p>
