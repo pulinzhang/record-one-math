@@ -178,26 +178,26 @@
         <section class="card" data-q="第（3）问" data-try>
             <div class="section-header">
                 <span class="step-num">3</span>
-                <h2>第（3）问：这个最小值是 \(a\) 的函数，写出解析式</h2>
+                <h2>第（3）问：\(a\) 没给定，最小值跟着 \(a\) 变</h2>
             </div>
             <div class="ask">$h(x)=2af(x)+[g(x)]^2$，求 $h(x)$ 在 $[0,1]$ 上的最小值。</div>
-            <p class="link-note">仍用第（1）问的 \(f\) 和 \(g\)。所求是这个最小值的解析式。可以先自己做做看。</p>
+            <p class="link-note">仍用第（1）问的 \(f\) 和 \(g\)。题面只写了求最小值。可以先自己做做看。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>已知是 \(h(x)=2af(x)+[g(x)]^2\)，所求是它在 \([0,1]\) 上的最小值。式子里有 \(a\)，这个最小值跟着 \(a\) 变。要写的是这个函数的解析式。能不能先让 \(h\) 只跟着一个量变？</p>
+                <p>题面只写了「求最小值」。单看这四个字，会去求一个数。\(a\) 没有给定。\(a\) 一变，最小值就变。要问的是：对每一个 \(a\)，最小值分别是多少？能不能先让 \(h\) 只跟着一个量变？</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>「最小值」容易写成一个定值。\(a\) 还在 \(h\) 里，这个最小跟着 \(a\) 变，要写成 \(a\) 的解析式。分界正好取到等号时，等号归哪一边，也容易漏。</p>
+                <p>「最小值」写成一个定值。\(a\) 还在 \(h\) 里，这个最小跟着 \(a\) 变。分界正好取到等号时，等号归哪一边，也容易漏。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>题干把带着 \(a\) 的 \(h\)，和「在 \([0,1]\) 上的最小值」放在一起。这一处在招呼最小值函数。所求是这个函数的解析式。</p>
+                <p>暗号不在「求最小值」四个字上。暗号是 \(h\) 里还有 \(a\)。有参数，最小值就不是一个数，而是关于这个参数的函数。这一处在招呼最小值函数。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">最小值函数</div>
-                <p>含参数 \(a\) 的函数在闭区间上的最小值，是 \(a\) 的函数。先固定 \(a\)，再就 \(a\) 写出这个最小的解析式。</p>
-                <p>\(a\) 先定住。这段上的最小写成 \(a\) 的式子。这个式子就是所求。</p>
+                <p>含参数的函数在闭区间上的最小值，先问它依不依赖这个参数。依赖，就把这个最小记成参数的函数，再写出它的解析式。</p>
+                <p>先别急着算一个数。\(a\) 没给定，最小就跟着 \(a\) 变。最后写出这个函数。</p>
             </div>
 
             <div class="solution-step">
@@ -236,7 +236,7 @@
             <div class="solution-step">
                 <h3>记 \(M(a)\)，写出解析式</h3>
                 <div class="formula-block">$$h=t^2+2at+1$$</div>
-                <p>所求就是下面这个函数的解析式。\(a\) 先定住，再在 \(t\in\left[0,\dfrac{3}{4}\right]\) 上求最小。记</p>
+                <p>\(a\) 先定住。对每一个 \(a\)，在 \(t\in\left[0,\dfrac{3}{4}\right]\) 上的最小记成</p>
                 <div class="formula-block">$$M(a)=\min_{0\le t\le \dfrac{3}{4}}\left(t^2+2at+1\right).$$</div>
                 <p>\(t^2+2at\) 凑成完全平方，要补 \(a^2\)，所以再减去它：</p>
                 <div class="formula-block">$$t^2+2at=(t+a)^2-a^2$$</div>
