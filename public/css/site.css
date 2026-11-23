@@ -459,7 +459,7 @@ body.lecture .slider-control {
     display: flex;
     align-items: center;
     gap: 1rem;
-    margin: 1rem 0;
+    margin: 1rem 0 0.55rem;
     flex-wrap: wrap;
 }
 
@@ -469,6 +469,37 @@ body.lecture input[type="range"] {
     width: 100%;
     accent-color: var(--primary);
     cursor: pointer;
+}
+
+body.lecture .slider-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-bottom: 0.85rem;
+}
+
+body.lecture .slider-actions button {
+    appearance: none;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--primary);
+    font: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.35rem 0.85rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+body.lecture .slider-actions button:hover {
+    background: var(--primary-light);
+    border-color: #c5d4e4;
+}
+
+body.lecture .slider-actions button[aria-pressed="true"] {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
 }
 
 body.lecture .status-readout {
@@ -1122,6 +1153,7 @@ body.catalog .bank a {
     body.lecture .guide,
     body.lecture .to-top,
     body.lecture .slider-control,
+    body.lecture .slider-actions,
     body.lecture .interactive-title,
     body.lecture .status-readout { display: none !important; }
 

@@ -63,8 +63,8 @@
         <header>
             <div class="section-kicker">对勾函数</div>
             <h1>作差看增减，方程里再换元</h1>
-            <p>\(f(x)=x+\dfrac{1}{x}\)。单调性由 \(f(x_1)-f(x_2)\) 的符号判定。方程中令 \(t=x+\dfrac{1}{x}\) 换元。</p>
-            <p>没学导数，拿两个点来比。方程里那一块先起名，算完再拆开。</p>
+            <p>\(f(x)=x+\dfrac{1}{x}\)。单调性由 \(f(x_1)-f(x_2)\) 的符号判定。方程中令 \(t=x+\dfrac{1}{x}\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
+            <p>没学导数，拿两个点来比。方程里那一块起名 \(t\)，算完再代回。</p>
             <div class="badge-group">
                 <span class="badge">作差看符号</span>
                 <span class="badge">两端相减</span>
@@ -90,12 +90,20 @@
             <div class="ask">$f(x)=x+\dfrac{1}{x}$。判断并证明它在 $(1,+\infty)$ 上的单调性。</div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>\(x\) 增大时，第一项 \(x\) 增大，第二项 \(\dfrac{1}{x}\) 减小，两项对着走。所求是加起来以后往哪边变。能不能只拿两个点来比？</p>
+                <p>两项对着走。所求是加起来以后往哪边变。能不能只拿两个点来比？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>一项升高、一项降低，对着走，不能只看一项就断定整体的增减。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是「判断并证明单调性」，再加上还没学导数。它招呼的是：作差法。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">作差法</div>
                 <p>设 \(1&lt;x_1&lt;x_2\)。若 \(f(x_1)-f(x_2)&lt;0\)，则 \(f\) 在 \((1,+\infty)\) 上单调递增。</p>
-                <p>没学导数。拿两个点，只看函数值的差是不是负数。</p>
+                <p>拿两个点，只看函数值的差是不是负数。</p>
             </div>
             <div class="solution-step">
                 <p>\(x_1\) 更小，\(\dfrac{1}{x_1}\) 更大。两截对着干，通分后提出 \(x_1-x_2\)：</p>
@@ -113,28 +121,27 @@
                 <h2>第（2）问：已经递增，两端相减</h2>
             </div>
             <div class="ask">对任意 $x_1,x_2\in[1,3]$，总有 $|f(x_1)-f(x_2)|\le m$。求 $m$ 的最小值。</div>
-            <p class="link-note">用第（1）问：\(f\) 在 \((1,+\infty)\) 上单调递增。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>所求不是某一个函数值，而是 \([1,3]\) 上任意两点最多差多少。第（1）问已经递增。最大的差，是不是就是两端相减？</p>
+                <p>所求不是某一个函数值，而是 \([1,3]\) 上任意两点最多差多少。已经递增。最大的差，是不是就是两端相减？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>在中间再找几个点去比。递增时，差得最远的就是两端。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是「任意两点」的差有上界，再加上已经递增。它招呼的是：端点函数值之差。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">端点函数值之差</div>
                 <p>若 \(f\) 在 \([1,3]\) 上单调递增，则对任意 \(x_1,x_2\in[1,3]\)，\(|f(x_1)-f(x_2)|\leqslant f(3)-f(1)\)。</p>
-                <p>一直在升高。这段里差得最远的，就是右端减去左端。</p>
+                <p>一直在升高。差得最远的，就是右端减去左端。</p>
             </div>
             <div class="solution-step">
-                <p>由（1），在 \([1,3]\) 上递增。直接两端相减：</p>
+                <p>由已经证明的递增，在 \([1,3]\) 上直接两端相减：</p>
                 <div class="formula-block">$$f(1)=2,\qquad f(3)=\frac{10}{3}$$</div>
                 <div class="formula-block">$$f(3)-f(1)=\frac{4}{3}$$</div>
-            </div>
-            <div class="matryoshka-box">
-                <div class="matryoshka-title">\(x\) 在 \([1,3]\) 上，\(f(x)\) 就在两端之间</div>
-                <div class="flow-chain">
-                    <span class="flow-node">$x\in[1,3]$</span>
-                    <span class="flow-arrow">$\xrightarrow{f}$</span>
-                    <span class="flow-node">$f(x)\in\left[2,\dfrac{10}{3}\right]$</span>
-                </div>
             </div>
             <div class="result-box">
                 $m$ 的最小值是 $\dfrac{4}{3}$。
@@ -147,39 +154,30 @@
                 <h2>第（3）问：换元，先换成 \(t\)</h2>
             </div>
             <div class="ask">方程 $f(x^2)-\lambda f(x)+3=0$ 在 $(1,+\infty)$ 上有且只有一个根。求 $\lambda$ 的取值范围。</div>
-            <p class="link-note">用第（1）问：\(f\) 在 \((1,+\infty)\) 上单调递增。第（2）问用的是：递增时，一段上的函数值落在两端之间。这一问里 \(t+\dfrac{1}{t}\) 还是这个 \(f\)，字母换成 \(t\)。可以先自己做做看。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>方程里同时有 \(f(x^2)\) 和 \(f(x)\)，还有待定的 \(\lambda\)。所求是 \(\lambda\) 取哪些数时，大于 \(1\) 的根恰好一个。这两处函数值，能不能都写成同一个字母？</p>
+                <p>方程里同时有 \(f(x^2)\) 和 \(f(x)\)，还有待定的 \(\lambda\)。这两处函数值，能不能都写成同一个字母？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>\(\lambda=\dfrac{5}{2}\) 时交在 \(t=2\)，题目要的是严格大于 \(2\)。等号取不到。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是 \(f(x^2)\) 与 \(f(x)\) 这一组合，再加上待定的 \(\lambda\)。它招呼的是：换元。\(\lambda\) 读作「兰布达」。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">换元</div>
-                <p>令 \(t=x+\dfrac{1}{x}\)（\(x&gt;1\)）。由 \(x\) 的范围确定 \(t\) 的范围。二者一一对应时，式子的取值不变，计算后再代回 \(x\)。</p>
-                <p>元，就是一个整体、一个组合、一个包。换元，就是把这个包当成一个元素，先给它起个名字，算完再拆包还原。这里的包是 \(x+\dfrac{1}{x}\)，起名 \(t\)。解出来 \(t+\dfrac{1}{t}\) 再起名 \(\lambda\)。\(\lambda\) 读作“兰布达”。</p>
+                <p>令 \(t=x+\dfrac{1}{x}\)（\(x&gt;1\)）。由 \(x&gt;1\) 得 \(t&gt;2\)。</p>
+                <p>这一问的包是 \(x+\dfrac{1}{x}\)，起名 \(t\)。解出来 \(t+\dfrac{1}{t}\) 就是 \(\lambda\)。</p>
             </div>
 
             <div class="solution-step">
-                <h3>先都写成 \(t\)</h3>
-                <p>令 \(t=x+\dfrac{1}{x}\)，\(x&gt;1\)。</p>
-                <p>\((x-1)^2&gt;0\)，即 \(x^2+1&gt;2x\)。两边除以正数 \(x\)。等号仅当 \(x=1\)，不在定义域内，故</p>
-                <div class="formula-block">$$t=x+\dfrac{1}{x}&gt;2.$$</div>
-                <p>令 \(t=x+\dfrac{1}{x}\)。\(t\) 的范围是 \((2,+\infty)\)，\(x&gt;1\) 与 \(t&gt;2\) 一一对应，\(f(x^2)\) 的取值不变。</p>
-                <p>令 \(A=x\)，\(B=\dfrac{1}{x}\)。\(AB=1\)，\(t=A+B\)，故</p>
-                <div class="formula-block">$$(A+B)^2=A^2+2AB+B^2=A^2+B^2+2,\qquad f(x^2)=t^2-2.$$</div>
+                <p>令 \(t=x+\dfrac{1}{x}\)，\(x&gt;1\)。由 \((x-1)^2&gt;0\) 得 \(t&gt;2\)，\(x&gt;1\) 与 \(t&gt;2\) 一一对应。令 \(A=x\)，\(B=\dfrac{1}{x}\)，则 \(AB=1\)，</p>
+                <div class="formula-block">$$f(x^2)=t^2-2.$$</div>
                 <p>原方程化为 \(t^2-\lambda t+1=0\)。\(t&gt;2\)，故</p>
                 <div class="formula-block">$$\lambda=t+\frac{1}{t}.$$</div>
-                <p>记 \(G(t)=t+\dfrac{1}{t}\)（\(t&gt;2\)）。\(t\) 的范围仍是 \((2,+\infty)\)。\(G\) 即（1）中的 \(f\)，\(G(2)=\dfrac{5}{2}\)。由（1），\(G\) 在 \((2,+\infty)\) 上严格递增。又 \(G(t)&gt;t\)，故值域为 \(\left(\dfrac{5}{2},+\infty\right)\)。这就是 \(\lambda\) 的取值范围。故任意 \(\lambda&gt;\dfrac{5}{2}\) 对应唯一的 \(t&gt;2\)，从而对应唯一的 \(x&gt;1\)。</p>
-            </div>
-
-            <div class="matryoshka-box">
-                <div class="matryoshka-title">先由 \(x\) 得到 \(t\)，再由 \(t\) 得到 \(\lambda\)</div>
-                <div class="flow-chain">
-                    <span class="flow-node">$x\in(1,+\infty)$</span>
-                    <span class="flow-arrow">$\xrightarrow{\,f\,}$</span>
-                    <span class="flow-node">$t\in(2,+\infty)$</span>
-                    <span class="flow-arrow">$\xrightarrow{\,G\,}$</span>
-                    <span class="flow-node">$\lambda\in\left(\dfrac{5}{2},+\infty\right)$</span>
-                </div>
+                <p>记 \(G(t)=t+\dfrac{1}{t}\)（\(t&gt;2\)）。\(G\) 就是已经证明递增的那个 \(f\)，字母换成 \(t\)。\(G(2)=\dfrac{5}{2}\)，严格递增，又 \(G(t)&gt;t\)，故值域为 \(\left(\dfrac{5}{2},+\infty\right)\)。任意 \(\lambda&gt;\dfrac{5}{2}\) 对应唯一的 \(t&gt;2\)，从而对应唯一的 \(x&gt;1\)。</p>
             </div>
 
             <div class="interactive-panel">
@@ -188,7 +186,7 @@
                 <div class="slider-control">
                     <label for="lambdaSlider"><strong>$\lambda$：</strong></label>
                     <input type="range" id="lambdaSlider" min="2" max="6" step="0.05" value="3">
-                    <span id="lambdaReadout" style="font-weight:700;color:var(--primary);min-width:88px;">λ = 3.00</span>
+                    <span id="lambdaReadout" style="font-weight:700;color:var(--primary);min-width:88px;">λ = 3</span>
                 </div>
                 <div class="canvas-wrap">
                     <div id="hookBoard" class="jxgbox" role="img" aria-label="对勾函数 t 加 1 除以 t，竖虚线是 t 等于 2，横虚线是 5/2，实线是当前的 lambda"></div>
@@ -268,9 +266,15 @@
         const hit = hookBoard.create('point', [3, 3], { visible: false, name: '', size: 3, face: 'o', fillColor: '#059669', strokeColor: '#059669', fixed: true, highlight: false, showInfobox: false, withLabel: false });
         const miss = hookBoard.create('point', [1, 3], { visible: false, name: '', size: 2.6, face: 'o', fillColor: '#fff', strokeColor: '#94a3b8', strokeWidth: 2, fixed: true, highlight: false, showInfobox: false, withLabel: false });
 
+        function show(x) {
+            var n = Math.round(x * 1e8) / 1e8;
+            if (Math.abs(n - Math.round(n)) < 1e-8) return String(Math.round(n));
+            return n.toFixed(4).replace(/0+$/, "").replace(/\.$/, "");
+        }
+
         function update() {
             const lambda = parseFloat(slider.value);
-            readout.textContent = 'λ = ' + lambda.toFixed(2);
+            readout.textContent = 'λ = ' + show(lambda);
             leftEnd.setPosition(JXG.COORDS_BY_USER, [0.4, lambda]);
             rightEnd.setPosition(JXG.COORDS_BY_USER, [6.3, lambda]);
             const disc = lambda * lambda - 4;
@@ -278,7 +282,7 @@
                 hit.setAttribute({ visible: false });
                 miss.setAttribute({ visible: false });
                 hookBoard.update();
-                statusEl.innerHTML = '<strong>t &gt; 2 上没有交点。</strong>横线低于整条曲线在 t = 1 处取到的 2。题目要的是 t &gt; 2，这段上曲线都高于 5/2，横线比 5/2 还低。';
+                statusEl.innerHTML = '<strong>t &gt; 2 上没有交点。</strong>横线低于临界高度 5/2。';
                 return;
             }
             const root = (lambda + Math.sqrt(disc)) / 2;
@@ -297,11 +301,11 @@
             }
             hookBoard.update();
             if (root > 2 + 1e-6) {
-                statusEl.innerHTML = '<strong>t &gt; 2 上恰好一个交点。</strong>交点约为 t = ' + root.toFixed(2) + '。另一个交点在 2 的左边，题目只要大于 2 的这一段。';
+                statusEl.innerHTML = '<strong>t &gt; 2 上恰好一个交点。</strong>交点约在 t = ' + show(root) + '。';
             } else if (Math.abs(root - 2) < 1e-6) {
                 statusEl.innerHTML = '<strong>t &gt; 2 上没有交点。</strong>λ = 5/2 时交在 t = 2，题目要的是严格大于 2。';
             } else {
-                statusEl.innerHTML = '<strong>t &gt; 2 上没有交点。</strong>横线和曲线交在 t ≈ ' + root.toFixed(2) + '，还没到 2 的右边。';
+                statusEl.innerHTML = '<strong>t &gt; 2 上没有交点。</strong>交点约在 t = ' + show(root) + '，还没到 2 的右边。';
             }
         }
 

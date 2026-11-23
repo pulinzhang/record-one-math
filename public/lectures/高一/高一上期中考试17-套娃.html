@@ -91,12 +91,20 @@
             <div class="ask">求射程的最大值。</div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>轨迹里有水压 \(k\)，所求是落地时的水平距离。落地时，高度是多少？能不能用这一点，把落点写成只跟 \(k\) 有关的式子？</p>
+                <p>所求是落地时的水平距离。落地时高度是多少？能不能把落点写成只跟 \(k\) 有关的式子？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>把 \(k\) 和 \(x\) 一起当未知数硬解。落点只应跟着水压变。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是落地时 \(y=0\)，再加上「求射程的最大值」。它招呼的是：单变量函数。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">单变量函数</div>
                 <p>由 \(y=0\) 得非零根，将落点转化为 \(k\) 的函数 \(L(k)\)（\(k&gt;0\)）。射程的最大值就是 \(L(k)\) 的最大值。</p>
-                <p>落地时高度是 \(0\)。落点只跟着水压变，写成一个函数。射程最大，就是这个函数最大。</p>
+                <p>落点只跟着水压变，写成一个函数。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="jets" class="jxgbox" role="img" aria-label="三条水柱。k 等于 1 落在 4 米，k 等于 0.5 和 k 等于 2 落在同一处。"></div>
@@ -139,15 +147,22 @@
                 <h2>第（2）问：先固定距离</h2>
             </div>
             <div class="ask">石头高 \(1.5\) 米。水柱在水平距离 \(a\) 米处的高度不低于 \(1.5\) 米，\(a\) 最大是多少？</div>
-            <p class="link-note">先用第（1）问的最大射程，判断哪些距离根本够不到。够得到的距离，再看高度。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>距离 \(a\) 和水压 \(k\) 都会变，所求是 \(a\) 的最大值。两个一起变，不好下手。能不能先把 \(a\) 定住，只看 \(k\) 把这一点的高度送到多高？</p>
+                <p>距离 \(a\) 和水压 \(k\) 都会变。能不能先把 \(a\) 定住，只看 \(k\) 把这一点的高度送到多高？</p>
             </div>
-            <div class="tip-hero">
-                <p class="tip-kicker">这一问先抓住这一句</p>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>两个量一起调。先要把其中一个定住，不然看不出另一个能到哪里。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是「高度不低于 \(1.5\) 米」，再加上两个量都会变。它招呼的是：先固定一个，再反过来定另一个。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">先固定一个</div>
                 <p>视 \(a&gt;0\) 为常数，求 \(y\) 关于 \(k\) 的最大值 \(f(a)\)，再由 \(f(a)\geqslant 1.5\) 确定 \(a\) 的范围。</p>
-                <p>距离和水压一起变。先把距离定住，这一点最高写成距离的函数。再用「不低于 \(1.5\) 米」反过来定距离。</p>
+                <p>先定住距离，最高写成距离的函数，再用高度要求反过来定距离。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="stone" class="jxgbox" role="img" aria-label="一条水柱与高度 1.5 米的水平线相交，交点的横坐标记为 a"></div>
@@ -196,7 +211,7 @@
             </div>
             <div class="solution-step">
                 <h3>先限制在最大射程以内</h3>
-                <p>第（1）问已经求出，射程最大是 \(4\) 米。比 \(4\) 米更远的地方，水压怎么调，水柱都已经落地，那里没有高度。</p>
+                <p>已经求出，射程最大是 \(4\) 米。比 \(4\) 米更远的地方，水压怎么调，水柱都已经落地，那里没有高度。</p>
                 <p>所以只把距离定在</p>
                 <div class="formula-block">$$0&lt;a\leqslant 4.$$</div>
                 <p>在这个范围里，取 \(k=\dfrac{4}{a}\)。分母是 \(1+\dfrac{16}{a^2}=\dfrac{a^2+16}{a^2}\)，射程变成</p>
@@ -279,12 +294,10 @@
                 </article>
             </div>
             <div class="matryoshka-box">
-                <div class="matryoshka-title">这一问做的是这四步</div>
-                <p>由配方得高度的上界（式中的 \(2\) 是算出来的），并检验等号能否成立。再把上界写成 \(a\) 的函数，由 \(f(a)\geqslant 1.5\) 确定 \(a\) 的范围。</p>
+                <div class="matryoshka-title">两个量一起变时</div>
                 <ol class="model">
-                    <li>两个量同时变化时，先固定一个。</li>
-                    <li>用不等式找出函数值的上界。</li>
-                    <li>看等号能不能成立，判断这个上界拿不拿得到。</li>
+                    <li>先固定一个。</li>
+                    <li>找出函数值的上界，并看等号能不能成立。</li>
                     <li>把上界写成新的函数，再用对函数值的条件，确定自变量的范围。</li>
                 </ol>
             </div>

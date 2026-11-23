@@ -63,8 +63,8 @@
         <header>
             <div class="section-kicker">目标导向</div>
             <h1>中心对称</h1>
-            <p>\(y=f(x)\) 关于点 \((1,m)\) 中心对称，当且仅当 \(y=f(x+1)-m\) 为奇函数。令 \(t=x-1\)，记 \(G(t)=f(1+t)-m\)。</p>
-            <p>题干把判据写好了。把中心搬到原点，后面只检查是不是奇函数。\(x-1\) 先起个名字，三问都用 \(G(t)\)。</p>
+            <p>\(y=f(x)\) 关于点 \((1,m)\) 中心对称，当且仅当 \(y=f(x+1)-m\) 为奇函数。令 \(t=x-1\)，记 \(G(t)=f(1+t)-m\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
+            <p>题干把判据写好了。把中心搬到原点，后面只检查是不是奇函数。这一页的包是 \(x-1\)，起名 \(t\)，三问都用 \(G(t)\)。</p>
             <div class="badge-group">
                 <span class="badge">换元</span>
                 <span class="badge">只做一件</span>
@@ -92,7 +92,15 @@
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>题干先给了一句推广：关于某一点中心对称，当且仅当平移之后是奇函数。\(f(x)\) 里的分式和 \((x-1)\)，都绕着同一个位置写。三问是不是都想先找到这个位置，再作同一次平移？</p>
+                <p>题干先给了一句推广：关于某一点中心对称，当且仅当平移之后是奇函数。分式和 \((x-1)\) 都绕着同一个位置写。三问是不是都想先找到这个位置，再作同一次平移？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>三问各做一次换元。\(f\) 只化这一次，后面都用同一个 \(G(t)\)。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是题干里那句推广，再加上式子里的 \((x-1)\)。它招呼的是：平移到原点，再换元。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">为什么平移 \(1\) 和 \(m\)</div>
@@ -108,31 +116,30 @@
                 <p class="cap">同一条曲线。实线是新的 \(t\) 轴和 \(y\) 轴，交在中心。虚线仍是原来的 \(x'\)、\(y'\)。</p>
             </div>
             <div class="matryoshka-box">
-                <div class="matryoshka-title">先换元写成 \(G(t)\)，三问都用它</div>
-                <p>令 \(t=x-1\)。由 \(x\in(0,2)\) 得 \(t\in(-1,1)\)，且 \(x=1+t\) 与 \(t\) 一一对应，\(f\) 的取值不变。\((-1,1)\) 关于原点对称。</p>
-                <p>元，就是一个整体、一个组合、一个包。换元，就是把这个包当成一个元素，先给它起个名字，算完再拆包还原。这里的包是 \(x-1\)，起名 \(t\)。\(x\) 比 \(1\) 大，\(t\) 就是正的；比 \(1\) 小，\(t\) 就是负的。算完用 \(x=1+t\) 拆回去。</p>
-                <p>分子 \(2(1+t)-2=2t\)。分母 \((1+t)^2=1+2t+t^2\)，所以 \(2+2t-(1+2t+t^2)=1-t^2\)。</p>
+                <div class="matryoshka-title">先写成 \(G(t)\)，三问都用它</div>
+                <p>令 \(t=x-1\)。由 \(x\in(0,2)\) 得 \(t\in(-1,1)\)，且一一对应。\((-1,1)\) 关于原点对称。</p>
+                <p>分子 \(2(1+t)-2=2t\)。分母化简得 \(1-t^2\)。</p>
                 <div class="formula-block">$$G(t)=f(1+t)-m=\dfrac{2t}{1-t^2}+mt+nt^3.$$</div>
                 <div class="handoff">
                     <article>
-                        <div class="tag">第（1）问：令 \(m=n=0\)</div>
+                        <div class="tag">令 \(m=n=0\)</div>
                         <strong>只看第一项换成 \(-t\) 是否变号</strong>
                         <div class="give">得到：\(f(x+1)\) 是奇函数</div>
                     </article>
-                    <div class="arrow">第（2）问接着用</div>
+                    <div class="arrow">接着用</div>
                     <article>
-                        <div class="tag">第（2）问：第一项已经变号</div>
+                        <div class="tag">第一项已经变号</div>
                         <strong>只看后两项换成 \(-t\) 是否变号</strong>
                         <div class="give">得到：图象关于 \((1,m)\) 对称</div>
                     </article>
-                    <div class="arrow">第（3）问接着用</div>
+                    <div class="arrow">接着用</div>
                     <article>
-                        <div class="tag">第（3）问：\(G\) 已经是奇函数</div>
+                        <div class="tag">\(G\) 已经是奇函数</div>
                         <strong>用到 \(f(x)\geqslant -2\)</strong>
                         <div class="give">得到：\(n\) 的取值范围</div>
                     </article>
                 </div>
-                <div class="motto">\(f\) 只化这一次。后面三问直接用这个 \(G(t)\)。</div>
+                <div class="motto">\(f\) 只化这一次。后面直接用这个 \(G(t)\)。</div>
             </div>
         </section>
 
@@ -144,18 +151,26 @@
             <div class="ask">当 \(m=n=0\) 时，求证：\(y=f(x+1)\) 为奇函数。</div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>要证的是 \(y=f(x+1)\) 为奇函数。\(m=n=0\) 时，只剩分式这一项。把自变量换成相反数，这一项怎么变？</p>
+                <p>要证的是 \(y=f(x+1)\) 为奇函数。\(m=n=0\) 时只剩分式。把自变量换成相反数，这一项怎么变？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>后两项还在时一起验。这一问已经令 \(m=n=0\)，只看第一项。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是「为奇函数」，再加上 \(m=n=0\)。它招呼的是：只验第一项变号。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">奇函数</div>
-                <p>函数为奇函数，当且仅当定义域关于原点对称，且 \(G(-t)=-G(t)\)。\(m=n=0\) 时只剩第一项。</p>
-                <p>把 \(t\) 换成 \(-t\)，看函数值是不是变成相反数。这一问后两项是 \(0\)，只看第一项。</p>
+                <p>函数为奇函数，当且仅当定义域关于原点对称，且 \(G(-t)=-G(t)\)。</p>
+                <p>把 \(t\) 换成 \(-t\)，看函数值是不是变成相反数。</p>
             </div>
             <div class="solution-step">
                 <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2},\qquad G(-t)=\dfrac{-2t}{1-t^2}=-G(t).$$</div>
                 <p>定义域 \((-1,1)\) 关于原点对称，所以 \(y=f(x+1)\) 是奇函数。</p>
             </div>
-            <div class="result-box">\(y=f(x+1)\) 为奇函数。第（2）问接着用。</div>
+            <div class="result-box">\(y=f(x+1)\) 为奇函数。</div>
         </section>
 
         <section class="card" data-q="第（2）问">
@@ -164,21 +179,28 @@
                 <h2>第（2）问：只看后两项</h2>
             </div>
             <div class="ask">证明：函数 \(y=f(x)\) 的图象成中心对称图形。</div>
-            <p class="link-note">第（1）问已经处理过第一项。这一问接着看后两项，用题目给出的对称判定。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>题干的对称条件已经写好，第（1）问也看过第一项。这一问 \(m\)、\(n\) 还在，所求是图象成中心对称。能不能沿用同一次平移，只看后两项？</p>
+                <p>题干的对称条件已经写好，第一项已经会变号。\(m\)、\(n\) 还在，所求是图象成中心对称。能不能只看后两项？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>把三项重新验一遍。第一项已经变号，这一问只看后两项。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是题干里那句充要条件。它招呼的是：\(G\) 为奇函数，取 \(a=1\)，\(b=m\)。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">中心对称</div>
-                <p>由（1），\(\dfrac{2t}{1-t^2}\) 为奇函数。若 \(mt+nt^3\) 亦为奇函数，则 \(G\) 为奇函数。由题设，取 \(a=1\)，\(b=m\)，图象关于点 \((1,m)\) 中心对称。</p>
+                <p>已证 \(\dfrac{2t}{1-t^2}\) 为奇函数。若 \(mt+nt^3\) 亦为奇函数，则 \(G\) 为奇函数。由题设，取 \(a=1\)，\(b=m\)。</p>
                 <p>第一项已经会变号。这一问只看后两项。</p>
             </div>
             <div class="solution-step">
                 <div class="formula-block">$$m(-t)+n(-t)^3=-mt-nt^3.$$</div>
-                <p>由（1），第一项也变号，故 \(G(-t)=-G(t)\)。用题目的判定，取 \(a=1\)，\(b=m\)。</p>
+                <p>第一项也变号，故 \(G(-t)=-G(t)\)。用题目的判定，取 \(a=1\)，\(b=m\)。</p>
             </div>
-            <div class="result-box">图象关于点 \((1,m)\) 中心对称。\(G\) 是奇函数，第（3）问接着用。</div>
+            <div class="result-box">图象关于点 \((1,m)\) 中心对称。\(G\) 是奇函数。</div>
         </section>
 
         <section class="card" data-q="第（3）问" data-try>
@@ -187,10 +209,17 @@
                 <h2>第（3）问：奇函数，只看 \(t\in(0,1)\)</h2>
             </div>
             <div class="ask">当 \(m=-2\) 时，若 \(f(x)\geqslant -2\) 当且仅当 \(1\leqslant x&lt;2\)，求 \(n\) 的取值范围。</div>
-            <p class="link-note">第（2）问已经得到 \(G\) 是奇函数，中心也定了。这一问是把这件事用到 \(f(x)\geqslant -2\) 上。可以先自己做做看。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>这一问写着「当且仅当」。意思是：\(1\leqslant x&lt;2\) 上要成立，这段以外不能成立。前两问已经得到对称。\(f(x)\geqslant -2\) 经过那一次平移，会变成什么样的不等式？</p>
+                <p>写着「当且仅当」：\(1\leqslant x&lt;2\) 上要成立，这段以外不能成立。已经对称。\(f(x)\geqslant -2\) 经过那一次平移，会变成什么样的不等式？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>\(n=-2\) 时分式取不到 \(2\)，括号仍为正。等号取得到，\(n=-2\) 要留下。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是「当且仅当」和已经奇的 \(G\)。它招呼的是：只看 \(t\in(0,1)\)，再令 \(u=t^2\)。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">奇函数已经有了</div>
@@ -198,23 +227,14 @@
                 <p>右边是正的，左边就是负的。看右边就够了。</p>
             </div>
             <div class="canvas-wrap">
-                <svg viewBox="0 0 360 168" role="img" aria-label="图上移 2，负 2 这条线落到 0">
-                    <line x1="28" y1="46" x2="248" y2="46" stroke="#94a3b8" stroke-width="1.8"/>
-                    <line x1="28" y1="118" x2="248" y2="118" stroke="#ea580c" stroke-width="1.8" stroke-dasharray="5 4"/>
-                    <line x1="138" y1="110" x2="138" y2="58" stroke="#2563eb" stroke-width="1.8"/>
-                    <polygon points="138,46 131,62 145,62" fill="#2563eb"/>
-                    <text x="150" y="90" font-size="15" font-weight="700" fill="#2563eb">2</text>
-                    <text x="258" y="51" font-size="15" font-weight="700" fill="#334155">0</text>
-                    <text x="258" y="123" font-size="15" font-weight="700" fill="#ea580c">−2</text>
-                </svg>
+                <div id="shift-up" class="jxgbox" role="img" aria-label="图上移 2，负 2 这条线落到 0"></div>
                 <p class="cap">\(m=-2\)，图上移 \(2\)。比 \(-2\) 高，就是比 \(0\) 高。后面只写 \(G(t)\geqslant 0\)。</p>
             </div>
             <div class="solution-step">
                 <div class="formula-block">$$G(t)=t^3\left(\dfrac{2}{1-t^2}+n\right).$$</div>
                 <p>\(t\in(0,1)\) 时 \(t^3&gt;0\)，正负看括号。只要 \(\dfrac{2}{1-t^2}+n&gt;0\)。</p>
                 <p>\(t=0\) 时 \(G(0)=0\)，对应 \(x=1\)，已经在 \(1\leqslant x&lt;2\) 里。</p>
-                <p>分式只含 \(t^2\)。令 \(u=t^2\)。\(t\in(0,1)\) 时 \(u\in(0,1)\)，且一一对应，分式的取值不变。</p>
-                <p>\(t^2\) 这个包起名 \(u\)。分式能取到的数还是那些数。</p>
+                <p>令 \(u=t^2\)。\(t\in(0,1)\) 时 \(u\in(0,1)\)，且一一对应。</p>
                 <p>\(0&lt;u&lt;1\) 时 \(0&lt;1-u&lt;1\)，故 \(\dfrac{1}{1-u}&gt;1\)，且 \(u\) 靠近 \(1\) 时它可以任意大；\(u\) 增大则倒数增大。所以 \(\dfrac{2}{1-t^2}\) 在 \((0,1)\) 上严格递增，值域是 \((2,+\infty)\)。</p>
             </div>
             <div class="canvas-wrap">
@@ -357,6 +377,18 @@
             symg.create("text", [1.72, m + 0.32, "t"], Object.assign({ strokeColor: "#1c3d5a" }, label));
             symg.create("text", [0.62, 2.35, "y"], Object.assign({ strokeColor: "#1c3d5a" }, label));
             symg.create("text", [1.14, 2.05, "新原点"], Object.assign({ strokeColor: "#ea580c" }, label));
+            var shift = JXG.JSXGraph.initBoard("shift-up", {
+                boundingbox: [-0.4, 1.4, 3.6, -3.2],
+                axis: false, grid: false, keepAspectRatio: false,
+                showCopyright: false, showNavigation: false, showInfobox: false,
+                pan: { enabled: false }, zoom: { enabled: false, wheel: false, pinch: false }
+            });
+            shift.create("segment", [[0.2, 0], [2.8, 0]], { strokeColor: "#94a3b8", strokeWidth: 1.8, highlight: false, fixed: true });
+            shift.create("segment", [[0.2, -2], [2.8, -2]], { strokeColor: "#ea580c", strokeWidth: 1.8, dash: 2, highlight: false, fixed: true });
+            shift.create("arrow", [[1.5, -2], [1.5, 0]], { strokeColor: "#2563eb", strokeWidth: 1.8, lastArrow: true, highlight: false, fixed: true });
+            shift.create("text", [1.7, -1, "2"], Object.assign({ strokeColor: "#2563eb" }, label));
+            shift.create("text", [2.95, 0.15, "0"], Object.assign({ strokeColor: "#334155" }, label));
+            shift.create("text", [2.95, -2.15, "−2"], Object.assign({ strokeColor: "#ea580c" }, label));
             var inv = JXG.JSXGraph.initBoard("inv-u", {
                 boundingbox: [-0.08, 8.2, 1.08, -0.8],
                 axis: true, grid: false, keepAspectRatio: false,

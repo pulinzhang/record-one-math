@@ -63,8 +63,8 @@
         <header>
             <div class="section-kicker">函数入门</div>
             <h1>换元</h1>
-            <p>令 \(x=a-1\)，\(y=b-1\)。由 \(a&gt;1\)，\(b&gt;1\) 得 \(x&gt;0\)，\(y&gt;0\)，且 \((a,b)\) 与 \((x,y)\) 一一对应，故 \((a-1)(b-1)=4\) 转化为 \(xy=4\)。再代回 \(a=x+1\)，\(b=y+1\)。</p>
-            <p>元，就是一个整体、一个组合、一个包。换元，就是把这个包当成一个元素，先给它起个名字，算完再拆包还原。这里的包是 \(a-1\) 和 \(b-1\)。</p>
+            <p>令 \(x=a-1\)，\(y=b-1\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。由 \(a&gt;1\)，\(b&gt;1\) 得 \(x&gt;0\)，\(y&gt;0\)，故 \((a-1)(b-1)=4\) 转化为 \(xy=4\)。</p>
+            <p>这一页的包是 \(a-1\) 和 \(b-1\)。起名之后当元素算，算完再代回。</p>
             <div class="badge-group">
                 <span class="badge">换元</span>
                 <span class="badge">写下新字母的范围</span>
@@ -90,23 +90,27 @@
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>题目给出了关于 \(a,b\) 的等式。所求没有单独问 \(a\) 或 \(b\)。能不能先不把它们求出来，只看这个等式能写成什么结构？</p>
+                <p>所求没有单独问 \(a\) 或 \(b\)。能不能先不把它们求出来，只看等式能写成什么结构？</p>
             </div>
-            <div class="solution-step">
-                <p>移项：\(ab-a-b=3\)。两边加 \(1\)：</p>
-                <div class="formula-block">$$ab-a-b+1=4,\qquad (a-1)(b-1)=4.$$</div>
-                <p>乘积是正的，所以 \(a-1\) 和 \(b-1\) 同号。若 \(0&lt;a&lt;1\) 且 \(0&lt;b&lt;1\)，则 \(0&lt;(1-a)(1-b)&lt;1\)，到不了 \(4\)。所以只能</p>
-                <div class="formula-block">$$a&gt;1,\qquad b&gt;1.$$</div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>一上来就解出 \(a\)、\(b\) 的具体值。这里求的不是某一个数对。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是 \(ab=a+b+3\) 这个结构。它招呼的是：因式，再换元。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">因式</div>
                 <p>条件转化为 \((a-1)(b-1)=4\)。这两个因式的乘积是常数。</p>
-                <p>先看这个结构。不急着把 \(a\)、\(b\) 分别求出来。乘积固定，一个变大，另一个就变小。</p>
+                <p>乘积固定，一个变大，另一个就变小。</p>
             </div>
             <div class="solution-step">
-                <p>令 \(x=a-1\)，\(y=b-1\)。\(a&gt;1\)、\(b&gt;1\) 对应 \(x&gt;0\)、\(y&gt;0\)。再代回 \(a=x+1\)，\(b=y+1\)。一组 \((a,b)\) 对一组 \((x,y)\)。条件转化为</p>
+                <p>移项：\(ab-a-b=3\)。两边加 \(1\)：</p>
+                <div class="formula-block">$$(a-1)(b-1)=4.$$</div>
+                <p>同号与 \(a&gt;1\)、\(b&gt;1\) 写在标准解答里。令 \(x=a-1\)，\(y=b-1\)，则</p>
                 <div class="formula-block">$$xy=4,\qquad x&gt;0,\ y&gt;0.$$</div>
-                <p>再转化为 \(y=\dfrac{4}{x}\)（\(x&gt;0\)）。\(x\) 定了，\(y\) 就定了。两个字母不能各自随便变。例如 \(x=1\) 时 \(y=4\)，\(x=4\) 时 \(y=1\)。</p>
+                <p>再转化为 \(y=\dfrac{4}{x}\)（\(x&gt;0\)）。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="g-xy" class="jxgbox" role="img" aria-label="y 等于 4 除以 x。点 (1, 4) 和 (4, 1) 都在曲线上。x 从 1 到 4，y 从 4 降到 1。"></div>
@@ -123,34 +127,33 @@
             <div class="ask">求 \(a+4b\) 的最小值。</div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>所求是 \(a+4b\) 的最小值。条件已经把 \(a\) 和 \(b\) 绑在一起。能不能让一个字母代表另一个，使 \(a+4b\) 只跟着这一个字母变？</p>
+                <p>条件已经把 \(a\) 和 \(b\) 绑在一起。能不能让一个字母代表另一个，使 \(a+4b\) 只跟着这一个字母变？</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>\(t+5\) 升高、\(\dfrac{16}{t}\) 降低，对着走，不能只看一项就断定整体的增减。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是「求最小值」，再加上条件已经绑在一起。它招呼的是：换元，再作差看增减。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">换元</div>
-                <p>令 \(t=a-1\)。由 \(a&gt;1\) 得 \(t&gt;0\)。再代回 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。\(a+4b\) 的取值，就是这个式子在 \(t&gt;0\) 上的取值。</p>
+                <p>令 \(t=a-1\)。由 \(a&gt;1\) 得 \(t&gt;0\)。再代回后，\(a+4b\) 就是 \(t&gt;0\) 上的一个函数。</p>
                 <p>这一问的包是 \(a-1\)，起名 \(t\)。</p>
             </div>
             <div class="solution-step">
-                <p>令 \(t=a-1\)。\(a&gt;1\) 对应 \(t&gt;0\)。由 \(xy=4\) 得 \(b-1=\dfrac{4}{t}\)，所以 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。一个 \(t&gt;0\) 对一组 \((a,b)\)。</p>
+                <p>令 \(t=a-1\)（\(t&gt;0\)）。由 \(xy=4\) 得 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。</p>
                 <div class="formula-block">$$a+4b=g(t)=t+5+\dfrac{16}{t}.$$</div>
-                <p>\(a+4b\) 能取到的数，就是 \(g(t)\) 在 \(t&gt;0\) 上能取到的数。</p>
-            </div>
-            <div class="solution-step">
-                <p>\(t\) 变大时，\(t+5\) 变大。\(0&lt;t_1&lt;t_2\) 时 \(\dfrac{1}{t_1}&gt;\dfrac{1}{t_2}\)，所以 \(\dfrac{16}{t}\) 变小。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="g-parts" class="jxgbox" role="img" aria-label="t+5 升高，16 除以 t 降低"></div>
                 <p class="cap">蓝线是 \(t+5\)。橙线是 \(\dfrac{16}{t}\)。</p>
             </div>
             <div class="solution-step">
-                <p>两个部分的变化方向相反，不能直接判断整体的变化方向。比较两个不同的 \(t\) 对应的函数值。</p>
-                <p>任取 \(0&lt;t_1&lt;t_2\)：</p>
-                <div class="formula-block">$$\dfrac{1}{t_1}-\dfrac{1}{t_2}=\dfrac{t_2-t_1}{t_1 t_2},$$</div>
-                <div class="formula-block">$$g(t_1)-g(t_2)=(t_1-t_2)-\dfrac{16(t_1-t_2)}{t_1 t_2}=(t_1-t_2)\cdot\dfrac{t_1 t_2-16}{t_1 t_2}.$$</div>
-                <p>\(t_1-t_2&lt;0\)，分母 \(t_1 t_2&gt;0\)。差的正负看 \(t_1 t_2-16\)。</p>
-                <p>若 \(0&lt;t_1&lt;t_2\leqslant 4\)，则 \(t_1 t_2&lt;t_2^2\leqslant 16\)。\(t_2&lt;4\) 时 \(t_2^2&lt;16\)；\(t_2=4\) 时 \(t_1&lt;4\)，所以 \(t_1 t_2=4t_1&lt;16\)。于是 \(t_1 t_2-16&lt;0\)。负的乘负的，差是正的：\(g(t_1)&gt;g(t_2)\)。\(g\) 在 \((0,4]\) 上递减。</p>
-                <p>若 \(4\leqslant t_1&lt;t_2\)，则 \(t_1 t_2&gt;t_1^2\geqslant 16\)。\(t_1&gt;4\) 时 \(t_1^2&gt;16\)；\(t_1=4\) 时 \(t_1 t_2=4t_2&gt;16\)。于是 \(t_1 t_2-16&gt;0\)。负的乘正的，差是负的：\(g(t_1)&lt;g(t_2)\)。\(g\) 在 \([4,+\infty)\) 上递增。</p>
-                <p>因此最低在 \(t=4\)，\(g(4)=4+5+\dfrac{16}{4}=13\)。这时 \(a=5\)，\(b=2\)，满足 \(a&gt;1\)，\(b&gt;1\)。</p>
+                <p>两部分对着走。\(g\) 在 \((0,4]\) 上递减、在 \([4,+\infty)\) 上递增，作差写在标准解答里。最低在 \(t=4\)，</p>
+                <div class="formula-block">$$g(4)=13.$$</div>
+                <p>这时 \(a=5\)，\(b=2\)。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="g-sum" class="jxgbox" role="img" aria-label="g(t) 等于 t 加 5 加 16 除以 t。在 (0,4] 上下降，在 [4, 正无穷) 上上升，t=4 时函数值是 13。"></div>
@@ -165,41 +168,29 @@
                 <h2>第（2）问：值域</h2>
             </div>
             <div class="ask">求 \(ab\) 的取值范围。</div>
-            <p class="link-note">条件与第（1）问相同，仍用 \(t=a-1&gt;0\)。所求从 \(a+4b\) 换成 \(ab\)。上一问要的是最小值，这一问要的是全部取值。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>条件还是原来的，所求从 \(a+4b\) 换成了 \(ab\)。能不能仍用一个字母，把 \(ab\) 写成这个字母的函数？这一问要的是能取到的所有数。</p>
+                <p>条件还是原来的，所求换成了 \(ab\)。要的是能取到的所有数。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>只求出最小值 \(9\) 就停。这一问要的是值域，不是这一个数。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是「求取值范围」。它招呼的是：同一个换元，目标一换，函数就换，再看值域。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">目标函数</div>
-                <p>约束 \((a-1)(b-1)=4\) 不变，仍取 \(t=a-1&gt;0\)。目标式由 \(a+4b\) 改为 \(ab\)，所研究的函数随之改变。</p>
-                <p>条件、换元、自变量都没变。问的量换了，函数就换。要看的是值域。</p>
+                <p>约束不变，仍取 \(t=a-1&gt;0\)。目标式由 \(a+4b\) 改为 \(ab\)，所研究的函数随之改变。</p>
+                <p>问的量换了，函数就换。要看的是值域。</p>
             </div>
             <div class="solution-step">
-                <p>仍用 \(t=a-1&gt;0\)，则 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。</p>
+                <p>仍用已经求出的 \(t=a-1&gt;0\)，\(a=t+1\)，\(b=1+\dfrac{4}{t}\)。</p>
                 <div class="formula-block">$$ab=f(t)=t+5+\dfrac{4}{t}.$$</div>
-                <p>\(ab\) 能取到的数，就是 \(f(t)\) 在 \(t&gt;0\) 上能取到的数。</p>
+                <p>\(f\) 在 \((0,2]\) 上递减、在 \([2,+\infty)\) 上递增，作差写在标准解答里。最低在 \(t=2\)，\(f(2)=9\)。\(t\) 靠近 \(0\) 或很大时 \(f(t)\) 都可以任意大。大于 \(9\) 的每个数左右各取一次，\(9\) 只在 \(t=2\) 取到。所以</p>
+                <div class="formula-block">$$ab\in[9,+\infty).$$</div>
             </div>
-            <div class="solution-step">
-                <p>任取 \(0&lt;t_1&lt;t_2\)。和上一问一样作差：</p>
-                <div class="formula-block">$$f(t_1)-f(t_2)=(t_1-t_2)+4\left(\dfrac{1}{t_1}-\dfrac{1}{t_2}\right)=(t_1-t_2)\cdot\dfrac{t_1 t_2-4}{t_1 t_2}.$$</div>
-                <p>\(t_1-t_2&lt;0\)，分母为正。差的正负看 \(t_1 t_2-4\)。</p>
-                <p>若 \(0&lt;t_1&lt;t_2\leqslant 2\)，则 \(t_1 t_2&lt;t_2^2\leqslant 4\)。前一个不等号是严格的，所以 \(t_1 t_2&lt;4\)，差是正的。\(f\) 在 \((0,2]\) 上递减。</p>
-                <p>若 \(2\leqslant t_1&lt;t_2\)，则 \(t_1 t_2&gt;t_1^2\geqslant 4\)，所以 \(t_1 t_2&gt;4\)，差是负的。\(f\) 在 \([2,+\infty)\) 上递增。</p>
-                <p>因此最小在 \(t=2\)，\(f(2)=2+5+\dfrac{4}{2}=9\)。这时 \(a=3\)，\(b=3\)。</p>
-                <p>最小是 \(9\)。这一问要的不是这一个数。\(t\) 靠近 \(0\) 时 \(\dfrac{4}{t}\) 可以任意大，\(t\) 很大时 \(f(t)\) 也可以任意大。左边从任意大减到 \(9\)，右边从 \(9\) 增到任意大。大于 \(9\) 的每个数左右各取一次，\(9\) 只在 \(t=2\) 取到。所以 \(ab\) 的取值范围是 \([9,+\infty)\)。</p>
-            </div>
-            <div class="matryoshka-box">
-                <div class="matryoshka-title">定义域 → 函数 → 值域</div>
-                <div class="flow-chain">
-                    <span class="flow-node">定义域 \(t\in(0,+\infty)\)</span>
-                    <span class="flow-arrow">\(\rightarrow\)</span>
-                    <span class="flow-node">函数 \(f(t)=t+5+\dfrac{4}{t}\)</span>
-                    <span class="flow-arrow">\(\rightarrow\)</span>
-                    <span class="flow-node">值域 \([9,+\infty)\)</span>
-                </div>
-            </div>
-            <p>定义域规定输入可以是什么。函数规定输入和输出怎么对应。值域规定实际能得到哪些输出。</p>
             <div class="canvas-wrap">
                 <div id="g-ab" class="jxgbox" role="img" aria-label="f(t) 等于 t 加 5 加 4 除以 t。t 大于 0。在 (0,2] 上下降，在 [2, 正无穷) 上上升。t=2 时函数值是 9。值域是 [9, 正无穷)。"></div>
                 <p class="cap">横轴上 \(t&gt;0\) 是定义域。曲线是 \(f\)。从 \(9\) 往上都能取到，\(9\) 取得到。值域是 \([9,+\infty)\)。</p>
@@ -220,18 +211,18 @@
                 </article>
                 <div class="arrow">所求一换</div>
                 <article>
-                    <div class="tag">第（1）问 · \(a+4b\)</div>
+                    <div class="tag">求 \(a+4b\)</div>
                     <strong>\(g(t)=t+5+\dfrac{16}{t}\)</strong>
                     <div class="give">最小值 \(13\)</div>
                 </article>
                 <div class="arrow">函数就换</div>
                 <article>
-                    <div class="tag">第（2）问 · \(ab\)</div>
+                    <div class="tag">求 \(ab\)</div>
                     <strong>\(f(t)=t+5+\dfrac{4}{t}\)</strong>
                     <div class="give">值域 \([9,+\infty)\)</div>
                 </article>
             </div>
-            <div class="motto">条件、换元、自变量都没变。所求一换，函数就换。第一问停在最小值，第二问要看值域。</div>
+            <div class="motto">条件、换元、自变量都没变。所求一换，函数就换。一个停在最小值，一个要看值域。</div>
         </section>
 
         <section class="card paper-card">
