@@ -268,6 +268,10 @@ body.lecture .jxgbox {
     touch-action: none;
 }
 
+body.lecture .interactive-panel .jxgbox {
+    aspect-ratio: 1.05 / 1;
+}
+
 body.lecture .canvas-wrap {
     background: white;
     border-radius: 8px;
@@ -277,6 +281,21 @@ body.lecture .canvas-wrap {
     width: min(30rem, 100%);
     max-width: 100%;
     margin: 0.75rem auto 1rem;
+}
+
+body.lecture .canvas-pair {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.75rem;
+    width: min(60rem, 100%);
+    max-width: 100%;
+    margin: 0.75rem auto 1rem;
+    align-items: stretch;
+}
+
+body.lecture .canvas-pair > .canvas-wrap {
+    width: 100%;
+    margin: 0;
 }
 
 body.lecture .handoff {
@@ -1077,6 +1096,10 @@ body.catalog .bank a {
 }
 
 @media (max-width: 720px) {
+    body.lecture .canvas-pair {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
     body.lecture .now-asking { display: block; }
     body.lecture .bar-tools {
         position: static;

@@ -64,11 +64,11 @@
             <div class="section-kicker">目标导向</div>
             <h1>中心对称</h1>
             <p>\(y=f(x)\) 关于点 \((1,m)\) 中心对称，当且仅当 \(y=f(x+1)-m\) 为奇函数。令 \(t=x-1\)，记 \(G(t)=f(1+t)-m\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
-            <p>题干把判据写好了。把中心搬到原点，后面只检查是不是奇函数。这一页的包是 \(x-1\)，起名 \(t\)，三问都用 \(G(t)\)。</p>
+            <p>写出 \(G(t)\) 的那一刻，旧的 \(f\) 和中心 \((1,m)\) 就清零。后面只盯着这一个奇函数往前走。</p>
             <div class="badge-group">
-                <span class="badge">换元</span>
-                <span class="badge">只做一件</span>
-                <span class="badge">令 \(u=t^2\)</span>
+                <span class="badge">忘掉旧的</span>
+                <span class="badge">按住 \(G(t)\)</span>
+                <span class="badge">参变分离</span>
             </div>
         </header>
 
@@ -88,58 +88,59 @@
         <section class="card" data-nav="先看思路">
             <div class="section-header">
                 <span class="step-num">想</span>
-                <h2>看到对称，就平移</h2>
+                <h2>写出 \(G(t)\)，旧的忘掉</h2>
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>题干先给了一句推广：关于某一点中心对称，当且仅当平移之后是奇函数。分式和 \((x-1)\) 都绕着同一个位置写。三问是不是都想先找到这个位置，再作同一次平移？</p>
+                <p>题干给了推广：关于一点对称，当且仅当平移之后是奇函数。分式和 \((x-1)\) 都绕着同一个位置。是不是先写出那一次平移后的函数，三问都用它？</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>三问各做一次换元。\(f\) 只化这一次，后面都用同一个 \(G(t)\)。</p>
+                <p>写完 \(G\) 还回头看 \(f\)。\(f\) 只化这一次，后面忘掉。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是题干里那句推广，再加上式子里的 \((x-1)\)。它招呼的是：平移到原点，再换元。</p>
+                <p>暗号是题干里那句推广，再加上式子里的 \((x-1)\)。它招呼的是：令 \(t=x-1\)，写出 \(G(t)\)。</p>
             </div>
             <div class="mindset-box">
-                <div class="mindset-title">为什么平移 \(1\) 和 \(m\)</div>
-                <p>平移：\(x\mapsto x+1\)，\(y\mapsto y-m\)。分式绕着 \(x=1\) 写：\(2x-2=2(x-1)\)，\(2x-x^2=1-(x-1)^2\)。</p>
-                <p>图往左搬 \(1\)、往下搬 \(m\)，中心落到原点。后面看搬完的这个函数。</p>
+                <div class="mindset-title">换元</div>
+                <p>令 \(t=x-1\)，记 \(G(t)=f(1+t)-m\)。由 \(x\in(0,2)\) 得 \(t\in(-1,1)\)，且一一对应。</p>
+                <p>旧的 \(f\) 和中心清零。眼里只留 \(G\)。</p>
             </div>
-            <div class="canvas-wrap">
-                <div id="sym-f" class="jxgbox" role="img" aria-label="老坐标。曲线关于点 (1, m) 中心对称，中心在横轴上方 m、纵轴右方 1"></div>
-                <p class="cap">老坐标。中心在 \((1,m)\)：横轴上方 \(m\)，纵轴右方 \(1\)。</p>
-            </div>
-            <div class="canvas-wrap">
-                <div id="sym-g" class="jxgbox" role="img" aria-label="同一条曲线和原来的坐标轴。新的横轴 t、竖轴 y 交在中心。虚线是原来的 x 撇和 y 撇"></div>
-                <p class="cap">同一条曲线。实线是新的 \(t\) 轴和 \(y\) 轴，交在中心。虚线仍是原来的 \(x'\)、\(y'\)。</p>
+            <div class="canvas-pair">
+                <div class="canvas-wrap">
+                    <div id="sym-f" class="jxgbox" role="img" aria-label="旧坐标。曲线关于点 (1, m) 中心对称"></div>
+                    <p class="cap">旧的：\(f\) 和中心 \((1,m)\)。写完 \(G\) 就忘掉。</p>
+                </div>
+                <div class="canvas-wrap">
+                    <div id="sym-g" class="jxgbox" role="img" aria-label="新坐标。横轴 t、竖轴 Y 交在原点，曲线关于原点对称"></div>
+                    <p class="cap">新的：只看 \(G(t)\)。实线是 \(t\) 轴和 \(Y\) 轴。</p>
+                </div>
             </div>
             <div class="matryoshka-box">
-                <div class="matryoshka-title">先写成 \(G(t)\)，三问都用它</div>
-                <p>令 \(t=x-1\)。由 \(x\in(0,2)\) 得 \(t\in(-1,1)\)，且一一对应。\((-1,1)\) 关于原点对称。</p>
-                <p>分子 \(2(1+t)-2=2t\)。分母化简得 \(1-t^2\)。</p>
-                <div class="formula-block">$$G(t)=f(1+t)-m=\dfrac{2t}{1-t^2}+mt+nt^3.$$</div>
+                <div class="matryoshka-title">唯一对象：\(G(t)\)</div>
+                <p>分子 \(2(1+t)-2=2t\)。分母化简得 \(1-t^2\)。又 \(m(1+t)-m=mt\)。</p>
+                <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2}+mt+nt^3,\qquad t\in(-1,1).$$</div>
                 <div class="handoff">
                     <article>
                         <div class="tag">令 \(m=n=0\)</div>
                         <strong>只看第一项换成 \(-t\) 是否变号</strong>
-                        <div class="give">得到：\(f(x+1)\) 是奇函数</div>
+                        <div class="give">得到：\(G\) 为奇函数</div>
                     </article>
                     <div class="arrow">接着用</div>
                     <article>
                         <div class="tag">第一项已经变号</div>
                         <strong>只看后两项换成 \(-t\) 是否变号</strong>
-                        <div class="give">得到：图象关于 \((1,m)\) 对称</div>
+                        <div class="give">得到：\(G\) 为奇函数，中心是 \((1,m)\)</div>
                     </article>
                     <div class="arrow">接着用</div>
                     <article>
                         <div class="tag">\(G\) 已经是奇函数</div>
-                        <strong>用到 \(f(x)\geqslant -2\)</strong>
+                        <strong>解 \(G(t)\geqslant 0\) 只落在 \(0\leqslant t&lt;1\)</strong>
                         <div class="give">得到：\(n\) 的取值范围</div>
                     </article>
                 </div>
-                <div class="motto">\(f\) 只化这一次。后面直接用这个 \(G(t)\)。</div>
+                <div class="motto">按住 \(G(t)\) 一路向前。</div>
             </div>
         </section>
 
@@ -151,7 +152,7 @@
             <div class="ask">当 \(m=n=0\) 时，求证：\(y=f(x+1)\) 为奇函数。</div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>要证的是 \(y=f(x+1)\) 为奇函数。\(m=n=0\) 时只剩分式。把自变量换成相反数，这一项怎么变？</p>
+                <p>要证的是 \(y=f(x+1)\) 为奇函数。\(m=n=0\) 时 \(G(t)\) 只剩第一项。换成 \(-t\)，这一项怎么变？</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
@@ -168,7 +169,7 @@
             </div>
             <div class="solution-step">
                 <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2},\qquad G(-t)=\dfrac{-2t}{1-t^2}=-G(t).$$</div>
-                <p>定义域 \((-1,1)\) 关于原点对称，所以 \(y=f(x+1)\) 是奇函数。</p>
+                <p>定义域 \((-1,1)\) 关于原点对称，故 \(G\) 为奇函数。代回：\(m=n=0\) 时 \(G(t)=f(1+t)\)，故 \(y=f(x+1)\) 为奇函数。</p>
             </div>
             <div class="result-box">\(y=f(x+1)\) 为奇函数。</div>
         </section>
@@ -193,14 +194,14 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">中心对称</div>
-                <p>已证 \(\dfrac{2t}{1-t^2}\) 为奇函数。若 \(mt+nt^3\) 亦为奇函数，则 \(G\) 为奇函数。由题设，取 \(a=1\)，\(b=m\)。</p>
-                <p>第一项已经会变号。这一问只看后两项。</p>
+                <p>已证第一项变号。若 \(mt+nt^3\) 亦变号，则 \(G\) 为奇函数。由题设，取 \(a=1\)，\(b=m\)。</p>
+                <p>这一问只看后两项。奇函数证完，再代回中心。</p>
             </div>
             <div class="solution-step">
                 <div class="formula-block">$$m(-t)+n(-t)^3=-mt-nt^3.$$</div>
-                <p>第一项也变号，故 \(G(-t)=-G(t)\)。用题目的判定，取 \(a=1\)，\(b=m\)。</p>
+                <p>后两项变号，第一项已变号，故 \(G(-t)=-G(t)\)。代回：取 \(a=1\)，\(b=m\)。</p>
             </div>
-            <div class="result-box">图象关于点 \((1,m)\) 中心对称。\(G\) 是奇函数。</div>
+            <div class="result-box">图象关于点 \((1,m)\) 中心对称。</div>
         </section>
 
         <section class="card" data-q="第（3）问" data-try>
@@ -211,39 +212,46 @@
             <div class="ask">当 \(m=-2\) 时，若 \(f(x)\geqslant -2\) 当且仅当 \(1\leqslant x&lt;2\)，求 \(n\) 的取值范围。</div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>写着「当且仅当」：\(1\leqslant x&lt;2\) 上要成立，这段以外不能成立。已经对称。\(f(x)\geqslant -2\) 经过那一次平移，会变成什么样的不等式？</p>
+                <p>写着「当且仅当」：已经对称。条件翻成 \(G(t)\geqslant 0\) 只落在 \(0\leqslant t&lt;1\)。\(n\) 要卡在哪里？</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>\(n=-2\) 时分式取不到 \(2\)，括号仍为正。等号取得到，\(n=-2\) 要留下。</p>
+                <p>\(n=-2\) 时 \(h(t)\) 取不到 \(-2\)，横线压在警戒线上仍全程压过 \(h\)。等号要留下。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是「当且仅当」和已经奇的 \(G\)。它招呼的是：只看 \(t\in(0,1)\)，再令 \(u=t^2\)。</p>
+                <p>暗号是「当且仅当」和已经奇的 \(G\)。它招呼的是：只看 \(t\in(0,1)\)，参变分离。</p>
             </div>
             <div class="mindset-box">
-                <div class="mindset-title">奇函数已经有了</div>
-                <p>\(G\) 为奇函数，则 \(t\in(0,1)\) 时 \(G(t)&gt;0\) 蕴含 \(t\in(-1,0)\) 时 \(G(t)&lt;0\)。故只需讨论 \(t\in(0,1)\)。</p>
-                <p>右边是正的，左边就是负的。看右边就够了。</p>
+                <div class="mindset-title">参变分离</div>
+                <p>记 \(h(t)=-\dfrac{2}{1-t^2}\)。括号 \(\dfrac{2}{1-t^2}+n\) 记作 \(g(t)\)，即 \(g(t)=n-h(t)\)。\(t\in(0,1)\) 时 \(t^3&gt;0\)，\(G\) 与 \(g\) 同号。</p>
+                <p>\(h\) 不动；橙线 \(y=n\) 与深蓝 \(g(t)=n-h(t)\) 一起跟着 \(n\) 动。看橙线压不压过 \(h\)，也看 \(g\) 有没有掉到 \(0\) 下。</p>
             </div>
-            <div class="canvas-wrap">
-                <div id="shift-up" class="jxgbox" role="img" aria-label="图上移 2，负 2 这条线落到 0"></div>
-                <p class="cap">\(m=-2\)，图上移 \(2\)。比 \(-2\) 高，就是比 \(0\) 高。后面只写 \(G(t)\geqslant 0\)。</p>
+            <div class="interactive-panel">
+                <div class="interactive-title">拖动 \(n\)：橙线对 \(h\)，蓝线 \(g\) 上下移</div>
+                <p style="margin:0 0 0.55rem;color:var(--text-muted);font-size:0.95rem;">括号记作 \(g(t)=n-h(t)=\dfrac{2}{1-t^2}+n\)。橙线压过 \(h\)，就是蓝线 \(g&gt;0\)。</p>
+                <div class="slider-control">
+                    <label for="paramN"><strong>\(n\)：</strong></label>
+                    <input type="range" id="paramN" min="-4" max="0" step="0.05" value="-1">
+                    <span id="nValDisplay" style="font-weight:700;color:var(--primary);min-width:5.5rem;">n = −1</span>
+                </div>
+                <div class="slider-actions">
+                    <button type="button" id="jumpNAbove">定位到 \(n=-1\)</button>
+                    <button type="button" id="jumpNBound">定位到 \(n=-2\)</button>
+                    <button type="button" id="jumpNBelow">定位到 \(n=-3\)</button>
+                </div>
+                <div class="status-readout" id="nStatus"></div>
+                <div class="canvas-wrap">
+                    <div id="hn-board" class="jxgbox" role="img" aria-label="固定 h、警戒线负 2、水平线 n，以及随 n 上下移的 g"></div>
+                    <p class="cap">琥珀虚线是 \(h(t)\)。深蓝是 \(g(t)=n-h(t)\)。橙实线是 \(y=n\)。红虚线是 \(y=-2\)。</p>
+                </div>
             </div>
             <div class="solution-step">
-                <div class="formula-block">$$G(t)=t^3\left(\dfrac{2}{1-t^2}+n\right).$$</div>
-                <p>\(t\in(0,1)\) 时 \(t^3&gt;0\)，正负看括号。只要 \(\dfrac{2}{1-t^2}+n&gt;0\)。</p>
-                <p>\(t=0\) 时 \(G(0)=0\)，对应 \(x=1\)，已经在 \(1\leqslant x&lt;2\) 里。</p>
-                <p>令 \(u=t^2\)。\(t\in(0,1)\) 时 \(u\in(0,1)\)，且一一对应。</p>
-                <p>\(0&lt;u&lt;1\) 时 \(0&lt;1-u&lt;1\)，故 \(\dfrac{1}{1-u}&gt;1\)，且 \(u\) 靠近 \(1\) 时它可以任意大；\(u\) 增大则倒数增大。所以 \(\dfrac{2}{1-t^2}\) 在 \((0,1)\) 上严格递增，值域是 \((2,+\infty)\)。</p>
-            </div>
-            <div class="canvas-wrap">
-                <div id="inv-u" class="jxgbox" role="img" aria-label="1 除以 1 减 u，在 0 到 1 之间严格递增，横虚线是 1"></div>
-                <p class="cap">横虚线是 \(1\)。</p>
-            </div>
-            <div class="solution-step">
-                <p>\(n\geqslant -2\) 时，括号大于 \(2+n\geqslant 0\)。\(n=-2\) 时分式取不到 \(2\)，括号仍是正的。\(n&lt;-2\) 时，\(t\) 靠近 \(0\)，括号会变成负的。</p>
-                <p>题目要的是 \(1\leqslant x&lt;2\)，对应 \(0\leqslant t&lt;1\)。</p>
+                <p>条件翻成：\(G(t)\geqslant 0\) 当且仅当 \(0\leqslant t&lt;1\)。通分提 \(t^3\)：</p>
+                <div class="formula-block">$$G(t)=t^3\,g(t),\qquad g(t)=\dfrac{2}{1-t^2}+n=n-h(t),\quad h(t)=-\dfrac{2}{1-t^2}.$$</div>
+                <p>\(t=0\) 时 \(G(0)=0\)。\(t\in(0,1)\) 时 \(t^3&gt;0\)，故只需 \(g(t)&gt;0\)，也就是</p>
+                <div class="formula-block">$$n&gt;h(t)=-\dfrac{2}{1-t^2}.$$</div>
+                <p>由 \(0&lt;t^2&lt;1\) 得 \(0&lt;1-t^2&lt;1\)，取倒数得 \(\dfrac{1}{1-t^2}&gt;1\)，乘 \(-2\) 变号得 \(h(t)&lt;-2\)。要让 \(n\) 一直大于这串小于 \(-2\) 的数，只需 \(n\geqslant -2\)。</p>
             </div>
             <div class="result-box">\(n\in[-2,+\infty)\)。</div>
         </section>
@@ -256,22 +264,14 @@
             <p class="paper-note">下面按试卷来写。步骤留全，不写想法。</p>
             <div class="paper">
                 <p>令 \(t=x-1\)。由 \(x\in(0,2)\) 得 \(t\in(-1,1)\)，且 \(1-t^2\ne 0\)。</p>
-                <div class="formula-block">$$f(1+t)=\dfrac{2(1+t)-2}{2(1+t)-(1+t)^2}+m(1+t)+nt^3=\dfrac{2t}{1-t^2}+m+mt+nt^3.$$</div>
-                <p>定义</p>
-                <div class="formula-block">$$G(t)=f(1+t)-m=\dfrac{2t}{1-t^2}+mt+nt^3.$$</div>
-                <p><strong>（1）</strong> 当 \(m=n=0\) 时，\(y=f(x+1)\) 的定义域为 \(\{x\mid x+1\in(0,2)\}=(-1,1)\)，关于原点对称。且</p>
-                <div class="formula-block">$$f(x+1)=\dfrac{2x}{1-x^2},\qquad f(1-x)=\dfrac{-2x}{1-x^2}=-f(x+1).$$</div>
-                <p>故 \(y=f(x+1)\) 为奇函数。</p>
-                <p><strong>（2）</strong> 由（1），\(\dfrac{2t}{1-t^2}\) 换成 \(-t\) 变号。又 \(m(-t)+n(-t)^3=-mt-nt^3\)，故</p>
-                <div class="formula-block">$$G(-t)=-G(t).$$</div>
-                <p>定义域 \((-1,1)\) 关于原点对称，故 \(G(t)\) 为奇函数，即 \(y=f(x+1)-m\) 为奇函数。由题设，取 \(a=1\)，\(b=m\)，\(y=f(x)\) 的图象关于点 \(P(1,m)\) 中心对称。</p>
-                <p><strong>（3）</strong> 当 \(m=-2\) 时，\(G(t)=f(1+t)+2\)，故 \(f(x)\geqslant -2\iff G(t)\geqslant 0\)，\(1\leqslant x&lt;2\iff 0\leqslant t&lt;1\)。</p>
-                <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2}-2t+nt^3,\qquad \dfrac{2}{1-t^2}-2=\dfrac{2t^2}{1-t^2},$$</div>
-                <div class="formula-block">$$G(t)=t^3\left(\dfrac{2}{1-t^2}+n\right).$$</div>
-                <p>由（2），\(G\) 为奇函数，\(G(0)=0\)。\(t=0\) 对应 \(x=1\)，落在 \(0\leqslant t&lt;1\) 内。右边大于 \(0\) 时左边小于 \(0\)，故只要对任意 \(t\in(0,1)\)，\(G(t)&gt;0\)。</p>
-                <p>\(t\in(0,1)\) 时 \(t^3&gt;0\)，故 \(G(t)&gt;0\iff \dfrac{2}{1-t^2}+n&gt;0\)。令 \(u=t^2\)。\(u\) 在 \((0,1)\) 上严格递增，与 \(t\) 一一对应。\(0&lt;u&lt;1\) 时 \(0&lt;1-u&lt;1\)，故 \(\dfrac{1}{1-u}&gt;1\)，且 \(u\) 靠近 \(1\) 时它可以任意大；\(u\) 增大则倒数增大。所以 \(\dfrac{2}{1-t^2}\) 在 \((0,1)\) 上严格递增，值域为 \((2,+\infty)\)。</p>
-                <p>若 \(n\geqslant -2\)，则括号大于 \(2+n\geqslant 0\)，故 \(G(t)&gt;0\)。\(n=-2\) 时分式取不到 \(2\)，括号仍为正。</p>
-                <p>若 \(n&lt;-2\)，值域靠近 \(2\)，存在 \(t\in(0,1)\) 使括号为负，\(G(t)&lt;0\)，不合题意。</p>
+                <div class="formula-block">$$f(1+t)=\dfrac{2(1+t)-2}{2(1+t)-(1+t)^{2}}+m(1+t)+nt^{3}=\dfrac{2t}{1-t^{2}}+m+mt+nt^{3},$$</div>
+                <div class="formula-block">$$G(t)=f(1+t)-m=\dfrac{2t}{1-t^{2}}+mt+nt^{3}.$$</div>
+                <p><strong>（1）</strong> 当 \(m=n=0\) 时，\(G(t)=\dfrac{2t}{1-t^2}\)。定义域 \((-1,1)\) 关于原点对称，且 \(G(-t)=-G(t)\)，故 \(G\) 为奇函数。此时 \(G(t)=f(1+t)\)，故 \(y=f(x+1)\) 为奇函数。</p>
+                <p><strong>（2）</strong> 由（1），第一项换成 \(-t\) 变号。又 \(m(-t)+n(-t)^3=-mt-nt^3\)，故 \(G(-t)=-G(t)\)。定义域 \((-1,1)\) 关于原点对称，故 \(G\) 为奇函数。由题设，取 \(a=1\)，\(b=m\)，\(y=f(x)\) 的图象关于点 \(P(1,m)\) 中心对称。</p>
+                <p><strong>（3）</strong> 当 \(m=-2\) 时，\(f(x)\geqslant -2\iff G(t)\geqslant 0\)，\(1\leqslant x&lt;2\iff 0\leqslant t&lt;1\)。此时</p>
+                <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2}-2t+nt^3=t^3\left(\dfrac{2}{1-t^2}+n\right).$$</div>
+                <p>由（2），\(G\) 为奇函数，\(G(0)=0\)。右边大于 \(0\) 时左边小于 \(0\)，故只要对任意 \(t\in(0,1)\)，\(G(t)&gt;0\)。此时 \(t^3&gt;0\)，故 \(G(t)&gt;0\iff n&gt;-\dfrac{2}{1-t^2}\)。</p>
+                <p>由 \(0&lt;t^2&lt;1\) 得 \(0&lt;1-t^2&lt;1\)，取倒数得 \(\dfrac{1}{1-t^2}&gt;1\)，两边乘 \(-2\) 得 \(-\dfrac{2}{1-t^2}&lt;-2\)。若 \(n\geqslant -2\)，则 \(n\geqslant -2&gt;-\dfrac{2}{1-t^2}\)，故 \(G(t)&gt;0\)。若 \(n&lt;-2\)，因 \(-\dfrac{2}{1-t^2}\) 可任意接近 \(-2\)，存在 \(t\in(0,1)\) 使 \(n\leqslant -\dfrac{2}{1-t^2}\)，故 \(G(t)\leqslant 0\)，不合题意。</p>
                 <p>故 \(n\in[-2,+\infty)\)。</p>
             </div>
         </section>
@@ -375,41 +375,113 @@
             symg.create("text", [1.85, 0.28, "x′"], Object.assign({ strokeColor: "#ea580c" }, label));
             symg.create("text", [0.12, 2.35, "y′"], Object.assign({ strokeColor: "#ea580c" }, label));
             symg.create("text", [1.72, m + 0.32, "t"], Object.assign({ strokeColor: "#1c3d5a" }, label));
-            symg.create("text", [0.62, 2.35, "y"], Object.assign({ strokeColor: "#1c3d5a" }, label));
+            symg.create("text", [0.62, 2.35, "Y"], Object.assign({ strokeColor: "#1c3d5a" }, label));
             symg.create("text", [1.14, 2.05, "新原点"], Object.assign({ strokeColor: "#ea580c" }, label));
-            var shift = JXG.JSXGraph.initBoard("shift-up", {
-                boundingbox: [-0.4, 1.4, 3.6, -3.2],
+            function hOf(t) { return -2 / (1 - t * t); }
+            var nCurr = -1;
+            function gOf(t) { return nCurr - hOf(t); }
+            var slider = document.getElementById("paramN");
+            var nDisp = document.getElementById("nValDisplay");
+            var nStatus = document.getElementById("nStatus");
+            var jumpAbove = document.getElementById("jumpNAbove");
+            var jumpBound = document.getElementById("jumpNBound");
+            var jumpBelow = document.getElementById("jumpNBelow");
+            if (!slider || !nDisp || !nStatus) return;
+            var board = JXG.JSXGraph.initBoard("hn-board", {
+                boundingbox: [-0.08, 5.6, 1.12, -8.4],
                 axis: false, grid: false, keepAspectRatio: false,
                 showCopyright: false, showNavigation: false, showInfobox: false,
                 pan: { enabled: false }, zoom: { enabled: false, wheel: false, pinch: false }
             });
-            shift.create("segment", [[0.2, 0], [2.8, 0]], { strokeColor: "#94a3b8", strokeWidth: 1.8, highlight: false, fixed: true });
-            shift.create("segment", [[0.2, -2], [2.8, -2]], { strokeColor: "#ea580c", strokeWidth: 1.8, dash: 2, highlight: false, fixed: true });
-            shift.create("arrow", [[1.5, -2], [1.5, 0]], { strokeColor: "#2563eb", strokeWidth: 1.8, lastArrow: true, highlight: false, fixed: true });
-            shift.create("text", [1.7, -1, "2"], Object.assign({ strokeColor: "#2563eb" }, label));
-            shift.create("text", [2.95, 0.15, "0"], Object.assign({ strokeColor: "#334155" }, label));
-            shift.create("text", [2.95, -2.15, "−2"], Object.assign({ strokeColor: "#ea580c" }, label));
-            var inv = JXG.JSXGraph.initBoard("inv-u", {
-                boundingbox: [-0.08, 8.2, 1.08, -0.8],
-                axis: true, grid: false, keepAspectRatio: false,
-                showCopyright: false, showNavigation: false, showInfobox: false,
-                pan: { enabled: false }, zoom: { enabled: false, wheel: false, pinch: false },
-                defaultAxes: {
-                    x: {
-                        name: "u", withLabel: true, strokeColor: "#94a3b8",
-                        label: { position: "rt", offset: [-2, 12], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
-                        ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 0.5, minorTicks: 0, majorHeight: 6, drawZero: true, label: { fontSize: 12, strokeColor: "#64748b", offset: [0, -4] } }
-                    },
-                    y: {
-                        name: "y", withLabel: true, strokeColor: "#94a3b8",
-                        label: { position: "rt", offset: [4, 2], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
-                        ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0, majorHeight: 6, drawZero: false, label: { fontSize: 12, strokeColor: "#64748b", offset: [-4, 0], anchorX: "right" } }
-                    }
-                }
+            board.create("segment", [[-0.02, 0], [1.05, 0]], {
+                strokeColor: "#94a3b8", strokeWidth: 1.5, lastArrow: true, highlight: false, fixed: true
             });
-            inv.create("segment", [[0, 1], [1.02, 1]], { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false });
-            inv.create("functiongraph", [function (u) { return 1 / (1 - u); }, 0.02, 0.9], { strokeColor: "#2563eb", strokeWidth: 2.8, highlight: false, numberPoints: 120 });
-            inv.create("text", [0.35, 1.45, "1"], Object.assign({ strokeColor: "#ea580c" }, label));
+            board.create("segment", [[0, -8], [0, 5.2]], {
+                strokeColor: "#94a3b8", strokeWidth: 1.5, lastArrow: true, highlight: false, fixed: true
+            });
+            board.create("segment", [[1, -8], [1, 5.2]], {
+                strokeColor: "#cbd5e1", strokeWidth: 1.2, dash: 2, highlight: false, fixed: true
+            });
+            board.create("segment", [[0, -2], [1.02, -2]], {
+                strokeColor: "#dc2626", strokeWidth: 1.4, dash: 2, highlight: false, fixed: true
+            });
+            board.create("functiongraph", [hOf, 0.03, 0.86], {
+                strokeColor: "#d97706", strokeWidth: 2.4, dash: 2, highlight: false, numberPoints: 160
+            });
+            board.create("functiongraph", [gOf, 0.03, 0.86], {
+                strokeColor: "#1d4ed8", strokeWidth: 2.9, highlight: false, numberPoints: 160
+            });
+            board.create("point", [0, -2], {
+                name: "", size: 2.2, face: "o", fillColor: "#fff", strokeColor: "#dc2626", strokeWidth: 2,
+                fixed: true, highlight: false, showInfobox: false, withLabel: false
+            });
+            var nLine = board.create("segment", [[0, -1], [1.02, -1]], {
+                strokeColor: "#ea580c", strokeWidth: 2.5, highlight: false, fixed: true
+            });
+            var nTag = board.create("text", [0.08, -0.55, "n"], Object.assign({ strokeColor: "#ea580c" }, label));
+            var hitN = board.create("point", [0.5, -3], {
+                name: "", size: 2.4, face: "o", fillColor: "#fff", strokeColor: "#ea580c", strokeWidth: 2,
+                fixed: true, highlight: false, showInfobox: false, withLabel: false, visible: false
+            });
+            var hitG = board.create("point", [0.5, 0], {
+                name: "", size: 2.4, face: "o", fillColor: "#fff", strokeColor: "#1d4ed8", strokeWidth: 2,
+                fixed: true, highlight: false, showInfobox: false, withLabel: false, visible: false
+            });
+            var guide = board.create("segment", [[0.5, -8], [0.5, 5.2]], {
+                strokeColor: "#f59e0b", strokeWidth: 1.3, dash: 2, highlight: false, fixed: true, visible: false
+            });
+            board.create("text", [0.98, 0.35, "t"], Object.assign({ strokeColor: "#64748b" }, label));
+            board.create("text", [0.08, 4.9, "y"], Object.assign({ strokeColor: "#64748b" }, label));
+            board.create("text", [0.72, -1.5, "−2"], Object.assign({ strokeColor: "#dc2626" }, label));
+            board.create("text", [0.42, -5.8, "h(t)"], Object.assign({ strokeColor: "#d97706" }, label));
+            board.create("text", [0.42, 3.2, "g(t)"], Object.assign({ strokeColor: "#1d4ed8" }, label));
+            board.create("text", [0.98, -0.45, "1"], Object.assign({ strokeColor: "#64748b", anchorX: "middle" }, label));
+            function fmt(n) {
+                var s = (Math.round(n * 100) / 100).toFixed(2).replace(/\.?0+$/, "");
+                return s.replace("-", "−");
+            }
+            function setN(n) {
+                slider.value = String(n);
+                slider.dispatchEvent(new Event("input", { bubbles: true }));
+            }
+            function update() {
+                var n = parseFloat(slider.value);
+                nCurr = n;
+                nDisp.textContent = "n = " + fmt(n);
+                nLine.point1.setPosition(JXG.COORDS_BY_USER, [0, n]);
+                nLine.point2.setPosition(JXG.COORDS_BY_USER, [1.02, n]);
+                nTag.setPosition(JXG.COORDS_BY_USER, [0.08, n + 0.35]);
+                if (n < -2) {
+                    var tHit = Math.sqrt(1 + 2 / n);
+                    guide.setAttribute({ visible: true });
+                    hitN.setAttribute({ visible: true });
+                    hitG.setAttribute({ visible: true });
+                    guide.point1.setPosition(JXG.COORDS_BY_USER, [tHit, -8]);
+                    guide.point2.setPosition(JXG.COORDS_BY_USER, [tHit, 5.2]);
+                    hitN.setPosition(JXG.COORDS_BY_USER, [tHit, n]);
+                    hitG.setPosition(JXG.COORDS_BY_USER, [tHit, 0]);
+                    nStatus.innerHTML = "橙线撞上 \(h\)。同一竖线处蓝线 \(g\) 穿过 \(0\)，左侧 \(g&lt;0\)，不合题意。";
+                } else if (Math.abs(n + 2) < 1e-9) {
+                    guide.setAttribute({ visible: false });
+                    hitN.setAttribute({ visible: false });
+                    hitG.setAttribute({ visible: false });
+                    nStatus.innerHTML = "橙线压在 \(-2\) 上，碰不到 \(h\)。蓝线 \(g\) 全程在 \(0\) 上方。";
+                } else {
+                    guide.setAttribute({ visible: false });
+                    hitN.setAttribute({ visible: false });
+                    hitG.setAttribute({ visible: false });
+                    nStatus.innerHTML = "橙线整段压过 \(h\)。蓝线 \(g\) 跟着上移，全程在 \(0\) 上方。";
+                }
+                board.update();
+                if (window.MathJax && MathJax.typesetPromise) {
+                    MathJax.typesetPromise([nStatus]).catch(function () {});
+                }
+            }
+            slider.addEventListener("input", update);
+            if (jumpAbove) jumpAbove.addEventListener("click", function () { setN(-1); });
+            if (jumpBound) jumpBound.addEventListener("click", function () { setN(-2); });
+            if (jumpBelow) jumpBelow.addEventListener("click", function () { setN(-3); });
+            update();
         })();
     </script>
     <script src="../../js/site.js"></script>
