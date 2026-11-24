@@ -260,12 +260,17 @@
                 <p>令 \(t=x+\dfrac{1}{x}\)（\(x&gt;1\)）。由 \(x&gt;1\) 得 \(t&gt;2\)。</p>
                 <p>这一问的包是 \(x+\dfrac{1}{x}\)，起名 \(t\)。</p>
             </div>
+            <div class="mindset-box">
+                <div class="mindset-title"><strong style="color:#b42318">端点检查</strong></div>
+                <p>算出边界后，看临界能不能取。本题 \(t&gt;2\) 是开的：\(\lambda=\dfrac{5}{2}\) 落在 \(t=2\)，不在开区间里，等号不能留。</p>
+            </div>
             <div class="solution-step">
                 <p>令 \(t=x+\dfrac{1}{x}\)，\(x&gt;1\)。由 \((x-1)^2&gt;0\) 得 \(t&gt;2\)，\(x&gt;1\) 与 \(t&gt;2\) 一一对应。令 \(A=x\)，\(B=\dfrac{1}{x}\)，则 \(AB=1\)，</p>
                 <div class="formula-block">$$f(x^2)=t^2-2.$$</div>
                 <p>原方程化为 \(t^2-\lambda t+1=0\)。\(t&gt;2\)，故</p>
                 <div class="formula-block">$$\lambda=t+\frac{1}{t}.$$</div>
                 <p>记 \(G(t)=t+\dfrac{1}{t}\)（\(t&gt;2\)）。\(G\) 就是已经证明递增的那个 \(f\)，字母换成 \(t\)。\(G(2)=\dfrac{5}{2}\)，严格递增，又 \(G(t)&gt;t\)，故值域为 \(\left(\dfrac{5}{2},+\infty\right)\)。任意 \(\lambda&gt;\dfrac{5}{2}\) 对应唯一的 \(t&gt;2\)，从而对应唯一的 \(x&gt;1\)。</p>
+                <p><strong style="color:#b42318">端点检查：</strong>若 \(\lambda=\dfrac{5}{2}\)，则 \(t=2\)，不在 \(t&gt;2\) 内，原区间上没有根。等号取不到，故 \(\lambda&gt;\dfrac{5}{2}\)。</p>
             </div>
             <div class="interactive-panel">
                 <div class="interactive-title">拖动 $\lambda$，看横线在 $t&gt;2$ 上碰不碰对勾</div>
@@ -309,7 +314,7 @@
                     <div class="give">\(\lambda\) 的范围是开区间</div>
                 </article>
             </div>
-            <div class="motto">同一条递增。第（3）问的开区间端点取不到，等号不能留。</div>
+            <div class="motto">同一条递增。第（3）问做端点检查：开区间端点取不到，等号不能留。</div>
         </section>
 
         <section class="card paper-card">
@@ -331,6 +336,7 @@
                 <p><strong>（3）</strong> 令 \(t=x+\dfrac{1}{x}\)，\(x&gt;1\)。由 \((x-1)^2&gt;0\) 得 \(t&gt;2\)。由（1），\(f\) 在 \((1,+\infty)\) 上严格递增。又 \(f(x)&gt;x\)，故值域为 \((2,+\infty)\)，\(x&gt;1\) 与 \(t&gt;2\) 一一对应。</p>
                 <div class="formula-block">$$f(x^2)=x^2+\frac{1}{x^2}=\left(x+\frac{1}{x}\right)^2-2=t^2-2.$$</div>
                 <p>原方程化为 \(t^2-\lambda t+1=0\)。\(t&gt;2\)，故 \(\lambda=t+\dfrac{1}{t}\)。记 \(G(t)=t+\dfrac{1}{t}\)（\(t&gt;2\)）。\(G\) 即（1）中的 \(f\)，\(G(2)=\dfrac{5}{2}\)。由（1），\(G\) 在 \((2,+\infty)\) 上严格递增。又 \(G(t)&gt;t\)，故值域为 \(\left(\dfrac{5}{2},+\infty\right)\)。因此任意 \(\lambda&gt;\dfrac{5}{2}\) 恰有一个 \(t&gt;2\)，也就恰有一个 \(x&gt;1\)。</p>
+                <p><strong style="color:#b42318">端点检查：</strong>若 \(\lambda=\dfrac{5}{2}\)，则 \(t=2\notin(2,+\infty)\)，原方程在 \((1,+\infty)\) 上无根，等号取不到。</p>
                 <p>所以 \(\lambda\in\left(\dfrac{5}{2},+\infty\right)\)。</p>
             </div>
         </section>
