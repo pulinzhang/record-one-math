@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="css/site.css?v=1">
+    <link rel="icon" href="icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="icons/favicon.ico" sizes="32x32">
+    <title>教学助手 · 记一数学</title>
+    <style>
+        body.assist .assist-row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.65rem 0.85rem;
+            padding: 0.95rem 1.05rem;
+            margin: 0 0 0.65rem;
+            background: #fff;
+            border: 1px solid #d7e0ea;
+            border-radius: 12px;
+        }
+        body.assist .assist-row h3 {
+            flex: 1 1 12rem;
+            margin: 0;
+            font-size: 1.05rem;
+            color: var(--ink, #1a2b3c);
+        }
+        body.assist .assist-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.45rem;
+        }
+        body.assist .assist-actions a {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border: 1px solid #c5d4e4;
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--primary, #1e4b78);
+            font-size: 0.92rem;
+            font-weight: 600;
+            background: #f7fafc;
+        }
+        body.assist .assist-actions a:hover {
+            border-color: var(--blue, #2563eb);
+            color: var(--blue, #2563eb);
+        }
+        body.assist .assist-actions a.pdf {
+            border-color: #c45c3c;
+            color: #b42318;
+            background: #fff7f5;
+        }
+        body.assist .assist-actions a.pdf:hover {
+            border-color: #b42318;
+        }
+        body.assist .grade-empty {
+            margin: 0.35rem 0 1rem;
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+        body.assist .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.75rem 0 1.25rem;
+        }
+        body.assist .top-nav a {
+            color: var(--primary, #1e4b78);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        body.assist .top-nav a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body class="catalog assist">
+    <div class="container">
+        <header>
+            <div class="brand">
+                <h1>教学助手</h1>
+                <p class="lead">练习讲义与试卷：打开 HTML，下载 PDF。按年级分开。</p>
+            </div>
+        </header>
+
+        <nav class="top-nav" aria-label="页内跳转">
+            <a href="#g1">高一</a>
+            <a href="#g2">高二</a>
+            <a href="#g3">高三</a>
+            <a href="index.html">返回记一数学</a>
+        </nav>
+
+        <section class="grade" id="g1">
+            <h2 class="list-title">高一</h2>
+            <article class="assist-row">
+                <h3>萘思尔高一秋季数学打卡 8（试题版）</h3>
+                <div class="assist-actions">
+                    <a href="exercize/高一/萘思尔高一秋季数学打卡8（试题版）.html">打开讲义</a>
+                    <a class="pdf" href="exercize/高一/萘思尔高一秋季数学打卡8（试题版）.pdf" download>下载 PDF</a>
+                </div>
+            </article>
+        </section>
+
+        <section class="grade" id="g2">
+            <h2 class="list-title">高二</h2>
+            <p class="grade-empty">暂无。新练习放进 <code>exercize/高二</code> 后，在这里挂上即可。</p>
+        </section>
+
+        <section class="grade" id="g3">
+            <h2 class="list-title">高三</h2>
+            <p class="grade-empty">暂无。新练习放进 <code>exercize/高三</code> 后，在这里挂上即可。</p>
+        </section>
+    </div>
+</body>
+</html>

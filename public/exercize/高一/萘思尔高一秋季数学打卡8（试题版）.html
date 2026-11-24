@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="../../css/site.css?v=1">
+    <link rel="icon" href="../../icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../../icons/favicon.ico" sizes="32x32">
+    <title>萘思尔高一秋季数学打卡 8</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+        (function () {
+            var sources = [
+                '../../vendor/tex-svg.js?v=1',
+                'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
+            ];
+            function giveUp() {
+                var note = document.createElement('p');
+                note.textContent = '数学公式未能渲染。请确认能访问到 vendor/tex-svg.js。';
+                note.style.cssText = 'width:min(1440px,calc(100% - 1.5rem));margin:1rem auto;padding:0.8rem 1rem;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;color:#92400e;';
+                document.body.prepend(note);
+            }
+            function load(i) {
+                if (i >= sources.length) {
+                    if (document.body) giveUp();
+                    else document.addEventListener('DOMContentLoaded', giveUp);
+                    return;
+                }
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = sources[i];
+                s.onload = function () {
+                    if (!window.MathJax || !window.MathJax.version) load(i + 1);
+                };
+                s.onerror = function () { load(i + 1); };
+                document.head.appendChild(s);
+            }
+            load(0);
+        })();
+    </script>
+</head>
+<body class="lecture">
+    <div class="now-asking" id="nowAsking">
+        <div class="bar-tools">
+            <button type="button" class="home-link" onclick="printLecture()">打印讲义</button>
+            <button type="button" class="home-link" onclick="printProblems()">打印题目</button>
+            <a class="home-link" href="../../index.html">返回目录</a>
+        </div>
+        <div class="now-inner">
+            <span class="now-label" id="nowLabel">原题</span>
+            <div class="now-text" id="nowText">萘思尔高一秋季数学打卡 8（答案写在题上）</div>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <div class="section-kicker">函数思想</div>
+            <h1>萘思尔高一秋季数学打卡 8</h1>
+            <p>选择题：符号、图象、增减。解答题：换元后盯值域。答案写在题上。</p>
+        </header>
+
+        <section class="card" data-q="第 1 题">
+            <div class="section-header">
+                <span class="step-num">1</span>
+                <h2>选择题</h2>
+            </div>
+            <div class="ask" hidden>若 \(a=\log_{5}0.5\)，\(b=5^{-0.5}\)，\(c=\log_{5.5}0.5\)，则（D）</div>
+            <div class="problem-content">
+                <p><strong>1．</strong>若 \(a=\log_{5}0.5\)，\(b=5^{-0.5}\)，\(c=\log_{5.5}0.5\)，则（ <strong>D</strong> ）</p>
+                <p>A．\(c&gt;b&gt;a\)　B．\(b&gt;a&gt;c\)　C．\(a&gt;b&gt;c\)　D．\(b&gt;c&gt;a\)</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">函数思想</div>
+                <p>\(b=5^{-0.5}&gt;0\)；\(a&lt;0\)，\(c&lt;0\)，故 \(b\) 最大。</p>
+                <p>\(5^{a}=5.5^{c}=0.5&lt;1\)。指数函数 \(y=k^{x}\)（\(k&gt;1\)）在 \(x&lt;0\) 时，底越大曲线越陡。同一高度 \(0.5\)，底 \(5.5&gt;5\)，对应的横坐标（指数）更靠右、更靠近 \(0\)。二者都是负数，离 \(0\) 更近的更大，故 \(c&gt;a\)。</p>
+                <p>因此 \(b&gt;c&gt;a\)。</p>
+            </div>
+            <div class="result-box">选 D</div>
+        </section>
+
+        <section class="card" data-q="第 2 题">
+            <div class="section-header">
+                <span class="step-num">2</span>
+                <h2>选择题</h2>
+            </div>
+            <div class="ask" hidden>\(0.5\) 秒完成 \(2^{48}\) 次运算，至少 \(561\) TOPS</div>
+            <div class="problem-content">
+                <p><strong>2．</strong>某车载 AI 需在 \(0.5\) 秒内完成 \(2^{48}\) 次运算。\(1\,\mathrm{TOPS}=10^{12}\) 次运算/秒。则该芯片运算性能至少为（ <strong>D</strong> ）TOPS。（参考：\(\lg 2\approx 0.301\)，\(\lg 5.61\approx 0.749\)，\(\lg 3\approx 0.477\)）</p>
+                <p>A．\(56.2\)　B．\(56.1\)　C．\(562\)　D．\(561\)</p>
+            </div>
+            <div class="matryoshka-box">
+                <div class="matryoshka-title">跨学科常识：Byte → TB</div>
+                <p>手机内存怎么进位？每一级都是 \(1024=2^{10}\)：</p>
+                <div class="case-grid">
+                    <div class="case-card">
+                        <h4>\(2^{10}\) → 1K → \(10^{3}\)</h4>
+                        <p>1024 B = 1 KB ≈ \(10^{3}\)</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>\(2^{20}\) → 1M → \(10^{6}\)</h4>
+                        <p>1024 KB = 1 MB ≈ \(10^{6}\)</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>\(2^{30}\) → 1G → \(10^{9}\)</h4>
+                        <p>1024 MB = 1 GB ≈ \(10^{9}\)</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>\(2^{40}\) → 1T → \(10^{12}\)</h4>
+                        <p>1024 GB = 1 TB ≈ \(10^{12}\)</p>
+                    </div>
+                </div>
+                <p>记住这串单位，再看见 \(2^{10}\) 到 \(2^{50}\)，当内存读就行。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">函数思想</div>
+                <p>所需 \(\dfrac{2^{49}}{10^{12}}\)。上面 \(2^{49}=1\mathrm{T}\times 512\)，下面 \(10^{12}\approx 1\mathrm{T}\)，一约剩大约 \(512\)。量级「五百多」，A、B 去掉。</p>
+                <p>C、D：出题人写出 \(\lg 5.61\)，就是在指 \(561\)；没写 \(\lg 5.62\)。\(\lg 3\) 谁也不指，是噪音。选 D。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="第 3 题">
+            <div class="section-header">
+                <span class="step-num">3</span>
+                <h2>解答题</h2>
+            </div>
+            <div class="ask" hidden>\(a=1\)，值域 \([2,+\infty)\)；\(m&lt;-\dfrac{4}{3}\)</div>
+            <div class="problem-content">
+                <p><strong>3．</strong>已知 \(f(x)=\dfrac{9^{x}+a}{3^{x}}\)（\(a\in\mathbb{R}\)）为偶函数，\(g(x)=mf(2x)+2f(x)+m\)（\(m\in\mathbb{R}\)）。</p>
+                <p><strong>（1）</strong>求 \(a\) 的值及 \(f(x)\) 的值域；</p>
+                <div class="result-box">\(a=1\)；\(f(x)\in[2,+\infty)\)</div>
+                <p><strong>（2）</strong>若命题「\(\exists x\in\mathbb{R}\)，\(g(x)\geqslant 0\)」为假命题，求实数 \(m\) 的取值范围。</p>
+                <div class="result-box">\(m&lt;-\dfrac{4}{3}\)</div>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">函数思想</div>
+                <p>偶函数定 \(a\)；假命题 \(\Rightarrow g&lt;0\)。分离得对一切 \(t\geqslant 2\) 有 \(m&lt;k(t)\)。\(k\) 递增，最小 \(k(2)=-\dfrac{4}{3}\)，故 \(m&lt;-\dfrac{4}{3}\)。一路都是 \(&lt;\)，主链到这里已经完了。</p>
+                <p><strong style="color:#b42318">端点检查</strong>＝把临界值代回原条件，看等号能不能取。</p>
+                <p><strong>什么时候要写：</strong>结论卡在「开还是闭」——本题是 \(m&lt;-\dfrac{4}{3}\) 还是 \(m\leqslant -\dfrac{4}{3}\)。最小值取得到，且要的是严格 \(g&lt;0\)，代回临界得 \(g=0\)，等号不要。原条件是严格大于或者严格小于时，算出边界后都应代回验一眼。</p>
+                <p><strong>什么时候可以不纠结：</strong>最小值取不到（只有下确界），或原条件本身就是 \(\leqslant\)，开闭已被条件钉死。</p>
+                <p><strong>意义：</strong>不推翻前面的 \(&lt;\)，只给「开闭」留证据。期末、高考严苛阅卷时，只写最终 \(m&lt;-\dfrac{4}{3}\) 却不交代「为何不能取等」，常被扣结论分约 1～2 分；多写一句「若 \(m=-\dfrac{4}{3}\)，则 \(g=0\)，不合」，就把这分捏住。高考里这 1～2 分，往往就是几百人甚至上千人的位次。投入大约十秒，投资回报率ROI 拉满 🙂</p>
+            </div>
+            <div class="mindset-box pit">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>两处：硬把 \(k\) 拆成对勾，增减看糊；算出 \(-\dfrac{4}{3}\) 就顺手写成 \(m\leqslant -\dfrac{4}{3}\)，忘了假命题带来的是严格 \(g&lt;0\)。</p>
+            </div>
+            <div class="paper">
+                <p><strong>（1）</strong></p>
+                <p>\(f(x)=\dfrac{9^{x}+a}{3^{x}}=3^{x}+a\cdot 3^{-x}\)。由 \(f\) 为偶函数，得 \(f(-x)=f(x)\)，即
+                $$3^{-x}+a\cdot 3^{x}=3^{x}+a\cdot 3^{-x}.$$
+                整理得 \((a-1)(3^{x}-3^{-x})=0\)。该式对一切 \(x\in\mathbb{R}\) 成立，故 \(a=1\)。</p>
+                <p>此时 \(f(x)=3^{x}+3^{-x}\)。令 \(t=3^{x}\)。因 \(x\in\mathbb{R}\)，有 \(t&gt;0\)，且 \(t\) 与 \(x\) 一一对应，\(f=t+\dfrac{1}{t}\)。</p>
+                <p>设 \(t_{1},t_{2}\in(0,+\infty)\)，且 \(t_{1}&lt;t_{2}\)。计算
+                $$\left(t_{1}+\dfrac{1}{t_{1}}\right)-\left(t_{2}+\dfrac{1}{t_{2}}\right)=(t_{1}-t_{2})\left(1-\dfrac{1}{t_{1}t_{2}}\right).$$
+                此时 \(t_{1}-t_{2}&lt;0\)。若 \(0&lt;t_{1}&lt;t_{2}\leqslant 1\)，则 \(t_{1}t_{2}&lt;1\)，括号为负，差为正，故 \(t+\dfrac{1}{t}\) 在 \((0,1]\) 上严格递减；若 \(1\leqslant t_{1}&lt;t_{2}\)，则 \(t_{1}t_{2}&gt;1\)，括号为正，差为负，故在 \([1,+\infty)\) 上严格递增。因此最小值为 \(2\)（在 \(t=1\) 取到），值域为 \([2,+\infty)\)。</p>
+                <p>所以 \(a=1\)，\(f(x)\) 的值域为 \([2,+\infty)\)。</p>
+                <p><strong>（2）</strong></p>
+                <p>命题「\(\exists x\in\mathbb{R}\)，\(g(x)\geqslant 0\)」为假 \(\iff\) \(\forall x\in\mathbb{R}\)，\(g(x)&lt;0\)。</p>
+                <p>由（1），\(f(x)=3^{x}+3^{-x}\)。令 \(t=f(x)\)，则 \(t\geqslant 2\)，且
+                $$f(2x)=3^{2x}+3^{-2x}=(3^{x}+3^{-x})^{2}-2=t^{2}-2.$$
+                于是
+                $$g(x)=m(t^{2}-2)+2t+m=m(t^{2}-1)+2t.$$
+                需 \(m(t^{2}-1)+2t&lt;0\) 对一切 \(t\geqslant 2\) 成立。因 \(t\geqslant 2\) 时 \(t^{2}-1&gt;0\)，分离得
+                $$m&lt;k(t),\qquad k(t)=-\dfrac{2t}{t^{2}-1}\quad(t\geqslant 2).$$
+                故 \(m\) 须小于 \(k\) 在 \([2,+\infty)\) 上的最小值。</p>
+                <p>设 \(t_{1},t_{2}\geqslant 2\)，且 \(t_{1}&lt;t_{2}\)。计算 \(k(t_{1})-k(t_{2})\)：
+                $$k(t_{1})-k(t_{2})=-2\cdot\dfrac{t_{1}(t_{2}^{2}-1)-t_{2}(t_{1}^{2}-1)}{(t_{1}^{2}-1)(t_{2}^{2}-1)}=-2\cdot\dfrac{(t_{2}-t_{1})(t_{1}t_{2}+1)}{(t_{1}^{2}-1)(t_{2}^{2}-1)}.$$
+                因 \(t_{2}&gt;t_{1}\geqslant 2\)，分子分母均为正，故 \(k(t_{1})-k(t_{2})&lt;0\)，即 \(k(t_{1})&lt;k(t_{2})\)。所以 \(k\) 在 \([2,+\infty)\) 上严格递增，最小值为
+                $$k(2)=-\dfrac{4}{4-1}=-\dfrac{4}{3}.$$
+                故暂得 \(m&lt;-\dfrac{4}{3}\)。</p>
+                <p><strong style="color:#b42318">端点检查：</strong>若 \(m=-\dfrac{4}{3}\)，取 \(t=2\)，则
+                $$g=m(t^{2}-1)+2t=-\dfrac{4}{3}\cdot 3+4=0,$$
+                不满足 \(g&lt;0\)，等号取不到。</p>
+                <p>故 \(m\) 的取值范围为 \(m&lt;-\dfrac{4}{3}\)。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="第 4 题">
+            <div class="section-header">
+                <span class="step-num">4</span>
+                <h2>解答题</h2>
+            </div>
+            <div class="ask" hidden>定义域 \((1,+\infty)\)；\(1&lt;a&lt;2^{2/9}\)</div>
+            <div class="problem-content">
+                <p><strong>4．</strong>已知 \(f(x)=2^{2x}-3\cdot 2^{x}\)，\(g(x)=\log_{a}(x^{2}-1)-\log_{a}x\)。</p>
+                <p><strong>（1）</strong>求 \(g(x)\) 的定义域；</p>
+                <div class="result-box">\((1,+\infty)\)</div>
+                <p><strong>（2）</strong>若 \(\forall x_{1}\in[0,1]\)，\(x_{2}\in\bigl[\dfrac{\sqrt{5}}{2},\sqrt{2}\bigr]\)，\(f(x_{1})&gt;g(x_{2})\)，求 \(a\) 的取值范围。</p>
+                <div class="result-box">\(1&lt;a&lt;2^{2/9}\)</div>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">函数思想</div>
+                <p>\(\forall\) \(\iff\) \(\min f&gt;\max g\)。底数分 \(a&gt;1\) 与 \(0&lt;a&lt;1\) 两边看。</p>
+            </div>
+            <div class="paper">
+                <p><strong>（1）</strong></p>
+                <p>要使 \(g(x)\) 有意义，需 \(a&gt;0\)，\(a\neq 1\)，且
+                $$x&gt;0,\qquad x^{2}-1&gt;0.$$
+                由 \(x&gt;0\) 且 \(x^{2}&gt;1\)，得 \(x&gt;1\)。故 \(g(x)\) 的定义域为 \((1,+\infty)\)。（以下求 \(a\) 的范围时，默认 \(a&gt;0\)，\(a\neq 1\)。）</p>
+                <p><strong>（2）</strong></p>
+                <p>记 \(I=\bigl[\dfrac{\sqrt{5}}{2},\sqrt{2}\bigr]\)。条件 \(\forall x_{1}\in[0,1]\)，\(\forall x_{2}\in I\)，\(f(x_{1})&gt;g(x_{2})\) 等价于
+                $$\min_{x_{1}\in[0,1]}f(x_{1})&gt;\max_{x_{2}\in I}g(x_{2}).$$</p>
+                <p>令 \(u=2^{x}\)。当 \(x\in[0,1]\) 时，\(u\in[1,2]\)，且
+                $$f(x)=u^{2}-3u.$$
+                设 \(\psi(u)=u^{2}-3u\)（\(u\in[1,2]\)）。\(\psi\) 的图象是开口向上的抛物线，对称轴为 \(u=\dfrac{3}{2}\in[1,2]\)，故
+                $$\min_{u\in[1,2]}\psi(u)=\psi\Bigl(\dfrac{3}{2}\Bigr)=-\dfrac{9}{4}.$$
+                即 \(\min f=-\dfrac{9}{4}\)。</p>
+                <p>又
+                $$g(x)=\log_{a}(x^{2}-1)-\log_{a}x=\log_{a}\dfrac{x^{2}-1}{x}=\log_{a}\Bigl(x-\dfrac{1}{x}\Bigr).$$
+                令 \(\varphi(x)=x-\dfrac{1}{x}\)。设 \(x_{1},x_{2}\in I\)，且 \(x_{1}&lt;x_{2}\)。则
+                $$\varphi(x_{1})-\varphi(x_{2})=(x_{1}-x_{2})\left(1+\dfrac{1}{x_{1}x_{2}}\right)&lt;0,$$
+                故 \(\varphi\) 在 \(I\) 上严格递增，
+                $$\varphi(I)=\Bigl[\varphi\Bigl(\dfrac{\sqrt{5}}{2}\Bigr),\varphi(\sqrt{2})\Bigr]=\Bigl[\dfrac{\sqrt{5}}{10},\dfrac{\sqrt{2}}{2}\Bigr]\subset(0,1).$$</p>
+                <p>若 \(0&lt;a&lt;1\)，则 \(\log_{a}\) 在 \((0,+\infty)\) 上严格递减，从而
+                $$\max_{x_{2}\in I}g(x_{2})=\log_{a}\Bigl(\dfrac{\sqrt{5}}{10}\Bigr).$$
+                因真数 \(\dfrac{\sqrt{5}}{10}\in(0,1)\) 且 \(0&lt;a&lt;1\)，有 \(\log_{a}\bigl(\dfrac{\sqrt{5}}{10}\bigr)&gt;0\)。但 \(\min f=-\dfrac{9}{4}&lt;0\)，不可能有 \(\min f&gt;\max g\)。</p>
+                <p>若 \(a&gt;1\)，则 \(\log_{a}\) 严格递增，从而
+                $$\max_{x_{2}\in I}g(x_{2})=\log_{a}\Bigl(\dfrac{\sqrt{2}}{2}\Bigr).$$
+                需 \(-\dfrac{9}{4}&gt;\log_{a}\dfrac{\sqrt{2}}{2}\)。因 \(a&gt;1\)，指数函数 \(y=a^{x}\) 严格递增，两边化为
+                $$a^{-9/4}&gt;\dfrac{\sqrt{2}}{2}\iff a^{9/4}&lt;\sqrt{2}\iff a&lt;(\sqrt{2})^{4/9}=2^{2/9}.$$
+                又 \(a&gt;1\)，故 \(1&lt;a&lt;2^{2/9}\)。</p>
+                <p>综上，\(a\) 的取值范围为 \(1&lt;a&lt;2^{2/9}\)。</p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        (function () {
+            var bar = document.getElementById('nowAsking');
+            var label = document.getElementById('nowLabel');
+            var slot = document.getElementById('nowText');
+            if (!bar || !slot) return;
+            var sections = [].slice.call(document.querySelectorAll('section[data-q]'));
+            var saved = sections.map(function (section) {
+                var ask = section.querySelector('.ask');
+                return { label: section.getAttribute('data-q'), html: ask ? ask.innerHTML : '' };
+            });
+            var home = { label: label.textContent, html: slot.innerHTML };
+            var current = null;
+            function fill(item) {
+                if (current === item) return;
+                current = item;
+                label.textContent = item.label;
+                slot.innerHTML = item.html;
+                var done = window.MathJax && MathJax.typesetPromise
+                    ? MathJax.typesetPromise([slot])
+                    : Promise.resolve();
+                done.then(function () {
+                    document.documentElement.style.setProperty('--ask-space', bar.offsetHeight + 'px');
+                }).catch(function () {});
+            }
+            function render() {
+                var line = bar.getBoundingClientRect().bottom;
+                var pick = -1;
+                sections.forEach(function (section, i) {
+                    if (section.getBoundingClientRect().top < line) pick = i;
+                });
+                fill(pick === -1 ? home : saved[pick]);
+            }
+            window.addEventListener('scroll', render, { passive: true });
+            window.addEventListener('resize', function () { current = null; render(); });
+            var start = window.MathJax && MathJax.startup && MathJax.startup.promise
+                ? MathJax.startup.promise
+                : Promise.resolve();
+            start.then(function () { current = null; render(); }).catch(function () { render(); });
+        })();
+    </script>
+    <script src="../../js/site.js?v=2"></script>
+</body>
+</html>
