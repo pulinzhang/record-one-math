@@ -68,9 +68,9 @@
             <p>两个未知函数需要两个方程：由奇偶性，把 \(x\) 换成 \(-x\) 得到第二式，再相加减消元。其后令 \(A=2^{x}\)，\(B=2^{-x}\)，或令 \(t=f(x)\)。由原来变量的范围确定新元的范围，取值不变，计算后再代回。</p>
             <p>一个式子里有两个不知道的函数，把 \(x\) 换成 \(-x\) 再写一个。后面反复出现的一块先起名，能取哪些数要写出来，算完再拆开。</p>
             <div class="badge-group">
-                <span class="badge">两个方程解两个函数</span>
-                <span class="badge">用 \(A\)、\(B\) 算立方</span>
-                <span class="badge">换元，写下 \(t\) 的范围</span>
+                <span class="badge">奇偶消元</span>
+                <span class="badge">换元写范围</span>
+                <span class="badge">最小值函数</span>
             </div>
         </header>
 
@@ -88,11 +88,11 @@
         <section class="card" data-nav="先看思路">
             <div class="section-header">
                 <span class="step-num">想</span>
-                <h2>先拆开 \(f\)、\(g\)，后面都用它们</h2>
+                <h2>先抬头看路：这道题钉住什么</h2>
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>三问都绕着同一个 \(f\)、\(g\)。是不是先把解析式求出来，后面两问直接代进去用？</p>
+                <p>三问都绕着同一个 \(f\)、\(g\)。先看清考点：奇偶会不会消元，复合会不会换元，没给数的 \(a\) 会不会写成最小值函数。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
@@ -100,14 +100,53 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是奇函数、偶函数，再加上 \(f+g=2^x\)。它招呼的是：先消元求出 \(f\)、\(g\)。</p>
+                <p>暗号有三处：奇偶与 \(f+g=2^{x}\) 招呼「奇偶消元」；\(g(m)=4\) 与 \(\dfrac{3m}{2}\) 招呼「换元写范围」；没给数的 \(a\) 招呼「最小值函数」。</p>
             </div>
-            <div class="mindset-box">
-                <div class="mindset-title">先消元</div>
-                <p>第（1）问求出 \(f\)、\(g\)。第（2）问在已知 \(g(m)\) 下用换元算 \(f\!\left(\dfrac{3m}{2}\right)\)。第（3）问令 \(t=f(x)\)，把最小值写成依赖 \(a\) 的函数。</p>
-                <p>先拆开两个函数，后面两问都站在它们上面。</p>
+
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>考点一：奇偶消元</h4>
+                    <p>两个未知函数要两个方程：把 \(x\) 换成 \(-x\)，再相加减拆开 \(f\)、\(g\)。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点二：换元写范围</h4>
+                    <p>反复出现的指数块先起名；由原来变量的范围确定新元的范围，算完再代回。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点三：最小值函数</h4>
+                    <p>\(a\) 没给数。最小值依赖 \(a\)，就记成 \(M(a)\)，再分段写出解析式。</p>
+                </div>
             </div>
-            <div class="motto">先消元，再换元，再谈最小值函数。</div>
+
+            <div class="matryoshka-box translate-block">
+                <div class="matryoshka-title">对暗号 · 翻译对照</div>
+                <p class="translate-lead">认出暗号 → 翻成白话 → 写成能动手的式子。这张表就是主推手。</p>
+                <div class="translate-wrap">
+                    <table class="translate-table">
+                        <thead>
+                            <tr>
+                                <th>原题说<span>暗号</span></th>
+                                <th>白话<span>翻出来</span></th>
+                                <th>执行<span>动手算</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="原题说">奇函数 \(f\)、偶函数 \(g\)，且 \(f(x)+g(x)=2^{x}\)</td>
+                                <td data-label="白话">一个方程拆不开两个人，换成 \(-x\) 再写一个</td>
+                                <td data-label="执行">写出①②，相加得 \(g\)，相减得 \(f\)</td>
+                            </tr>
+                            <tr>
+                                <td data-label="原题说">求 \(h(x)\) 在 \([0,1]\) 上的最小值，\(a\) 没给数</td>
+                                <td data-label="白话">最低有多矮，要看 \(a\) 站在哪一边</td>
+                                <td data-label="执行">令 \(t=f(x)\)，把最低写成依赖 \(a\) 的 \(M(a)\)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="motto">先看考点，再消元，再换元，再谈最小值函数。</div>
         </section>
 
         <!-- 第一问 -->

@@ -66,9 +66,9 @@
             <p>奇函数把 \(f(A)+f(B)&gt;0\) 转化为 \(f(A)&gt;f(-B)\)。函数严格递增时，\(f(u)&gt;f(v)\) 与 \(u&gt;v\) 等价。令 \(t=f(x)\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
             <p>\(f\) 穿着马甲。先用奇函数把两件收成同一边，再按增减脱马甲。脱掉以后，才是括号里那个式子。这一页还给 \(f(x)\) 起名 \(t\)。</p>
             <div class="badge-group">
-                <span class="badge">先看定义域</span>
-                <span class="badge">用性质解不等式</span>
+                <span class="badge">性质脱不等式</span>
                 <span class="badge">换元求最值</span>
+                <span class="badge">最小值函数</span>
             </div>
         </header>
 
@@ -87,11 +87,11 @@
         <section class="card" data-nav="先看思路">
             <div class="section-header">
                 <span class="step-num">想</span>
-                <h2>先摸清 \(f\)，两问都用它</h2>
+                <h2>先抬头看路：这道题钉住什么</h2>
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>两问都站在同一个 \(f\) 上。第（1）问用性质脱不等式，第（2）问用 \(f\) 换元求最小值。要不要先看清 \(f\) 是奇的、递增的？</p>
+                <p>两问都站在同一个 \(f\) 上。先看清考点：奇函数与单调性会不会脱不等式，会不会令 \(t=f(x)\) 换元，没给数的 \(m\) 会不会写成最小值函数。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
@@ -99,14 +99,53 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是 \(f(x)=3^x-3^{-x}\)，再加上不等式和最小值两问。它招呼的是：先用性质，再换元。</p>
+                <p>暗号有三处：\(f(A)+f(B)&gt;0\) 招呼「性质脱不等式」；\(9^{x}+9^{-x}\) 与 \(f(x)\) 招呼「换元求最值」；没给数的 \(m\) 招呼「最小值函数」。</p>
             </div>
-            <div class="mindset-box">
-                <div class="mindset-title">性质，再换元</div>
-                <p>第（1）问用奇函数与单调性脱掉 \(f\)。第（2）问令 \(t=f(x)\)，把最小值写成依赖 \(m\) 的函数。</p>
-                <p>同一条 \(f\)：先脱马甲解不等式，再起名 \(t\) 求最值。</p>
+
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>考点一：性质脱不等式</h4>
+                    <p>奇函数把相加收成同一边，严格递增再脱掉 \(f\)，回到括号里的大小。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点二：换元求最值</h4>
+                    <p>令 \(t=f(x)\)，把 \(h\) 打回二次；由 \(x\) 的范围写出 \(t\) 的范围，再求最低。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点三：最小值函数</h4>
+                    <p>\(m\) 没给数。最小值依赖 \(m\)，就记成 \(M(m)\)，再分段写出解析式。</p>
+                </div>
             </div>
-            <div class="motto">先摸清 \(f\)，两问都站在它上面。</div>
+
+            <div class="matryoshka-box translate-block">
+                <div class="matryoshka-title">对暗号 · 翻译对照</div>
+                <p class="translate-lead">认出暗号 → 翻成白话 → 写成能动手的式子。这张表就是主推手。</p>
+                <div class="translate-wrap">
+                    <table class="translate-table">
+                        <thead>
+                            <tr>
+                                <th>原题说<span>暗号</span></th>
+                                <th>白话<span>翻出来</span></th>
+                                <th>执行<span>动手算</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="原题说">\(f(1-2x)+f(2-x^{2})&gt;0\)</td>
+                                <td data-label="白话">外面是马甲，先收边再脱掉，才看见括号里比大小</td>
+                                <td data-label="执行">奇函数得 \(f(A)&gt;f(-B)\)，递增得 \(A&gt;-B\)</td>
+                            </tr>
+                            <tr>
+                                <td data-label="原题说">求 \(h(x)\) 在 \([1,+\infty)\) 上的最小值，\(m\) 没给数</td>
+                                <td data-label="白话">最低有多矮，要看 \(m\) 把谷底推到哪</td>
+                                <td data-label="执行">令 \(t=f(x)\)，把最低写成依赖 \(m\) 的 \(M(m)\)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="motto">先看考点，再摸清 \(f\)，两问都站在它上面。</div>
         </section>
 
         <section class="card" data-q="第（1）问">
