@@ -85,6 +85,65 @@
             </div>
         </section>
 
+        <section class="card" data-nav="先看思路">
+            <div class="section-header">
+                <span class="step-num">想</span>
+                <h2>写出 \(G(t)\)，旧的忘掉</h2>
+            </div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>题干给了推广：关于一点对称，当且仅当平移之后是奇函数。分式和 \((x-1)\) 都绕着同一个位置。是不是先写出那一次平移后的函数，三问都用它？</p>
+            </div>
+            <div class="mindset-box pit">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>写完 \(G\) 还回头看 \(f\)：\(f\) 只化这一次；后面再回头会把已经清零的旧坐标搅回来。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是题干里那句推广，再加上式子里的 \((x-1)\)。它招呼的是：令 \(t=x-1\)，写出 \(G(t)\)。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">换元</div>
+                <p>令 \(t=x-1\)，记 \(G(t)=f(1+t)-m\)。由 \(x\in(0,2)\) 得 \(t\in(-1,1)\)，且一一对应。</p>
+                <p>旧的 \(f\) 和中心清零。眼里只留 \(G\)。</p>
+            </div>
+            <div class="canvas-pair">
+                <div class="canvas-wrap">
+                    <div id="sym-f" class="jxgbox" role="img" aria-label="旧坐标。曲线关于点 (1, m) 中心对称"></div>
+                    <p class="cap">旧的：\(f\) 和中心 \((1,m)\)。写完 \(G\) 就忘掉。</p>
+                </div>
+                <div class="canvas-wrap">
+                    <div id="sym-g" class="jxgbox" role="img" aria-label="新坐标。横轴 t、竖轴 Y 交在原点，曲线关于原点对称"></div>
+                    <p class="cap">新的：只看 \(G(t)\)。实线是 \(t\) 轴和 \(Y\) 轴。</p>
+                </div>
+            </div>
+            <div class="matryoshka-box">
+                <div class="matryoshka-title">唯一对象：\(G(t)\)</div>
+                <p>分子 \(2(1+t)-2=2t\)。分母化简得 \(1-t^2\)。又 \(m(1+t)-m=mt\)。</p>
+                <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2}+mt+nt^3,\qquad t\in(-1,1).$$</div>
+                <div class="handoff">
+                    <article>
+                        <div class="tag">令 \(m=n=0\)</div>
+                        <strong>只看第一项换成 \(-t\) 是否变号</strong>
+                        <div class="give">得到：\(G\) 为奇函数</div>
+                    </article>
+                    <div class="arrow">接着用</div>
+                    <article>
+                        <div class="tag">第一项已经变号</div>
+                        <strong>只看后两项换成 \(-t\) 是否变号</strong>
+                        <div class="give">得到：\(G\) 为奇函数，中心是 \((1,m)\)</div>
+                    </article>
+                    <div class="arrow">接着用</div>
+                    <article>
+                        <div class="tag">\(G\) 已经是奇函数</div>
+                        <strong>解 \(G(t)\geqslant 0\) 只落在 \(0\leqslant t&lt;1\)</strong>
+                        <div class="give">得到：\(n\) 的取值范围</div>
+                    </article>
+                </div>
+                <div class="motto">按住 \(G(t)\) 一路向前。</div>
+            </div>
+        </section>
+
         <section class="card" data-q="第（1）问">
             <div class="section-header">
                 <span class="step-num">1</span>
@@ -108,18 +167,8 @@
                 <p>函数为奇函数，当且仅当定义域关于原点对称，且 \(G(-t)=-G(t)\)。</p>
                 <p>把 \(t\) 换成 \(-t\)，看函数值是不是变成相反数。</p>
             </div>
-            <div class="canvas-pair">
-                <div class="canvas-wrap">
-                    <div id="sym-f" class="jxgbox" role="img" aria-label="旧坐标。曲线关于点 (1, m) 中心对称"></div>
-                    <p class="cap">旧的：\(f\) 和中心 \((1,m)\)。</p>
-                </div>
-                <div class="canvas-wrap">
-                    <div id="sym-g" class="jxgbox" role="img" aria-label="新坐标。横轴 t、竖轴 Y 交在原点，曲线关于原点对称"></div>
-                    <p class="cap">新的：只看 \(G(t)\)。</p>
-                </div>
-            </div>
             <div class="solution-step">
-                <p>展开得 \(G(t)=\dfrac{2t}{1-t^2}+mt+nt^3\)（\(t\in(-1,1)\)）。证明在标准解答里。当 \(m=n=0\) 时，</p>
+                <p>当 \(m=n=0\) 时，</p>
                 <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2},\qquad G(-t)=-G(t).$$</div>
                 <p>定义域关于原点对称，故 \(G\) 为奇函数。代回即得 \(y=f(x+1)\) 为奇函数。</p>
             </div>

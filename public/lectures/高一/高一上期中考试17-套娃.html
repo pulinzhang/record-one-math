@@ -161,6 +161,61 @@
             <div class="result-box">最大水平距离是 \(2\) 米，这时 \(k=2\)。</div>
         </section>
 
+        <section class="card" data-q="思维路线">
+            <div class="section-header">
+                <span class="step-num">连</span>
+                <h2>两个量一起变，先定住一个</h2>
+            </div>
+            <div class="ask">\(a\) 和 \(k\) 同时在变。先定住哪一个，才能看出另一个能够到哪里？</div>
+            <div class="route">
+                <article>
+                    <div class="tag">两个量一起变</div>
+                    <strong>\(a\) 是距离，\(k\) 是水压</strong>
+                </article>
+                <div class="down">先定住一个</div>
+                <article>
+                    <div class="tag">固定 \(a\)</div>
+                    <strong>看 \(k\) 把高度 \(y\) 送到哪里</strong>
+                </article>
+                <div class="down">配方</div>
+                <article>
+                    <div class="tag">找出上界</div>
+                    <strong>\(y\leqslant 2-\dfrac{a^2}{8}\)</strong>
+                </article>
+                <div class="down">记成函数</div>
+                <article>
+                    <div class="tag">新的函数</div>
+                    <strong>\(f(a)=2-\dfrac{a^2}{8}\)</strong>
+                    <p>距离 \(a\) 处的最大高度。</p>
+                </article>
+                <div class="down">最大射程 \(4\) 米</div>
+                <article>
+                    <div class="tag">水柱还没落地</div>
+                    <strong>\(0&lt;a\leqslant 4\)</strong>
+                    <p>这时最高高度还在水柱落地之前。</p>
+                </article>
+                <div class="down">用高度定距离</div>
+                <article>
+                    <div class="tag">石头高 \(1.5\) 米</div>
+                    <strong>\(f(a)\geqslant 1.5\)</strong>
+                    <strong>\(0&lt;a\leqslant 2\)</strong>
+                </article>
+                <div class="down">所以</div>
+                <article>
+                    <div class="tag">最大距离</div>
+                    <strong>\(2\) 米</strong>
+                </article>
+            </div>
+            <div class="matryoshka-box">
+                <div class="matryoshka-title">两个量一起变时</div>
+                <ol class="model">
+                    <li>先固定一个。</li>
+                    <li>找出函数值的上界，并看等号能不能成立。</li>
+                    <li>把上界写成新的函数，再用对函数值的条件，确定自变量的范围。</li>
+                </ol>
+            </div>
+        </section>
+
         <section class="card paper-card">
             <div class="section-header">
                 <span class="step-num">写</span>

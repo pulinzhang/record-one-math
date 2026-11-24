@@ -83,6 +83,42 @@
             </div>
         </section>
 
+        <section class="card" data-nav="先看思路">
+            <div class="section-header">
+                <span class="step-num">想</span>
+                <h2>先观察，再动手</h2>
+            </div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>所求没有单独问 \(a\) 或 \(b\)。能不能先不把它们求出来，只看等式能写成什么结构？</p>
+            </div>
+            <div class="mindset-box pit">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>一上来就解出 \(a\)、\(b\) 的具体值：所求不是某一个数对；解出具体值会把后面要换元的结构弄丢。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是 \(ab=a+b+3\) 这个结构。它招呼的是：因式，再换元。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">因式</div>
+                <p>条件转化为 \((a-1)(b-1)=4\)。这两个因式的乘积是常数。</p>
+                <p>乘积固定，一个变大，另一个就变小。</p>
+            </div>
+            <div class="solution-step">
+                <p>移项：\(ab-a-b=3\)。两边加 \(1\)：</p>
+                <div class="formula-block">$$(a-1)(b-1)=4.$$</div>
+                <p>同号与 \(a&gt;1\)、\(b&gt;1\) 写在标准解答里。令 \(x=a-1\)，\(y=b-1\)，则</p>
+                <div class="formula-block">$$xy=4,\qquad x&gt;0,\ y&gt;0.$$</div>
+                <p>再转化为 \(y=\dfrac{4}{x}\)（\(x&gt;0\)）。</p>
+            </div>
+            <div class="canvas-wrap">
+                <div id="g-xy" class="jxgbox" role="img" aria-label="y 等于 4 除以 x。点 (1, 4) 和 (4, 1) 都在曲线上。x 从 1 到 4，y 从 4 降到 1。"></div>
+                <p class="cap">\(x&gt;0\) 时，\(y=\dfrac{4}{x}\)。\(x\) 从 \(1\) 到 \(4\)，\(y\) 从 \(4\) 降到 \(1\)。</p>
+            </div>
+            <div class="motto">先看见乘积 \((a-1)(b-1)=4\)。两个因式不能各自随便变。</div>
+        </section>
+
         <section class="card" data-q="第（1）问">
             <div class="section-header">
                 <span class="step-num">1</span>
@@ -121,37 +157,64 @@
         <section class="card" data-q="第（2）问">
             <div class="section-header">
                 <span class="step-num">2</span>
-                <h2>第（2）问：值域</h2>
+                <h2>第（2）问：取值范围就是值域</h2>
             </div>
             <div class="ask">求 \(ab\) 的取值范围。</div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>条件还是原来的，所求换成了 \(ab\)。要的是能取到的所有数。</p>
+                <p>题面写「求 \(ab\) 的取值范围」。换元之后，就是求函数 \(f(t)=ab\) 的值域：要的是 \(f\) 能取到的全部数，不是某一个定值。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>均值不等式只证明「至少是多少」；这一问要的是值域，若不说明从下界往上都能取到，上面那一段就空着。</p>
+                <p>只拿均值不等式求出下界就结束。下界只说明「最小能到多少」，还没说明值域。还得说明：从下界往上，函数值是不是都能取到；上端要看它能不能一直增大，而不是再求一个最大值。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是「求取值范围」。它招呼的是：同一个换元，目标一换，函数就换。</p>
+                <p>暗号是「求取值范围」。它招呼的是：同一个换元，目标换成 \(ab\)，研究新函数的值域。</p>
             </div>
             <div class="mindset-box">
-                <div class="mindset-title">目标函数</div>
-                <p>约束不变，仍取 \(t=a-1&gt;0\)。目标式由 \(a+4b\) 改为 \(ab\)，所研究的函数随之改变。</p>
-                <p>问的量换了，函数就换。要看的是值域。</p>
+                <div class="mindset-title">值域</div>
+                <p>在给定约束下，把 \(ab\) 转化为 \(t\) 的函数 \(f\)，求 \(f\) 在定义域上的值域。下界可用均值不等式；往上须由单调性说明。</p>
+                <p>问的是 \(ab\) 能取哪些数。下界像第（1）问那样卡住；往上要靠单调性，不是再求一个定值。</p>
             </div>
             <div class="solution-step">
-                <p>仍用 \(t=a-1&gt;0\)。</p>
-                <div class="formula-block">$$ab=f(t)=t+5+\dfrac{4}{t}.$$</div>
-                <p>由均值不等式得下界，再作差说明从下界往上都能取到。证明在标准解答里。</p>
+                <p>仍用 \(t=a-1&gt;0\)。此时</p>
+                <div class="formula-block">$$ab=f(t)=t+5+\dfrac{4}{t},\qquad t&gt;0.$$</div>
+                <p>「\(ab\) 的取值范围」就是 \(f\) 的值域。由均值不等式得下界；再在取到下界之后的区间上作差，说明 \(f\) 严格递增，从而从下界往上都能取到。证明在标准解答里。</p>
                 <div class="formula-block">$$ab\in[9,+\infty).$$</div>
             </div>
             <div class="canvas-wrap">
                 <div id="g-ab" class="jxgbox" role="img" aria-label="f(t) 等于 t 加 5 加 4 除以 t。t 大于 0。t=2 时函数值是 9。"></div>
-                <p class="cap">看 \(t=2\) 这一点。</p>
+                <p class="cap">看 \(t=2\) 这一点。从这里往右，\(f\) 一直升高。</p>
             </div>
             <div class="result-box">\(ab\in[9,+\infty)\)。</div>
+        </section>
+
+        <section class="card">
+            <div class="section-header">
+                <span class="step-num">连</span>
+                <h2>条件不变，目标一换，函数就换</h2>
+            </div>
+            <div class="handoff">
+                <article>
+                    <div class="tag">两问相同</div>
+                    <strong>条件 \((a-1)(b-1)=4\)</strong>
+                    <div class="give">换元都是 \(t=a-1\)，\(t&gt;0\)</div>
+                </article>
+                <div class="arrow">所求一换</div>
+                <article>
+                    <div class="tag">求 \(a+4b\)</div>
+                    <strong>\(g(t)=t+5+\dfrac{16}{t}\)</strong>
+                    <div class="give">最小值 \(13\)</div>
+                </article>
+                <div class="arrow">函数就换</div>
+                <article>
+                    <div class="tag">求 \(ab\)</div>
+                    <strong>\(f(t)=t+5+\dfrac{4}{t}\)</strong>
+                    <div class="give">值域 \([9,+\infty)\)</div>
+                </article>
+            </div>
+            <div class="motto">条件、换元、自变量都没变。所求一换，函数就换。一个停在最小值，一个要看值域。</div>
         </section>
 
         <section class="card paper-card">
@@ -225,7 +288,7 @@
     <script src="../../js/jsxgraphcore.js"></script>
     <script>
         (function () {
-            var ids = ["g-sum", "g-ab"];
+            var ids = ["g-xy", "g-sum", "g-ab"];
             function failAll() {
                 ids.forEach(function (id) {
                     var box = document.getElementById(id);
@@ -265,6 +328,13 @@
             var dash = { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false };
             var dot = { name: "", size: 2.6, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", fixed: true, highlight: false, showInfobox: false, withLabel: false };
             var label = { fixed: true, highlight: false, parse: false, fontSize: 14, cssStyle: "font-weight:700" };
+            var xy = board("g-xy", [-0.8, 8.6, 8.8, -1.2], "x", 1, 1);
+            xy.create("functiongraph", [function (x) { return 4 / x; }, 0.5, 8.4], blue);
+            xy.create("point", [1, 4], dot);
+            xy.create("point", [4, 1], dot);
+            xy.create("text", [1.35, 5.15, "(1, 4)"], Object.assign({ strokeColor: "#ea580c" }, label));
+            xy.create("text", [4.4, 1.85, "(4, 1)"], Object.assign({ strokeColor: "#ea580c" }, label));
+            xy.create("text", [5.5, 3.5, "y=4/x"], Object.assign({ strokeColor: "#2563eb" }, label));
             var sum = board("g-sum", [0, 34, 14, -3], "t", 2, 5);
             sum.create("segment", [[0.4, 13], [13.4, 13]], dash);
             sum.create("segment", [[4, 0], [4, 13]], dash);
