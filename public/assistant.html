@@ -19,11 +19,20 @@
             border: 1px solid #d7e0ea;
             border-radius: 12px;
         }
+        body.assist .assist-meta {
+            flex: 1 1 14rem;
+            min-width: 0;
+        }
         body.assist .assist-row h3 {
-            flex: 1 1 12rem;
             margin: 0;
             font-size: 1.05rem;
             color: var(--ink, #1a2b3c);
+        }
+        body.assist .assist-row .file {
+            margin: 0.25rem 0 0;
+            font-size: 0.82rem;
+            color: #64748b;
+            word-break: break-all;
         }
         body.assist .assist-actions {
             display: flex;
@@ -91,7 +100,11 @@
         <section class="grade" id="g1">
             <h2 class="list-title">高一</h2>
             <article class="assist-row">
-                <h3>萘思尔高一秋季数学打卡 8（试题版）</h3>
+                <div class="assist-meta">
+                    <h3>萘思尔高一秋季数学打卡8（试题版）</h3>
+                    <p class="file">exercize/高一/萘思尔高一秋季数学打卡8（试题版）.html</p>
+                    <p class="file">exercize/高一/萘思尔高一秋季数学打卡8（试题版）.pdf</p>
+                </div>
                 <div class="assist-actions">
                     <a href="exercize/高一/萘思尔高一秋季数学打卡8（试题版）.html">打开讲义</a>
                     <a class="pdf" href="exercize/高一/萘思尔高一秋季数学打卡8（试题版）.pdf" download>下载 PDF</a>
