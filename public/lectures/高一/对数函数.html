@@ -66,8 +66,8 @@
             <p>对数先把定义域钉住。第二问的外壳是「任意」两个自变量；翻成白话就是最小值对最大值。令 \(t=2^{x}\)，令 \(u=x-\dfrac{1}{x}\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
             <p>先问 \(g\) 能在哪里写。再问：\(f\)、\(g\) 各脱掉复合的马甲，底数还要分两边。</p>
             <div class="badge-group">
-                <span class="badge">任意就比两端</span>
-                <span class="badge">换元</span>
+                <span class="badge">逻辑转化</span>
+                <span class="badge">换元求最值</span>
                 <span class="badge">底数分两边</span>
             </div>
         </header>
@@ -85,11 +85,11 @@
         <section class="card" data-nav="先看思路">
             <div class="section-header">
                 <span class="step-num">想</span>
-                <h2>先翻译，再换元，再分底</h2>
+                <h2>先抬头看路：这道题钉住什么</h2>
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>不是堆两个难函数。核心一问：你会不会把 \(\forall\) 翻成「\(f\) 的最低压过 \(g\) 的最高」，再各自换元算清楚？</p>
+                <p>不是堆两个难函数。先看清考点：符号会不会翻成白话，复合会不会换元，底数会不会分两边。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
@@ -97,22 +97,64 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号有三处：\(\forall\) 招呼「任意就比两端」；\(2^{2x}-3\cdot 2^{x}\) 与对数差招呼「换元」；底数 \(a\) 招呼「分两边」。</p>
+                <p>暗号有三处：\(\forall\) 招呼「逻辑转化」；\(2^{2x}-3\cdot 2^{x}\) 与对数差招呼「换元求最值」；底数 \(a\) 招呼「分两边」。</p>
             </div>
-            <div class="mindset-box">
-                <div class="mindset-title">任意就比两端</div>
-                <p>\(x_{1}\)、\(x_{2}\) 各自独立变。全体 \(f(x_{1})&gt;g(x_{2})\)，当且仅当 \(f\) 的最小值大于 \(g\) 的最大值。</p>
-                <p>高级符号先翻成白话，再动手算。</p>
+
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>考点一：逻辑转化</h4>
+                    <p>把 \(\forall\)、任意，翻成大白话：\(f\) 的最小值必须压过 \(g\) 的最大值。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点二：换元求最值</h4>
+                    <p>把指数、对数的复合扒掉马甲，变回二次函数和单调性再求两端。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点三：底数分两边</h4>
+                    <p>\(a&gt;1\) 与 \(0&lt;a&lt;1\) 增减相反；脱对数时同向或变向也跟着换。</p>
+                </div>
             </div>
-            <div class="mindset-box">
-                <div class="mindset-title">换元</div>
-                <p>\(f\) 令 \(t=2^{x}\)，打回二次；\(g\) 令 \(u=x-\dfrac{1}{x}\)，再看对数的增减。</p>
-                <p>外表是指对数，里面还是熟悉的二次和单调性。</p>
+
+            <div class="matryoshka-box">
+                <div class="matryoshka-title">翻译对照</div>
+                <div class="route">
+                    <article>
+                        <div class="tag">原题说</div>
+                        <strong>\(\forall x_{1}\in[0,1]\)，\(x_{2}\) 在另一段，都有 \(f(x_{1})&gt;g(x_{2})\)</strong>
+                    </article>
+                    <div class="down">翻成白话</div>
+                    <article>
+                        <div class="tag">白话</div>
+                        <strong>\(f\) 最矮的个子，也要比 \(g\) 最高的个子还高</strong>
+                    </article>
+                    <div class="down">动手算</div>
+                    <article>
+                        <div class="tag">执行</div>
+                        <strong>\(f\) 的最小值 \(&gt;\) \(g\) 的最大值</strong>
+                    </article>
+                </div>
+                <div class="route">
+                    <article>
+                        <div class="tag">原题说</div>
+                        <strong>\(f(x)=2^{2x}-3\cdot 2^{x}\)</strong>
+                    </article>
+                    <div class="down">翻成白话</div>
+                    <article>
+                        <div class="tag">白话</div>
+                        <strong>不是新花样，是穿了马甲的二次式</strong>
+                    </article>
+                    <div class="down">动手算</div>
+                    <article>
+                        <div class="tag">执行</div>
+                        <strong>令 \(t=2^{x}\)，变成 \(t^{2}-3t\)，再在对应区间上求最低</strong>
+                    </article>
+                </div>
             </div>
+
             <div class="solution-step">
                 <p>\(\forall\) 读「任意」。英文 for all / any。有兴趣就看看：字形来自 Any 或 All，根岑（Gentzen）1933 年引入。</p>
             </div>
-            <div class="motto">翻译 \(\forall\) \(\rightarrow\) 换元求两端 \(\rightarrow\) 底数分两边。</div>
+            <div class="motto">先看考点，再翻译，再换元，再分底。</div>
         </section>
 
         <section class="card" data-nav="对数定义">
