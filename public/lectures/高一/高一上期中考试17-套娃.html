@@ -93,9 +93,9 @@
                 <div class="mindset-title">出题人究竟想干嘛？</div>
                 <p>所求是落地时的水平距离。落地时高度是多少？能不能把落点写成只跟 \(k\) 有关的式子？</p>
             </div>
-            <div class="mindset-box">
+            <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>把 \(k\) 和 \(x\) 一起当未知数硬解。落点只应跟着水压变。</p>
+                <p>把 \(k\) 和 \(x\) 一起当未知数硬解：两个未知数同时解，看不出落点只跟着水压变，也就写不出射程函数。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
@@ -107,36 +107,17 @@
                 <p>落点只跟着水压变，写成一个函数。</p>
             </div>
             <div class="canvas-wrap">
-                <div id="jets" class="jxgbox" role="img" aria-label="三条水柱。k 等于 1 落在 4 米，k 等于 0.5 和 k 等于 2 落在同一处。"></div>
-                <p class="cap">水压一变，落点就变。蓝线落得最远，是 4 米。</p>
+                <div id="jets" class="jxgbox" role="img" aria-label="三条水柱。水压不同，落点不同。蓝线落得最远。"></div>
+                <p class="cap">水压一变，落点就变。蓝线落得最远。</p>
             </div>
             <div class="solution-step">
-                <p>落地，高度是 \(0\)。代入轨迹：</p>
-                <div class="formula-block">$$-\dfrac{1}{8}(1+k^2)x^2+kx=0.$$</div>
-                <p>提出 \(x\)：</p>
-                <div class="formula-block">$$x\left(-\dfrac{1}{8}(1+k^2)x+k\right)=0.$$</div>
-                <p>所以 \(x=0\)，这是起点。另一头：</p>
-                <div class="formula-block">$$-\dfrac{1}{8}(1+k^2)x+k=0.$$</div>
-                <p>移项，两边再乘 \(8\)：</p>
-                <div class="formula-block">$$(1+k^2)x=8k.$$</div>
-                <p>\(k&gt;0\) 时 \(1+k^2&gt;0\)，可以除过去。落点就是</p>
-                <div class="formula-block">$$x=\dfrac{8k}{1+k^2}.$$</div>
-                <p>这个 \(x\) 跟着 \(k\) 变，记成射程</p>
+                <p>落地令 \(y=0\)，非零根记成射程</p>
                 <div class="formula-block">$$L(k)=\dfrac{8k}{1+k^2},\qquad k&gt;0.$$</div>
-            </div>
-            <div class="solution-step">
-                <h3>用 \(1+k^2\geqslant 2k\) 找出最大值</h3>
-                <p>由 \((k-1)^2\geqslant 0\) 展开：</p>
-                <div class="formula-block">$$k^2-2k+1\geqslant 0.$$</div>
-                <p>移项得到</p>
-                <div class="formula-block">$$1+k^2\geqslant 2k.$$</div>
-                <p>\(k&gt;0\) 时 \(2k&gt;0\)。分子 \(8k&gt;0\)。分母越大，分数越小，所以把分母换成较小的 \(2k\)：</p>
-                <div class="formula-block">$$L(k)=\dfrac{8k}{1+k^2}\leqslant\dfrac{8k}{2k}=4.$$</div>
-                <p>等号要 \(1+k^2=2k\)，也就是 \((k-1)^2=0\)，所以 \(k=1\)。这时 \(L(1)=4\)。</p>
+                <p>由 \(1+k^2\geqslant 2k\) 得 \(L(k)\leqslant 4\)，等号在 \(k=1\)。证明在标准解答里。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="range-k" class="jxgbox" role="img" aria-label="L(k) 等于 8k 除以 1 加 k 的平方，在 k 等于 1 取到 4"></div>
-                <p class="cap">先升后降。最高是 4，在 \(k=1\)。</p>
+                <p class="cap">看 \(k=1\) 这一点。</p>
             </div>
             <div class="result-box">射程的最大值是 \(4\) 米，这时 \(k=1\)。</div>
         </section>
@@ -151,9 +132,9 @@
                 <div class="mindset-title">出题人究竟想干嘛？</div>
                 <p>距离 \(a\) 和水压 \(k\) 都会变。能不能先把 \(a\) 定住，只看 \(k\) 把这一点的高度送到多高？</p>
             </div>
-            <div class="mindset-box">
+            <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>两个量一起调。先要把其中一个定住，不然看不出另一个能到哪里。</p>
+                <p>距离和水压一起调：不先定住其中一个，就看不出另一个能把高度送到哪里，后面的最大值函数也就立不起来。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
@@ -169,138 +150,15 @@
                 <p class="cap">石头高 \(1.5\) 米。离喷头多远，记成 \(a\)。\(a\) 还没定。</p>
             </div>
             <div class="solution-step">
-                <h3>先定住要研究的量</h3>
-                <p>轨迹是</p>
-                <div class="formula-block">$$y=-\dfrac{1}{8}(1+k^2)x^2+kx.$$</div>
-                <p>石头在水平距离 \(a\) 处。令 \(x=a\)：</p>
-                <div class="formula-block">$$y=-\dfrac{1}{8}(1+k^2)a^2+ka.$$</div>
-                <p>按 \(k\) 的次数排开：</p>
-                <div class="formula-block">$$y=-\dfrac{a^2}{8}k^2+ak-\dfrac{a^2}{8}.$$</div>
-                <p>这里有两个会变的量。\(a\) 是石头离喷头的距离，\(k\) 是可以调的水压。</p>
-                <p><strong>距离 \(a\) 已经定住。无论怎样调 \(k\)，水柱在这里最高能到多高？</strong></p>
-                <p>先把 \(a\) 看成定住的正数，只让 \(k\) 变。</p>
-            </div>
-            <div class="solution-step">
-                <h3>配方，找出高度的上界</h3>
-                <p>\(a&gt;0\) 已经定住。含 \(k\) 的两项提出 \(-\dfrac{a^2}{8}\)：</p>
-                <div class="formula-block">$$y=-\dfrac{a^2}{8}\left(k^2-\dfrac{8}{a}k\right)-\dfrac{a^2}{8}.$$</div>
-                <p>括号里配方。一次项系数是 \(-\dfrac{8}{a}\)，它的一半是 \(-\dfrac{4}{a}\)：</p>
-                <div class="formula-block">$$k^2-\dfrac{8}{a}k=\left(k-\dfrac{4}{a}\right)^2-\dfrac{16}{a^2}.$$</div>
-                <p>代回去：</p>
-                <div class="formula-block">$$y=-\dfrac{a^2}{8}\left(k-\dfrac{4}{a}\right)^2+\dfrac{a^2}{8}\cdot\dfrac{16}{a^2}-\dfrac{a^2}{8}.$$</div>
-                <p>中间这项可以把 \(a\) 约掉：</p>
-                <div class="formula-block">$$\dfrac{a^2}{8}\cdot\dfrac{16}{a^2}=2.$$</div>
-                <p>平方项也改写成 \((ak-4)\)。因为 \(k-\dfrac{4}{a}=\dfrac{ak-4}{a}\)，</p>
-                <div class="formula-block">$$-\dfrac{a^2}{8}\left(k-\dfrac{4}{a}\right)^2=-\dfrac{1}{8}(ak-4)^2.$$</div>
-                <p>所以</p>
-                <div class="formula-block">$$y=2-\dfrac{a^2}{8}-\dfrac{1}{8}(ak-4)^2.$$</div>
-                <p>\((ak-4)^2\geqslant 0\)，所以 \(-\dfrac{1}{8}(ak-4)^2\leqslant 0\)。于是</p>
-                <div class="formula-block">$$y\leqslant 2-\dfrac{a^2}{8}.$$</div>
-                <p>离喷头 \(a\) 米的地方，水压怎么调，高度都不会超过 \(2-\dfrac{a^2}{8}\)。</p>
-                <p>这个上界只跟 \(a\) 有关。记成</p>
-                <div class="formula-block">$$f(a)=2-\dfrac{a^2}{8}.$$</div>
-            </div>
-            <div class="solution-step">
-                <h3>这个上界拿得到</h3>
-                <p>上面是不等式。还要看等号什么时候成立。</p>
-                <p>\((ak-4)^2=0\)，就是</p>
-                <div class="formula-block">$$k=\dfrac{4}{a}.$$</div>
-                <p>\(a&gt;0\)，所以这个 \(k\) 是正的，水压允许取它。这时高度等于上界：</p>
-                <div class="formula-block">$$y=2-\dfrac{a^2}{8}=f(a).$$</div>
-                <p>这还只是式子上的上界。还要看取到它的时候，水柱走到 \(a\) 落了没有。</p>
-            </div>
-            <div class="solution-step">
-                <h3>先限制在最大射程以内</h3>
-                <p>已经求出，射程最大是 \(4\) 米。比 \(4\) 米更远的地方，水压怎么调，水柱都已经落地，那里没有高度。</p>
-                <p>所以只把距离定在</p>
-                <div class="formula-block">$$0&lt;a\leqslant 4.$$</div>
-                <p>在这个范围里，取 \(k=\dfrac{4}{a}\)。分母是 \(1+\dfrac{16}{a^2}=\dfrac{a^2+16}{a^2}\)，射程变成</p>
-                <div class="formula-block">$$L=\dfrac{8\cdot\dfrac{4}{a}}{\dfrac{a^2+16}{a^2}}=\dfrac{32a}{a^2+16}.$$</div>
-                <p>再和 \(a\) 比：</p>
-                <div class="formula-block">$$L-a=\dfrac{32a-a(a^2+16)}{a^2+16}=\dfrac{a(16-a^2)}{a^2+16}.$$</div>
-                <p>\(0&lt;a\leqslant 4\) 时，\(16-a^2\geqslant 0\)，分母大于 \(0\)，所以 \(L-a\geqslant 0\)。\(0&lt;a&lt;4\) 时水柱还没落地，\(a=4\) 时刚好落在这一点。</p>
-                <p>因此在 \(0&lt;a\leqslant 4\) 上，\(f(a)\) 就是水柱尚未落地时，在这个水平距离上的最大高度。</p>
-            </div>
-            <div class="solution-step">
-                <h3>用石头的高度，反过来定 \(a\)</h3>
-                <p>石头高 \(1.5\) 米。要求在水平距离 \(a\) 处的高度不低于 \(1.5\) 米，也就是 \(y\geqslant 1.5\)。</p>
-                <p>在 \(0&lt;a\leqslant 4\) 上，最大高度是 \(f(a)\)。要让高度不低于 \(1.5\) 米，最大高度至少要到 \(1.5\)。所以必须</p>
-                <div class="formula-block">$$f(a)\geqslant 1.5,$$</div>
-                <div class="formula-block">$$2-\dfrac{a^2}{8}\geqslant 1.5.$$</div>
-                <p>移项得 \(\dfrac{a^2}{8}\leqslant 0.5\)。两边乘 \(8\)：</p>
-                <div class="formula-block">$$a^2\leqslant 4.$$</div>
-                <p>\(a^2\leqslant 4\)，而且距离已经限制在 \(0&lt;a\leqslant 4\)，所以</p>
-                <div class="formula-block">$$0&lt;a\leqslant 2.$$</div>
-                <p>石头离喷头的最大水平距离是 \(2\) 米。</p>
+                <p>令 \(x=a&gt;0\)，固定 \(a\)，只让 \(k\) 变。配方得</p>
+                <div class="formula-block">$$y\leqslant 2-\dfrac{a^2}{8},$$</div>
+                <p>等号在 \(k=\dfrac{4}{a}\) 时成立。记 \(f(a)=2-\dfrac{a^2}{8}\)。由（1）只在 \(0&lt;a\leqslant 4\) 上讨论，且此时该最大高度取得到。再由 \(f(a)\geqslant 1.5\) 得 \(0&lt;a\leqslant 2\)。\(a=2\) 时取 \(k=2\)。证明在标准解答里。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="height-a" class="jxgbox" role="img" aria-label="f(a) 等于 2 减 a 平方除以 8，降到 1.5 时 a 等于 2"></div>
-                <p class="cap">曲线是 \(f(a)\)。它不低于 \(1.5\) 的那段，最远到 \(a=2\)。</p>
-            </div>
-            <div class="solution-step">
-                <h3>最大距离处，高度正好是 \(1.5\)</h3>
-                <p>\(a=2\) 在 \(0&lt;a\leqslant 4\) 里。取</p>
-                <div class="formula-block">$$k=\dfrac{4}{a}=2.$$</div>
-                <p>水柱在 \(x=2\) 处的高度是</p>
-                <div class="formula-block">$$y=2-\dfrac{2^2}{8}=1.5.$$</div>
-                <p>前面已经算过：\(k=\dfrac{4}{a}\) 且 \(0&lt;a\leqslant 4\) 时，射程 \(L\geqslant a\)。\(a=2\) 在这里面，水柱走到这里还没落地，高度 \(1.5\) 米取得到。</p>
+                <p class="cap">看 \(a=2\) 这一点。</p>
             </div>
             <div class="result-box">最大水平距离是 \(2\) 米，这时 \(k=2\)。</div>
-        </section>
-
-        <section class="card" data-q="思维路线">
-            <div class="section-header">
-                <span class="step-num">连</span>
-                <h2>两个量一起变，先定住一个</h2>
-            </div>
-            <div class="ask">\(a\) 和 \(k\) 同时在变。先定住哪一个，才能看出另一个能够到哪里？</div>
-            <div class="route">
-                <article>
-                    <div class="tag">两个量一起变</div>
-                    <strong>\(a\) 是距离，\(k\) 是水压</strong>
-                </article>
-                <div class="down">先定住一个</div>
-                <article>
-                    <div class="tag">固定 \(a\)</div>
-                    <strong>看 \(k\) 把高度 \(y\) 送到哪里</strong>
-                </article>
-                <div class="down">配方</div>
-                <article>
-                    <div class="tag">找出上界</div>
-                    <strong>\(y\leqslant 2-\dfrac{a^2}{8}\)</strong>
-                </article>
-                <div class="down">记成函数</div>
-                <article>
-                    <div class="tag">新的函数</div>
-                    <strong>\(f(a)=2-\dfrac{a^2}{8}\)</strong>
-                    <p>距离 \(a\) 处的最大高度。</p>
-                </article>
-                <div class="down">最大射程 \(4\) 米</div>
-                <article>
-                    <div class="tag">水柱还没落地</div>
-                    <strong>\(0&lt;a\leqslant 4\)</strong>
-                    <p>这时最高高度还在水柱落地之前。</p>
-                </article>
-                <div class="down">用高度定距离</div>
-                <article>
-                    <div class="tag">石头高 \(1.5\) 米</div>
-                    <strong>\(f(a)\geqslant 1.5\)</strong>
-                    <strong>\(0&lt;a\leqslant 2\)</strong>
-                </article>
-                <div class="down">所以</div>
-                <article>
-                    <div class="tag">最大距离</div>
-                    <strong>\(2\) 米</strong>
-                </article>
-            </div>
-            <div class="matryoshka-box">
-                <div class="matryoshka-title">两个量一起变时</div>
-                <ol class="model">
-                    <li>先固定一个。</li>
-                    <li>找出函数值的上界，并看等号能不能成立。</li>
-                    <li>把上界写成新的函数，再用对函数值的条件，确定自变量的范围。</li>
-                </ol>
-            </div>
         </section>
 
         <section class="card paper-card">
@@ -428,7 +286,6 @@
             jets.create("text", [0.15, 1.95, "k=0.5"], Object.assign({ strokeColor: "#64748b" }, label));
             jets.create("text", [0.15, 1.7, "k=2"], Object.assign({ strokeColor: "#ea580c" }, label));
             jets.create("text", [0.15, 1.45, "k=1"], Object.assign({ strokeColor: "#2563eb" }, label));
-            jets.create("text", [3.35, 0.28, "4 米"], Object.assign({ strokeColor: "#2563eb" }, label));
             var range = board("range-k", [0, 4.8, 5.2, -0.55], "k", 1, 1);
             range.create("segment", [[0.15, 4], [5, 4]], { strokeColor: "#ea580c", strokeWidth: 1.6, dash: 2, highlight: false });
             range.create("functiongraph", [function (k) { return 8 * k / (1 + k * k); }, 0.12, 5], { strokeColor: "#2563eb", strokeWidth: 2.8, highlight: false, numberPoints: 160 });

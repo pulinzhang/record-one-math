@@ -163,6 +163,13 @@ body.lecture .mindset-box {
     margin: 0.35rem 0 1.2rem;
 }
 
+body.lecture .mindset-box.pit {
+    border-left-color: #c43c3c;
+    background: #fff5f5;
+    padding: 0.55rem 0.85rem 0.6rem 0.9rem;
+    border-radius: 6px;
+}
+
 body.lecture .mindset-title {
     font-weight: 700;
     color: var(--secondary);
@@ -171,6 +178,14 @@ body.lecture .mindset-title {
     display: flex;
     align-items: center;
     gap: 0.4rem;
+}
+
+body.lecture .mindset-box.pit .mindset-title {
+    color: #b42318;
+}
+
+body.lecture .mindset-box.pit > p {
+    color: #7a2e24;
 }
 
 body.lecture .solution-step { margin-bottom: 1.5rem; }
@@ -1272,6 +1287,16 @@ body.catalog .repo a:hover {
         background: #fff !important;
         color: #111 !important;
         break-inside: avoid;
+    }
+
+    body.lecture .mindset-box.pit {
+        background: #fff5f5 !important;
+        border-left-color: #c43c3c !important;
+    }
+
+    body.lecture .mindset-box.pit .mindset-title,
+    body.lecture .mindset-box.pit > p {
+        color: #7a2e24 !important;
     }
 
     body.lecture .mindset-title,

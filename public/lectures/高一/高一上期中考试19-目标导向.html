@@ -85,65 +85,6 @@
             </div>
         </section>
 
-        <section class="card" data-nav="先看思路">
-            <div class="section-header">
-                <span class="step-num">想</span>
-                <h2>写出 \(G(t)\)，旧的忘掉</h2>
-            </div>
-            <div class="mindset-box setter-note">
-                <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>题干给了推广：关于一点对称，当且仅当平移之后是奇函数。分式和 \((x-1)\) 都绕着同一个位置。是不是先写出那一次平移后的函数，三问都用它？</p>
-            </div>
-            <div class="mindset-box">
-                <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>写完 \(G\) 还回头看 \(f\)。\(f\) 只化这一次，后面忘掉。</p>
-            </div>
-            <div class="mindset-box">
-                <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是题干里那句推广，再加上式子里的 \((x-1)\)。它招呼的是：令 \(t=x-1\)，写出 \(G(t)\)。</p>
-            </div>
-            <div class="mindset-box">
-                <div class="mindset-title">换元</div>
-                <p>令 \(t=x-1\)，记 \(G(t)=f(1+t)-m\)。由 \(x\in(0,2)\) 得 \(t\in(-1,1)\)，且一一对应。</p>
-                <p>旧的 \(f\) 和中心清零。眼里只留 \(G\)。</p>
-            </div>
-            <div class="canvas-pair">
-                <div class="canvas-wrap">
-                    <div id="sym-f" class="jxgbox" role="img" aria-label="旧坐标。曲线关于点 (1, m) 中心对称"></div>
-                    <p class="cap">旧的：\(f\) 和中心 \((1,m)\)。写完 \(G\) 就忘掉。</p>
-                </div>
-                <div class="canvas-wrap">
-                    <div id="sym-g" class="jxgbox" role="img" aria-label="新坐标。横轴 t、竖轴 Y 交在原点，曲线关于原点对称"></div>
-                    <p class="cap">新的：只看 \(G(t)\)。实线是 \(t\) 轴和 \(Y\) 轴。</p>
-                </div>
-            </div>
-            <div class="matryoshka-box">
-                <div class="matryoshka-title">唯一对象：\(G(t)\)</div>
-                <p>分子 \(2(1+t)-2=2t\)。分母化简得 \(1-t^2\)。又 \(m(1+t)-m=mt\)。</p>
-                <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2}+mt+nt^3,\qquad t\in(-1,1).$$</div>
-                <div class="handoff">
-                    <article>
-                        <div class="tag">令 \(m=n=0\)</div>
-                        <strong>只看第一项换成 \(-t\) 是否变号</strong>
-                        <div class="give">得到：\(G\) 为奇函数</div>
-                    </article>
-                    <div class="arrow">接着用</div>
-                    <article>
-                        <div class="tag">第一项已经变号</div>
-                        <strong>只看后两项换成 \(-t\) 是否变号</strong>
-                        <div class="give">得到：\(G\) 为奇函数，中心是 \((1,m)\)</div>
-                    </article>
-                    <div class="arrow">接着用</div>
-                    <article>
-                        <div class="tag">\(G\) 已经是奇函数</div>
-                        <strong>解 \(G(t)\geqslant 0\) 只落在 \(0\leqslant t&lt;1\)</strong>
-                        <div class="give">得到：\(n\) 的取值范围</div>
-                    </article>
-                </div>
-                <div class="motto">按住 \(G(t)\) 一路向前。</div>
-            </div>
-        </section>
-
         <section class="card" data-q="第（1）问">
             <div class="section-header">
                 <span class="step-num">1</span>
@@ -154,9 +95,9 @@
                 <div class="mindset-title">出题人究竟想干嘛？</div>
                 <p>要证的是 \(y=f(x+1)\) 为奇函数。\(m=n=0\) 时 \(G(t)\) 只剩第一项。换成 \(-t\)，这一项怎么变？</p>
             </div>
-            <div class="mindset-box">
+            <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>后两项还在时一起验。这一问已经令 \(m=n=0\)，只看第一项。</p>
+                <p>后两项还在时一起验：这一问已经令 \(m=n=0\)，多验后两项会把本问不该管的项搅进来，证法也对不上题设。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
@@ -167,9 +108,20 @@
                 <p>函数为奇函数，当且仅当定义域关于原点对称，且 \(G(-t)=-G(t)\)。</p>
                 <p>把 \(t\) 换成 \(-t\)，看函数值是不是变成相反数。</p>
             </div>
+            <div class="canvas-pair">
+                <div class="canvas-wrap">
+                    <div id="sym-f" class="jxgbox" role="img" aria-label="旧坐标。曲线关于点 (1, m) 中心对称"></div>
+                    <p class="cap">旧的：\(f\) 和中心 \((1,m)\)。</p>
+                </div>
+                <div class="canvas-wrap">
+                    <div id="sym-g" class="jxgbox" role="img" aria-label="新坐标。横轴 t、竖轴 Y 交在原点，曲线关于原点对称"></div>
+                    <p class="cap">新的：只看 \(G(t)\)。</p>
+                </div>
+            </div>
             <div class="solution-step">
-                <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2},\qquad G(-t)=\dfrac{-2t}{1-t^2}=-G(t).$$</div>
-                <p>定义域 \((-1,1)\) 关于原点对称，故 \(G\) 为奇函数。代回：\(m=n=0\) 时 \(G(t)=f(1+t)\)，故 \(y=f(x+1)\) 为奇函数。</p>
+                <p>展开得 \(G(t)=\dfrac{2t}{1-t^2}+mt+nt^3\)（\(t\in(-1,1)\)）。证明在标准解答里。当 \(m=n=0\) 时，</p>
+                <div class="formula-block">$$G(t)=\dfrac{2t}{1-t^2},\qquad G(-t)=-G(t).$$</div>
+                <p>定义域关于原点对称，故 \(G\) 为奇函数。代回即得 \(y=f(x+1)\) 为奇函数。</p>
             </div>
             <div class="result-box">\(y=f(x+1)\) 为奇函数。</div>
         </section>
@@ -184,9 +136,9 @@
                 <div class="mindset-title">出题人究竟想干嘛？</div>
                 <p>题干的对称条件已经写好，第一项已经会变号。\(m\)、\(n\) 还在，所求是图象成中心对称。能不能只看后两项？</p>
             </div>
-            <div class="mindset-box">
+            <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>把三项重新验一遍。第一项已经变号，这一问只看后两项。</p>
+                <p>把三项重新验一遍：第一项已经变号，再验是重复劳动，也容易把前一问已证的结论弄丢。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
@@ -214,9 +166,9 @@
                 <div class="mindset-title">出题人究竟想干嘛？</div>
                 <p>写着「当且仅当」：已经对称。条件翻成 \(G(t)\geqslant 0\) 只落在 \(0\leqslant t&lt;1\)。\(n\) 要卡在哪里？</p>
             </div>
-            <div class="mindset-box">
+            <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>\(n=-2\) 时 \(h(t)\) 取不到 \(-2\)，横线压在警戒线上仍全程压过 \(h\)。等号要留下。</p>
+                <p>\(h(t)\) 取不到警戒线时，横线压在警戒线上仍可能全程压过 \(h\)；若以为碰不到就要丢掉等号，会把仍成立的边界误判出去。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
@@ -224,12 +176,11 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">参变分离</div>
-                <p>记 \(h(t)=-\dfrac{2}{1-t^2}\)。括号 \(\dfrac{2}{1-t^2}+n\) 记作 \(g(t)\)，即 \(g(t)=n-h(t)\)。\(t\in(0,1)\) 时 \(t^3&gt;0\)，\(G\) 与 \(g\) 同号。</p>
-                <p>\(h\) 不动；橙线 \(y=n\) 与深蓝 \(g(t)=n-h(t)\) 一起跟着 \(n\) 动。看橙线压不压过 \(h\)，也看 \(g\) 有没有掉到 \(0\) 下。</p>
+                <p>记 \(h(t)=-\dfrac{2}{1-t^2}\)，\(g(t)=n-h(t)\)。\(t\in(0,1)\) 时 \(t^3&gt;0\)，\(G\) 与 \(g\) 同号。</p>
+                <p>\(h\) 不动；\(y=n\) 跟着 \(n\) 动。看它压不压过 \(h\)。</p>
             </div>
             <div class="interactive-panel">
                 <div class="interactive-title">拖动 \(n\)：橙线对 \(h\)，蓝线 \(g\) 上下移</div>
-                <p style="margin:0 0 0.55rem;color:var(--text-muted);font-size:0.95rem;">括号记作 \(g(t)=n-h(t)=\dfrac{2}{1-t^2}+n\)。橙线压过 \(h\)，就是蓝线 \(g&gt;0\)。</p>
                 <div class="slider-control">
                     <label for="paramN"><strong>\(n\)：</strong></label>
                     <input type="range" id="paramN" min="-4" max="0" step="0.05" value="-1">
@@ -247,11 +198,7 @@
                 </div>
             </div>
             <div class="solution-step">
-                <p>条件翻成：\(G(t)\geqslant 0\) 当且仅当 \(0\leqslant t&lt;1\)。通分提 \(t^3\)：</p>
-                <div class="formula-block">$$G(t)=t^3\,g(t),\qquad g(t)=\dfrac{2}{1-t^2}+n=n-h(t),\quad h(t)=-\dfrac{2}{1-t^2}.$$</div>
-                <p>\(t=0\) 时 \(G(0)=0\)。\(t\in(0,1)\) 时 \(t^3&gt;0\)，故只需 \(g(t)&gt;0\)，也就是</p>
-                <div class="formula-block">$$n&gt;h(t)=-\dfrac{2}{1-t^2}.$$</div>
-                <p>由 \(0&lt;t^2&lt;1\) 得 \(0&lt;1-t^2&lt;1\)，取倒数得 \(\dfrac{1}{1-t^2}&gt;1\)，乘 \(-2\) 变号得 \(h(t)&lt;-2\)。要让 \(n\) 一直大于这串小于 \(-2\) 的数，只需 \(n\geqslant -2\)。</p>
+                <p>条件翻成 \(G(t)\geqslant 0\) 当且仅当 \(0\leqslant t&lt;1\)。通分提 \(t^3\) 后，只需对 \(t\in(0,1)\) 有 \(n&gt;h(t)\)。由 \(h(t)&lt;-2\) 得 \(n\geqslant -2\)。证明在标准解答里。</p>
             </div>
             <div class="result-box">\(n\in[-2,+\infty)\)。</div>
         </section>

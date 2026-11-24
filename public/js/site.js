@@ -17,12 +17,20 @@
         });
     }
 
+    function weChatNoPrint() {
+        if (!/MicroMessenger/i.test(navigator.userAgent || "")) return false;
+        window.alert("微信不支持打印。\n请点右上角「...」，选择在浏览器中打开。");
+        return true;
+    }
+
     window.printLecture = function () {
+        if (weChatNoPrint()) return;
         document.body.classList.remove("print-problems");
         window.print();
     };
 
     window.printProblems = function () {
+        if (weChatNoPrint()) return;
         document.body.classList.add("print-problems");
         window.print();
     };
@@ -99,6 +107,7 @@
     }
 
     function printAllLectures(button) {
+        if (weChatNoPrint()) return;
         var label = button.textContent;
         var win = window.open("", "_blank");
         if (!win) return;
@@ -136,6 +145,7 @@
         var all = document.getElementById("printAll");
         if (all) {
             all.addEventListener("click", function () {
+                if (weChatNoPrint()) return;
                 var label = all.textContent;
                 all.disabled = true;
                 all.textContent = "正在排版公式…";
