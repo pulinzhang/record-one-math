@@ -121,8 +121,8 @@
             });
         })).then(function (pages) {
             var cssLink = document.querySelector("link[rel='stylesheet']");
-            var css = cssLink ? cssLink.href : new URL("css/site.css", location.href).href;
-            var mj = new URL("../vendor/tex-svg.js", css).href;
+            var css = cssLink ? cssLink.href : new URL("css/site.css?v=1", location.href).href;
+            var mj = new URL("../vendor/tex-svg.js", css).href.replace(/[?#].*$/, "") + "?v=1";
             var html = "<!DOCTYPE html><html lang=\"zh-CN\"><head><meta charset=\"UTF-8\"><title>记一数学 · 讲义</title>"
                 + "<link rel=\"stylesheet\" href=\"" + css + "\">"
                 + "<script>window.MathJax={tex:{inlineMath:[['\$','\$'],['\\\\(','\\\\)']],displayMath:[['\$\$','\$\$'],['\\\\[','\\\\]']]},svg:{fontCache:'global'},startup:{pageReady:function(){return MathJax.startup.defaultPageReady().then(function(){setTimeout(function(){window.focus();window.print();},400);});}}};<\/script>"

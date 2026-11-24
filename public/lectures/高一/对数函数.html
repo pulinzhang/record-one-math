@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="stylesheet" href="../../css/site.css">
+    <link rel="stylesheet" href="../../css/site.css?v=1">
     <link rel="icon" href="../../icons/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../../icons/favicon.ico" sizes="32x32">
     <title>对数函数 · 定义域，再比两端</title>
@@ -17,7 +17,7 @@
         };
         (function () {
             var sources = [
-                '../../vendor/tex-svg.js',
+                '../../vendor/tex-svg.js?v=1',
                 'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
                 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
                 'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
@@ -115,38 +115,28 @@
                 </div>
             </div>
 
-            <div class="matryoshka-box">
-                <div class="matryoshka-title">翻译对照</div>
+            <div class="matryoshka-box translate-block">
+                <div class="matryoshka-title">对暗号 · 翻译对照</div>
+                <p class="translate-lead">认出暗号 → 翻成白话 → 写成能动手的式子。这张表就是主推手。</p>
                 <div class="translate-wrap">
                     <table class="translate-table">
+                        <thead>
+                            <tr>
+                                <th>原题说<span>暗号</span></th>
+                                <th>白话<span>翻出来</span></th>
+                                <th>执行<span>动手算</span></th>
+                            </tr>
+                        </thead>
                         <tbody>
                             <tr>
-                                <th>原题说</th>
-                                <td>\(\forall x_{1}\in[0,1]\)，\(x_{2}\) 在另一段，都有 \(f(x_{1})&gt;g(x_{2})\)</td>
+                                <td data-label="原题说">\(\forall x_{1}\in[0,1]\)，\(x_{2}\) 在另一段，都有 \(f(x_{1})&gt;g(x_{2})\)</td>
+                                <td data-label="白话">\(f\) 最矮的个子，也要比 \(g\) 最高的个子还高</td>
+                                <td data-label="执行">\(f\) 的最小值 \(&gt;\) \(g\) 的最大值</td>
                             </tr>
                             <tr>
-                                <th>白话</th>
-                                <td>\(f\) 最矮的个子，也要比 \(g\) 最高的个子还高</td>
-                            </tr>
-                            <tr>
-                                <th>执行</th>
-                                <td>\(f\) 的最小值 \(&gt;\) \(g\) 的最大值</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                    <table class="translate-table">
-                        <tbody>
-                            <tr>
-                                <th>原题说</th>
-                                <td>\(f(x)=2^{2x}-3\cdot 2^{x}\)</td>
-                            </tr>
-                            <tr>
-                                <th>白话</th>
-                                <td>不是新花样，是穿了马甲的二次式</td>
-                            </tr>
-                            <tr>
-                                <th>执行</th>
-                                <td>令 \(t=2^{x}\)，变成 \(t^{2}-3t\)，再在对应区间上求最低</td>
+                                <td data-label="原题说">\(f(x)=2^{2x}-3\cdot 2^{x}\)</td>
+                                <td data-label="白话">不是新花样，是穿了马甲的二次式</td>
+                                <td data-label="执行">令 \(t=2^{x}\)，变成 \(t^{2}-3t\)，再在对应区间上求最低</td>
                             </tr>
                         </tbody>
                     </table>
@@ -422,7 +412,7 @@
             start.then(function () { current = null; render(); }).catch(function () { render(); });
         })();
     </script>
-    <script src="../../js/jsxgraphcore.js"></script>
+    <script src="../../js/jsxgraphcore.js?v=1"></script>
     <script>
         (function () {
             var ids = ["g-domain", "g-f", "g-compare"];
@@ -662,6 +652,6 @@
             setA(aIn);
         })();
     </script>
-    <script src="../../js/site.js"></script>
+    <script src="../../js/site.js?v=2"></script>
 </body>
 </html>

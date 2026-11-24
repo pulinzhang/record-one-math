@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <link rel="stylesheet" href="../../css/site.css">
+    <link rel="stylesheet" href="../../css/site.css?v=1">
     <link rel="icon" href="../../icons/favicon.svg" type="image/svg+xml">
     <link rel="icon" href="../../icons/favicon.ico" sizes="32x32">
     <title>套娃 · 单变量函数</title>
@@ -17,7 +17,7 @@
         };
         (function () {
             var sources = [
-                '../../vendor/tex-svg.js',
+                '../../vendor/tex-svg.js?v=1',
                 'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
                 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
                 'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
@@ -367,7 +367,7 @@
             start.then(function () { current = null; render(); }).catch(function () { render(); });
         })();
     </script>
-    <script src="../../js/jsxgraphcore.js"></script>
+    <script src="../../js/jsxgraphcore.js?v=1"></script>
     <script>
         (function () {
             if (!window.JXG) return;
@@ -447,6 +447,6 @@
             height.create("text", [2.7, 0.55, "低于"], Object.assign({ strokeColor: "#94a3b8" }, label));
         })();
     </script>
-    <script src="../../js/site.js"></script>
+    <script src="../../js/site.js?v=2"></script>
 </body>
 </html>

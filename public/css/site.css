@@ -440,42 +440,103 @@ body.lecture .matryoshka-title {
     margin-bottom: 0.55rem;
 }
 
+body.lecture .matryoshka-box.translate-block {
+    margin-top: 1.25rem;
+    padding: 0.85rem 0.75rem 0.45rem 1rem;
+    border-left: 4px solid var(--primary);
+    background: linear-gradient(90deg, #eef3f8 0%, transparent 48%);
+}
+
+body.lecture .translate-block .matryoshka-title {
+    font-size: 1.18rem;
+    letter-spacing: 0.02em;
+}
+
+body.lecture .translate-lead {
+    margin: 0.2rem 0 0.75rem;
+    color: var(--primary);
+    font-weight: 700;
+    font-size: 0.98rem;
+    line-height: 1.55;
+}
+
 body.lecture .translate-wrap {
-    margin-top: 0.35rem;
+    margin-top: 0.2rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 body.lecture .translate-table {
     width: 100%;
     table-layout: fixed;
-    border-collapse: collapse;
-    font-size: 0.95rem;
+    border-collapse: separate;
+    border-spacing: 0;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 1.02rem;
     background: #fff;
+    box-shadow: 0 6px 18px rgba(30, 75, 120, 0.12);
 }
 
-body.lecture .translate-table + .translate-table {
-    margin-top: 0.75rem;
+body.lecture .translate-table th,
+body.lecture .translate-table td {
+    border-right: 1px solid #c5d0dc;
+    border-bottom: 1px solid #c5d0dc;
+    padding: 0.85rem 0.9rem;
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.65;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+body.lecture .translate-table th:last-child,
+body.lecture .translate-table td:last-child {
+    border-right: none;
+}
+
+body.lecture .translate-table tbody tr:last-child td {
+    border-bottom: none;
 }
 
 body.lecture .translate-table th {
-    width: 4.5rem;
-    background: #f7f9fb;
-    color: var(--primary);
+    width: 33.33%;
+    background: var(--primary);
+    color: #fff;
     font-weight: 700;
-    white-space: nowrap;
     text-align: center;
-    vertical-align: middle;
-    border: 1px solid var(--border);
-    padding: 0.7rem 0.55rem;
+    font-size: 1.05rem;
+    letter-spacing: 0.04em;
+    border-right-color: rgba(255, 255, 255, 0.28);
+    border-bottom: none;
 }
 
-body.lecture .translate-table td {
-    border: 1px solid var(--border);
-    padding: 0.7rem 0.9rem;
-    text-align: left;
-    vertical-align: middle;
-    line-height: 1.7;
-    overflow-wrap: break-word;
-    word-break: normal;
+body.lecture .translate-table th span {
+    display: block;
+    margin-top: 0.2rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    opacity: 0.85;
+}
+
+body.lecture .translate-table td:nth-child(1) {
+    background: #f4f7fa;
+    color: var(--text-muted);
+}
+
+body.lecture .translate-table td:nth-child(2) {
+    background: #fff7e8;
+    color: var(--secondary);
+    font-weight: 700;
+    box-shadow: inset 0 0 0 2px rgba(154, 107, 47, 0.35);
+}
+
+body.lecture .translate-table td:nth-child(3) {
+    background: var(--success-light);
+    color: #1a3d30;
+    font-weight: 700;
 }
 
 body.lecture .translate-table mjx-container {
@@ -488,6 +549,59 @@ body.lecture .translate-table mjx-container {
 body.lecture .translate-table mjx-container svg {
     max-width: 100%;
     height: auto;
+}
+
+@media (max-width: 40rem) {
+    body.lecture .translate-table,
+    body.lecture .translate-table thead,
+    body.lecture .translate-table tbody,
+    body.lecture .translate-table tr,
+    body.lecture .translate-table th,
+    body.lecture .translate-table td {
+        display: block;
+        width: 100%;
+    }
+
+    body.lecture .translate-table {
+        border: none;
+        border-radius: 0;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    body.lecture .translate-table thead {
+        display: none;
+    }
+
+    body.lecture .translate-table tr {
+        border: 2px solid var(--primary);
+        border-radius: 10px;
+        margin-bottom: 0.85rem;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(30, 75, 120, 0.1);
+    }
+
+    body.lecture .translate-table td {
+        border: none;
+        border-top: 1px solid #c5d0dc;
+        padding: 0.7rem 0.85rem 0.8rem;
+        box-shadow: none !important;
+    }
+
+    body.lecture .translate-table td:first-child {
+        border-top: none;
+    }
+
+    body.lecture .translate-table td::before {
+        content: attr(data-label);
+        display: block;
+        margin-bottom: 0.3rem;
+        color: var(--primary);
+        font-weight: 700;
+        font-size: 0.86rem;
+        letter-spacing: 0.06em;
+    }
 }
 
 body.lecture .flow-chain {
@@ -1334,10 +1448,27 @@ body.catalog .repo a:hover {
     body.lecture .flow-node,
     body.lecture figure,
     body.lecture .canvas-wrap,
-    body.lecture .translate-table {
+    body.lecture .translate-table,
+    body.lecture .translate-table th,
+    body.lecture .translate-table td {
         background: #fff !important;
         color: #111 !important;
         break-inside: avoid;
+        box-shadow: none !important;
+    }
+
+    body.lecture .translate-table,
+    body.lecture .translate-table th,
+    body.lecture .translate-table td {
+        border-color: #111 !important;
+    }
+
+    body.lecture .translate-table {
+        border: 1.5px solid #111 !important;
+    }
+
+    body.lecture .translate-lead {
+        color: #111 !important;
     }
 
     body.lecture .mindset-box.pit {
