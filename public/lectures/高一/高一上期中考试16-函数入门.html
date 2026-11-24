@@ -121,6 +121,31 @@
             <div class="motto">先算出 \(a&gt;1\)、\(b&gt;1\)，再换成 \(x&gt;0\) 上的反比例。</div>
         </section>
 
+        <section class="card" data-nav="作差规范">
+            <div class="section-header">
+                <span class="step-num">定</span>
+                <h2>单调性作差证明规范</h2>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">一、铁律约定：永远默认 \(x_1&lt;x_2\)</div>
+                <p>起手式固定：只要证明单调性，第一步永远写「设 \(x_1,x_2\in I\)，且 \(x_1&lt;x_2\)」（把 \(I\) 换成具体区间）。不要一会儿 \(x_1&lt;x_2\)，一会儿又 \(x_1&gt;x_2\)。</p>
+                <p>作差方向固定：永远算 \(f(x_1)-f(x_2)\)。因为 \(x_1&lt;x_2\) 已经固定，所以 \(x_1-x_2\) 永远是负数，不用每次猜正负。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">二、结论对照表（只在 \(x_1&lt;x_2\) 约定下生效）</div>
+                <p>\(f(x_1)-f(x_2)&lt;0\) \(\implies\) \(f(x_1)&lt;f(x_2)\) \(\implies\) 自变量变大，函数值也变大 \(\implies\) 单调递增。</p>
+                <p>\(f(x_1)-f(x_2)&gt;0\) \(\implies\) \(f(x_1)&gt;f(x_2)\) \(\implies\) 自变量变大，函数值反而变小 \(\implies\) 单调递减。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">三、四步标准格式</div>
+                <p>1. 定区间与大小：设 \(x_1,x_2\in(\text{区间})\)，且 \(x_1&lt;x_2\)。</p>
+                <p>2. 作差并提公因式：写出 \(f(x_1)-f(x_2)\)，尽量把 \(x_1-x_2\) 抽出来。</p>
+                <p>3. 逐项定符号：用区间判断每个因式的正负（记住 \(x_1-x_2&lt;0\) 已知）。</p>
+                <p>4. 收尾下结论：由差的符号，写出该区间上单调递增或单调递减。</p>
+            </div>
+            <div class="motto">先定 \(x_1&lt;x_2\)，起手不跑偏。统一减成 \(f(x_1)-f(x_2)\)，符号不打架。差负就增、差正就减，结论不看反。</div>
+        </section>
+
         <section class="card" data-q="第（1）问">
             <div class="section-header">
                 <span class="step-num">1</span>
@@ -142,14 +167,14 @@
             <div class="mindset-box">
                 <div class="mindset-title">对勾函数</div>
                 <p>形如 \(t+\dfrac{k}{t}\)（\(t&gt;0\)，\(k&gt;0\)）的函数，可作差比较：在转折点左边递减，右边递增。</p>
-                <p>两项对着走。拿两个点作差，就能看出先降后升。</p>
+                <p>两项对着走。按本页规范起手：永远 \(t_1&lt;t_2\)，永远算 \(g(t_1)-g(t_2)\)。</p>
             </div>
             <div class="solution-step">
                 <p>令 \(t=a-1\)（\(t&gt;0\)）。由 \(xy=4\) 得 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。于是</p>
                 <div class="formula-block">$$a+4b=g(t)=t+5+\dfrac{16}{t},\qquad t&gt;0.$$</div>
-                <p>这是 \(t&gt;0\) 上的对勾。对 \(0&lt;t_1&lt;t_2\)，</p>
-                <div class="formula-block">$$g(t_2)-g(t_1)=(t_2-t_1)\left(1-\dfrac{16}{t_1t_2}\right).$$</div>
-                <p>若 \(0&lt;t_1&lt;t_2\leqslant 4\)，则 \(t_1t_2&lt;16\)，差为负，\(g\) 在 \((0,4]\) 上严格递减。若 \(4\leqslant t_1&lt;t_2\)，则 \(t_1t_2&gt;16\)，差为正，\(g\) 在 \([4,+\infty)\) 上严格递增。故 \(g\) 在 \(t=4\) 取最小值</p>
+                <p>这是 \(t&gt;0\) 上的对勾。设 \(t_1,t_2\in(0,+\infty)\)，且 \(t_1&lt;t_2\)。计算 \(g(t_1)-g(t_2)\)：</p>
+                <div class="formula-block">$$g(t_1)-g(t_2)=(t_1-t_2)\left(1-\dfrac{16}{t_1t_2}\right).$$</div>
+                <p>此时 \(t_1-t_2&lt;0\)。若 \(0&lt;t_1&lt;t_2\leqslant 4\)，则 \(t_1t_2&lt;16\)，括号为负，负乘负得正，\(g(t_1)&gt;g(t_2)\)，\(g\) 在 \((0,4]\) 上严格递减。若 \(4\leqslant t_1&lt;t_2\)，则 \(t_1t_2&gt;16\)，括号为正，负乘正得负，\(g(t_1)&lt;g(t_2)\)，\(g\) 在 \([4,+\infty)\) 上严格递增。故 \(g\) 在 \(t=4\) 取最小值</p>
                 <div class="formula-block">$$g(4)=13.$$</div>
                 <p>这时 \(a=5\)，\(b=2\)。</p>
             </div>
@@ -186,9 +211,9 @@
             <div class="solution-step">
                 <p>仍用 \(t=a-1&gt;0\)。此时</p>
                 <div class="formula-block">$$ab=f(t)=t+5+\dfrac{4}{t},\qquad t&gt;0.$$</div>
-                <p>「\(ab\) 的取值范围」就是 \(f\) 的值域。对 \(0&lt;t_1&lt;t_2\)，</p>
-                <div class="formula-block">$$f(t_2)-f(t_1)=(t_2-t_1)\left(1-\dfrac{4}{t_1t_2}\right).$$</div>
-                <p>若 \(0&lt;t_1&lt;t_2\leqslant 2\)，则 \(t_1t_2&lt;4\)，差为负，\(f\) 在 \((0,2]\) 上严格递减。若 \(2\leqslant t_1&lt;t_2\)，则 \(t_1t_2&gt;4\)，差为正，\(f\) 在 \([2,+\infty)\) 上严格递增。故 \(f\) 在 \(t=2\) 取最小值 \(f(2)=9\)。又 \(f(t)&gt;t\)，故从 \(9\) 往上都能取到，</p>
+                <p>「\(ab\) 的取值范围」就是 \(f\) 的值域。设 \(t_1,t_2\in(0,+\infty)\)，且 \(t_1&lt;t_2\)。永远算 \(f(t_1)-f(t_2)\)：</p>
+                <div class="formula-block">$$f(t_1)-f(t_2)=(t_1-t_2)\left(1-\dfrac{4}{t_1t_2}\right).$$</div>
+                <p>此时 \(t_1-t_2&lt;0\)。若 \(0&lt;t_1&lt;t_2\leqslant 2\)，则 \(t_1t_2&lt;4\)，括号为负，负乘负得正，\(f(t_1)&gt;f(t_2)\)，\(f\) 在 \((0,2]\) 上严格递减。若 \(2\leqslant t_1&lt;t_2\)，则 \(t_1t_2&gt;4\)，括号为正，负乘正得负，\(f(t_1)&lt;f(t_2)\)，\(f\) 在 \([2,+\infty)\) 上严格递增。故 \(f\) 在 \(t=2\) 取最小值 \(f(2)=9\)。又 \(f(t)&gt;t\)，故从 \(9\) 往上都能取到，</p>
                 <div class="formula-block">$$ab\in[9,+\infty).$$</div>
                 <p>这时最小值对应 \(a=3\)，\(b=3\)。</p>
             </div>
@@ -239,14 +264,14 @@
                 <p>令 \(t=a-1\)。\(t&gt;0\) 与 \(a&gt;1\) 一一对应，\(a=t+1\)，\(b-1=\dfrac{4}{t}\)，\(b=1+\dfrac{4}{t}\)。</p>
                 <p><strong>（1）</strong></p>
                 <div class="formula-block">$$a+4b=(t+1)+4\left(1+\dfrac{4}{t}\right)=t+5+\dfrac{16}{t}.$$</div>
-                <p>设 \(g(t)=t+5+\dfrac{16}{t}\)（\(t&gt;0\)）。对 \(0&lt;t_1&lt;t_2\)，</p>
-                <div class="formula-block">$$g(t_2)-g(t_1)=(t_2-t_1)\left(1-\dfrac{16}{t_1t_2}\right).$$</div>
-                <p>若 \(0&lt;t_1&lt;t_2\leqslant 4\)，则 \(t_1t_2&lt;16\)，故 \(g(t_2)-g(t_1)&lt;0\)，\(g\) 在 \((0,4]\) 上严格递减。若 \(4\leqslant t_1&lt;t_2\)，则 \(t_1t_2&gt;16\)，故 \(g(t_2)-g(t_1)&gt;0\)，\(g\) 在 \([4,+\infty)\) 上严格递增。因此 \(g\) 在 \(t=4\) 取最小值 \(g(4)=13\)。此时 \(a=5\)，\(b=2\)，满足条件。故 \(a+4b\) 的最小值是 \(13\)。</p>
+                <p>设 \(g(t)=t+5+\dfrac{16}{t}\)（\(t&gt;0\)）。设 \(t_1,t_2\in(0,+\infty)\)，且 \(t_1&lt;t_2\)。计算 \(g(t_1)-g(t_2)\)：</p>
+                <div class="formula-block">$$g(t_1)-g(t_2)=(t_1-t_2)\left(1-\dfrac{16}{t_1t_2}\right).$$</div>
+                <p>此时 \(t_1-t_2&lt;0\)。若 \(0&lt;t_1&lt;t_2\leqslant 4\)，则 \(t_1t_2&lt;16\)，故 \(g(t_1)-g(t_2)&gt;0\)，\(g\) 在 \((0,4]\) 上严格递减。若 \(4\leqslant t_1&lt;t_2\)，则 \(t_1t_2&gt;16\)，故 \(g(t_1)-g(t_2)&lt;0\)，\(g\) 在 \([4,+\infty)\) 上严格递增。因此 \(g\) 在 \(t=4\) 取最小值 \(g(4)=13\)。此时 \(a=5\)，\(b=2\)，满足条件。故 \(a+4b\) 的最小值是 \(13\)。</p>
                 <p><strong>（2）</strong></p>
                 <div class="formula-block">$$ab=(t+1)\left(1+\dfrac{4}{t}\right)=t+5+\dfrac{4}{t}.$$</div>
-                <p>设 \(f(t)=t+5+\dfrac{4}{t}\)（\(t&gt;0\)）。对 \(0&lt;t_1&lt;t_2\)，</p>
-                <div class="formula-block">$$f(t_2)-f(t_1)=(t_2-t_1)\left(1-\dfrac{4}{t_1t_2}\right).$$</div>
-                <p>若 \(0&lt;t_1&lt;t_2\leqslant 2\)，则 \(t_1t_2&lt;4\)，故 \(f(t_2)-f(t_1)&lt;0\)，\(f\) 在 \((0,2]\) 上严格递减。若 \(2\leqslant t_1&lt;t_2\)，则 \(t_1t_2&gt;4\)，故 \(f(t_2)-f(t_1)&gt;0\)，\(f\) 在 \([2,+\infty)\) 上严格递增。因此 \(f\) 在 \(t=2\) 取最小值 \(f(2)=9\)。又 \(f(t)&gt;t\)，故 \(f\) 在 \([2,+\infty)\) 上的值域是 \([9,+\infty)\)。所以 \(ab\in[9,+\infty)\)。</p>
+                <p>设 \(f(t)=t+5+\dfrac{4}{t}\)（\(t&gt;0\)）。设 \(t_1,t_2\in(0,+\infty)\)，且 \(t_1&lt;t_2\)。计算 \(f(t_1)-f(t_2)\)：</p>
+                <div class="formula-block">$$f(t_1)-f(t_2)=(t_1-t_2)\left(1-\dfrac{4}{t_1t_2}\right).$$</div>
+                <p>此时 \(t_1-t_2&lt;0\)。若 \(0&lt;t_1&lt;t_2\leqslant 2\)，则 \(t_1t_2&lt;4\)，故 \(f(t_1)-f(t_2)&gt;0\)，\(f\) 在 \((0,2]\) 上严格递减。若 \(2\leqslant t_1&lt;t_2\)，则 \(t_1t_2&gt;4\)，故 \(f(t_1)-f(t_2)&lt;0\)，\(f\) 在 \([2,+\infty)\) 上严格递增。因此 \(f\) 在 \(t=2\) 取最小值 \(f(2)=9\)。又 \(f(t)&gt;t\)，故 \(f\) 在 \([2,+\infty)\) 上的值域是 \([9,+\infty)\)。所以 \(ab\in[9,+\infty)\)。</p>
             </div>
         </section>
     </div>

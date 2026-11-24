@@ -107,6 +107,31 @@
             <div class="motto">先作差看增减，方程里再换元。</div>
         </section>
 
+        <section class="card" data-nav="作差规范">
+            <div class="section-header">
+                <span class="step-num">定</span>
+                <h2>单调性作差证明规范</h2>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">一、铁律约定：永远默认 \(x_1&lt;x_2\)</div>
+                <p>起手式固定：只要证明单调性，第一步永远写「设 \(x_1,x_2\in I\)，且 \(x_1&lt;x_2\)」（把 \(I\) 换成具体区间）。不要一会儿 \(x_1&lt;x_2\)，一会儿又 \(x_1&gt;x_2\)。</p>
+                <p>作差方向固定：永远算 \(f(x_1)-f(x_2)\)。因为 \(x_1&lt;x_2\) 已经固定，所以 \(x_1-x_2\) 永远是负数，不用每次猜正负。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">二、结论对照表（只在 \(x_1&lt;x_2\) 约定下生效）</div>
+                <p>\(f(x_1)-f(x_2)&lt;0\) \(\implies\) \(f(x_1)&lt;f(x_2)\) \(\implies\) 自变量变大，函数值也变大 \(\implies\) 单调递增。</p>
+                <p>\(f(x_1)-f(x_2)&gt;0\) \(\implies\) \(f(x_1)&gt;f(x_2)\) \(\implies\) 自变量变大，函数值反而变小 \(\implies\) 单调递减。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">三、四步标准格式</div>
+                <p>1. 定区间与大小：设 \(x_1,x_2\in(\text{区间})\)，且 \(x_1&lt;x_2\)。</p>
+                <p>2. 作差并提公因式：写出 \(f(x_1)-f(x_2)\)，尽量把 \(x_1-x_2\) 抽出来。</p>
+                <p>3. 逐项定符号：用区间判断每个因式的正负（记住 \(x_1-x_2&lt;0\) 已知）。</p>
+                <p>4. 收尾下结论：由差的符号，写出该区间上单调递增或单调递减。</p>
+            </div>
+            <div class="motto">先定 \(x_1&lt;x_2\)，起手不跑偏。统一减成 \(f(x_1)-f(x_2)\)，符号不打架。差负就增、差正就减，结论不看反。</div>
+        </section>
+
         <section class="card" data-q="第（1）问">
             <div class="section-header">
                 <span class="step-num">1</span>
@@ -127,13 +152,13 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">作差法</div>
-                <p>设 \(1&lt;x_1&lt;x_2\)。若 \(f(x_1)-f(x_2)&lt;0\)，则 \(f\) 在 \((1,+\infty)\) 上单调递增。</p>
-                <p>拿两个点，只看函数值的差是不是负数。</p>
+                <p>按本页规范：设 \(x_1,x_2\in(1,+\infty)\)，且 \(x_1&lt;x_2\)；永远算 \(f(x_1)-f(x_2)\)。差为负则严格递增。</p>
+                <p>这一问的区间是 \((1,+\infty)\)。起手、作差、定符号、下结论，四步走完。</p>
             </div>
             <div class="solution-step">
-                <p>\(x_1\) 更小，\(\dfrac{1}{x_1}\) 更大。两截对着干，通分后提出 \(x_1-x_2\)：</p>
+                <p>设 \(x_1,x_2\in(1,+\infty)\)，且 \(x_1&lt;x_2\)。计算 \(f(x_1)-f(x_2)\)。\(x_1\) 更小，\(\dfrac{1}{x_1}\) 更大。两截对着干，通分后提出 \(x_1-x_2\)：</p>
                 <div class="formula-block">$$f(x_1)-f(x_2)=(x_1-x_2)\cdot\frac{x_1 x_2-1}{x_1 x_2}$$</div>
-                <p>\(x_1-x_2&lt;0\)。\(x_1&gt;1\)，\(x_2&gt;1\)，所以 \(x_1 x_2&gt;1\)，分数是正的。负的乘正的，差是负的，\(f(x_1)&lt;f(x_2)\)。</p>
+                <p>\(x_1-x_2&lt;0\)。\(x_1&gt;1\)，\(x_2&gt;1\)，所以 \(x_1 x_2&gt;1\)，分数是正的。负的乘正的，差是负的，\(f(x_1)&lt;f(x_2)\)。故单调递增。</p>
             </div>
             <div class="result-box">
                 $f(x)$ 在 $(1,+\infty)$ 上单调递增。
@@ -255,7 +280,7 @@
             </div>
             <p class="paper-note">下面按试卷来写。步骤留全，不写想法。</p>
             <div class="paper">
-                <p><strong>（1）</strong> 任取 \(1&lt;x_1&lt;x_2\)。</p>
+                <p><strong>（1）</strong> 设 \(x_1,x_2\in(1,+\infty)\)，且 \(x_1&lt;x_2\)。计算 \(f(x_1)-f(x_2)\)：</p>
                 <div class="formula-block">$$f(x_1)-f(x_2)=(x_1-x_2)+\left(\frac{1}{x_1}-\frac{1}{x_2}\right)$$</div>
                 <div class="formula-block">$$=(x_1-x_2)\cdot\frac{x_1 x_2-1}{x_1 x_2}.$$</div>
                 <p>因为 \(x_1-x_2&lt;0\)，\(x_1 x_2&gt;1\)，所以 \(f(x_1)-f(x_2)&lt;0\)，即 \(f(x_1)&lt;f(x_2)\)。</p>
