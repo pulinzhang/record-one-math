@@ -247,9 +247,46 @@
                 </div>
             </div>
             <div class="solution-step">
-                <p>条件翻成 \(G(t)\geqslant 0\) 当且仅当 \(0\leqslant t&lt;1\)。通分提 \(t^3\) 后，只需对 \(t\in(0,1)\) 有 \(n&gt;h(t)\)。由 \(h(t)&lt;-2\) 得 \(n\geqslant -2\)。证明在标准解答里。</p>
+                <p>条件翻成：\(G(t)\geqslant 0\) 当且仅当 \(0\leqslant t&lt;1\)。通分提 \(t^3\)：</p>
+                <div class="formula-block">$$G(t)=t^3\,g(t),\qquad g(t)=\dfrac{2}{1-t^2}+n=n-h(t),\quad h(t)=-\dfrac{2}{1-t^2}.$$</div>
+                <p>\(t=0\) 时 \(G(0)=0\)。\(t\in(0,1)\) 时 \(t^3&gt;0\)，故只需 \(g(t)&gt;0\)，也就是</p>
+                <div class="formula-block">$$n&gt;h(t)=-\dfrac{2}{1-t^2}.$$</div>
+                <p>由 \(0&lt;t^2&lt;1\) 得 \(0&lt;1-t^2&lt;1\)，取倒数得 \(\dfrac{1}{1-t^2}&gt;1\)，乘 \(-2\) 变号得 \(h(t)&lt;-2\)。要让 \(n\) 一直大于这串小于 \(-2\) 的数，只需 \(n\geqslant -2\)。</p>
             </div>
             <div class="result-box">\(n\in[-2,+\infty)\)。</div>
+        </section>
+
+        <section class="card">
+            <div class="section-header">
+                <span class="step-num">连</span>
+                <h2>按住 \(G(t)\) 一路向前</h2>
+            </div>
+            <div class="handoff">
+                <article>
+                    <div class="tag">写出 \(G\)</div>
+                    <strong>\(G(t)=\dfrac{2t}{1-t^2}+mt+nt^3\)</strong>
+                    <div class="give">旧的 \(f\) 忘掉</div>
+                </article>
+                <div class="arrow">（1）</div>
+                <article>
+                    <div class="tag">\(m=n=0\)</div>
+                    <strong>只验第一项变号</strong>
+                    <div class="give">\(G\) 为奇函数</div>
+                </article>
+                <div class="arrow">（2）</div>
+                <article>
+                    <div class="tag">\(m\)、\(n\) 回来</div>
+                    <strong>只验后两项变号</strong>
+                    <div class="give">中心是 \((1,m)\)</div>
+                </article>
+                <div class="arrow">（3）</div>
+                <article>
+                    <div class="tag">已经奇</div>
+                    <strong>只看 \(t\in(0,1)\)</strong>
+                    <div class="give">参变分离定 \(n\)</div>
+                </article>
+            </div>
+            <div class="motto">三问共用一个 \(G\)。前一问证完的性质，后一问直接用。</div>
         </section>
 
         <section class="card paper-card">

@@ -83,6 +83,31 @@
             </div>
         </section>
 
+        <section class="card" data-nav="先看思路">
+            <div class="section-header">
+                <span class="step-num">想</span>
+                <h2>先看成单变量函数</h2>
+            </div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>轨迹里同时有水压 \(k\) 和水平距离 \(x\)。两问所求是不是都能写成「只跟一个量有关」的函数？</p>
+            </div>
+            <div class="mindset-box pit">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>两个量一起调：不先定住其中一个，就写不出另一个的最大值函数，两问都会卡住。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是轨迹式里的 \(k\) 与 \(x\)，再加上「最大值」。它招呼的是：转化为单变量函数。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">单变量函数</div>
+                <p>第（1）问落地令 \(y=0\)，落点写成 \(L(k)\)。第（2）问先固定距离 \(a\)，最高写成 \(f(a)\)，再用高度条件定 \(a\)。</p>
+                <p>两个量一起变，先定住一个，写成函数再求最值。</p>
+            </div>
+            <div class="motto">先写成一个字母的函数，再谈最值。</div>
+        </section>
+
         <section class="card" data-q="第（1）问">
             <div class="section-header">
                 <span class="step-num">1</span>
@@ -111,9 +136,28 @@
                 <p class="cap">水压一变，落点就变。蓝线落得最远。</p>
             </div>
             <div class="solution-step">
-                <p>落地令 \(y=0\)，非零根记成射程</p>
+                <p>落地，高度是 \(0\)。代入轨迹：</p>
+                <div class="formula-block">$$-\dfrac{1}{8}(1+k^2)x^2+kx=0.$$</div>
+                <p>提出 \(x\)：</p>
+                <div class="formula-block">$$x\left(-\dfrac{1}{8}(1+k^2)x+k\right)=0.$$</div>
+                <p>所以 \(x=0\)，这是起点。另一头：</p>
+                <div class="formula-block">$$-\dfrac{1}{8}(1+k^2)x+k=0.$$</div>
+                <p>移项，两边再乘 \(8\)：</p>
+                <div class="formula-block">$$(1+k^2)x=8k.$$</div>
+                <p>\(k&gt;0\) 时 \(1+k^2&gt;0\)，可以除过去。落点就是</p>
+                <div class="formula-block">$$x=\dfrac{8k}{1+k^2}.$$</div>
+                <p>这个 \(x\) 跟着 \(k\) 变，记成射程</p>
                 <div class="formula-block">$$L(k)=\dfrac{8k}{1+k^2},\qquad k&gt;0.$$</div>
-                <p>由 \(1+k^2\geqslant 2k\) 得 \(L(k)\leqslant 4\)，等号在 \(k=1\)。证明在标准解答里。</p>
+            </div>
+            <div class="solution-step">
+                <h3>用 \(1+k^2\geqslant 2k\) 找出最大值</h3>
+                <p>由 \((k-1)^2\geqslant 0\) 展开：</p>
+                <div class="formula-block">$$k^2-2k+1\geqslant 0.$$</div>
+                <p>移项得到</p>
+                <div class="formula-block">$$1+k^2\geqslant 2k.$$</div>
+                <p>\(k&gt;0\) 时 \(2k&gt;0\)。分子 \(8k&gt;0\)。分母越大，分数越小，所以把分母换成较小的 \(2k\)：</p>
+                <div class="formula-block">$$L(k)=\dfrac{8k}{1+k^2}\leqslant\dfrac{8k}{2k}=4.$$</div>
+                <p>等号要 \(1+k^2=2k\)，也就是 \((k-1)^2=0\)，所以 \(k=1\)。这时 \(L(1)=4\)。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="range-k" class="jxgbox" role="img" aria-label="L(k) 等于 8k 除以 1 加 k 的平方，在 k 等于 1 取到 4"></div>
@@ -150,9 +194,33 @@
                 <p class="cap">石头高 \(1.5\) 米。离喷头多远，记成 \(a\)。\(a\) 还没定。</p>
             </div>
             <div class="solution-step">
-                <p>令 \(x=a&gt;0\)，固定 \(a\)，只让 \(k\) 变。配方得</p>
-                <div class="formula-block">$$y\leqslant 2-\dfrac{a^2}{8},$$</div>
-                <p>等号在 \(k=\dfrac{4}{a}\) 时成立。记 \(f(a)=2-\dfrac{a^2}{8}\)。由（1）只在 \(0&lt;a\leqslant 4\) 上讨论，且此时该最大高度取得到。再由 \(f(a)\geqslant 1.5\) 得 \(0&lt;a\leqslant 2\)。\(a=2\) 时取 \(k=2\)。证明在标准解答里。</p>
+                <h3>先定住要研究的量</h3>
+                <p>石头在水平距离 \(a\) 处。令 \(x=a\)：</p>
+                <div class="formula-block">$$y=-\dfrac{a^2}{8}k^2+ak-\dfrac{a^2}{8}.$$</div>
+                <p>先把 \(a\) 看成定住的正数，只让 \(k\) 变。</p>
+            </div>
+            <div class="solution-step">
+                <h3>配方，找出高度的上界</h3>
+                <p>含 \(k\) 的两项提出 \(-\dfrac{a^2}{8}\)：</p>
+                <div class="formula-block">$$y=-\dfrac{a^2}{8}\left(k^2-\dfrac{8}{a}k\right)-\dfrac{a^2}{8}.$$</div>
+                <p>括号里配方：</p>
+                <div class="formula-block">$$k^2-\dfrac{8}{a}k=\left(k-\dfrac{4}{a}\right)^2-\dfrac{16}{a^2},$$</div>
+                <div class="formula-block">$$y=2-\dfrac{a^2}{8}-\dfrac{1}{8}(ak-4)^2.$$</div>
+                <p>\((ak-4)^2\geqslant 0\)，所以</p>
+                <div class="formula-block">$$y\leqslant 2-\dfrac{a^2}{8}.$$</div>
+                <p>记 \(f(a)=2-\dfrac{a^2}{8}\)。等号当 \(k=\dfrac{4}{a}\)（\(a&gt;0\) 时可取）。</p>
+            </div>
+            <div class="solution-step">
+                <h3>先限制在最大射程以内</h3>
+                <p>由（1），射程最大是 \(4\) 米，故只考虑 \(0&lt;a\leqslant 4\)。取 \(k=\dfrac{4}{a}\) 时，</p>
+                <div class="formula-block">$$L-a=\dfrac{a(16-a^2)}{a^2+16}\geqslant 0,$$</div>
+                <p>故此时水柱尚未落地（或刚好落在该点），\(f(a)\) 就是该处的最大高度。</p>
+            </div>
+            <div class="solution-step">
+                <h3>用石头的高度，反过来定 \(a\)</h3>
+                <p>要求 \(f(a)\geqslant 1.5\)，即</p>
+                <div class="formula-block">$$2-\dfrac{a^2}{8}\geqslant 1.5.$$</div>
+                <p>得 \(a^2\leqslant 4\)。结合 \(0&lt;a\leqslant 4\)，有 \(0&lt;a\leqslant 2\)。\(a=2\) 时取 \(k=2\)，高度恰为 \(1.5\)，且尚未落地。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="height-a" class="jxgbox" role="img" aria-label="f(a) 等于 2 减 a 平方除以 8，降到 1.5 时 a 等于 2"></div>

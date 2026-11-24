@@ -82,6 +82,31 @@
             </div>
         </section>
 
+        <section class="card" data-nav="先看思路">
+            <div class="section-header">
+                <span class="step-num">想</span>
+                <h2>先证明递增，后面两问接着用</h2>
+            </div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>三问都站在同一个 \(f(x)=x+\dfrac{1}{x}\) 上。第（1）问先判定增减，后面两端相减和换元，是不是都要用到递增？</p>
+            </div>
+            <div class="mindset-box pit">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>第（2）、（3）问各自另起炉灶：前面已经证过的递增不用，两端之差和 \(t&gt;2\) 上的值域就没有依据。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是 \(f(x)=x+\dfrac{1}{x}\)，再加上三问递进。它招呼的是：先作差看增减。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">先证递增</div>
+                <p>第（1）问作差证明在 \((1,+\infty)\) 上递增。第（2）问用递增取两端之差。第（3）问令 \(t=x+\dfrac{1}{x}\)，再用同一个递增看 \(t+\dfrac{1}{t}\) 的值域。</p>
+                <p>先把增减钉住，后面两问都接着用。</p>
+            </div>
+            <div class="motto">先作差看增减，方程里再换元。</div>
+        </section>
+
         <section class="card" data-q="第（1）问">
             <div class="section-header">
                 <span class="step-num">1</span>
@@ -106,7 +131,9 @@
                 <p>拿两个点，只看函数值的差是不是负数。</p>
             </div>
             <div class="solution-step">
-                <p>作差提出 \(x_1-x_2\)，由 \(x_1x_2&gt;1\) 得 \(f(x_1)&lt;f(x_2)\)。证明在标准解答里。</p>
+                <p>\(x_1\) 更小，\(\dfrac{1}{x_1}\) 更大。两截对着干，通分后提出 \(x_1-x_2\)：</p>
+                <div class="formula-block">$$f(x_1)-f(x_2)=(x_1-x_2)\cdot\frac{x_1 x_2-1}{x_1 x_2}$$</div>
+                <p>\(x_1-x_2&lt;0\)。\(x_1&gt;1\)，\(x_2&gt;1\)，所以 \(x_1 x_2&gt;1\)，分数是正的。负的乘正的，差是负的，\(f(x_1)&lt;f(x_2)\)。</p>
             </div>
             <div class="result-box">
                 $f(x)$ 在 $(1,+\infty)$ 上单调递增。
@@ -170,7 +197,11 @@
                 <p>这一问的包是 \(x+\dfrac{1}{x}\)，起名 \(t\)。</p>
             </div>
             <div class="solution-step">
-                <p>令 \(t=x+\dfrac{1}{x}\)（\(x&gt;1\)），则 \(t&gt;2\)，方程化为 \(\lambda=t+\dfrac{1}{t}\)。由已证的递增求值域。证明在标准解答里。</p>
+                <p>令 \(t=x+\dfrac{1}{x}\)，\(x&gt;1\)。由 \((x-1)^2&gt;0\) 得 \(t&gt;2\)，\(x&gt;1\) 与 \(t&gt;2\) 一一对应。令 \(A=x\)，\(B=\dfrac{1}{x}\)，则 \(AB=1\)，</p>
+                <div class="formula-block">$$f(x^2)=t^2-2.$$</div>
+                <p>原方程化为 \(t^2-\lambda t+1=0\)。\(t&gt;2\)，故</p>
+                <div class="formula-block">$$\lambda=t+\frac{1}{t}.$$</div>
+                <p>记 \(G(t)=t+\dfrac{1}{t}\)（\(t&gt;2\)）。\(G\) 就是已经证明递增的那个 \(f\)，字母换成 \(t\)。\(G(2)=\dfrac{5}{2}\)，严格递增，又 \(G(t)&gt;t\)，故值域为 \(\left(\dfrac{5}{2},+\infty\right)\)。任意 \(\lambda&gt;\dfrac{5}{2}\) 对应唯一的 \(t&gt;2\)，从而对应唯一的 \(x&gt;1\)。</p>
             </div>
             <div class="interactive-panel">
                 <div class="interactive-title">拖动 $\lambda$，看横线在 $t&gt;2$ 上碰不碰对勾</div>
@@ -188,6 +219,33 @@
             <div class="result-box">
                 $\lambda$ 的取值范围是 $\left(\dfrac{5}{2},+\infty\right)$。
             </div>
+        </section>
+
+        <section class="card">
+            <div class="section-header">
+                <span class="step-num">连</span>
+                <h2>递增钉住，两端相减，再换元</h2>
+            </div>
+            <div class="handoff">
+                <article>
+                    <div class="tag">（1）作差</div>
+                    <strong>\(f\) 在 \((1,+\infty)\) 递增</strong>
+                    <div class="give">后面都用这条</div>
+                </article>
+                <div class="arrow">接着用</div>
+                <article>
+                    <div class="tag">（2）两端</div>
+                    <strong>\(m\) 的最小值是 \(f(3)-f(1)\)</strong>
+                    <div class="give">差得最远就是两端</div>
+                </article>
+                <div class="arrow">接着用</div>
+                <article>
+                    <div class="tag">（3）换元</div>
+                    <strong>令 \(t=x+\dfrac{1}{x}\)</strong>
+                    <div class="give">\(\lambda\) 的范围是开区间</div>
+                </article>
+            </div>
+            <div class="motto">同一条递增。第（3）问的开区间端点取不到，等号不能留。</div>
         </section>
 
         <section class="card paper-card">

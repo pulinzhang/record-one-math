@@ -108,7 +108,7 @@
             <div class="solution-step">
                 <p>移项：\(ab-a-b=3\)。两边加 \(1\)：</p>
                 <div class="formula-block">$$(a-1)(b-1)=4.$$</div>
-                <p>同号与 \(a&gt;1\)、\(b&gt;1\) 写在标准解答里。令 \(x=a-1\)，\(y=b-1\)，则</p>
+                <p>故 \(a-1\) 与 \(b-1\) 同号。若 \(0&lt;a&lt;1\) 且 \(0&lt;b&lt;1\)，则 \(0&lt;(1-a)(1-b)&lt;1\)，与乘积为 \(4\) 矛盾。又 \(a,b&gt;0\)，所以 \(a&gt;1\)，\(b&gt;1\)。令 \(x=a-1\)，\(y=b-1\)，则</p>
                 <div class="formula-block">$$xy=4,\qquad x&gt;0,\ y&gt;0.$$</div>
                 <p>再转化为 \(y=\dfrac{4}{x}\)（\(x&gt;0\)）。</p>
             </div>
@@ -143,9 +143,11 @@
                 <p>\(t\) 和 \(\dfrac{16}{t}\) 都是正的，凑成一对去加。</p>
             </div>
             <div class="solution-step">
-                <p>条件化为 \(xy=4\)（\(x,y&gt;0\)），再令 \(t=a-1&gt;0\)，得 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。证明在标准解答里。</p>
+                <p>令 \(t=a-1\)（\(t&gt;0\)）。由 \(xy=4\) 得 \(a=t+1\)，\(b=1+\dfrac{4}{t}\)。</p>
                 <div class="formula-block">$$a+4b=g(t)=t+5+\dfrac{16}{t}.$$</div>
-                <p>由均值不等式，\(g(t)\geqslant 13\)，等号在 \(t=4\) 时成立。证明在标准解答里。这时 \(a=5\)，\(b=2\)。</p>
+                <p>由均值不等式，\(t+\dfrac{16}{t}\geqslant 2\sqrt{t\cdot\dfrac{16}{t}}=8\)，当且仅当 \(t=\dfrac{16}{t}\)，即 \(t=4\) 时等号成立。故</p>
+                <div class="formula-block">$$g(t)\geqslant 13,$$</div>
+                <p>最小值是 \(13\)。这时 \(a=5\)，\(b=2\)。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="g-sum" class="jxgbox" role="img" aria-label="g(t) 等于 t 加 5 加 16 除以 t。t=4 时函数值是 13。"></div>
@@ -180,7 +182,12 @@
             <div class="solution-step">
                 <p>仍用 \(t=a-1&gt;0\)。此时</p>
                 <div class="formula-block">$$ab=f(t)=t+5+\dfrac{4}{t},\qquad t&gt;0.$$</div>
-                <p>「\(ab\) 的取值范围」就是 \(f\) 的值域。由均值不等式得下界；再在取到下界之后的区间上作差，说明 \(f\) 严格递增，从而从下界往上都能取到。证明在标准解答里。</p>
+                <p>「\(ab\) 的取值范围」就是 \(f\) 的值域。由均值不等式，</p>
+                <div class="formula-block">$$t+\dfrac{4}{t}\geqslant 2\sqrt{t\cdot\dfrac{4}{t}}=4,$$</div>
+                <p>当且仅当 \(t=2\) 时等号成立。故 \(f(t)\geqslant 9\)，且 \(f(2)=9\)。</p>
+                <p>对 \(2\leqslant t_1&lt;t_2\)，</p>
+                <div class="formula-block">$$f(t_2)-f(t_1)=(t_2-t_1)\left(1-\dfrac{4}{t_1t_2}\right).$$</div>
+                <p>此时 \(t_1t_2&gt;4\)，故 \(f(t_2)-f(t_1)&gt;0\)，\(f\) 在 \([2,+\infty)\) 上严格递增。又 \(f(t)&gt;t\)，故从下界往上都能取到，</p>
                 <div class="formula-block">$$ab\in[9,+\infty).$$</div>
             </div>
             <div class="canvas-wrap">

@@ -85,6 +85,31 @@
             </div>
         </section>
 
+        <section class="card" data-nav="先看思路">
+            <div class="section-header">
+                <span class="step-num">想</span>
+                <h2>先拆开 \(f\)、\(g\)，后面都用它们</h2>
+            </div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>三问都绕着同一个 \(f\)、\(g\)。是不是先把解析式求出来，后面两问直接代进去用？</p>
+            </div>
+            <div class="mindset-box pit">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>每一问都重新从 \(2^x\) 硬拆：前面已经求出的 \(f\)、\(g\) 不用，后面换元和最小值函数就没有抓手。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是奇函数、偶函数，再加上 \(f+g=2^x\)。它招呼的是：先消元求出 \(f\)、\(g\)。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">先消元</div>
+                <p>第（1）问求出 \(f\)、\(g\)。第（2）问在已知 \(g(m)\) 下用换元算 \(f\!\left(\dfrac{3m}{2}\right)\)。第（3）问令 \(t=f(x)\)，把最小值写成依赖 \(a\) 的函数。</p>
+                <p>先拆开两个函数，后面两问都站在它们上面。</p>
+            </div>
+            <div class="motto">先消元，再换元，再谈最小值函数。</div>
+        </section>
+
         <!-- 第一问 -->
         <section class="card" data-q="第（1）问">
             <div class="section-header">
@@ -110,8 +135,19 @@
                 <p>相加留下 \(g\)，相减留下 \(f\)。</p>
             </div>
             <div class="solution-step">
-                <p>由 \(f(x)+g(x)=2^x\) 换成 \(-x\)，再用奇偶性得第二个方程，相加减消元。证明在标准解答里。</p>
-                <div class="formula-block">$$f(x)=\dfrac{2^x-2^{-x}}{2},\qquad g(x)=\dfrac{2^x+2^{-x}}{2}.$$</div>
+                <p>原方程：</p>
+                <div class="formula-block">$$f(x)+g(x)=2^x \quad \text{—— ①}$$</div>
+                <p>把 \(x\) 换成 \(-x\)：</p>
+                <div class="formula-block">$$f(-x)+g(-x)=2^{-x}$$</div>
+                <p>\(f\) 是奇函数，\(f(-x)=-f(x)\)。\(g\) 是偶函数，\(g(-x)=g(x)\)。代进去：</p>
+                <div class="formula-block">$$-f(x)+g(x)=2^{-x} \quad \text{—— ②}$$</div>
+                <h3>① + ②，\(f\) 消掉</h3>
+                <div class="formula-block">$$2g(x)=2^x+2^{-x}$$</div>
+                <div class="formula-block">$$g(x)=\dfrac{2^x+2^{-x}}{2}$$</div>
+                <h3>① − ②，\(g\) 消掉</h3>
+                <p>左边是 \((f+g)-(-f+g)=2f\)：</p>
+                <div class="formula-block">$$2f(x)=2^x-2^{-x}$$</div>
+                <div class="formula-block">$$f(x)=\dfrac{2^x-2^{-x}}{2}$$</div>
             </div>
 
             <div class="result-box">
@@ -148,8 +184,23 @@
                 <p>这一问的包是 \(2^{\frac{m}{2}}\) 和 \(2^{-\frac{m}{2}}\)。算完再代回。</p>
             </div>
             <div class="solution-step">
-                <p>由 \(g(m)=4\) 得 \(2^m+2^{-m}=8\)。令 \(A=2^{\frac{m}{2}}\)，\(B=2^{-\frac{m}{2}}\)，用 \(A^2+B^2\) 与立方差算出 \(A^3-B^3\)。证明在标准解答里。</p>
-                <div class="formula-block">$$f\left(\dfrac{3m}{2}\right)=-\dfrac{9\sqrt{6}}{2}.$$</div>
+                <div class="formula-block">$$f\left(\dfrac{3m}{2}\right)=\dfrac{2^{\frac{3m}{2}}-2^{-\frac{3m}{2}}}{2}$$</div>
+                <h3>已知的是 \(2^m+2^{-m}\)</h3>
+                <div class="formula-block">$$g(m)=\dfrac{2^m+2^{-m}}{2}=4$$</div>
+                <div class="formula-block">$$2^m+2^{-m}=8$$</div>
+                <p>令</p>
+                <div class="formula-block">$$A=2^{\frac{m}{2}},\qquad B=2^{-\frac{m}{2}}$$</div>
+                <p>于是 \(A^2=2^m\)，\(B^2=2^{-m}\)，\(A^3=2^{\frac{3m}{2}}\)，\(B^3=2^{-\frac{3m}{2}}\)。乘积是 \(1\)，平方和就是刚算出的 \(8\)：</p>
+                <div class="formula-block">$$AB=1,\qquad A^2+B^2=8$$</div>
+                <p>先平方 \(A-B\)，根号前的符号由 \(m&lt;0\) 决定：</p>
+                <div class="formula-block">$$(A-B)^2=A^2-2AB+B^2=A^2+B^2-2=6$$</div>
+                <p>\(m&lt;0\)，所以 \(\dfrac{m}{2}&lt;0\)。\(2^x\) 递增，\(A=2^{\frac{m}{2}}&lt;1\)。又 \(B=2^{-\frac{m}{2}}&gt;1\)，于是 \(A&lt;B\)，\(A-B&lt;0\)：</p>
+                <div class="formula-block">$$A-B=-\sqrt{6}$$</div>
+                <h3>再用立方差</h3>
+                <p>\(A^3-B^3=(A-B)(A^2+AB+B^2)\)。因为 \(AB=1\)，括号里是 \(A^2+B^2+1=9\)：</p>
+                <div class="formula-block">$$A^3-B^3=(-\sqrt{6})\times 9=-9\sqrt{6}$$</div>
+                <p>再代回 \(f\)：</p>
+                <div class="formula-block">$$f\left(\dfrac{3m}{2}\right)=\dfrac{A^3-B^3}{2}=-\dfrac{9\sqrt{6}}{2}$$</div>
             </div>
 
             <div class="result-box">
@@ -182,9 +233,28 @@
                 <p>没给定的是 \(a\)。记成 \(M(a)\)。</p>
             </div>
             <div class="solution-step">
-                <p>由 \(g^2-f^2=1\) 得 \(h(x)=[f(x)]^2+2af(x)+1\)。令 \(t=f(x)\)，则 \(t\in\left[0,\dfrac{3}{4}\right]\)。记</p>
+                <p>由已经求出的 \(f\)、\(g\)，</p>
+                <div class="formula-block">$$[g(x)]^2-[f(x)]^2=\dfrac{(2^x+2^{-x})^2-(2^x-2^{-x})^2}{4}=1,$$</div>
+                <p>于是</p>
+                <div class="formula-block">$$h(x)=[f(x)]^2+2af(x)+1.$$</div>
+            </div>
+            <div class="solution-step">
+                <p>令 \(t=f(x)\)。对 \(0\leqslant x_1&lt;x_2\leqslant 1\)，</p>
+                <div class="formula-block">$$f(x_2)-f(x_1)=\dfrac{2^{x_1}(2^{x_2-x_1}-1)+2^{-x_2}(2^{x_2-x_1}-1)}{2}&gt;0,$$</div>
+                <p>故 \(f\) 在 \([0,1]\) 上严格递增。</p>
+                <div class="formula-block">$$f(0)=0,\qquad f(1)=\dfrac{3}{4},\qquad t\in\left[0,\dfrac{3}{4}\right].$$</div>
+                <div class="formula-block">$$t^2+2at+1=(t+a)^2+1-a^2.$$</div>
                 <div class="formula-block">$$M(a)=\min_{t\in\left[0,\dfrac{3}{4}\right]}\left(t^2+2at+1\right).$$</div>
-                <p>按顶点 \(-a\) 相对区间的位置分段。证明在标准解答里。</p>
+                <p>顶点横坐标是 \(-a\)。看它在 \(\left[0,\dfrac{3}{4}\right]\) 的左边、里面还是右边，最低点就落在哪。</p>
+                <h3>顶点在 \(0\) 的左边或正好是 \(0\)</h3>
+                <p>\(-a\le 0\)，即 \(a\ge 0\)。最低点在 \(t=0\)。</p>
+                <div class="formula-block">$$M(a)=1.$$</div>
+                <h3>顶点在 \(0\) 和 \(\dfrac{3}{4}\) 之间</h3>
+                <p>\(0&lt;-a&lt;\dfrac{3}{4}\)，即 \(-\dfrac{3}{4}&lt;a&lt;0\)。最低点在顶点 \(t=-a\)。</p>
+                <div class="formula-block">$$M(a)=1-a^2.$$</div>
+                <h3>顶点在 \(\dfrac{3}{4}\) 的右边或正好是 \(\dfrac{3}{4}\)</h3>
+                <p>\(-a\ge\dfrac{3}{4}\)，即 \(a\le-\dfrac{3}{4}\)。最低点在 \(t=\dfrac{3}{4}\)。</p>
+                <div class="formula-block">$$M(a)=\left(\dfrac{3}{4}+a\right)^2+1-a^2=\dfrac{3}{2}a+\dfrac{25}{16}.$$</div>
             </div>
 
             <div class="interactive-panel">
@@ -214,6 +284,33 @@
                 <div id="m-graph" class="jxgbox" role="img" aria-label="M(a) 的图像。a 不大于 -3/4 时是直线，-3/4 到 0 是 1 减 a 的平方，a 不小于 0 时是高度 1 的水平线"></div>
                 <p class="cap">看 \(a=-\dfrac{3}{4}\) 和 \(a=0\) 两处接上。</p>
             </div>
+        </section>
+
+        <section class="card">
+            <div class="section-header">
+                <span class="step-num">连</span>
+                <h2>消元，换元，最小值函数</h2>
+            </div>
+            <div class="handoff">
+                <article>
+                    <div class="tag">（1）消元</div>
+                    <strong>求出 \(f\)、\(g\)</strong>
+                    <div class="give">后面都用它们</div>
+                </article>
+                <div class="arrow">接着用</div>
+                <article>
+                    <div class="tag">（2）换元</div>
+                    <strong>令 \(A=2^{\frac{m}{2}}\)</strong>
+                    <div class="give">从 \(m\) 走到 \(\dfrac{3m}{2}\)</div>
+                </article>
+                <div class="arrow">接着用</div>
+                <article>
+                    <div class="tag">（3）最小值函数</div>
+                    <strong>令 \(t=f(x)\)</strong>
+                    <div class="give">\(M(a)\) 分段写出</div>
+                </article>
+            </div>
+            <div class="motto">没给定的是 \(a\)。最小值依赖谁，就记成谁的函数。</div>
         </section>
 
         <section class="card paper-card">

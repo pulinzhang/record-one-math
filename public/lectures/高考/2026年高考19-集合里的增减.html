@@ -97,6 +97,31 @@
             </div>
         </section>
 
+        <section class="card" data-nav="先看思路">
+            <div class="section-header">
+                <span class="step-num">想</span>
+                <h2>先看懂 \(D(x_0)\)，三问都用它</h2>
+            </div>
+            <div class="mindset-box setter-note">
+                <div class="mindset-title">出题人究竟想干嘛？</div>
+                <p>题干先定义集合 \(D(x_0)\)。后面求一个具体集合、证包含、再反推增减，是不是都站在「函数值变大的移动」上？</p>
+            </div>
+            <div class="mindset-box pit">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>把 \(D\) 当成普通不等式乱拆：看不清「从哪出发、移到哪、函数值有没有变大」，后面的包含和增减就没有共同语言。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">如何与出题人对暗号？</div>
+                <p>暗号是集合 \(D(x_0)\) 的定义。它招呼的是：图像用来看，代数用来算集合，集合用来写包含。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">集合里的移动</div>
+                <p>第（1）问算出一个具体的 \(D(-1)\)。第（2）问用函数值大小推出集合包含。第（3）问把包含关系反过来，研究 \(f\) 的增减。</p>
+                <p>先看懂「函数值变大的移动」，三问共用这一句话。</p>
+            </div>
+            <div class="motto">图像用来看，代数用来计算集合，集合用来写包含。</div>
+        </section>
+
         <section class="card" data-q="第（1）问">
             <div class="section-header">
                 <span class="step-num">1</span>
@@ -293,6 +318,33 @@
                 <p>任取 \(0&lt;x_1&lt;x_2\)，令 \(h=x_2-x_1&gt;0\)。\(f(x_1)\leqslant 0&lt;2^{-h}\)，由右移得 \(f(x_2)&gt;f(x_1)\)。</p>
             </div>
             <div class="result-box">\(f(0)\geqslant 1\)，且 \(f\) 在 \((0,+\infty)\) 上严格递增。</div>
+        </section>
+
+        <section class="card">
+            <div class="section-header">
+                <span class="step-num">连</span>
+                <h2>看集合，写包含，再反推增减</h2>
+            </div>
+            <div class="handoff">
+                <article>
+                    <div class="tag">（1）看懂 \(D\)</div>
+                    <strong>算出 \(D(-1)\)</strong>
+                    <div class="give">图像看，代数算</div>
+                </article>
+                <div class="arrow">接着用</div>
+                <article>
+                    <div class="tag">（2）包含</div>
+                    <strong>\(f(x_1)\leqslant f(x_2)\)</strong>
+                    <div class="give">推出 \(D(x_2)\subseteq D(x_1)\)</div>
+                </article>
+                <div class="arrow">接着用</div>
+                <article>
+                    <div class="tag">（3）反过来</div>
+                    <strong>用包含条件</strong>
+                    <div class="give">证明 \(f(0)\) 与正半轴递增</div>
+                </article>
+            </div>
+            <div class="motto">谁的函数值更大，谁的移动范围就更窄。</div>
         </section>
 
         <section class="card paper-card">
