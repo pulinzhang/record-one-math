@@ -66,9 +66,9 @@
             <p>\(f(x)=x+\dfrac{1}{x}\)。单调性由 \(f(x_1)-f(x_2)\) 的符号判定。方程中令 \(t=x+\dfrac{1}{x}\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
             <p>没学导数，拿两个点来比。方程里那一块起名 \(t\)，算完再代回。</p>
             <div class="badge-group">
-                <span class="badge">作差看符号</span>
-                <span class="badge">两端相减</span>
-                <span class="badge">换元两次</span>
+                <span class="badge">作差证单调</span>
+                <span class="badge">递增取两端之差</span>
+                <span class="badge">方程换元</span>
             </div>
         </header>
 
@@ -85,11 +85,11 @@
         <section class="card" data-nav="先看思路">
             <div class="section-header">
                 <span class="step-num">想</span>
-                <h2>先证明递增，后面两问接着用</h2>
+                <h2>先抬头看路：这道题钉住什么</h2>
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>三问都站在同一个 \(f(x)=x+\dfrac{1}{x}\) 上。第（1）问先判定增减，后面两端相减和换元，是不是都要用到递增？</p>
+                <p>三问都站在同一个对勾上。先看清考点：会不会作差证单调，会不会用递增取两端之差，方程里会不会换元。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
@@ -97,14 +97,53 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是 \(f(x)=x+\dfrac{1}{x}\)，再加上三问递进。它招呼的是：先作差看增减。</p>
+                <p>暗号有三处：\(f(x)=x+\dfrac{1}{x}\) 招呼「作差证单调」；任意 \(x_{1},x_{2}\) 与 \(|f(x_{1})-f(x_{2})|\) 招呼「递增取两端之差」；方程里的 \(f(x^{2})\)、\(f(x)\) 招呼「方程换元」。</p>
             </div>
-            <div class="mindset-box">
-                <div class="mindset-title">先证递增</div>
-                <p>第（1）问作差证明在 \((1,+\infty)\) 上递增。第（2）问用递增取两端之差。第（3）问令 \(t=x+\dfrac{1}{x}\)，再用同一个递增看 \(t+\dfrac{1}{t}\) 的值域。</p>
-                <p>先把增减钉住，后面两问都接着用。</p>
+
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>考点一：作差证单调</h4>
+                    <p>设 \(x_{1}&lt;x_{2}\)，算 \(f(x_{1})-f(x_{2})\)，用差的符号判定增减。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点二：递增取两端之差</h4>
+                    <p>闭区间上严格递增时，任意两点函数值之差的最大就是两端之差。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点三：方程换元</h4>
+                    <p>令 \(t=x+\dfrac{1}{x}\)，由 \(x\) 的范围写出 \(t\) 的范围，再看新方程有几个根。</p>
+                </div>
             </div>
-            <div class="motto">先作差看增减，方程里再换元。</div>
+
+            <div class="matryoshka-box translate-block">
+                <div class="matryoshka-title">对暗号 · 翻译对照</div>
+                <p class="translate-lead">认出暗号 → 翻成白话 → 写成能动手的式子。这张表就是主推手。</p>
+                <div class="translate-wrap">
+                    <table class="translate-table">
+                        <thead>
+                            <tr>
+                                <th>原题说<span>暗号</span></th>
+                                <th>白话<span>翻出来</span></th>
+                                <th>执行<span>动手算</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="原题说">对任意 \(x_{1},x_{2}\in[1,3]\)，总有 \(|f(x_{1})-f(x_{2})|\leqslant m\)</td>
+                                <td data-label="白话">任意两点高度差都不能超过 \(m\)，最紧就是两端差</td>
+                                <td data-label="执行">用递增得 \(m\geqslant f(3)-f(1)\)，再取最小</td>
+                            </tr>
+                            <tr>
+                                <td data-label="原题说">方程 \(f(x^{2})-\lambda f(x)+3=0\) 在 \((1,+\infty)\) 上恰有一根</td>
+                                <td data-label="白话">对勾套对勾，先给里面那块起名</td>
+                                <td data-label="执行">令 \(t=x+\dfrac{1}{x}\)，在对应范围上看新方程的根的个数</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="motto">先看考点，再作差看增减，方程里再换元。</div>
         </section>
 
         <section class="card" data-nav="作差规范">

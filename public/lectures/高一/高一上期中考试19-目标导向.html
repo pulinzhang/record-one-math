@@ -66,7 +66,7 @@
             <p>\(y=f(x)\) 关于点 \((1,m)\) 中心对称，当且仅当 \(y=f(x+1)-m\) 为奇函数。令 \(t=x-1\)，记 \(G(t)=f(1+t)-m\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
             <p>写出 \(G(t)\) 的那一刻，旧的 \(f\) 和中心 \((1,m)\) 就清零。后面只盯着这一个奇函数往前走。</p>
             <div class="badge-group">
-                <span class="badge">忘掉旧的</span>
+                <span class="badge">中心对称换奇</span>
                 <span class="badge">按住 \(G(t)\)</span>
                 <span class="badge">参变分离</span>
             </div>
@@ -88,11 +88,11 @@
         <section class="card" data-nav="先看思路">
             <div class="section-header">
                 <span class="step-num">想</span>
-                <h2>写出 \(G(t)\)，旧的忘掉</h2>
+                <h2>先抬头看路：这道题钉住什么</h2>
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>题干给了推广：关于一点对称，当且仅当平移之后是奇函数。分式和 \((x-1)\) 都绕着同一个位置。是不是先写出那一次平移后的函数，三问都用它？</p>
+                <p>题干给了推广，式子绕着 \((x-1)\)。先看清考点：中心对称会不会换成奇函数，会不会按住 \(G(t)\) 一路用，第三问会不会参变分离定 \(n\)。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
@@ -100,13 +100,52 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是题干里那句推广，再加上式子里的 \((x-1)\)。它招呼的是：令 \(t=x-1\)，写出 \(G(t)\)。</p>
+                <p>暗号有三处：题干推广招呼「中心对称换奇」；\((x-1)\) 招呼「按住 \(G(t)\)」；\(f(x)\geqslant -2\) 当且仅当一段区间招呼「参变分离」。</p>
             </div>
-            <div class="mindset-box">
-                <div class="mindset-title">换元</div>
-                <p>令 \(t=x-1\)，记 \(G(t)=f(1+t)-m\)。由 \(x\in(0,2)\) 得 \(t\in(-1,1)\)，且一一对应。</p>
-                <p>旧的 \(f\) 和中心清零。眼里只留 \(G\)。</p>
+
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>考点一：中心对称换奇</h4>
+                    <p>关于点 \((a,b)\) 对称，当且仅当 \(y=f(x+a)-b\) 为奇函数。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点二：按住 \(G(t)\)</h4>
+                    <p>令 \(t=x-1\)，写出 \(G(t)\) 后旧的忘掉；三问都只盯这一个奇函数。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点三：参变分离</h4>
+                    <p>不等式里参数与变量分开，再用「当且仅当」落在哪一段反定 \(n\)。</p>
+                </div>
             </div>
+
+            <div class="matryoshka-box translate-block">
+                <div class="matryoshka-title">对暗号 · 翻译对照</div>
+                <p class="translate-lead">认出暗号 → 翻成白话 → 写成能动手的式子。这张表就是主推手。</p>
+                <div class="translate-wrap">
+                    <table class="translate-table">
+                        <thead>
+                            <tr>
+                                <th>原题说<span>暗号</span></th>
+                                <th>白话<span>翻出来</span></th>
+                                <th>执行<span>动手算</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="原题说">关于 \(P(a,b)\) 中心对称 \(\iff\) \(y=f(x+a)-b\) 为奇函数</td>
+                                <td data-label="白话">先平移到原点，再检查是不是奇的</td>
+                                <td data-label="执行">令 \(t=x-1\)，记 \(G(t)=f(1+t)-m\)，证 \(G(-t)=-G(t)\)</td>
+                            </tr>
+                            <tr>
+                                <td data-label="原题说">\(f(x)\geqslant -2\) 当且仅当 \(1\leqslant x&lt;2\)</td>
+                                <td data-label="白话">新坐标里，非负只准落在右半段</td>
+                                <td data-label="执行">化为 \(G(t)\geqslant 0\) 只落在 \(0\leqslant t&lt;1\)，再定 \(n\)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <div class="canvas-pair">
                 <div class="canvas-wrap">
                     <div id="sym-f" class="jxgbox" role="img" aria-label="旧坐标。曲线关于点 (1, m) 中心对称"></div>

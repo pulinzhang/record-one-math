@@ -66,10 +66,9 @@
             <p>两个正数被等式绑住，不是各自随便变。令 \(x=a-1\)，\(y=b-1\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。\(a&gt;1\)，\(b&gt;1\) 是算出来的，从而 \(x&gt;0\)，\(y&gt;0\)，故 \((a-1)(b-1)=4\) 转化为 \(xy=4\)，也就是 \(y=\dfrac{4}{x}\)（\(x&gt;0\)）。</p>
             <p>换元定好新元定义域后，所求写成 \(t+\dfrac{k}{t}\) 这种对勾，在 \(t&gt;0\) 上作差看值域。这一页的包是 \(a-1\) 和 \(b-1\)。</p>
             <div class="badge-group">
-                <span class="badge">定义域是算出来的</span>
-                <span class="badge">对勾函数</span>
-                <span class="badge">作差求值域</span>
-                <span class="badge">所求一换，函数就换</span>
+                <span class="badge">换元定域</span>
+                <span class="badge">对勾求值域</span>
+                <span class="badge">所求一换函数就换</span>
             </div>
         </header>
 
@@ -86,11 +85,11 @@
         <section class="card" data-nav="先看思路">
             <div class="section-header">
                 <span class="step-num">想</span>
-                <h2>两个正数是随便变的吗？</h2>
+                <h2>先抬头看路：这道题钉住什么</h2>
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>这里有两个正数 \(a\) 和 \(b\)。它们是随便变的吗？一个变了，另一个怎么变？</p>
+                <p>两个正数被等式绑住。先看清考点：会不会换元并算出新域，会不会打成对勾求值域，所求一换函数会不会跟着换。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
@@ -98,13 +97,52 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是 \(ab=a+b+3\)，再加上 \(a,b&gt;0\)。它招呼的是：先因式，再算出定义域。</p>
+                <p>暗号有三处：\(ab=a+b+3\) 招呼「换元定域」；\(a+4b\)、\(ab\) 招呼「对勾求值域」；两问目标不同招呼「所求一换函数就换」。</p>
             </div>
-            <div class="mindset-box">
-                <div class="mindset-title">定义域是算出来的</div>
-                <p>新元的范围由原来变量的范围与约束共同推出，不是另加一条硬背的条件。</p>
-                <p>\(a&gt;1\)、\(b&gt;1\) 要推出来，才能把关系锁在 \(x&gt;0\)、\(y&gt;0\) 上。</p>
+
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>考点一：换元定域</h4>
+                    <p>因式后令 \(x=a-1\)，\(y=b-1\)；新元范围由原来条件推出来，不是硬背。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点二：对勾求值域</h4>
+                    <p>所求写成 \(t+\dfrac{k}{t}\)（\(t&gt;0\)），作差看增减，再定值域或最低。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点三：所求一换函数就换</h4>
+                    <p>条件不变，目标从 \(a+4b\) 换成 \(ab\)，函数就换，两端跟着换。</p>
+                </div>
             </div>
+
+            <div class="matryoshka-box translate-block">
+                <div class="matryoshka-title">对暗号 · 翻译对照</div>
+                <p class="translate-lead">认出暗号 → 翻成白话 → 写成能动手的式子。这张表就是主推手。</p>
+                <div class="translate-wrap">
+                    <table class="translate-table">
+                        <thead>
+                            <tr>
+                                <th>原题说<span>暗号</span></th>
+                                <th>白话<span>翻出来</span></th>
+                                <th>执行<span>动手算</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="原题说">\(a,b&gt;0\)，且 \(ab=a+b+3\)</td>
+                                <td data-label="白话">不是两个正数随便跑，等式把它们绑在第一象限的反比例上</td>
+                                <td data-label="执行">推出 \(a&gt;1\)，令 \(x=a-1\)，得 \(y=\dfrac{4}{x}\)（\(x&gt;0\)）</td>
+                            </tr>
+                            <tr>
+                                <td data-label="原题说">求 \(a+4b\) 的最小值；求 \(ab\) 的取值范围</td>
+                                <td data-label="白话">目标一换，要盯的函数就换</td>
+                                <td data-label="执行">分别写成对勾，在 \(x&gt;0\) 上作差求最低或值域</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
             <div class="solution-step">
                 <p>移项：\(ab-a-b=3\)。两边加 \(1\)：</p>
                 <div class="formula-block">$$(a-1)(b-1)=4.$$</div>
@@ -118,7 +156,7 @@
                 <div id="g-xy" class="jxgbox" role="img" aria-label="y 等于 4 除以 x。点 (1, 4) 和 (4, 1) 都在曲线上。x 从 1 到 4，y 从 4 降到 1。"></div>
                 <p class="cap">锁在第一象限：\(x&gt;0\) 时，\(y=\dfrac{4}{x}\)。</p>
             </div>
-            <div class="motto">先算出 \(a&gt;1\)、\(b&gt;1\)，再换成 \(x&gt;0\) 上的反比例。</div>
+            <div class="motto">先看考点，再算出 \(a&gt;1\)、\(b&gt;1\)，再换成 \(x&gt;0\) 上的反比例。</div>
         </section>
 
         <section class="card" data-nav="作差规范">

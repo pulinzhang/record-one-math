@@ -66,9 +66,9 @@
             <p>将所求转化为单变量函数，再求它的最值或值域。两个变量同时变化时，先把其中一个看作常数，求出另一个的最值函数，再由函数值的条件确定这个常数的范围。</p>
             <p>两个量一起变，先定住一个。最高或者落点写成这一个量的函数，再用题目对这个函数值的要求，反过来定它。</p>
             <div class="badge-group">
-                <span class="badge">先固定距离</span>
-                <span class="badge">找出最高</span>
-                <span class="badge">再用高度定距离</span>
+                <span class="badge">单变量函数</span>
+                <span class="badge">先定住一个量</span>
+                <span class="badge">用函数值反定参数</span>
             </div>
         </header>
 
@@ -86,11 +86,11 @@
         <section class="card" data-nav="先看思路">
             <div class="section-header">
                 <span class="step-num">想</span>
-                <h2>先看成单变量函数</h2>
+                <h2>先抬头看路：这道题钉住什么</h2>
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>轨迹里同时有水压 \(k\) 和水平距离 \(x\)。两问所求是不是都能写成「只跟一个量有关」的函数？</p>
+                <p>轨迹里同时有水压 \(k\) 和水平距离 \(x\)。先看清考点：会不会先定住一个量，写成单变量函数，再用函数值的条件反定参数。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
@@ -98,14 +98,53 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是轨迹式里的 \(k\) 与 \(x\)，再加上「最大值」。它招呼的是：转化为单变量函数。</p>
+                <p>暗号有三处：轨迹里的 \(k\) 与 \(x\) 招呼「先定住一个量」；「最大值」招呼「单变量函数」；高度不低于 \(1.5\) 招呼「用函数值反定参数」。</p>
             </div>
-            <div class="mindset-box">
-                <div class="mindset-title">单变量函数</div>
-                <p>第（1）问落地令 \(y=0\)，落点写成 \(L(k)\)。第（2）问先固定距离 \(a\)，最高写成 \(f(a)\)，再用高度条件定 \(a\)。</p>
-                <p>两个量一起变，先定住一个，写成函数再求最值。</p>
+
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>考点一：单变量函数</h4>
+                    <p>所求先写成只跟一个字母有关的函数，再谈最值。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点二：先定住一个量</h4>
+                    <p>两个量一起变时，先把其中一个看作常数，求出另一个的最值函数。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点三：用函数值反定参数</h4>
+                    <p>题目对函数值有要求时，用这个要求反过来定刚才定住的那个量。</p>
+                </div>
             </div>
-            <div class="motto">先写成一个字母的函数，再谈最值。</div>
+
+            <div class="matryoshka-box translate-block">
+                <div class="matryoshka-title">对暗号 · 翻译对照</div>
+                <p class="translate-lead">认出暗号 → 翻成白话 → 写成能动手的式子。这张表就是主推手。</p>
+                <div class="translate-wrap">
+                    <table class="translate-table">
+                        <thead>
+                            <tr>
+                                <th>原题说<span>暗号</span></th>
+                                <th>白话<span>翻出来</span></th>
+                                <th>执行<span>动手算</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="原题说">求射程的最大值（落地非零水平距离）</td>
+                                <td data-label="白话">落点只跟着水压变，先写成一个函数再找最远</td>
+                                <td data-label="执行">令 \(y=0\)，落点写成 \(L(k)\)（\(k&gt;0\)），再求 \(L\) 的最大值</td>
+                            </tr>
+                            <tr>
+                                <td data-label="原题说">在水平距离 \(a\) 处高度不低于 \(1.5\)，求 \(a\) 的最大值</td>
+                                <td data-label="白话">先钉住距离看最高，再用「够不够 \(1.5\)」反推距离能到哪</td>
+                                <td data-label="执行">固定 \(a\)，最高写成 \(f(a)\)，由 \(f(a)\geqslant 1.5\) 定 \(a\)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="motto">先看考点，再写成一个字母的函数，再谈最值。</div>
         </section>
 
         <section class="card" data-q="第（1）问">
