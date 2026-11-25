@@ -63,7 +63,7 @@
         <header>
             <div class="section-kicker">对勾函数</div>
             <h1>作差看增减，方程里再换元</h1>
-            <p>\(f(x)=x+\dfrac{1}{x}\)。单调性由 \(f(x_1)-f(x_2)\) 的符号判定。方程中令 \(t=x+\dfrac{1}{x}\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
+            <p>\(f(x)=x+\dfrac{1}{x}\)。单调性按课本：先 \(x_1&lt;x_2\)，再证 \(f(x_2)-f(x_1)&gt;0\)。方程中令 \(t=x+\dfrac{1}{x}\)。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
             <p>没学导数，拿两个点来比。方程里那一块起名 \(t\)，算完再代回。</p>
             <div class="badge-group">
                 <span class="badge">作差证单调</span>
@@ -152,23 +152,24 @@
                 <h2>单调性作差证明规范</h2>
             </div>
             <div class="mindset-box">
-                <div class="mindset-title">一、铁律约定：永远默认 \(x_1&lt;x_2\)</div>
-                <p>起手式固定：只要证明单调性，第一步永远写「设 \(x_1,x_2\in I\)，且 \(x_1&lt;x_2\)」（把 \(I\) 换成具体区间）。不要一会儿 \(x_1&lt;x_2\)，一会儿又 \(x_1&gt;x_2\)。</p>
-                <p>作差方向固定：永远算 \(f(x_1)-f(x_2)\)。因为 \(x_1&lt;x_2\) 已经固定，所以 \(x_1-x_2\) 永远是负数，不用每次猜正负。</p>
+                <div class="mindset-title">一、与课本一致：先写 \(x_1&lt;x_2\)</div>
+                <p>课本定义：设 \(x_1,x_2\in I\) 且 \(x_1&lt;x_2\)，若总有 \(f(x_1)&lt;f(x_2)\)，则称单调递增。起手永远写「设 \(x_1,x_2\in I\)，且 \(x_1&lt;x_2\)」。</p>
+                <p>解题作差：永远算 \(f(x_2)-f(x_1)\)。因 \(x_1&lt;x_2\) 已固定，\(x_2-x_1\) 永远为正。不得改算 \(f(x_1)-f(x_2)\)。</p>
             </div>
             <div class="mindset-box">
-                <div class="mindset-title">二、结论对照表（只在 \(x_1&lt;x_2\) 约定下生效）</div>
-                <p>\(f(x_1)-f(x_2)&lt;0\) \(\implies\) \(f(x_1)&lt;f(x_2)\) \(\implies\) 自变量变大，函数值也变大 \(\implies\) 单调递增。</p>
-                <p>\(f(x_1)-f(x_2)&gt;0\) \(\implies\) \(f(x_1)&gt;f(x_2)\) \(\implies\) 自变量变大，函数值反而变小 \(\implies\) 单调递减。</p>
+                <div class="mindset-title">二、结论对照（课本说法 ↔ 作差）</div>
+                <p>\(f(x_2)-f(x_1)&gt;0\) \(\implies\) \(f(x_1)&lt;f(x_2)\) \(\implies\) 单调递增。</p>
+                <p>\(f(x_2)-f(x_1)&lt;0\) \(\implies\) \(f(x_1)&gt;f(x_2)\) \(\implies\) 单调递减。</p>
+                <p>一句话：定义用 \(f(x_1)&lt;f(x_2)\)，解题用 \(f(x_2)-f(x_1)&gt;0\)，二者完全一致。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">三、四步标准格式</div>
                 <p>1. 定区间与大小：设 \(x_1,x_2\in(\text{区间})\)，且 \(x_1&lt;x_2\)。</p>
-                <p>2. 作差并提公因式：写出 \(f(x_1)-f(x_2)\)，尽量把 \(x_1-x_2\) 抽出来。</p>
-                <p>3. 逐项定符号：用区间判断每个因式的正负（记住 \(x_1-x_2&lt;0\) 已知）。</p>
-                <p>4. 收尾下结论：由差的符号，写出该区间上单调递增或单调递减。</p>
+                <p>2. 作差并提公因式：写出 \(f(x_2)-f(x_1)\)，尽量把 \(x_2-x_1\) 抽出来。</p>
+                <p>3. 逐项定符号：用区间判断每个因式的正负（记住 \(x_2-x_1&gt;0\) 已知）。</p>
+                <p>4. 收尾：落到 \(f(x_1)&lt;f(x_2)\) 或 \(f(x_1)&gt;f(x_2)\)，写出单调递增或递减。</p>
             </div>
-            <div class="motto">先定 \(x_1&lt;x_2\)，起手不跑偏。统一减成 \(f(x_1)-f(x_2)\)，符号不打架。差负就增、差正就减，结论不看反。</div>
+            <div class="motto">先定 \(x_1&lt;x_2\)。统一算 \(f(x_2)-f(x_1)\)，与课本一致。差正就增、差负就减。</div>
         </section>
 
         <section class="card" data-q="第（1）问">
@@ -191,13 +192,13 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">作差法</div>
-                <p>按本页规范：设 \(x_1,x_2\in(1,+\infty)\)，且 \(x_1&lt;x_2\)；永远算 \(f(x_1)-f(x_2)\)。差为负则严格递增。</p>
+                <p>按本页规范：设 \(x_1,x_2\in(1,+\infty)\)，且 \(x_1&lt;x_2\)；永远算 \(f(x_2)-f(x_1)\)。差为正则严格递增，并落到课本说法 \(f(x_1)&lt;f(x_2)\)。</p>
                 <p>这一问的区间是 \((1,+\infty)\)。起手、作差、定符号、下结论，四步走完。</p>
             </div>
             <div class="solution-step">
-                <p>设 \(x_1,x_2\in(1,+\infty)\)，且 \(x_1&lt;x_2\)。计算 \(f(x_1)-f(x_2)\)。\(x_1\) 更小，\(\dfrac{1}{x_1}\) 更大。两截对着干，通分后提出 \(x_1-x_2\)：</p>
-                <div class="formula-block">$$f(x_1)-f(x_2)=(x_1-x_2)\cdot\frac{x_1 x_2-1}{x_1 x_2}$$</div>
-                <p>\(x_1-x_2&lt;0\)。\(x_1&gt;1\)，\(x_2&gt;1\)，所以 \(x_1 x_2&gt;1\)，分数是正的。负的乘正的，差是负的，\(f(x_1)&lt;f(x_2)\)。故单调递增。</p>
+                <p>设 \(x_1,x_2\in(1,+\infty)\)，且 \(x_1&lt;x_2\)。计算 \(f(x_2)-f(x_1)\)。\(x_2\) 更大，\(\dfrac{1}{x_2}\) 更小。两截对着干，通分后提出 \(x_2-x_1\)：</p>
+                <div class="formula-block">$$f(x_2)-f(x_1)=(x_2-x_1)\cdot\frac{x_1 x_2-1}{x_1 x_2}$$</div>
+                <p>\(x_2-x_1&gt;0\)。\(x_1&gt;1\)，\(x_2&gt;1\)，所以 \(x_1 x_2&gt;1\)，分数是正的。正的乘正的，差是正的，故 \(f(x_2)&gt;f(x_1)\)，即 \(f(x_1)&lt;f(x_2)\)。故单调递增。</p>
             </div>
             <div class="result-box">
                 $f(x)$ 在 $(1,+\infty)$ 上单调递增。
@@ -324,10 +325,10 @@
             </div>
             <p class="paper-note">下面按试卷来写。步骤留全，不写想法。</p>
             <div class="paper">
-                <p><strong>（1）</strong> 设 \(x_1,x_2\in(1,+\infty)\)，且 \(x_1&lt;x_2\)。计算 \(f(x_1)-f(x_2)\)：</p>
-                <div class="formula-block">$$f(x_1)-f(x_2)=(x_1-x_2)+\left(\frac{1}{x_1}-\frac{1}{x_2}\right)$$</div>
-                <div class="formula-block">$$=(x_1-x_2)\cdot\frac{x_1 x_2-1}{x_1 x_2}.$$</div>
-                <p>因为 \(x_1-x_2&lt;0\)，\(x_1 x_2&gt;1\)，所以 \(f(x_1)-f(x_2)&lt;0\)，即 \(f(x_1)&lt;f(x_2)\)。</p>
+                <p><strong>（1）</strong> 设 \(x_1,x_2\in(1,+\infty)\)，且 \(x_1&lt;x_2\)。计算 \(f(x_2)-f(x_1)\)：</p>
+                <div class="formula-block">$$f(x_2)-f(x_1)=(x_2-x_1)+\left(\frac{1}{x_2}-\frac{1}{x_1}\right)$$</div>
+                <div class="formula-block">$$=(x_2-x_1)\cdot\frac{x_1 x_2-1}{x_1 x_2}.$$</div>
+                <p>因为 \(x_2-x_1&gt;0\)，\(x_1 x_2&gt;1\)，所以 \(f(x_2)-f(x_1)&gt;0\)，即 \(f(x_1)&lt;f(x_2)\)。</p>
                 <p>故 \(f(x)\) 在 \((1,+\infty)\) 上单调递增。</p>
                 <p><strong>（2）</strong> 由（1），\(f\) 在 \([1,3]\) 上单调递增。故对任意 \(x_1,x_2\in[1,3]\)，</p>
                 <div class="formula-block">$$|f(x_1)-f(x_2)|\le f(3)-f(1).$$</div>
