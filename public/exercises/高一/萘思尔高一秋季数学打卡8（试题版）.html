@@ -78,9 +78,43 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">函数思想</div>
+                <p><strong>【看图】</strong>先分正负。再画 \(y=5^{x}\) 与 \(y=5.5^{x}\)（\(5.5\) 更陡，\(x&lt;0\) 时更靠右）→ 横线 \(y=0.5\) → 交点横坐标 \(c\) 在 \(a\) 右边。</p>
                 <p>\(b=5^{-0.5}&gt;0\)；\(a&lt;0\)，\(c&lt;0\)，故 \(b\) 最大。</p>
                 <p>\(5^{a}=5.5^{c}=0.5&lt;1\)。指数函数 \(y=k^{x}\)（\(k&gt;1\)）在 \(x&lt;0\) 时，底越大曲线越陡。同一高度 \(0.5\)，底 \(5.5&gt;5\)，对应的横坐标（指数）更靠右、更靠近 \(0\)。二者都是负数，离 \(0\) 更近的更大，故 \(c&gt;a\)。</p>
+                <div class="canvas-wrap">
+                    <div id="q1Board" class="jxgbox" role="img" aria-label="两条指数曲线和横线 y 等于 0.5。右边交点是 c，左边是 a。"></div>
+                    <p class="cap">横线 \(y=0.5\)。右边交点是 \(c\)，左边是 \(a\)。</p>
+                </div>
                 <p>因此 \(b&gt;c&gt;a\)。</p>
+            </div>
+            <p>指数 \(y=a^{x}\) 与对数 \(y=\log_{a}x\) 关于 \(y=x\) 对称。指数过 \((0,1)\)，对数过 \((1,0)\)。</p>
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>底大于 1</h4>
+                    <p>两条都递增。</p>
+                </div>
+                <div class="case-card">
+                    <h4>底在 0 与 1 之间</h4>
+                    <p>两条都递减。</p>
+                </div>
+            </div>
+            <div class="interactive-panel">
+                <div class="interactive-title">拖 \(a\)，看两条一起增还是一起减</div>
+                <div class="slider-control">
+                    <label for="baseA"><strong>底数 \(a\)：</strong></label>
+                    <input type="range" id="baseA" min="0.3" max="3" step="0.001" value="2">
+                    <span id="baseAVal" style="font-weight:700;color:var(--primary);min-width:6.5rem;">a = 2</span>
+                </div>
+                <div class="slider-actions">
+                    <button type="button" id="invPlay" aria-pressed="false">播放</button>
+                    <button type="button" id="invA2">\(a=2\)（大于 1）</button>
+                    <button type="button" id="invAHalf">\(a=\dfrac{1}{2}\)（0 到 1）</button>
+                </div>
+                <div class="status-readout" id="invStatus"></div>
+                <div class="canvas-wrap">
+                    <div id="invBoard" class="jxgbox" role="img" aria-label="蓝线是指数，橙线是对数，灰虚线是 y 等于 x。紫虚线连接 (0, 1) 和 (1, 0)，中点在 y 等于 x 上。"></div>
+                    <p class="cap">蓝线 \(y=a^{x}\)，橙线 \(y=\log_{a}x\)，灰虚线 \(y=x\)。紫虚线连着 \((0,1)\) 与 \((1,0)\)，中点在 \(y=x\) 上。</p>
+                </div>
             </div>
             <div class="result-box">选 D</div>
         </section>
@@ -140,6 +174,25 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">函数思想</div>
+                <p><strong>【看图】</strong>看到 \(t^{2}-2\) 或 \(m&lt;k(t)\) → 先画 \(k\) 在 \(t\geqslant 2\) 上的简图。</p>
+                <div class="case-grid">
+                    <div class="case-card">
+                        <h4>换元</h4>
+                        <p>\(t=f(x)\geqslant 2\)</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>平方减 2</h4>
+                        <p>\(f(2x)=t^{2}-2\)</p>
+                    </div>
+                    <div class="case-card">
+                        <h4>构造函数</h4>
+                        <p>\(m&lt;k(t)\)</p>
+                    </div>
+                </div>
+                <div class="canvas-wrap">
+                    <div id="kBoard" class="jxgbox" role="img" aria-label="红线是负 4/3。曲线整段在红线上方。m 要小于每一个 k(t)，所以压在红线下面。"></div>
+                    <p class="cap">红线是 \(-\dfrac{4}{3}\)。曲线整段在红线上方。\(m\) 要小于每一个 \(k(t)\)，所以压在红线下面：\(m&lt;-\dfrac{4}{3}\)。</p>
+                </div>
                 <p>偶函数定 \(a\)；假命题 \(\Rightarrow g&lt;0\)。分离得对一切 \(t\geqslant 2\) 有 \(m&lt;k(t)\)。\(k\) 递增，最小值为 \(k(2)=-\dfrac{4}{3}\)（取得到），故 \(m&lt;-\dfrac{4}{3}\)。一路严格 \(&lt;\)，充要性到这里已经完了。</p>
                 <p><strong style="color:#b42318">端点检查</strong>＝算出边界后，把临界值代回原条件，看等号能不能踩。</p>
                 <p><strong>数学逻辑：</strong>非必要。证明已经保证结论正确；多验一次，不等于证明才完整。</p>
@@ -197,7 +250,12 @@
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">函数思想</div>
-                <p>\(\forall\) \(\iff\) \(\min f&gt;\max g\)。底数分 \(a&gt;1\) 与 \(0&lt;a&lt;1\) 两边看。</p>
+                <p><strong>【看图】</strong>看到 \(\dfrac{\sqrt{5}}{2}\)、\(\sqrt{2}\) 和两个 \(\forall\) → 先标区间两端，再比 \(f\) 的最低和 \(g\) 的最高。</p>
+                <p>\(\forall\) \(\iff\) \(\min f&gt;\max g\)。底数分 \(a&gt;1\) 与 \(0&lt;a&lt;1\)。</p>
+            </div>
+            <div class="mindset-box pit">
+                <div class="mindset-title">出题人挖的坑是什么？</div>
+                <p>\(0&lt;a&lt;1\) 时 \(g\) 的最高在左端。沿用 \(a&gt;1\) 的右端，最大最小就换反了。</p>
             </div>
             <div class="paper">
                 <p><strong>（1）</strong></p>
@@ -270,6 +328,218 @@
                 ? MathJax.startup.promise
                 : Promise.resolve();
             start.then(function () { current = null; render(); }).catch(function () { render(); });
+        })();
+    </script>
+    <script src="../../js/jsxgraphcore.js?v=1"></script>
+    <script>
+        (function () {
+            var q1Box = document.getElementById("q1Board");
+            var invBox = document.getElementById("invBoard");
+            var kBox = document.getElementById("kBoard");
+            function fail(box) {
+                if (box) box.textContent = "图像未能载入。";
+            }
+            if (!window.JXG) {
+                fail(q1Box);
+                fail(invBox);
+                fail(kBox);
+                return;
+            }
+
+            function board(id, box, xName, xStep, yStep, square) {
+                return JXG.JSXGraph.initBoard(id, {
+                    boundingbox: box,
+                    axis: true,
+                    grid: false,
+                    keepAspectRatio: square,
+                    showCopyright: false,
+                    showNavigation: false,
+                    showInfobox: false,
+                    pan: { enabled: false },
+                    zoom: { enabled: false, wheel: false, pinch: false },
+                    defaultAxes: {
+                        x: {
+                            name: xName, withLabel: true, strokeColor: "#94a3b8",
+                            label: { position: "rt", offset: [-2, 12], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                            ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: xStep, minorTicks: 0, majorHeight: 6, drawZero: false, drawLabels: true, label: { fontSize: 12, strokeColor: "#64748b", offset: [0, -5] } }
+                        },
+                        y: {
+                            name: "y", withLabel: true, strokeColor: "#94a3b8",
+                            label: { position: "rt", offset: [4, 2], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                            ticks: { strokeColor: "#94a3b8", insertTicks: false, ticksDistance: yStep, minorTicks: 0, majorHeight: 6, drawZero: false, drawLabels: true, label: { fontSize: 12, strokeColor: "#64748b", offset: [-6, 0], anchorX: "right" } }
+                        }
+                    }
+                });
+            }
+
+            var blue = { strokeColor: "#2563eb", strokeWidth: 2.6, highlight: false, numberPoints: 200 };
+            var orange = { strokeColor: "#ea580c", strokeWidth: 2.6, highlight: false, numberPoints: 200 };
+            var label = { fixed: true, highlight: false, parse: false, fontSize: 14, cssStyle: "font-weight:700" };
+
+            var k2 = -4 / 3;
+            var kb = board("kBoard", [-0.45, 0.7, 6.6, -2.15], "t", 1, 0.5, false);
+            kb.create("segment", [[2, k2], [6.35, k2]], { strokeColor: "#dc2626", strokeWidth: 1.6, dash: 2, highlight: false });
+            kb.create("functiongraph", [function (t) { return -2 * t / (t * t - 1); }, 2, 6.35], blue);
+            kb.create("point", [2, k2], {
+                name: "", size: 2.6, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c",
+                fixed: true, highlight: false, showInfobox: false, withLabel: false
+            });
+            kb.create("text", [2.25, k2 - 0.38, "−4/3"], Object.assign({ strokeColor: "#dc2626" }, label));
+
+            var aCut = Math.log(0.5) / Math.log(5);
+            var cCut = Math.log(0.5) / Math.log(5.5);
+            var q1 = board("q1Board", [-0.60, 0.74, -0.26, 0.24], "x", 0.1, 0.1, false);
+            q1.create("segment", [[-0.58, 0.5], [-0.28, 0.5]], { strokeColor: "#dc2626", strokeWidth: 1.6, dash: 2, highlight: false });
+            q1.create("segment", [[-0.58, 0.30], [-0.28, 0.30]], { strokeColor: "#94a3b8", strokeWidth: 1.2, highlight: false });
+            q1.create("segment", [[-0.5, 0.30], [-0.5, 0.325]], { strokeColor: "#64748b", strokeWidth: 1.4, highlight: false });
+            q1.create("segment", [[-0.4, 0.30], [-0.4, 0.325]], { strokeColor: "#64748b", strokeWidth: 1.4, highlight: false });
+            q1.create("text", [-0.535, 0.265, "−0.5"], Object.assign({}, label, { strokeColor: "#64748b", fontSize: 12 }));
+            q1.create("text", [-0.435, 0.265, "−0.4"], Object.assign({}, label, { strokeColor: "#64748b", fontSize: 12 }));
+            q1.create("functiongraph", [function (x) { return Math.pow(5, x); }, -0.58, -0.28], blue);
+            q1.create("functiongraph", [function (x) { return Math.pow(5.5, x); }, -0.58, -0.28], orange);
+            q1.create("point", [aCut, 0.5], { name: "", size: 2.8, face: "o", fillColor: "#2563eb", strokeColor: "#2563eb", fixed: true, highlight: false, showInfobox: false, withLabel: false });
+            q1.create("point", [cCut, 0.5], { name: "", size: 2.8, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", fixed: true, highlight: false, showInfobox: false, withLabel: false });
+            q1.create("text", [-0.58, 0.56, "y = 0.5"], Object.assign({ strokeColor: "#dc2626" }, label));
+            q1.create("text", [-0.36, 0.68, "5^x"], Object.assign({ strokeColor: "#2563eb" }, label));
+            q1.create("text", [-0.58, 0.36, "5.5^x"], Object.assign({ strokeColor: "#ea580c" }, label));
+            q1.create("text", [aCut - 0.02, 0.40, "a"], Object.assign({ strokeColor: "#2563eb" }, label));
+            q1.create("text", [cCut + 0.01, 0.56, "c"], Object.assign({ strokeColor: "#ea580c" }, label));
+
+            var aNow = 2;
+            var yTop = 4.55;
+            var yBot = -2.15;
+            function expY(x) {
+                var y = Math.pow(aNow, x);
+                if (!isFinite(y) || y > yTop || y <= 0) return NaN;
+                return y;
+            }
+            function logY(x) {
+                if (!(x > 0.04)) return NaN;
+                var y = Math.log(x) / Math.log(aNow);
+                if (!isFinite(y) || y > yTop || y < yBot) return NaN;
+                return y;
+            }
+            var inv = board("invBoard", [-2.3, 4.7, 4.7, -2.3], "x", 1, 1, true);
+            inv.create("segment", [[-2.05, -2.05], [4.4, 4.4]], { strokeColor: "#94a3b8", strokeWidth: 1.6, dash: 2, highlight: false });
+            inv.create("text", [2.7, 3.35, "y = x"], Object.assign({ strokeColor: "#64748b" }, label));
+            var expCurve = inv.create("functiongraph", [expY, -2.15, 4.4], blue);
+            var logCurve = inv.create("functiongraph", [logY, 0.05, 4.5], orange);
+            inv.create("segment", [[0, 1], [1, 0]], { strokeColor: "#7c3aed", strokeWidth: 1.8, dash: 2, highlight: false });
+            var dotBlue = { name: "", size: 2.6, face: "o", fillColor: "#2563eb", strokeColor: "#2563eb", fixed: true, highlight: false, showInfobox: false, withLabel: false };
+            var dotOrange = { name: "", size: 2.6, face: "o", fillColor: "#ea580c", strokeColor: "#ea580c", fixed: true, highlight: false, showInfobox: false, withLabel: false };
+            inv.create("point", [0, 1], dotBlue);
+            inv.create("point", [1, 0], dotOrange);
+            var t01 = inv.create("text", [-1.45, 1.35, "(0, 1)"], Object.assign({ strokeColor: "#2563eb", anchorX: "left", anchorY: "middle" }, label));
+            var t10 = inv.create("text", [1.25, -0.55, "(1, 0)"], Object.assign({ strokeColor: "#ea580c", anchorX: "left", anchorY: "middle" }, label));
+
+            var slider = document.getElementById("baseA");
+            var aDisp = document.getElementById("baseAVal");
+            var status = document.getElementById("invStatus");
+            var playBtn = document.getElementById("invPlay");
+            if (!slider || !status) return;
+
+            var skipBand = 0.05;
+            var playing = false;
+            var fromAnim = false;
+            var dir = 1;
+            var frame = null;
+            var last = 0;
+            var speed = 0.42;
+
+            function fmt(a) {
+                if (Math.abs(a - 2) < 0.004) return "2";
+                if (Math.abs(a - 0.5) < 0.004) return "1/2";
+                return a.toFixed(2).replace(/0+$/, "").replace(/\.$/, "");
+            }
+
+            function update() {
+                var a = parseFloat(slider.value);
+                if (!isFinite(a) || a <= 0) return;
+                if (Math.abs(a - 1) < skipBand) {
+                    a = a >= 1 ? 1 + skipBand : 1 - skipBand;
+                    slider.value = String(a);
+                }
+                aNow = a;
+                if (a > 1) {
+                    t01.setPosition(JXG.COORDS_BY_USER, [-1.55, 1.4]);
+                    t10.setPosition(JXG.COORDS_BY_USER, [1.25, -0.55]);
+                } else {
+                    t01.setPosition(JXG.COORDS_BY_USER, [0.28, 1.45]);
+                    t10.setPosition(JXG.COORDS_BY_USER, [0.12, -0.6]);
+                }
+                expCurve.updateCurve();
+                logCurve.updateCurve();
+                inv.update();
+                if (aDisp) aDisp.textContent = "a = " + fmt(a);
+                status.textContent = (a > 1
+                    ? "底数 a = " + fmt(a) + "，大于 1。两条都递增。"
+                    : "底数 a = " + fmt(a) + "，在 0 与 1 之间。两条都递减。")
+                    + "底数不能为 1，滑块绕过 1。";
+            }
+
+            function setA(a) {
+                if (Math.abs(a - 1) < skipBand) a = a >= 1 ? 1 + skipBand : 1 - skipBand;
+                slider.value = String(a);
+                fromAnim = true;
+                slider.dispatchEvent(new Event("input", { bubbles: true }));
+                fromAnim = false;
+            }
+
+            function setPlaying(on) {
+                playing = on;
+                if (playBtn) {
+                    playBtn.setAttribute("aria-pressed", on ? "true" : "false");
+                    playBtn.textContent = on ? "暂停" : "播放";
+                }
+                if (on) {
+                    last = 0;
+                    frame = requestAnimationFrame(tick);
+                }
+            }
+
+            function pause() {
+                playing = false;
+                if (playBtn) {
+                    playBtn.setAttribute("aria-pressed", "false");
+                    playBtn.textContent = "播放";
+                }
+                if (frame) cancelAnimationFrame(frame);
+                frame = null;
+            }
+
+            function tick(ts) {
+                if (!playing) return;
+                if (!last) last = ts;
+                var dt = Math.min(0.05, (ts - last) / 1000);
+                last = ts;
+                var a = parseFloat(slider.value) + dir * speed * dt;
+                var loA = parseFloat(slider.min);
+                var hiA = parseFloat(slider.max);
+                if (a > 1 - skipBand && a < 1 + skipBand) {
+                    a = dir > 0 ? 1 + skipBand : 1 - skipBand;
+                }
+                if (a >= hiA) { a = hiA; dir = -1; }
+                if (a <= loA) { a = loA; dir = 1; }
+                setA(a);
+                frame = requestAnimationFrame(tick);
+            }
+
+            slider.addEventListener("input", function () {
+                if (!fromAnim) pause();
+                update();
+            });
+            slider.addEventListener("pointerdown", pause);
+            if (playBtn) {
+                playBtn.addEventListener("click", function () {
+                    if (playing) pause();
+                    else setPlaying(true);
+                });
+            }
+            var jump2 = document.getElementById("invA2");
+            var jumpHalf = document.getElementById("invAHalf");
+            if (jump2) jump2.addEventListener("click", function () { pause(); setA(2); });
+            if (jumpHalf) jumpHalf.addEventListener("click", function () { pause(); setA(0.5); });
+            setA(2);
         })();
     </script>
     <script src="../../js/site.js?v=2"></script>
