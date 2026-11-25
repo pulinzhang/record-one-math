@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="../../css/site.css?v=1">
+    <style>
+        @media print {
+            body.lecture.print-problems .container > header.train-head,
+            body.lecture.print-problems .container > section.card {
+                display: block !important;
+            }
+            body.lecture.print-problems .result-box,
+            body.lecture.print-problems .guide {
+                display: none !important;
+            }
+        }
+    </style>
+    <link rel="icon" href="../../icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../../icons/favicon.ico" sizes="32x32">
+    <title>逻辑训练 · 集合里的增减</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+        (function () {
+            var sources = [
+                '../../vendor/tex-svg.js?v=1',
+                'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
+            ];
+            function giveUp() {
+                var note = document.createElement('p');
+                note.textContent = '数学公式未能渲染。请确认能访问到 vendor/tex-svg.js。';
+                note.style.cssText = 'width:min(1440px,calc(100% - 1.5rem));margin:1rem auto;padding:0.8rem 1rem;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;color:#92400e;';
+                document.body.prepend(note);
+            }
+            function load(i) {
+                if (i >= sources.length) {
+                    if (document.body) giveUp();
+                    else document.addEventListener('DOMContentLoaded', giveUp);
+                    return;
+                }
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = sources[i];
+                s.onload = function () {
+                    if (!window.MathJax || !window.MathJax.version) load(i + 1);
+                };
+                s.onerror = function () { load(i + 1); };
+                document.head.appendChild(s);
+            }
+            load(0);
+        })();
+    </script>
+</head>
+<body class="lecture">
+    <div class="now-asking" id="nowAsking">
+        <div class="bar-tools">
+            <button type="button" class="home-link" onclick="printLecture()">打印讲义</button>
+            <button type="button" class="home-link" onclick="printProblems()">打印题目</button>
+            <a class="home-link" href="2026年高考19-集合里的增减.html">回到讲义</a>
+            <a class="home-link" href="../../index.html">返回目录</a>
+        </div>
+        <div class="now-inner">
+            <span class="now-label" id="nowLabel">训练</span>
+            <div class="now-text" id="nowText">这页练翻译、定位、找桥、传递。每块标题下写着练哪一个。答不上来，按这一块末尾退回指定的训练。</div>
+        </div>
+    </div>
+    <div class="container">
+        <header class="train-head">
+            <div class="section-kicker">逻辑训练</div>
+            <h1>集合里的增减 · 逻辑训练</h1>
+            <p>这页练四个逻辑动作：翻译、定位、找桥、传递。每块标题下写着这块练哪一个。动笔前先写三行：要证什么，手里有什么，哪一步能连上。配合 <a href="2026年高考19-集合里的增减.html">2026年高考 19题</a>。先自己写，再看这一题下面的答案。答不上来，按这一块末尾退回指定的训练。</p>
+            <p>做完以后，合上答案，用自己的话说出：\(d\) 是什么，任取是什么，反设以后找什么，刻度往哪边传。</p>
+        </header>
+
+        <section class="card problem-box">
+            <div class="problem-title">训练用的定义 <span class="src">训练 · 2026年高考 19题</span></div>
+            <div class="problem-content">
+                <p>当 \(x&lt;0\) 时，\(f(x)=2^x\)。对任意 \(x_0\in\mathbb R\)，</p>
+                <div class="formula-block">$$D(x_0)=\{d\in\mathbb R\mid f(x_0+d)&gt;f(x_0)\}.$$</div>
+                <p>后面各题单独给条件。没写「整段都是 \(2^x\)」的，不要把右半轴也当成 \(2^x\)。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="读定义">
+            <div class="section-header">
+                <span class="step-num">1</span>
+                <h2>把定义读成大白话</h2>
+            </div>
+            <p><strong>逻辑动作：翻译。</strong>把 \(d\in D(x_0)\) 翻成「走一步，比起点高」。</p>
+            <p><strong>过关话：</strong>合上答案，能用自己的话说出「\(d\) 是步长，\(x_0+d\) 是走到的位置」，这块就算过。</p>
+            <p><strong>先别算。</strong>先想：\(d\) 是刻度，\(x_0+d\) 才是走到的位置。</p>
+
+            <p><strong>训练 1.</strong> 用自己的话说：\(d\) 是什么？\(x_0+d\) 是什么？</p>
+            <div class="result-box">
+                <p>\(d\) 是从 \(x_0\) 出发的刻度（步长），不是位置。\(x_0+d\) 是走到的位置。\(d&gt;0\) 往右走，\(d&lt;0\) 往左走。</p>
+            </div>
+            <p><strong>问她：</strong>\(d\) 和 \(x_0+d\) 哪一个是位置？</p>
+
+            <p><strong>先别算。</strong>\(d=1\) 走到哪？\(d=0\) 走到哪？走到哪，比算函数值更重要。\(d\) 是刻度，不是位置。</p>
+            <p><strong>训练 2.</strong> 设 \(f(x)=2^x\)（整段都是这个），\(x_0=-1\)。判断 \(d=1\)，\(d=0\)，\(d=-0.5\)，\(d=0.5\) 是否属于 \(D(-1)\)。</p>
+            <div class="result-box">
+                <p>\(f(-1)=\dfrac{1}{2}\)。\(2^x\) 严格递增。</p>
+                <p>\(d=1\)：走到 \(0&gt;-1\)，\(f(0)=1&gt;\dfrac{1}{2}\)，属于。</p>
+                <p>\(d=0\)：走到 \(-1\)，高度相等，不属于。定义要严格大于。</p>
+                <p>\(d=-0.5\)：走到 \(-1.5&lt;-1\)，\(f(-1.5)&lt;\dfrac{1}{2}\)，不属于。</p>
+                <p>\(d=0.5\)：走到 \(-0.5&gt;-1\)，\(f(-0.5)&gt;\dfrac{1}{2}\)，属于。</p>
+            </div>
+            <p><strong>问她：</strong>\(d=1\) 走到哪？为什么先问走到哪，不先算 \(2^{1}\)？</p>
+
+            <p><strong>训练 3.</strong> 接训练 2。\(f\) 仍是整段 \(2^x\)。把属于 \(D(-1)\) 的 \(d\) 写成区间。</p>
+            <div class="result-box">
+                <p>\(f(t)&gt;\dfrac{1}{2}\) 当且仅当 \(t&gt;-1\)。令 \(t=-1+d\)，得 \(-1+d&gt;-1\)，即 \(d&gt;0\)。</p>
+                <p>因为 \(2^x\) 严格递增，\(2^t&gt;\dfrac{1}{2}=2^{-1}\) 当且仅当 \(t&gt;-1\)。递增函数，函数值大，自变量也大。所以 \(D(-1)=(0,+\infty)\)。这一题右半轴没有换成别的式子。</p>
+            </div>
+            <p><strong>问她：</strong>为什么是 \(t&gt;-1\)，不是 \(t&lt;-1\)？</p>
+
+            <p><strong>动笔前先写三行。</strong>要证什么，手里有什么，哪一步能连上。写完再做这一题。</p>
+            <p><strong>训练 4.</strong> 一句话：\(d\in D(x_0)\) 翻译成函数语言是什么？</p>
+            <div class="result-box">
+                <p><strong>要证什么：</strong>把 \(d\in D(x_0)\) 写成函数的话。</p>
+                <p><strong>手里有什么：</strong>定义里的那句 \(f(x_0+d)&gt;f(x_0)\)。</p>
+                <p><strong>哪一步能连上：</strong>「属于」就是这句成立。</p>
+                <p>\(f(x_0+d)&gt;f(x_0)\)。从 \(x_0\) 走刻度 \(d\)，新点比起点高。</p>
+            </div>
+            <p><strong>问她：</strong>为什么「属于」直接写成这句不等式？</p>
+            <p><strong>这一块练的逻辑动作是翻译。</strong>换一道新定义题，先把符号翻成白话：谁、从哪出发、走到哪、比什么。</p>
+            <div class="result-box">
+                <p>新定义先翻译再算。\(d\in D(x_0)\) 就是从 \(x_0\) 走一步，新点比起点高。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="平移">
+            <div class="section-header">
+                <span class="step-num">2</span>
+                <h2>位置区间平移成刻度区间</h2>
+            </div>
+            <p><strong>上一块</strong>练「\(d\) 是刻度」，这一块练「位置区间怎么变成刻度区间」。先认刻度，再算刻度。</p>
+            <p><strong>逻辑动作：找桥。</strong>从 \(t\) 的范围到 \(d\) 的范围，桥是减起点。</p>
+            <p><strong>过关话：</strong>合上答案，能用自己的话说出「位置减起点，就是刻度」，这块就算过。</p>
+            <p><strong>先别算。</strong>先想：位置减起点，得到的才是刻度。</p>
+
+            <p><strong>训练 5.</strong> 已知 \(f(x)&gt;\dfrac{1}{2}\) 的解集是 \(-1&lt;x&lt;\dfrac{1}{2}\)。令 \(x=d-1\)。求 \(d\) 的范围。</p>
+            <div class="result-box">
+                <p>\(-1&lt;d-1&lt;\dfrac{1}{2}\)。两边加 \(1\)，得 \(0&lt;d&lt;\dfrac{3}{2}\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么两边加 \(1\)？</p>
+
+            <p><strong>动笔前先写三行。</strong>要证什么，手里有什么，哪一步能连上。写完再做这一题。</p>
+            <p><strong>训练 6.</strong> 已知 \(f(t)&gt;f(x_0)\) 的解集是 \(x_0&lt;t&lt;0\)。令 \(t=x_0+d\)。求 \(d\) 的范围。</p>
+            <div class="result-box">
+                <p><strong>要证什么：</strong>\(d\) 的范围。</p>
+                <p><strong>手里有什么：</strong>\(x_0&lt;t&lt;0\)，而且 \(t=x_0+d\)。</p>
+                <p><strong>哪一步能连上：</strong>两边减 \(x_0\)。</p>
+                <p>\(x_0&lt;x_0+d&lt;0\)。两边减 \(x_0\)，得 \(0&lt;d&lt;-x_0\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么减的是 \(x_0\)，不是别的数？</p>
+
+            <p><strong>训练 7.</strong> 已知 \(f(t)&gt;f(x_0)\) 的解集是 \(t\leqslant 0\) 或 \(t&gt;x_0\)。令 \(t=x_0+d\)。求 \(d\) 的范围。</p>
+            <div class="result-box">
+                <p>\(t\leqslant 0\)：\(x_0+d\leqslant 0\)，得 \(d\leqslant -x_0\)。</p>
+                <p>\(t&gt;x_0\)：\(x_0+d&gt;x_0\)，得 \(d&gt;0\)。</p>
+                <p>所以 \(d\leqslant -x_0\) 或 \(d&gt;0\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么 \(t\leqslant 0\) 变成 \(d\leqslant -x_0\)，不是 \(d\leqslant 0\)？</p>
+            <p><strong>卡住了怎么办：</strong>回到训练 1，再练一遍。先确认 \(d\) 是刻度。</p>
+            <p><strong>这一块练的逻辑动作是找桥。</strong>别的题里，已知一个字母的范围，要求另一个字母，先找两个字母的关系式。</p>
+            <div class="result-box">
+                <p>关系式就是桥。这里 \(t=x_0+d\)，两边减起点。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="任取">
+            <div class="section-header">
+                <span class="step-num">3</span>
+                <h2>任取：集合包含的标准动作</h2>
+            </div>
+            <p><strong>上一块</strong>练「平移」，这一块练「证包含的第一句」。先会算区间，再会证包含。</p>
+            <p><strong>逻辑动作：定位。</strong>证包含，先写「目标：证 \(a\in B\)；已知：\(a\in A\)」。</p>
+            <p><strong>过关话：</strong>合上答案，能用自己的话说出「任取 \(A\) 里的一个，证它也在 \(B\) 里」，这块就算过。</p>
+            <p><strong>先别算。</strong>先想：要证包含，第一句是任取。</p>
+
+            <p><strong>训练 8.</strong> 要证 \(A\subseteq B\)，标准动作是什么？用一句话说。</p>
+            <div class="result-box">
+                <p>任取 \(a\in A\)，证明 \(a\in B\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么第一句是任取，不是先分情况？</p>
+
+            <p><strong>动笔前先写三行。</strong>要证什么，手里有什么，哪一步能连上。写完再做这一题。</p>
+            <p><strong>训练 9.</strong> 已知 \(D(x_2)=(0,-x_2)\)，\(D(x_1)=(0,-x_1)\)，且 \(x_1\leqslant x_2&lt;0\)。证明 \(D(x_2)\subseteq D(x_1)\)。</p>
+            <div class="result-box">
+                <p><strong>要证什么：</strong>\(d\in D(x_1)\)，即 \(0&lt;d&lt;-x_1\)。</p>
+                <p><strong>手里有什么：</strong>\(0&lt;d&lt;-x_2\)，且 \(x_1\leqslant x_2&lt;0\)。</p>
+                <p><strong>哪一步能连上：</strong>两边乘 \(-1\)，不等号变向，得 \(-x_2\leqslant -x_1\)。</p>
+                <p>任取 \(d\in D(x_2)\)，则 \(0&lt;d&lt;-x_2\)。由 \(x_1\leqslant x_2&lt;0\)，两边乘 \(-1\)，不等号变向，得 \(-x_2\leqslant -x_1\)。所以 \(0&lt;d&lt;-x_1\)，故 \(d\in D(x_1)\)。因此 \(D(x_2)\subseteq D(x_1)\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么由 \(x_1\leqslant x_2&lt;0\) 能得 \(-x_2\leqslant -x_1\)？</p>
+
+            <p><strong>训练 10.</strong> 已知</p>
+            <div class="formula-block">$$D(x_1)=(-\infty,-x_1]\cup(0,+\infty),\qquad D(x_2)=(-\infty,-x_2]\cup(0,+\infty),$$</div>
+            <p>且 \(0&lt;x_1\leqslant x_2\)。证明 \(D(x_2)\subseteq D(x_1)\)。</p>
+            <div class="result-box">
+                <p>任取 \(d\in D(x_2)\)，则 \(d\leqslant -x_2\) 或 \(d&gt;0\)。</p>
+                <p>若 \(d&gt;0\)，则 \(d\in(0,+\infty)\subseteq D(x_1)\)。</p>
+                <p>若 \(d\leqslant -x_2\)，由 \(0&lt;x_1\leqslant x_2\) 得 \(-x_2\leqslant -x_1\)，所以 \(d\leqslant -x_1\)，故 \(d\in(-\infty,-x_1]\subseteq D(x_1)\)。</p>
+                <p>因此 \(D(x_2)\subseteq D(x_1)\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么 \(d&gt;0\) 就已经在 \(D(x_1)\) 里？</p>
+            <p><strong>卡住了怎么办：</strong>回到训练 6，再练一遍。先练平移。</p>
+            <p><strong>这一块练的逻辑动作是定位。</strong>别的题里要证 \(A\subseteq B\)，也是先写目标和已知，再动笔。</p>
+            <div class="result-box">
+                <p>任取 \(a\in A\)，目标是证 \(a\in B\)。先把这两句写下来。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="高低">
+            <div class="section-header">
+                <span class="step-num">4</span>
+                <h2>包含的方向：谁高，谁的集合小</h2>
+            </div>
+            <p><strong>上一块</strong>练「任取」，这一块练「包含的方向」。先会写「任取」，再判断谁包谁。</p>
+            <p><strong>逻辑动作：传递。</strong>从 \(f(x_1)\leqslant f(x_2)\) 传到 \(D(x_2)\subseteq D(x_1)\)。</p>
+            <p><strong>过关话：</strong>合上答案，能用自己的话说出「高的集合小，低的集合大」，这块就算过。</p>
+            <p><strong>先别算。</strong>先想：谁高，谁的集合小。不用先算出函数值是几。</p>
+
+            <p><strong>训练 11.</strong> 条件①：若 \(f(x_1)\leqslant f(x_2)\)，则 \(D(x_2)\subseteq D(x_1)\)。谁站得高？谁的集合更小？</p>
+            <div class="result-box">
+                <p>\(f(x_1)\leqslant f(x_2)\) 说明 \(x_2\) 不比 \(x_1\) 低。站得更高的一侧，往上够得到的刻度更少，所以 \(D(x_2)\) 更小。高的集合小，低的集合大。</p>
+            </div>
+            <p><strong>问她：</strong>为什么高的那边集合更小？条件①把谁传给了谁？</p>
+
+            <p><strong>动笔前先写三行。</strong>要证什么，手里有什么，哪一步能连上。写完再做这一题。</p>
+            <p><strong>训练 12.</strong> 已知 \(f(u)&gt;f(x)\)。由条件①，\(D(u)\) 和 \(D(x)\) 谁包含谁？</p>
+            <div class="result-box">
+                <p><strong>要证什么：</strong>\(D(u)\) 和 \(D(x)\) 谁包含谁。</p>
+                <p><strong>手里有什么：</strong>\(f(u)&gt;f(x)\)，以及条件①。</p>
+                <p><strong>哪一步能连上：</strong>\(u\) 更高，高的集合小。</p>
+                <p>\(f(x)&lt;f(u)\)，即 \(f(x)\leqslant f(u)\)。由①得 \(D(u)\subseteq D(x)\)。高的 \(u\) 集合小，低的 \(x\) 集合大。</p>
+            </div>
+            <p><strong>问她：</strong>为什么是 \(D(u)\subseteq D(x)\)，不是反过来？</p>
+
+            <p><strong>训练 13.</strong> 已知 \(h\in D(u)\)，且 \(D(u)\subseteq D(x)\)。能推出 \(h\in D(x)\) 吗？为什么？</p>
+            <div class="result-box">
+                <p>能。\(D(u)\subseteq D(x)\) 表示 \(D(u)\) 里的每个元素都在 \(D(x)\) 里。\(h\in D(u)\)，所以 \(h\in D(x)\)。小集合里的刻度，大集合里也有。</p>
+            </div>
+            <p><strong>问她：</strong>为什么小集合里的 \(h\) 一定在大集合里？</p>
+            <p><strong>卡住了怎么办：</strong>回到训练 8，再练一遍。先练「任取」这一句。</p>
+            <p><strong>这一块练的逻辑动作是传递。</strong>别的题里看到「若甲则乙」，先问结论往哪边传，再拿元素去用。</p>
+            <div class="result-box">
+                <p>大小关系先决定包含的方向。方向定了，再把小集合里的元素传到大集合。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="反设">
+            <div class="section-header">
+                <span class="step-num">5</span>
+                <h2>反设，再找夹在中间的点</h2>
+            </div>
+            <p><strong>上一块</strong>练「高低」，这一块练「反设」。先知道谁高谁集合小，再反设找矛盾。</p>
+            <p><strong>逻辑动作：定位 + 找桥。</strong>反设是换目标，找 \(u\) 是找桥。</p>
+            <p><strong>过关话：</strong>合上答案，能用自己的话说出「要证 \(\geqslant\)，先反设 \(&lt;\)；反设以后找中间点」，这块就算过。</p>
+            <p><strong>先别算。</strong>先别找具体的 \(u\)。先想：要证 \(\geqslant\)，就先反设 \(&lt;\)。</p>
+
+            <p><strong>训练 14.</strong> 要证 \(f(0)\geqslant 1\)。反设怎么写？</p>
+            <div class="result-box">
+                <p>反设 \(f(0)&lt;1\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么反设写成 \(f(0)&lt;1\)，不是 \(f(0)\leqslant 1\)？</p>
+
+            <p><strong>动笔前先写三行。</strong>要证什么，手里有什么，哪一步能连上。写完再做这一题。</p>
+            <p><strong>训练 15.</strong> 已知 \(x&lt;0\) 时 \(f(x)=2^x\)，值域为 \((0,1)\)。反设 \(f(0)&lt;1\)。为什么一定存在 \(u&lt;0\) 使 \(f(0)&lt;f(u)&lt;1\)？</p>
+            <div class="result-box">
+                <p><strong>要证什么：</strong>存在这样的 \(u\)。</p>
+                <p><strong>手里有什么：</strong>\(f(0)&lt;1\)，左支值域是 \((0,1)\)。</p>
+                <p><strong>哪一步能连上：</strong>\(f(0)\) 和 \(1\) 之间的高度，左支取得到。</p>
+                <p>\(f(0)&lt;1\)，左支 \(2^x\) 能取到 \((0,1)\) 里的所有值。所以 \(f(0)\) 和 \(1\) 之间一定有一个左支上的函数值，它的横坐标就是 \(u&lt;0\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么值域是 \((0,1)\)，就一定找得到夹在中间的 \(f(u)\)？</p>
+
+            <p><strong>训练 16.</strong> 接训练 15。已知 \(f(0)&lt;f(u)\)，由条件①得什么？再取 \(0&lt;h&lt;\min\{-u,1\}\)，为什么 \(h\in D(u)\)？</p>
+            <div class="result-box">
+                <p>由 \(f(0)&lt;f(u)\) 得 \(D(u)\subseteq D(0)\)。</p>
+                <p>\(0&lt;h&lt;-u\)，所以 \(u+h&lt;0\)，仍在左支。\(2^x\) 严格递增，故 \(2^{u+h}&gt;2^u\)，即 \(f(u+h)&gt;f(u)\)。由定义，\(h\in D(u)\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么 \(0&lt;h&lt;-u\) 就有 \(h\in D(u)\)？</p>
+            <p><strong>卡住了怎么办：</strong>回到训练 11，再练一遍。先练「谁高，谁的集合小」。</p>
+            <p><strong>这一块练的逻辑动作是反设。</strong>别的题里，什么时候该反设？</p>
+            <div class="result-box">
+                <p>要证「对所有」「都 \(\geqslant\)」这种结论，直接证不好下手时，反设「存在一个不满足」。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="传刻度">
+            <div class="section-header">
+                <span class="step-num">6</span>
+                <h2>找中间一站，把刻度传过去</h2>
+            </div>
+            <p><strong>上一块</strong>练「反设找中间点」，这一块练「把刻度传过去」。先找到中间点，再传刻度。</p>
+            <p><strong>逻辑动作：传递。</strong>从 \(h\in D(u)\) 传到 \(h\in D(x)\)。</p>
+            <p><strong>过关话：</strong>合上答案，能用自己的话说出「先找高的点，再用包含把刻度传过去」，这块就算过。</p>
+            <p><strong>先别算。</strong>先别构造 \(u\)。先想：要证的那句，等价于 \(h\) 属于哪个集合。</p>
+
+            <p><strong>训练 17.</strong> 要证 \(f(x+h)&gt;f(x)\)，回到定义，等价于证什么？</p>
+            <div class="result-box">
+                <p>等价于证 \(h\in D(x)\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么 \(f(x+h)&gt;f(x)\) 就是 \(h\in D(x)\)？</p>
+
+            <p><strong>动笔前先写三行。</strong>要证什么，手里有什么，哪一步能连上。写完再做这一题。</p>
+            <p><strong>训练 18.</strong> 已知 \(h\in D(u)\)，且 \(D(u)\subseteq D(x)\)。证明 \(h\in D(x)\)，并说出这对应 \(f\) 的什么结论。</p>
+            <div class="result-box">
+                <p><strong>要证什么：</strong>\(h\in D(x)\)。</p>
+                <p><strong>手里有什么：</strong>\(h\in D(u)\)，而且 \(D(u)\subseteq D(x)\)。</p>
+                <p><strong>哪一步能连上：</strong>小集合里的元素，大集合里也有。</p>
+                <p>\(h\in D(u)\) 且 \(D(u)\subseteq D(x)\)，得 \(h\in D(x)\)。由定义，即 \(f(x+h)&gt;f(x)\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么这两个条件凑在一起，就能得到 \(h\in D(x)\)？</p>
+
+            <p><strong>训练 19.</strong> 要把 \(h\in D(u)\) 传到 \(h\in D(x)\)，需要哪两个条件？</p>
+            <div class="result-box">
+                <p>第一，\(h\in D(u)\)，即 \(f(u+h)&gt;f(u)\)。</p>
+                <p>第二，\(D(u)\subseteq D(x)\)，即 \(f(x)\leqslant f(u)\)：\(u\) 不比 \(x\) 低。</p>
+            </div>
+            <p><strong>问她：</strong>为什么第二个条件要写成 \(f(x)\leqslant f(u)\)？</p>
+
+            <p><strong>训练 20.</strong> 已知 \(f(x)&lt;2^{-h}\)，左支在 \((-\infty,-h)\) 上的值域为 \((0,2^{-h})\)。为什么存在 \(u&lt;-h\) 使 \(f(u)&gt;f(x)\)？</p>
+            <div class="result-box">
+                <p>\(f(x)&lt;2^{-h}\)，左支在 \((-\infty,-h)\) 上能取到 \((0,2^{-h})\) 里的所有值。所以存在 \(u&lt;-h\) 使 \(f(u)&gt;f(x)\)。</p>
+            </div>
+            <p><strong>问她：</strong>为什么 \(f(x)&lt;2^{-h}\) 就一定有 \(u&lt;-h\)？</p>
+            <p><strong>卡住了怎么办：</strong>回到训练 14，再练一遍。先练反设。</p>
+            <p><strong>这一块练的逻辑动作是传递。</strong>别的题里要证某个东西属于大集合，先证它属于一个已经含在大集合里的小集合。</p>
+            <div class="result-box">
+                <p>\(h\in D(u)\) 且 \(D(u)\subseteq D(x)\)，就得到 \(h\in D(x)\)。小集合里的元素，大集合里也有。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="合起来">
+            <div class="section-header">
+                <span class="step-num">7</span>
+                <h2>把前面的动作合起来</h2>
+            </div>
+            <p>前面六块各练一个动作，这一块把六个动作串成一条链。串起来，就是第（3）（i）的证明。</p>
+            <p><strong>逻辑动作：串联。</strong>把翻译、定位、找桥、传递串成一条链。</p>
+            <p><strong>过关话：</strong>合上答案，能用自己的话说出「反设，找 \(u\)，取 \(h\)，矛盾」，这块就算过。</p>
+            <p><strong>先别算。</strong>先别写完整证明。先想三行：要证什么，手里有什么，哪一步能连上。</p>
+
+            <p>这一题练的不是算，是先想清楚再写。先说清楚要证什么，再算。三行不是格式，是先定位。</p>
+            <p><strong>训练 21a.</strong> 都在左支：\(D(x_2)=(0,-x_2)\)，\(D(x_1)=(0,-x_1)\)，\(x_1\leqslant x_2&lt;0\)。用三行写：目标、已知、为什么走得通。</p>
+            <div class="result-box">
+                <p><strong>目标：</strong>证 \(d\in D(x_1)\)，即 \(0&lt;d&lt;-x_1\)。</p>
+                <p><strong>已知：</strong>\(d\in D(x_2)\)，即 \(0&lt;d&lt;-x_2\)；且 \(x_1\leqslant x_2&lt;0\)。</p>
+                <p><strong>为什么走得通：</strong>由 \(x_1\leqslant x_2&lt;0\) 得 \(-x_2\leqslant -x_1\)，所以 \(d&lt;-x_1\)。</p>
+            </div>
+            <p><strong>问她：</strong>三行为什么要先写？不先写，下一步乘 \(-1\) 是为了什么？</p>
+
+            <p><strong>训练 21b.</strong> 把训练 21a 的三行改写成「任取」开头的证明。</p>
+            <div class="result-box">
+                <p>任取 \(d\in D(x_2)\)，则 \(0&lt;d&lt;-x_2\)。由 \(x_1\leqslant x_2&lt;0\) 得 \(-x_2\leqslant -x_1\)。所以 \(0&lt;d&lt;-x_1\)，即 \(d\in D(x_1)\)。故 \(D(x_2)\subseteq D(x_1)\)。</p>
+            </div>
+            <p><strong>问她：</strong>三行是在想，任取是在写。这一题的任取，写的是哪一行目标？</p>
+
+            <p><strong>训练 22.</strong> 用四步复述第（3）（i）：反设，找 \(u\)，取 \(h\)，矛盾。条件①②与讲义相同。\(x&lt;0\) 时 \(f(x)=2^x\)，值域为 \((0,1)\)。</p>
+            <div class="result-box">
+                <p><strong>第一步（反设）：</strong>\(f(0)&lt;1\)。</p>
+                <p><strong>第二步（找 \(u\)）：</strong>左支值域为 \((0,1)\)，存在 \(u&lt;0\) 使 \(f(0)&lt;f(u)&lt;1\)。由①得 \(D(u)\subseteq D(0)\)。</p>
+                <p><strong>第三步（取 \(h\)）：</strong>取 \(0&lt;h&lt;\min\{-u,1\}\)。则 \(u+h&lt;0\)，且 \(f(u+h)&gt;f(u)\)，故 \(h\in D(u)\subseteq D(0)\)，即 \(f(h)&gt;f(0)\)。</p>
+                <p><strong>第四步（矛盾）：</strong>\(0&lt;h&lt;1\)，由②得 \(f(h)&lt;f(0)\)，矛盾。所以 \(f(0)\geqslant 1\)。</p>
+            </div>
+            <p><strong>问她：</strong>第四步为什么算矛盾？同一步 \(h\)，第三步和条件②各推出了什么？</p>
+            <p><strong>卡住了怎么办：</strong>回到训练 16，再练一遍。先练「取 \(h\)」。</p>
+            <p><strong>这一块练的逻辑动作是串联。</strong>换一道证明，按这个顺序走：先翻译，再写目标和已知，再写为什么走得通，再把结论用到下一步。</p>
+            <div class="result-box">
+                <p>四个动作的顺序就是：翻译、定位、找桥、传递。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="自己说">
+            <div class="section-header">
+                <span class="step-num">8</span>
+                <h2>合上答案，用自己的话说</h2>
+            </div>
+            <p>不看上面的绿框，说出下面四句。说不出来，不要翻上面的答案，回到对应的训练。</p>
+            <p><strong>1.</strong> \(d\) 是什么？说不出来，回训练 1。</p>
+            <p><strong>2.</strong> 证 \(A\subseteq B\) 的标准动作是什么？说不出来，回训练 8。</p>
+            <p><strong>3.</strong> 反设以后找什么？说不出来，回训练 15。</p>
+            <p><strong>4.</strong> 刻度往哪边传？说不出来，回训练 13。</p>
+            <p><strong>5.</strong> 四个逻辑动作叫什么？说不出来，回看每一块标题下的「逻辑动作」。</p>
+            <div class="result-box">
+                <p>\(d\) 是从起点出发的刻度，不是位置。</p>
+                <p>任取 \(A\) 里的一个，证它也在 \(B\) 里。</p>
+                <p>用值域找一个夹在中间的数。</p>
+                <p>高的集合小，低的集合大。小集合里的刻度，大集合里也有。</p>
+                <p>四个动作：翻译、定位、找桥、传递。</p>
+            </div>
+        </section>
+    </div>
+    <script src="../../js/site.js?v=2"></script>
+</body>
+</html>

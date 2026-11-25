@@ -72,13 +72,12 @@
         <header>
             <div class="section-kicker">高考</div>
             <h1>用集合的包含关系研究增减</h1>
-            <p>记 \(D(x_0)=\{d\in\mathbb R\mid f(x_0+d)&gt;f(x_0)\}\)。\(d\in D(x_0)\) 当且仅当从 \(x_0\) 移动 \(d\) 后函数值变大。函数值的大小关系转化为这两个集合的包含关系。由原来变量的范围确定新元的范围，二者一一对应时取值不变，计算后再代回。</p>
-            <p>图像用来看，代数用来计算集合。图像看从哪出发、移到哪、函数值有没有变大。代数把这个条件算成 \(d\) 的范围，集合把范围写下，再研究谁包含谁。谁的函数值更大，谁的移动范围就更窄。</p>
-            <p>图像让我们看懂数学，代数让我们精确表达数学，集合让我们研究数学对象之间的关系。</p>
+            <p>\(D(x_0)\) 收集刻度 \(d\)：从起点 \(x_0\) 出发，\(d&gt;0\) 往右量，\(d&lt;0\) 往左量。走到 \(x_0+d\) 时高度比起点高，这个 \(d\) 才进集合。当 \(f(x_1)\leqslant f(x_2)\) 时，站得更高的一侧往上够得到的刻度更少，于是 \(D(x_2)\subseteq D(x_1)\)。</p>
+            <p>\(d\) 用来看从哪出发、往哪量、高度有没有变高；高度差用来比谁高谁低。谁站得高，谁往上够的空间小；左边算准的刻度，顺着大小关系传给右边。</p>
             <div class="badge-group">
-                <span class="badge">图像用来看</span>
-                <span class="badge">代数用来计算集合</span>
-                <span class="badge">集合用来写包含</span>
+                <span class="badge">读新定义</span>
+                <span class="badge">分左右比高低</span>
+                <span class="badge">包含传刻度</span>
             </div>
         </header>
 
@@ -104,20 +103,90 @@
             </div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>题干先定义集合 \(D(x_0)\)。后面求一个具体集合、证包含、再反推增减，是不是都站在「函数值变大的移动」上？</p>
+                <p>题干先定义 \(D(x_0)\)：站在起点 \(x_0\)，刻度 \(d\) 让走到的点比起点更高，这个 \(d\) 才收进集合；后面两问都用高度差看谁的这个集合更小。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>把 \(D\) 当成普通不等式乱拆：看不清「从哪出发、移到哪、函数值有没有变大」，后面的包含和增减就没有共同语言。</p>
+                <p>把刻度 \(d\) 和位置 \(x\) 当成同一个数，或者把「顺着包含传过去」理解成把函数值搬过去，写的时候就会把 \(f\) 和 \(D\) 弄反。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是集合 \(D(x_0)\) 的定义。它招呼的是：图像用来看，代数用来算集合，集合用来写包含。</p>
+                <p>暗号是 \(f(x_0+d)&gt;f(x_0)\) 与 \(f(x_1)\leqslant f(x_2)\implies D(x_2)\subseteq D(x_1)\)。前者招呼「读新定义」，后者招呼「比高低，再把属于集合的刻度传过去」。</p>
             </div>
-            <div class="mindset-box">
-                <div class="mindset-title">集合里的移动</div>
-                <p>第（1）问算出一个具体的 \(D(-1)\)。第（2）问用函数值大小推出集合包含。第（3）问把包含关系反过来，研究 \(f\) 的增减。</p>
-                <p>先看懂「函数值变大的移动」，三问共用这一句话。</p>
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>考点一：读新定义</h4>
+                    <p>\(d\) 是从 \(x_0\) 量出的刻度。\(d&gt;0\) 往右，\(d&lt;0\) 往左。进集合，当且仅当高度变高。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点二：分左右比高低</h4>
+                    <p>奇函数左正右负。先用高度差定 \(x_1\)、\(x_2\) 各在哪一支，再看两个集合谁包谁。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考点三：包含传刻度</h4>
+                    <p>站得高，往上够的刻度更少。只传属于集合的 \(d\)，不把函数值搬过去。</p>
+                </div>
+            </div>
+            <div class="matryoshka-box translate-block">
+                <div class="matryoshka-title">对暗号 · 翻译对照</div>
+                <p class="translate-lead">认出暗号 → 翻成白话 → 写成能动手的式子。这张表就是主推手。</p>
+                <div class="translate-wrap">
+                    <table class="translate-table">
+                        <thead>
+                            <tr>
+                                <th>原题说<span>暗号</span></th>
+                                <th>白话<span>翻出来</span></th>
+                                <th>执行<span>动手算</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="原题说">\(D(x_0)=\{d\mid f(x_0+d)&gt;f(x_0)\}\)</td>
+                                <td data-label="白话">从起点量刻度。走到的点比起点高，这个 \(d\) 才收进来。\(d\) 是步长，不是位置</td>
+                                <td data-label="执行">先比两个高度，再把满足的 \(d\) 写成区间</td>
+                            </tr>
+                            <tr>
+                                <td data-label="原题说">\(f(x_1)\leqslant f(x_2)\implies D(x_2)\subseteq D(x_1)\)</td>
+                                <td data-label="白话">谁站得高，谁往上够的空间小。传过去的是刻度，不是函数值</td>
+                                <td data-label="执行">任取 \(d\in D(x_2)\)，证明同一个 \(d\in D(x_1)\)</td>
+                            </tr>
+                            <tr>
+                                <td data-label="原题说">\(f\) 是奇函数，且 \(x_1x_2\neq 0\)</td>
+                                <td data-label="白话">左支在 \(0\) 上方，右支在 \(0\) 下方。先看高度差允不允许两人这么站</td>
+                                <td data-label="执行">按左右分站法，用高度差丢掉站不住的，再证包含</td>
+                            </tr>
+                            <tr>
+                                <td data-label="原题说">右半轴无解析式，只有条件①②</td>
+                                <td data-label="白话">左边 \(2^x\) 能算准。先把右边的高度压住，再用算准的正刻度看右边变不变高</td>
+                                <td data-label="执行">用①只传递属于集合的 \(d\)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <p>每一步先写清三件事：要证什么，手里有什么，为什么这一步走得通。</p>
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>什么时候不用算具体值</h4>
+                    <p>一边全正、一边全负，直接比出大小。左支 \(f(t)&gt;0\)，右支 \(f(x_0)&lt;0\)，就有 \(f(t)&gt;f(x_0)\)。</p>
+                </div>
+                <div class="case-card">
+                    <h4>「任取」是什么意思</h4>
+                    <p>任取 \(d\in D(x_2)\)，就是从橙段里拿一个 \(d\)。再证它也在蓝段里，就是把图写成式子。</p>
+                </div>
+                <div class="case-card">
+                    <h4>构造的数从哪来</h4>
+                    <p>先问它要满足什么。要夹在中间，用值域保证有；要还在左支，步长就不能太大；两个条件一起，就是取较小的那个上界。</p>
+                </div>
+                <div class="case-card">
+                    <h4>集合包含怎么证</h4>
+                    <p>证 \(A\subseteq B\)：任取 \(a\in A\)，再证 \(a\in B\)。先写任取，再分情形。</p>
+                </div>
+            </div>
+            <p>先把定义画成底图。起点是 \(x_0\)，刻度是 \(d=x-x_0\)（往右为正，往左为负）。比起点高的那些点，对应的 \(d\) 在 \(D(x_0)\) 里。</p>
+            <div class="canvas-wrap">
+                <div id="f-base" class="jxgbox" role="img" aria-label="示意图。水平线 y 等于 f(x0)。曲线在线上面的一段涂成蓝色。从 x0 向右的箭头是正的位移，向左的灰色箭头是负的位移。"></div>
+                <p class="cap">橙线的高度是起点的函数值。线上面的点，横坐标减去 \(x_0\)，就是刻度 \(d\)。向右为正，向左为负。这张图只讲定义。</p>
             </div>
             <div class="motto">图像用来看，代数用来计算集合，集合用来写包含。</div>
         </section>
@@ -130,39 +199,38 @@
             <div class="ask">右半轴是 \(1-x\)。求 \(D(-1)\)。</div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>\(D(x_0)\) 是新写出来的集合。\(x_0\) 是定住的位置，\(d\) 是可以变的移动。\(f(x_0+d)&gt;f(x_0)\) 就是函数值变大。所求 \(D(-1)\)，是从 \(-1\) 出发、能使函数值变大的全部 \(d\)。</p>
+                <p>起点是 \(-1\)，高度是 \(\dfrac{1}{2}\)。要收进 \(D(-1)\) 的，是所有让走到的点比这个高度更高的刻度 \(d\)。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>一看见 \(D\) 就把两段式子分开解：交点处等于 \(\dfrac{1}{2}\)，不在集合里；左支右支高于水平线的部分是连着的，拆开后再拼容易漏掉中间一段。</p>
+                <p>高于 \(\dfrac{1}{2}\) 的横坐标是连着的一段；分开算再拼接，或把位置 \(x\) 和刻度 \(d=x+1\) 写成同一个数，区间就会错。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是水平线 \(y=\dfrac{1}{2}\)，再加上左支 \(2^x\) 与右支 \(1-x\) 这一组合。它招呼的是：图像用来看。代数再把看到的范围计算成集合。</p>
-            </div>
-            <div class="mindset-box">
-                <div class="mindset-title">数形结合</div>
-                <p>图像用来看函数值落在直线的哪一侧。代数把看到的横坐标代回 \(d\)，写成集合。</p>
-                <p>由定义，\(D(-1)=\{d\mid f(d-1)&gt;f(-1)\}\)。算出 \(f(-1)=\dfrac{1}{2}\) 后，将所求转化为函数图像在直线 \(y=\dfrac{1}{2}\) 上方的横坐标范围。令 \(x=d-1\)，再平移回 \(d\)。</p>
-                <p>图上看懂谁在线的上面。精确的区间交给代数，最后写成集合。</p>
+                <p>暗号是分段两支和高度 \(\dfrac{1}{2}\)。先找哪些位置高于这个高度，再平移成刻度 \(d=x-(-1)\)。</p>
             </div>
             <div class="solution-step">
+                <p>这一问只做一件事：把 \(f(x)&gt;\dfrac{1}{2}\) 的 \(x\) 翻译成 \(d\) 的区间。先找 \(x\)，再平移。</p>
                 <p>把 \(x_0=-1\) 代进定义。\(-1&lt;0\)，故 \(f(-1)=2^{-1}=\dfrac{1}{2}\)，</p>
                 <div class="formula-block">$$D(-1)=\left\{d\mid f(d-1)&gt;\dfrac{1}{2}\right\}.$$</div>
-                <p>令 \(x=d-1\)。所求就是 \(f(x)&gt;\dfrac{1}{2}\) 的 \(x\)，再平移回 \(d\)。先看图像，看哪些 \(x\) 使函数值在水平线上面。</p>
+                <p>令 \(x=d-1\)。所求就是 \(f(x)&gt;\dfrac{1}{2}\) 的 \(x\)，再平移回 \(d\)。先看图像，看哪些 \(x\) 使函数值高于 \(\dfrac{1}{2}\)。</p>
             </div>
             <div class="canvas-wrap">
-                <div id="f-half" class="jxgbox" role="img" aria-label="f 的图像：左支是 2 的 x 次方，右支是 1 减 x。虚线是 y 等于 1/2。蓝线是图像在虚线上方的部分，两端是空心点。"></div>
-                <p class="cap">橙线是 \(y=\dfrac{1}{2}\)。蓝线是图像在它上方的那一段。两端的空心点刚好落在橙线上，不算在里面。</p>
+                <div id="f-half" class="jxgbox" role="img" aria-label="左支是 2 的 x 次方，右支是 1 减 x。橙色水平线 y 等于 1/2。蓝色是线上面的那一段，两端空心。"></div>
+                <p class="cap">橙线是 \(y=\dfrac{1}{2}\)。蓝色是线上面的那一段，两端空心，不算在里面。</p>
             </div>
             <div class="solution-step">
-                <p>看完再算。左支 \(2^x\) 严格递增，与水平线交于 \((-1,\dfrac{1}{2})\)，故 \(x&lt;0\) 时图像在水平线上方当且仅当 \(x&gt;-1\)。</p>
-                <p>右支 \(1-x\) 严格递减，与水平线交于 \(\left(\dfrac{1}{2},\dfrac{1}{2}\right)\)，故 \(x\geqslant 0\) 时图像在水平线上方当且仅当 \(x&lt;\dfrac{1}{2}\)。</p>
+                <p>看完再算。左支 \(2^x\) 严格递增，与 \(y=\dfrac{1}{2}\) 交于 \((-1,\dfrac{1}{2})\)，故 \(x&lt;0\) 时函数值高于 \(\dfrac{1}{2}\) 当且仅当 \(x&gt;-1\)。</p>
+                <p>右支 \(1-x\) 严格递减，与 \(y=\dfrac{1}{2}\) 交于 \(\left(\dfrac{1}{2},\dfrac{1}{2}\right)\)，故 \(x\geqslant 0\) 时函数值高于 \(\dfrac{1}{2}\) 当且仅当 \(x&lt;\dfrac{1}{2}\)。</p>
                 <p>两段连起来，就是 \(-1&lt;x&lt;\dfrac{1}{2}\)。这里的 \(x\) = \(d-1\)。两边加 \(1\)：</p>
                 <div class="formula-block">$$0&lt;d&lt;\dfrac{3}{2}.$$</div>
             </div>
+            <div class="canvas-wrap">
+                <div id="f-shift" class="jxgbox" role="img" aria-label="横坐标区间从负 1 到 1/2，整体右移 1，变成 d 的区间从 0 到 3/2。两端都是空心。"></div>
+                <p class="cap">横坐标 \(\left(-1,\dfrac{1}{2}\right)\) 整体右移 \(1\)，得到 \(d\) 的区间 \(\left(0,\dfrac{3}{2}\right)\)。</p>
+            </div>
             <ol class="model">
-                <li>图像：看哪些横坐标落在水平线上面。</li>
+                <li>图像：看哪些横坐标的函数值高于 \(\dfrac{1}{2}\)。</li>
                 <li>代数：把 \(x=d-1\) 换回 \(d\)。</li>
                 <li>集合：写成 \(D(-1)\)。</li>
             </ol>
@@ -177,29 +245,15 @@
             <div class="ask">\(f\) 是奇函数，且 \(f(x_1)\leqslant f(x_2)\)，\(x_1x_2\neq 0\)。证明 \(D(x_2)\subseteq D(x_1)\)。</div>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>已知 \(f(x_1)\leqslant f(x_2)\)，要证 \(D(x_2)\subseteq D(x_1)\)。题目给了两个函数值的大小，所求是两个集合的包含。</p>
-                <p>定义写成 \(\{d\mid \cdots\}\)。\(x_0\) 先定住，\(d\) 是变量。集合里装的是 \(d\) 的哪些值。</p>
-                <ol class="model">
-                    <li>换一个起点，就换一个集合。两个集合里变的是同一个 \(d\)。</li>
-                    <li>\(d\) 取定一个数，\(x_0+d\) 才是图像上的横坐标。\(x_0+d\) 不是集合的元素。</li>
-                    <li>包含是说：\(d\) 的一个值如果进了 \(D(x_2)\)，这同一个数也要进 \(D(x_1)\)。</li>
-                </ol>
-                <p>图像用来看，代数用来计算集合。可以按下面的过程走：先看函数图像，再令 \(t=x_0+d\)，用值域看 \(f(t)\)，代回 \(d\)，然后用韦恩图看谁包含谁，最后任取一个 \(d\)。</p>
-                <p>试着看：\(D(x_2)\) 里的每一个 \(d\)，为什么也属于 \(D(x_1)\)？</p>
+                <p>要证 \(D(x_2)\subseteq D(x_1)\)。高度差 \(f(x_1)\leqslant f(x_2)\) 先限定两人各在左支还是右支，再比较两个刻度集合。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>\(d\) 不是定好的数：把 \(x_0+d\) 收进集合，收的就不是定义里的元素；奇函数把右半轴补成负的，\(f\) 在全体实数上并不递增，若把每个 \(D(x_0)\) 都写成 \((0,+\infty)\)，包含关系就没有依据；\(x_1&lt;0&lt;x_2\) 时 \(f(x_1)\leqslant f(x_2)\) 也并不成立。</p>
+                <p>奇函数左右各自递增，合起来并不递增（左正右负）。\(x_1\) 在左、\(x_2\) 在右时已经是左高右低，和 \(f(x_1)\leqslant f(x_2)\) 对不上；把这种站法和另外三种混在一起写，包含就会反。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是定义里的 \(f(x_0+d)\)，再加上「奇函数」。\(x_0+d\) 粘在一起，分段条件里一直带着它。它招呼的是：换元。令 \(t=x_0+d\)，得到 \(f(t)\)。</p>
-            </div>
-            <div class="mindset-box">
-                <div class="mindset-title">换元</div>
-                <p>令 \(t=x_0+d\)，条件化为 \(f(t)&gt;f(x_0)\)。\(f(t)\) 才是上面列出的函数。值域按 \(t\) 所在的那一段来看。</p>
-                <div class="formula-block">$$\underbrace{x_0}_{\text{定住}}+\underbrace{d}_{\text{变量}}=\underbrace{t}_{\text{新元}}.$$</div>
-                <p>先换元，分段条件里就不用一直带着 \(x_0+d\)，右边也好对着图像看。看完值域再代回 \(d\)。图像负责看，这一步的代数负责算出集合。韦恩图里橙圈是 \(D(x_2)\)，蓝圈是 \(D(x_1)\)。证明时任取 \(d\in D(x_2)\)，推出这同一个 \(d\in D(x_1)\)。</p>
+                <p>暗号是「奇函数」与 \(f(x_1)\leqslant f(x_2)\)。前者招呼先分左支、右支，后者招呼用高度差丢掉站不住的那种，再证包含。</p>
             </div>
             <div class="solution-step">
                 <h3>先看函数图像</h3>
@@ -218,30 +272,52 @@
             </div>
             <div class="solution-step">
                 <h3>再确定集合里的元素</h3>
-                <p>图像看完了。读图时看四件事：\(x_0\) 是起点，\(f(x_0)\) 是起点的函数值，\(x_0+d\) 是移到的位置，\(f(x_0+d)&gt;f(x_0)\) 是移动后函数值变大。下面用代数把这四件事算成集合。</p>
-                <p>元素是 \(d\)。集合的条件是 \(f(x_0+d)&gt;f(x_0)\)。令</p>
+                <p>图像看完了。集合里装的是刻度 \(d\)，条件是 \(f(x_0+d)&gt;f(x_0)\)。令</p>
                 <div class="formula-block">$$t=x_0+d.$$</div>
-                <p>把移动后的位置暂时看成一个新的自变量。原来的 \(f(x_0+d)\) 就转化为 \(f(t)\)，可以直接按上面的分段和图像来看。先看哪些 \(t\) 满足 \(f(t)&gt;f(x_0)\)，再代回 \(d=t-x_0\)。先看左支，再看右支。</p>
+                <p>\(t\) 是走到的位置，\(d=t-x_0\) 才是刻度，两个字母不是同一个数。先看哪些 \(t\) 满足 \(f(t)&gt;f(x_0)\)，再代回 \(d=t-x_0\)。先看左支，再看右支。</p>
                 <p>\(x_0&lt;0\) 时，\(f(x_0)\) 是 \((0,1)\) 里的一个定值。拿 \(f(t)\) 和这个定值比。\(t&lt;0\) 时 \(f(t)\in(0,1)\)，\(t=0\) 时 \(f(t)=0\)，\(t&gt;0\) 时 \(f(t)\in(-1,0)\)。\(0\) 和右支都不超过 \(0\)，比这个定值小，不满足。</p>
                 <p>所以 \(t\) 还在左支。\(2^t\) 严格递增，\(f(t)&gt;f(x_0)\) 当且仅当 \(x_0&lt;t&lt;0\)。</p>
                 <div class="formula-block">$$x_0&lt;t&lt;0.$$</div>
                 <p>再代回 \(d=t-x_0\)。两边减去 \(x_0\)，得 \(0&lt;d&lt;-x_0\)。故</p>
                 <div class="formula-block">$$D(x_0)=(0,-x_0).$$</div>
-                <p>\(x_0&gt;0\) 时，\(f(x_0)\) 是 \((-1,0)\) 里的一个定值。条件仍是 \(f(t)&gt;f(x_0)\)。先换元，避免分段条件一直带着 \(x_0+d\)。右边列出的是 \(-2^{-x}\)。\(t&gt;0\) 时 \(f(t)=-2^{-t}\)。不换元，式子是 \(-2^{-(x_0+d)}\)，分段条件里还粘着 \(x_0+d\)。</p>
-                <p>\(t&lt;0\) 时，\(f(t)\in(0,1)\)。这段值都大于 \(0\)，而定值小于 \(0\)，所以 \(t&lt;0\) 全部满足。\(t=0\) 时，\(f(t)=0&gt;f(x_0)\)，也满足。所以 \(t\leqslant 0\) 都满足。</p>
+                <p>\(x_0&gt;0\) 时，\(f(x_0)\) 是 \((-1,0)\) 里的一个定值。条件仍是 \(f(t)&gt;f(x_0)\)。\(t&gt;0\) 时 \(f(t)=-2^{-t}\)；若不用 \(t\)，式子是 \(-2^{-(x_0+d)}\)，分段条件里还粘着 \(x_0+d\)。</p>
+                <p>\(t&lt;0\) 时不需要知道 \(f(x_0)\) 具体是几。只需要两件事：左支的值都 \(&gt;0\)；\(x_0&gt;0\) 所以 \(f(x_0)&lt;0\)。于是 \(t\leqslant 0\) 时 \(f(t)&gt;0&gt;f(x_0)\)，\(f(x_0)\) 是 \(-0.1\) 还是 \(-0.9\) 都成立。\(t=0\) 时 \(f(t)=0&gt;f(x_0)\)，也满足。所以 \(t\leqslant 0\) 都满足。</p>
                 <p>\(t&gt;0\) 时，\(f(t)\) 与 \(f(x_0)\) 在同一段。\(-2^{-t}\) 对 \(t\) 严格递增，所以 \(f(t)&gt;f(x_0)\) 当且仅当 \(t&gt;x_0\)。</p>
                 <p>合起来，满足不等式的是</p>
                 <div class="formula-block">$$t\in(-\infty,0]\cup(x_0,+\infty).$$</div>
                 <p>再代回 \(d=t-x_0\)。\(t\leqslant 0\) 化为 \(d\leqslant -x_0\)；\(t&gt;x_0\) 化为 \(d&gt;0\)。故</p>
                 <div class="formula-block">$$D(x_0)=(-\infty,-x_0]\cup(0,+\infty).$$</div>
-                <p>下面在 \(f(x_1)\leqslant f(x_2)\) 下，仍先看左支，再看右支。不等式先定出 \(x_1\)、\(x_2\)，两个集合只列在这里。图像和韦恩图用来看包含，代数留到任取再证。左支和一左一右配了图：蓝是 \(D(x_1)\) 里的 \(d\)，橙是 \(D(x_2)\) 里的 \(d\)。</p>
+                <p>拖动 \(d\)。走到的位置是 \(x_0+d\)，横段是刻度，竖段是高度差。绿色表示这个 \(d\) 进了 \(D(x_0)\)，红色表示没进。左支取 \(x_0=-2\)，右支取 \(x_0=1\)。这是看一个起点；两个集合谁包谁，看下面的数轴。</p>
+            </div>
+            <div class="interactive-panel">
+                <div class="slider-control">
+                    <label for="dSliderL"><strong>\(d\)：</strong></label>
+                    <input type="range" id="dSliderL" min="-1" max="2.5" step="0.05" value="1.5" aria-label="左支刻度 d">
+                    <span id="dValL" style="font-weight:700;color:var(--primary);min-width:5.5rem;">d = 1.5</span>
+                </div>
+                <div class="status-readout" id="dStatL"></div>
+                <div class="canvas-wrap">
+                    <div id="g-left" class="jxgbox" role="img" aria-label="起点负 2 在左支。拖动 d，横段是刻度，竖段是高度差。"></div>
+                    <p class="cap">左支，\(x_0=-2\)。</p>
+                </div>
+            </div>
+            <div class="interactive-panel">
+                <div class="slider-control">
+                    <label for="dSliderR"><strong>\(d\)：</strong></label>
+                    <input type="range" id="dSliderR" min="-3" max="2" step="0.05" value="-2" aria-label="右支刻度 d">
+                    <span id="dValR" style="font-weight:700;color:var(--primary);min-width:5.5rem;">d = −2</span>
+                </div>
+                <div class="status-readout" id="dStatR"></div>
+                <div class="canvas-wrap">
+                    <div id="g-right" class="jxgbox" role="img" aria-label="起点 1 在右支。拖动 d，横段是刻度，竖段是高度差。"></div>
+                    <p class="cap">右支，\(x_0=1\)。</p>
+                </div>
+            </div>
+            <div class="solution-step">
+                <p>包含要分情形。先用高度差看 \(x_1\)、\(x_2\) 各在左支还是右支：同一侧两种，跨过 \(0\) 两种。跨过 \(0\) 时先看高度差允不允许这么站，再比较集合。</p>
             </div>
             <div class="solution-step">
                 <p>都在左支。\(f(x_1)\leqslant f(x_2)\)，两边都在 \((0,1)\)。\(2^x\) 严格递增，所以满足这个不等式的是 \(x_1\leqslant x_2&lt;0\)。由上面左支的集合，\(D(x_1)=(0,-x_1)\)，\(D(x_2)=(0,-x_2)\)。</p>
-            </div>
-            <div class="canvas-wrap">
-                <div id="f-case-left" class="jxgbox" role="img" aria-label="两点都在左支。x1 等于负 2，x2 等于负 1。蓝色移动比橙色长，两段都停在 0 的左边。"></div>
-                <p class="cap">\(x_1=-2\)，\(x_2=-1\)。蓝段是 \((0,2)\)，橙段是 \((0,1)\)。两段都停在 \(0\) 的左边，右端是空心。</p>
             </div>
             <div class="solution-step">
                 <p>都在右支。\(f(x_1)\leqslant f(x_2)\)，两边都在 \((-1,0)\)。\(-2^{-x}\) 严格递增，所以满足这个不等式的是 \(0&lt;x_1\leqslant x_2\)。由上面右支的集合，</p>
@@ -254,27 +330,36 @@
                 <p>由右支的集合，</p>
                 <div class="formula-block">$$D(x_1)=(-\infty,-x_1]\cup(0,+\infty).$$</div>
             </div>
-            <div class="canvas-wrap">
-                <div id="f-case-mix" class="jxgbox" role="img" aria-label="x2 在左支，x1 在右支。橙色是从 x2 向右不到 0 的移动。蓝色是从 x1 向右的移动。"></div>
-                <p class="cap">\(x_1=1\)，\(x_2=-1\)。橙段是 \((0,1)\)，右端空心。蓝箭头是 \(d&gt;0\)。</p>
-            </div>
             <div class="solution-step">
                 <p>若 \(x_1\) 在左、\(x_2\) 在右，则 \(f(x_1)&gt;0&gt;f(x_2)\)，与 \(f(x_1)\leqslant f(x_2)\) 不合，这种情形不出现。</p>
+                <p>下面这一组是出现的那种：\(x_2=-1\) 在左，\(x_1=1\) 在右。同一个 \(d\) 加在两边，竖段是各自的高度差。</p>
+            </div>
+            <div class="interactive-panel">
+                <div class="slider-control">
+                    <label for="dSliderC"><strong>\(d\)：</strong></label>
+                    <input type="range" id="dSliderC" min="-2" max="2" step="0.05" value="0.85" aria-label="左右两边共用的刻度 d">
+                    <span id="dValC" style="font-weight:700;color:var(--primary);min-width:5.5rem;">d = 0.85</span>
+                </div>
+                <div class="status-readout" id="dStatC"></div>
+                <div class="canvas-wrap">
+                    <div id="g-cross" class="jxgbox" role="img" aria-label="x2 等于负 1 在左，x1 等于 1 在右。同一个 d，两条竖段是各自的高度差。"></div>
+                    <p class="cap">橙是 \(x_2\)，蓝是 \(x_1\)。</p>
+                </div>
             </div>
             <div class="solution-step">
-                <h3>用韦恩图看包含</h3>
-                <p>集合在这里表达包含。橙圈收 \(D(x_2)\) 里的 \(d\)，蓝圈收 \(D(x_1)\) 里的 \(d\)。要证的是橙圈整圈都在蓝圈里。图只负责看懂，证明在下一步用代数完成。</p>
+                <h3>用数轴看包含</h3>
+                <p>橙段是 \(D(x_2)\)，蓝段是 \(D(x_1)\)。三种情形画在同一张数轴上。</p>
             </div>
             <div class="canvas-wrap">
-                <div id="f-venn" class="jxgbox" role="img" aria-label="韦恩图：橙色小圈 D(x2) 完全落在蓝色大圈 D(x1) 里面。小圈里有一个点 d。"></div>
-                <p class="cap">点 \(d\) 在橙圈里，就一定也在蓝圈里。蓝圈里、橙圈外还可以有别的 \(d\)，那些只属于 \(D(x_1)\)。三种情形都是这张图。</p>
+                <div id="d-three" class="jxgbox" role="img" aria-label="三条数轴。橙段都没有伸出蓝段外面：左支时橙段更短；右支时左边的橙射线更短，右边一样长；一左一右时橙段只占蓝段向右的一截。"></div>
+                <p class="cap">上：都在左支，\(x_1=-2\)，\(x_2=-1\)。中：都在右支，\(x_1=1\)，\(x_2=2\)。下：\(x_2=-1\)，\(x_1=1\)。橙段没有伸出蓝段外面。</p>
             </div>
             <div class="solution-step">
                 <h3>任取一个元素</h3>
-                <p>代数完成证明。任取 \(d\in D(x_2)\)，证明这同一个 \(d\in D(x_1)\)。</p>
-                <p>都在左支。\(d\in(0,-x_2)\)。由 \(x_1\leqslant x_2&lt;0\) 得 \(-x_2\leqslant -x_1\)，所以 \(d\in(0,-x_1)\)，即 \(d\in D(x_1)\)。</p>
-                <p>都在右支。\(d\in D(x_2)\)，故 \(d&gt;0\) 或 \(d\leqslant -x_2\)。若 \(d&gt;0\)，则 \(d\in D(x_1)\)。若 \(d\leqslant -x_2\)，由 \(0&lt;x_1\leqslant x_2\) 得 \(d\leqslant -x_1\)，所以 \(d\in D(x_1)\)。</p>
-                <p>\(x_1\) 在右、\(x_2\) 在左。\(d\in(0,-x_2)\)，故 \(d&gt;0\)。由上面列出的 \(D(x_1)\)，\((0,+\infty)\subseteq D(x_1)\)，所以 \(d\in D(x_1)\)。</p>
+                <p>图上橙段在蓝段里面。翻译成代数就是一句话：任取橙段里的一个 \(d\)，它一定也在蓝段里。「任取」就是把图写成式子。下面三种情形都在验证这句话。</p>
+                <p>都在左支。<strong>目标：</strong>证 \(d\in D(x_1)\)，即 \(0&lt;d&lt;-x_1\)。<strong>已知：</strong>\(d\in D(x_2)\)，即 \(0&lt;d&lt;-x_2\)，且 \(x_1\leqslant x_2&lt;0\)。<strong>为什么走得通：</strong>由 \(x_1\leqslant x_2&lt;0\) 得 \(-x_2\leqslant -x_1\)，所以 \(d&lt;-x_2\leqslant -x_1\)，即 \(d\in D(x_1)\)。</p>
+                <p>都在右支。<strong>目标：</strong>证 \(d\in D(x_1)\)，即 \(d&gt;0\) 或 \(d\leqslant -x_1\)。<strong>已知：</strong>\(d\in D(x_2)\)，即 \(d&gt;0\) 或 \(d\leqslant -x_2\)，且 \(0&lt;x_1\leqslant x_2\)。<strong>为什么走得通：</strong>若 \(d&gt;0\)，已经在 \(D(x_1)\) 里。若 \(d\leqslant -x_2\)，由 \(x_1\leqslant x_2\) 得 \(d\leqslant -x_1\)，也在 \(D(x_1)\) 里。</p>
+                <p>\(x_1\) 在右、\(x_2\) 在左。<strong>目标：</strong>证 \(d\in D(x_1)\)。<strong>已知：</strong>\(d\in(0,-x_2)\)，所以 \(d&gt;0\)；上面已有 \((0,+\infty)\subseteq D(x_1)\)。<strong>为什么走得通：</strong>\(d&gt;0\) 已经落在 \((0,+\infty)\) 里，所以 \(d\in D(x_1)\)。</p>
             </div>
             <div class="result-box">三种可能的情形都有 \(D(x_2)\subseteq D(x_1)\)。</div>
         </section>
@@ -285,37 +370,58 @@
                 <h2>第（3）问：右半轴没有解析式</h2>
             </div>
             <div class="ask">条件①、②已知。证明 \(f(0)\geqslant 1\)，再证明 \(f\) 在 \((0,+\infty)\) 上单调递增。</div>
-            <p class="paper-note">有兴趣就看看。右半轴没有图像可看。集合把包含关系传过去，代数用负半轴的 \(2^x\) 把比较写精确。</p>
+            <p class="paper-note">有兴趣就看看。右半轴没有解析式。图上左支是实线，右支只标假定的位置。属于集合的刻度顺着大小关系传过去，代数用负半轴的 \(2^x\) 把比较写精确。</p>
             <div class="mindset-box setter-note">
                 <div class="mindset-title">出题人究竟想干嘛？</div>
-                <p>第（2）问里证过的包含关系，这里直接当作条件。右半轴不再给式子。能不能用左半轴上算得清的 \(2^x\)，把信息传到右边？</p>
+                <p>右半轴没有式子。条件①把「谁高」变成「谁的刻度集合更小」，左支 \(2^x\) 算准的刻度就顺着这个大小关系传到右边，用来比高低、看增减。</p>
             </div>
             <div class="mindset-box pit">
                 <div class="mindset-title">出题人挖的坑是什么？</div>
-                <p>\(x&lt;0\) 时 \(2^x&lt;1\)，\(1\) 取不到；反证时的移动要同时留在负半轴里又落进 \((0,1)\)，缺一边就推不出矛盾。（i）只给出 \(f(0)\) 的下界，正半轴递增还要另证；正半轴若出现正值再左移回 \(0\)，会和（i）顶上。</p>
+                <p>左支 \(2^x\) 的值都小于 \(1\)。不先用条件②把 \((0,1)\) 上的高度压住，就拿正刻度去传，比较没有着落；传过去的是刻度属不属于集合，不是把左支的函数值抄到右支。</p>
             </div>
             <div class="mindset-box">
                 <div class="mindset-title">如何与出题人对暗号？</div>
-                <p>暗号是条件①，它就是第（2）问的结论；还有一段特殊区间 \((0,1)\)。它招呼的是：反证法，以及用负半轴的 \(2^x\) 作参照。</p>
-            </div>
-            <div class="mindset-box">
-                <div class="mindset-title">反证，再用负半轴作参照</div>
-                <p>（i）若 \(f(0)&lt;1\)，则存在 \(u&lt;0\) 使 \(f(u)&gt;f(0)\)。在负半轴上取足够小的正移动，它属于 \(D(u)\)，由①进入 \(D(0)\)，与②矛盾。</p>
-                <p>（ii）先确定 \(x&gt;0\) 时 \(f(x)\) 的符号，再对任意正的移动距离，用负半轴上更小的函数值作参照，得到右移后函数值变大。</p>
-                <p>左边的指数函数算得清。函数值更小的点，能变大的移动更多。用这一点把右边的比较拉回来。</p>
+                <p>暗号是条件①和条件②的区间 \((0,1)\)。前者招呼顺着大小传刻度，后者招呼先压高度：先把右半轴压低，再看递增。</p>
             </div>
             <div class="solution-step">
-                <p>第（2）问的结论是：\(f(x_1)\leqslant f(x_2)\) 时 \(D(x_2)\subseteq D(x_1)\)。这一问把它当作条件①，直接用，不再证明。</p>
-                <p><strong>（i）</strong> \(x&lt;0\) 时 \(2^x\) 严格递增，值域为 \((0,1)\)。反设 \(f(0)&lt;1\)，则存在 \(u&lt;0\) 使 \(f(0)&lt;f(u)&lt;1\)。由①，\(D(u)\subseteq D(0)\)。</p>
-                <p>取 \(0&lt;h&lt;\min\{-u,1\}\)。则 \(u+h&lt;0\)，且 \(2^{u+h}&gt;2^u\)，故 \(h\in D(u)\subseteq D(0)\)，即 \(f(h)&gt;f(0)\)。又 \(0&lt;h&lt;1\)，由②得 \(f(h)&lt;f(0)\)，矛盾。所以 \(f(0)\geqslant 1\)。</p>
+                <p>回看翻译对照第 4 行：右半轴没有式子，用①只传递属于集合的 \(d\)。第（2）问已经证明 \(f(x_1)\leqslant f(x_2)\) 时 \(D(x_2)\subseteq D(x_1)\)。这一问把它当作条件①，直接用。</p>
+                <p><strong>（i）目标：</strong>证 \(f(0)\geqslant 1\)。直接推不好下手，用反证。<strong>反设</strong> \(f(0)&lt;1\)。<strong>手里有：</strong>②说 \(0&lt;x&lt;1\) 时 \(f(x)&lt;f(0)\)；①说谁高，谁的 \(D\) 更小。</p>
+                <p>\(x&lt;0\) 时 \(2^x\) 严格递增，值域为 \((0,1)\)。既然 \(f(0)&lt;1\)，左支就一定能找到 \(u&lt;0\)，让 \(f(u)\) 夹在 \(f(0)\) 和 \(1\) 之间：\(f(0)&lt;f(u)&lt;1\)。\(u\) 是值域保证的，不是先写下来的。有了 \(f(u)&gt;f(0)\)，由①得 \(D(u)\subseteq D(0)\)。</p>
+                <p>下一步要造矛盾。从 \(u\) 往右走一小步 \(h\)：\(u+h\) 还要在左支，所以 \(h&lt;-u\)；\(h\) 还要落在 \((0,1)\) 里，所以 \(h&lt;1\)。两件一起，就是 \(0&lt;h&lt;\min\{-u,1\}\)。于是 \(u+h&lt;0\)，且 \(2^{u+h}&gt;2^u\)，故 \(h\in D(u)\subseteq D(0)\)，即 \(f(h)&gt;f(0)\)。但 \(0&lt;h&lt;1\)，由②得 \(f(h)&lt;f(0)\)，矛盾。所以 \(f(0)\geqslant 1\)。</p>
+            </div>
+            <div class="canvas-wrap">
+                <div id="f-contra" class="jxgbox" role="img" aria-label="反设 f(0) 小于 1。水平线和左支交于 u。u 向右走一步升高。同一步挪到 0 的右边，落到水平线上面，打了叉。"></div>
+                <p class="cap">复盘上面的反设。左支上升高的一步 \(h\)，放到 \(0\) 的右边，落到了橙线上面；条件②要它在下面。</p>
             </div>
             <div class="solution-step">
-                <p><strong>（ii）</strong> 先准备两条由负半轴传出去的比较。\(x&lt;0\) 时 \(2^x\) 的值域是 \((0,1)\)，且严格递增。</p>
-                <p>右移：设 \(h&gt;0\)，且 \(f(x)&lt;2^{-h}\)。\(2^u\) 在 \(u&lt;-h\) 上的值域是 \((0,2^{-h})\)，故存在 \(u&lt;-h\) 使 \(f(u)&gt;f(x)\)。由①，\(D(u)\subseteq D(x)\)。又 \(u+h&lt;0\)，\(2^{u+h}&gt;2^u\)，故 \(h\in D(u)\subseteq D(x)\)，即 \(f(x+h)&gt;f(x)\)。</p>
-                <p>左移：设 \(f(x)&gt;0\)，\(h&gt;0\)。存在 \(u&lt;0\) 使 \(2^u\leqslant f(x)\)。由①，\(D(x)\subseteq D(u)\)。而 \(2^{u-h}&lt;2^u\)，故 \(-h\notin D(u)\)，从而 \(-h\notin D(x)\)，即 \(f(x-h)\leqslant f(x)\)。</p>
-                <p>于是 \(0&lt;x&lt;1\) 时，若 \(f(x)&gt;0\)，取 \(h=x\)，得 \(f(0)\leqslant f(x)\)，与②矛盾。故 \(f(x)\leqslant 0\)。</p>
-                <p>再设存在 \(a&gt;0\) 使 \(f(a)&gt;0\)。由左移，\(f(0)\leqslant f(a)\)。结合（i），\(f(a)\geqslant 1\)。取 \(0&lt;t&lt;\min\{a,1\}\)，则 \(f(t)\leqslant 0\)。取 \(u&lt;0\) 使 \(2^u&lt;f(a)\)，令 \(v=t-a+u\)。由 \(t&lt;a\) 得 \(v&lt;u&lt;0\)，故 \(2^v&lt;2^u\)。由①，\(D(u)\subseteq D(v)\)。令 \(d=a-u&gt;0\)，则 \(f(u+d)=f(a)&gt;f(u)\)，故 \(d\in D(u)\subseteq D(v)\)。于是 \(f(v+d)&gt;f(v)\)。而 \(v+d=t\)，\(f(v)=2^v&gt;0\)，得 \(f(t)&gt;0\)，与 \(f(t)\leqslant 0\) 矛盾。所以 \(x&gt;0\) 时 \(f(x)\leqslant 0\)。</p>
-                <p>任取 \(0&lt;x_1&lt;x_2\)，令 \(h=x_2-x_1&gt;0\)。\(f(x_1)\leqslant 0&lt;2^{-h}\)，由右移得 \(f(x_2)&gt;f(x_1)\)。</p>
+                <p><strong>（ii）</strong> 右半轴没有式子。先做两条准备，都只用左支 \(2^x\) 能算准的刻度。\(x&lt;0\) 时 \(2^x\) 的值域是 \((0,1)\)，且严格递增。</p>
+                <p><strong>向右。目标：</strong>证 \(f(x+h)&gt;f(x)\)。由定义，这就是 \(h\in D(x)\)。直接证这个属于不好下手：先找一个比 \(x\) 高的左支点 \(u\)，让 \(h\in D(u)\)，再靠 \(D(u)\subseteq D(x)\) 把 \(h\) 传过去。</p>
+                <p><strong>第一步，找 \(u\)。</strong>设 \(h&gt;0\)，且 \(f(x)&lt;2^{-h}\)。左支在 \((-\infty,-h)\) 上能取到 \((0,2^{-h})\)，所以存在 \(u&lt;-h\) 使 \(f(u)&gt;f(x)\)。</p>
+                <p><strong>第二步，包含的方向。</strong>\(f(x)&lt;f(u)\)，由①得 \(D(u)\subseteq D(x)\)。高的那个集合小，低的那个集合大。</p>
+                <p><strong>第三步，\(h\) 属于 \(D(u)\)。</strong>\(u+h&lt;0\)，且 \(2^{u+h}&gt;2^u\)，即 \(f(u+h)&gt;f(u)\)，所以 \(h\in D(u)\)。</p>
+                <p><strong>第四步，传过去。</strong>\(h\in D(u)\subseteq D(x)\)，即 \(f(x+h)&gt;f(x)\)。</p>
+                <p><strong>向左。目标：</strong>证 \(f(x-h)\leqslant f(x)\)，就是证 \(-h\notin D(x)\)。设 \(f(x)&gt;0\)，\(h&gt;0\)。<strong>第一步，找 \(u\)。</strong>左支能取到不超过 \(f(x)\) 的值，所以存在 \(u&lt;0\) 使 \(2^u\leqslant f(x)\)，即 \(f(u)\leqslant f(x)\)。<strong>第二步，包含的方向。</strong>由①，\(D(x)\subseteq D(u)\)。</p>
+                <p><strong>第三步，传过去。</strong>\(2^{u-h}&lt;2^u\)，向左这一步在左支上是下降，所以 \(-h\notin D(u)\)，也就 \(-h\notin D(x)\)，即 \(f(x-h)\leqslant f(x)\)。</p>
+                <p>于是 \(0&lt;x&lt;1\) 时，若 \(f(x)&gt;0\)，取 \(h=x\)，向左退回 \(0\) 得 \(f(0)\leqslant f(x)\)，与②矛盾。故这段上 \(f(x)\leqslant 0\)。</p>
+            </div>
+            <div class="canvas-wrap">
+                <div id="f-sign" class="jxgbox" role="img" aria-label="假定 (0,1) 里有一点在 x 轴上方。向左移回 0，得到 f(0) 不高于这个点，和条件②相反，点上打了叉。"></div>
+                <p class="cap">复盘上面把 \((0,1)\) 压到 \(\leqslant 0\) 的那一步。点若在 \(x\) 轴上方，向左退回 \(0\) 就和条件②相反。</p>
+            </div>
+            <div class="solution-step">
+                <p>再把 \(f\leqslant 0\) 从 \((0,1)\) 推到整个右半轴。设存在 \(a&gt;0\) 使 \(f(a)&gt;0\)。由向左那一条，取 \(h=a\)，得 \(f(0)\leqslant f(a)\)。结合（i），\(f(a)\geqslant 1\)。取 \(0&lt;t&lt;\min\{a,1\}\)，则 \(f(t)\leqslant 0\)。取 \(u&lt;0\) 使 \(2^u&lt;f(a)\)。</p>
+                <p>\(u\) 走到 \(a\) 是升高的。要把这同一步长的另一头落在已经 \(\leqslant 0\) 的 \(t\) 上，所以步长取 \(d=a-u\)，另一头的起点取 \(v=t-d\)，即 \(v=t-a+u\)。这样 \(u+d=a\)，\(v+d=t\)。因 \(t&lt;a\)，有 \(v&lt;u&lt;0\)，故 \(2^v&lt;2^u\)，\(f(v)&lt;f(u)\)。由①，\(D(u)\subseteq D(v)\)。又 \(f(u+d)=f(a)&gt;f(u)\)，故 \(d\in D(u)\subseteq D(v)\)，从而 \(f(t)=f(v+d)&gt;f(v)=2^v&gt;0\)，与 \(f(t)\leqslant 0\) 矛盾。所以 \(x&gt;0\) 时 \(f(x)\leqslant 0\)。\(v\)、\(d\) 只负责把同一步长的两头对齐，看懂为什么要对齐即可。</p>
+            </div>
+            <div class="canvas-wrap">
+                <div id="f-pull" class="jxgbox" role="img" aria-label="同一个位移 d：从 u 落到 a，从 v 落到 t。t 被推出要大于 0，但 t 在 0 和 1 之间已经小于等于 0，点上打了叉。"></div>
+                <p class="cap">复盘上面把同一步长两头对齐的那一步。\(t\) 被推出要大于 \(0\)，但它在 \((0,1)\) 里已经 \(\leqslant 0\)。</p>
+            </div>
+            <div class="solution-step">
+                <p>右半轴已经都 \(\leqslant 0\)。任取 \(0&lt;x_1&lt;x_2\)，令 \(h=x_2-x_1&gt;0\)。\(f(x_1)\leqslant 0&lt;2^{-h}\)，由向右那一条得 \(f(x_2)&gt;f(x_1)\)。</p>
+            </div>
+            <div class="canvas-wrap">
+                <div id="f-mono" class="jxgbox" role="img" aria-label="左支向右走 h 升高。同一段 h 从 x1 走到 x2，到达处更高。右支没有曲线。"></div>
+                <p class="cap">左支上向右走 \(h\) 是升高的。左支比 \(f(x_1)\) 高，这一步传到 \(x_1\)，再走到 \(x_2\) 也升高。</p>
             </div>
             <div class="result-box">\(f(0)\geqslant 1\)，且 \(f\) 在 \((0,+\infty)\) 上严格递增。</div>
         </section>
@@ -323,28 +429,29 @@
         <section class="card">
             <div class="section-header">
                 <span class="step-num">连</span>
-                <h2>看集合，写包含，再反推增减</h2>
+                <h2>先读刻度，再按高低把刻度传下去</h2>
             </div>
             <div class="handoff">
                 <article>
-                    <div class="tag">（1）看懂 \(D\)</div>
+                    <div class="tag">（1）读新定义</div>
                     <strong>算出 \(D(-1)\)</strong>
-                    <div class="give">图像看，代数算</div>
+                    <div class="give">高于 \(\dfrac{1}{2}\) 的位置，平移成刻度 \(d\)</div>
                 </article>
-                <div class="arrow">接着用</div>
+                <div class="arrow">同一套读法</div>
                 <article>
-                    <div class="tag">（2）包含</div>
+                    <div class="tag">（2）分左右比高低</div>
                     <strong>\(f(x_1)\leqslant f(x_2)\)</strong>
-                    <div class="give">推出 \(D(x_2)\subseteq D(x_1)\)</div>
+                    <div class="give">先看站在哪一侧，得 \(D(x_2)\subseteq D(x_1)\)</div>
                 </article>
-                <div class="arrow">接着用</div>
+                <div class="arrow">把包含当条件</div>
                 <article>
-                    <div class="tag">（3）反过来</div>
-                    <strong>用包含条件</strong>
-                    <div class="give">证明 \(f(0)\) 与正半轴递增</div>
+                    <div class="tag">（3）包含传刻度</div>
+                    <strong>用条件①②</strong>
+                    <div class="give">先压右半轴，再用正刻度证递增</div>
                 </article>
             </div>
-            <div class="motto">谁的函数值更大，谁的移动范围就更窄。</div>
+            <div class="motto">谁站得高，谁往上够的空间小；左边算准的刻度，顺着大小关系传给右边。</div>
+            <p>有兴趣就看看 <a href="2026年高考19-集合里的增减-训练.html">逻辑训练</a>。每块练一个动作：翻译、定位、找桥、传递。</p>
         </section>
 
         <section class="card paper-card">
@@ -365,7 +472,7 @@
                 <p>设 \(x_0&lt;0\)。\(f(x_0+d)&gt;f(x_0)\) 仅当 \(x_0+d&lt;0\) 且 \(d&gt;0\)，即 \(0&lt;d&lt;-x_0\)。故 \(D(x_0)=(0,-x_0)\)。</p>
                 <p>设 \(x_0&gt;0\)。若 \(d&gt;0\)，则 \(x_0+d&gt;x_0&gt;0\)。\(-2^{-x}\) 在 \((0,+\infty)\) 上严格递增，故 \(f(x_0+d)&gt;f(x_0)\)。若 \(d\leqslant -x_0\)，则 \(x_0+d\leqslant 0\)，\(f(x_0+d)\geqslant 0&gt;f(x_0)\)。若 \(-x_0&lt;d&lt;0\)，则 \(0&lt;x_0+d&lt;x_0\)，\(f(x_0+d)&lt;f(x_0)\)。故</p>
                 <div class="formula-block">$$D(x_0)=(-\infty,-x_0]\cup(0,+\infty).$$</div>
-                <p>由 \(f(x_1)\leqslant f(x_2)\) 且 \(x_1x_2\neq 0\)，分三种情形。</p>
+                <p>由 \(f(x_1)\leqslant f(x_2)\) 且 \(x_1x_2\neq 0\)，分以下情况讨论（其中 \(x_1&lt;0&lt;x_2\) 不出现）。</p>
                 <p>若 \(x_1&lt;0\)，\(x_2&lt;0\)，则由 \(2^x\) 在 \((-\infty,0)\) 上严格递增，得 \(x_1\leqslant x_2\)，故 \((0,-x_2)\subseteq(0,-x_1)\)，即 \(D(x_2)\subseteq D(x_1)\)。</p>
                 <p>若 \(x_1&gt;0\)，\(x_2&gt;0\)，则由 \(-2^{-x}\) 在 \((0,+\infty)\) 上严格递增，得 \(x_1\leqslant x_2\)，故 \((-\infty,-x_2]\subseteq(-\infty,-x_1]\)，即 \(D(x_2)\subseteq D(x_1)\)。</p>
                 <p>若 \(x_1&gt;0\)，\(x_2&lt;0\)，则 \(f(x_1)&lt;0&lt;f(x_2)\)，且 \(D(x_2)=(0,-x_2)\subseteq(0,+\infty)\subseteq D(x_1)\)。</p>
@@ -385,360 +492,537 @@
     </div>
     <script src="../../js/jsxgraphcore.js?v=1"></script>
     <script>
-        (function () {
-            var box = document.getElementById("f-half");
-            if (!box || !window.JXG) {
-                if (box) box.textContent = "图像未能载入。";
-                return;
-            }
-            var board = JXG.JSXGraph.initBoard("f-half", {
-                boundingbox: [-3, 1.6, 2.5, -1.45],
-                axis: true,
-                grid: false,
-                keepAspectRatio: true,
-                showCopyright: false,
-                showNavigation: false,
-                showInfobox: false,
-                pan: { enabled: false },
-                zoom: { enabled: false, wheel: false, pinch: false },
-                defaultAxes: {
-                    x: {
-                        name: "x",
-                        withLabel: true,
-                        strokeColor: "#94a3b8",
-                        label: { position: "rt", offset: [-4, 14], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
-                        ticks: {
-                            strokeColor: "#94a3b8",
-                            insertTicks: false,
-                            ticksDistance: 1,
-                            minorTicks: 0,
-                            majorHeight: 8,
-                            drawZero: false,
-                            label: { fontSize: 13, strokeColor: "#64748b", offset: [0, -8] }
-                        }
-                    },
-                    y: {
-                        name: "y",
-                        withLabel: true,
-                        strokeColor: "#94a3b8",
-                        label: { position: "rt", offset: [8, 4], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
-                        ticks: {
-                            strokeColor: "#94a3b8",
-                            insertTicks: false,
-                            ticksDistance: 1,
-                            minorTicks: 0,
-                            majorHeight: 8,
-                            drawZero: false,
-                            label: { fontSize: 13, strokeColor: "#64748b", offset: [-12, 0], anchorX: "right" },
-                            generateLabelText: function (tick) {
-                                var v = tick.usrCoords[2];
-                                var n = Math.round(v);
-                                if (Math.abs(v - n) > 1e-6) return String(v);
-                                return n < 0 ? "−" + (-n) : String(n);
-                            }
-                        }
-                    }
-                }
-            });
-            var gray = { strokeColor: "#94a3b8", strokeWidth: 2.4, highlight: false, numberPoints: 160 };
-            var blue = { strokeColor: "#2563eb", strokeWidth: 3.4, highlight: false, numberPoints: 80 };
-            board.create("segment", [[-2.85, 1 / 2], [2.25, 1 / 2]], {
-                strokeColor: "#ea580c", strokeWidth: 1.7, dash: 2, highlight: false
-            });
-            board.create("functiongraph", [function (x) { return Math.pow(2, x); }, -2.9, 0], gray);
-            board.create("functiongraph", [function (x) { return 1 - x; }, 0, 2.25], gray);
-            board.create("functiongraph", [function (x) { return Math.pow(2, x); }, -1, 0], blue);
-            board.create("functiongraph", [function (x) { return 1 - x; }, 0, 1 / 2], blue);
-            var open = {
-                name: "", size: 3.2, face: "o",
-                fillColor: "#fff", strokeColor: "#ea580c", strokeWidth: 2,
-                fixed: true, highlight: false, showInfobox: false, withLabel: false
-            };
-            board.create("point", [-1, 1 / 2], open);
-            board.create("point", [1 / 2, 1 / 2], open);
-            board.create("ticks", [board.defaultAxes.y, [1 / 2, -1 / 2, -3 / 2]], {
-                drawLabels: true,
+(function () {
+    var ids = ["f-base", "f-half", "f-shift", "f-odd", "g-left", "g-right", "g-cross", "d-three", "f-contra", "f-sign", "f-pull", "f-mono"];
+    if (!window.JXG) {
+        ids.forEach(function (id) {
+            var el = document.getElementById(id);
+            if (el) el.textContent = "图像未能载入。";
+        });
+        return;
+    }
+
+    var NAVY = "#1e3a8a";
+    var BLUE = "#2563eb";
+    var ORANGE = "#ea580c";
+    var GRAY = "#94a3b8";
+    var INK = "#0f172a";
+    var RED = "#dc2626";
+    var GREEN = "#15803d";
+    var BAND = "#dbeafe";
+
+    function axes() {
+        return {
+            x: {
+                name: "x",
+                withLabel: true,
                 strokeColor: "#94a3b8",
-                majorHeight: 8,
-                label: { offset: [-12, 0], fontSize: 13, strokeColor: "#64748b", anchorX: "right" },
-                generateLabelText: function (tick) {
-                    var v = tick.usrCoords[2];
-                    if (Math.abs(v - 1 / 2) < 1e-6) return "";
-                    if (Math.abs(v + 1 / 2) < 1e-6) return "−1/2";
-                    if (Math.abs(v + 3 / 2) < 1e-6) return "−3/2";
-                    return "";
+                label: { position: "rt", offset: [-4, 14], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                ticks: {
+                    strokeColor: "#94a3b8",
+                    insertTicks: false,
+                    ticksDistance: 1,
+                    minorTicks: 0,
+                    majorHeight: 8,
+                    drawZero: false,
+                    label: { fontSize: 13, strokeColor: "#64748b", offset: [0, -8] }
                 }
-            });
-            board.create("text", [-2.35, 0.92, "2ˣ"], {
-                fixed: true, highlight: false, parse: false, fontSize: 16,
-                strokeColor: "#64748b", cssStyle: "font-weight:700", anchorX: "left"
-            });
-            board.create("text", [1.28, -0.78, "1 − x"], {
-                fixed: true, highlight: false, parse: false, fontSize: 16,
-                strokeColor: "#64748b", cssStyle: "font-weight:700", anchorX: "left"
-            });
-            board.create("text", [1.45, 0.7, "y = 1/2"], {
-                fixed: true, highlight: false, parse: false, fontSize: 15,
-                strokeColor: "#ea580c", cssStyle: "font-weight:700", anchorX: "left"
-            });
-            board.create("ticks", [board.defaultAxes.x, [1 / 2]], {
-                drawLabels: true,
-                strokeColor: "#1e3a8a",
-                majorHeight: 10,
-                label: { offset: [0, -18], fontSize: 13, strokeColor: "#1e3a8a", cssStyle: "font-weight:700" },
-                generateLabelText: function () { return "1/2"; }
-            });
-        })();
-        (function () {
-            var box = document.getElementById("f-odd");
-            if (!box || !window.JXG) {
-                if (box) box.textContent = "图像未能载入。";
-                return;
-            }
-            var board = JXG.JSXGraph.initBoard("f-odd", {
-                boundingbox: [-3.3, 1.72, 3.3, -1.58],
-                axis: true,
-                grid: false,
-                keepAspectRatio: true,
-                showCopyright: false,
-                showNavigation: false,
-                showInfobox: false,
-                pan: { enabled: false },
-                zoom: { enabled: false, wheel: false, pinch: false },
-                defaultAxes: {
-                    x: {
-                        name: "x",
-                        withLabel: true,
-                        strokeColor: "#94a3b8",
-                        label: { position: "rt", offset: [-4, 14], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
-                        ticks: {
-                            strokeColor: "#94a3b8",
-                            insertTicks: false,
-                            ticksDistance: 1,
-                            minorTicks: 0,
-                            majorHeight: 8,
-                            drawZero: false,
-                            label: { fontSize: 13, strokeColor: "#64748b", offset: [0, -8] }
-                        }
-                    },
-                    y: {
-                        name: "y",
-                        withLabel: true,
-                        strokeColor: "#94a3b8",
-                        label: { position: "rt", offset: [8, 4], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
-                        ticks: {
-                            strokeColor: "#94a3b8",
-                            insertTicks: false,
-                            ticksDistance: 1,
-                            minorTicks: 0,
-                            majorHeight: 8,
-                            drawZero: false,
-                            label: { fontSize: 13, strokeColor: "#64748b", offset: [-12, 0], anchorX: "right" },
-                            generateLabelText: function (tick) {
-                                var v = tick.usrCoords[2];
-                                var n = Math.round(v);
-                                if (Math.abs(v - n) > 1e-6) return String(v);
-                                return n < 0 ? "−" + (-n) : String(n);
-                            }
-                        }
+            },
+            y: {
+                name: "y",
+                withLabel: true,
+                strokeColor: "#94a3b8",
+                label: { position: "rt", offset: [8, 4], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
+                ticks: {
+                    strokeColor: "#94a3b8",
+                    insertTicks: false,
+                    ticksDistance: 1,
+                    minorTicks: 0,
+                    majorHeight: 8,
+                    drawZero: false,
+                    label: { fontSize: 13, strokeColor: "#64748b", offset: [-12, 0], anchorX: "right" },
+                    generateLabelText: function (tick) {
+                        var v = tick.usrCoords[2];
+                        var n = Math.round(v);
+                        if (Math.abs(v - n) > 1e-6) return String(v);
+                        return n < 0 ? "−" + (-n) : String(n);
                     }
                 }
-            });
-            var curve = { strokeColor: "#2563eb", strokeWidth: 2.8, highlight: false, numberPoints: 180 };
-            board.create("functiongraph", [function (x) { return Math.pow(2, x); }, -3.15, -0.03], curve);
-            board.create("functiongraph", [function (x) { return -Math.pow(2, -x); }, 0.03, 3.15], curve);
-            var openLimit = {
-                name: "", size: 3.2, face: "o",
-                fillColor: "#fff", strokeColor: "#64748b", strokeWidth: 2,
+            }
+        };
+    }
+
+    function board(id, box, withAxis) {
+        var el = document.getElementById(id);
+        if (!el) return null;
+        return JXG.JSXGraph.initBoard(id, {
+            boundingbox: box,
+            axis: !!withAxis,
+            grid: false,
+            keepAspectRatio: true,
+            showCopyright: false,
+            showNavigation: false,
+            showInfobox: false,
+            pan: { enabled: false },
+            zoom: { enabled: false, wheel: false, pinch: false },
+            defaultAxes: withAxis ? axes() : undefined
+        });
+    }
+
+    function txt(b, x, y, str, color, size, ax, ay) {
+        b.create("text", [x, y, str], {
+            fixed: true, highlight: false, parse: false,
+            fontSize: size || 14,
+            strokeColor: color || "#64748b",
+            cssStyle: "font-weight:700",
+            anchorX: ax || "middle",
+            anchorY: ay || "middle"
+        });
+    }
+
+    function pt(b, xy, color, filled, size) {
+        b.create("point", xy, {
+            name: "", size: size || 3.4, face: "o",
+            fillColor: filled ? color : "#fff",
+            strokeColor: color, strokeWidth: 2,
+            fixed: true, highlight: false, showInfobox: false, withLabel: false
+        });
+    }
+
+    function seg(b, a, c, color, width, dash) {
+        b.create("segment", [a, c], {
+            strokeColor: color, strokeWidth: width || 2, dash: dash || 0, highlight: false
+        });
+    }
+
+    function arr(b, a, c, color, width) {
+        b.create("arrow", [a, c], {
+            strokeColor: color, strokeWidth: width || 2.2, highlight: false
+        });
+    }
+
+    function hline(b, y, xL, xR) {
+        seg(b, [xL, y], [xR, y], ORANGE, 1.7, 2);
+    }
+
+    function graph(b, fn, a, c, color, width, n) {
+        b.create("functiongraph", [fn, a, c], {
+            strokeColor: color, strokeWidth: width, highlight: false, numberPoints: n || 160
+        });
+    }
+
+    function aboveBand(b, fn, a, c, yLine, n) {
+        var pts = [[a, yLine]];
+        var i;
+        for (i = 0; i <= n; i++) {
+            var x = a + (c - a) * i / n;
+            pts.push([x, fn(x)]);
+        }
+        pts.push([c, yLine]);
+        b.create("polygon", pts, {
+            fillColor: BAND, fillOpacity: 0.9, highlight: false,
+            borders: { visible: false },
+            vertices: { visible: false, fixed: true }
+        });
+    }
+
+    function pow2(x) { return Math.pow(2, x); }
+    function negPow(x) { return -Math.pow(2, -x); }
+    function bump(x) { return 1.15 * Math.exp(-Math.pow((x - 0.2) / 1.35, 2)); }
+    function halfFn(x) { return x < 0 ? pow2(x) : 1 - x; }
+
+    function oddCurve(b, xL, xR, color, width) {
+        graph(b, pow2, xL, -0.03, color, width, 180);
+        graph(b, negPow, 0.03, xR, color, width, 180);
+    }
+
+    function markX(b, x, y) {
+        txt(b, x, y, "×", RED, 26);
+    }
+
+    var base = board("f-base", [-2.85, 1.72, 2.65, -0.95], true);
+    if (base) {
+        var x0b = -1.2;
+        var y0b = bump(x0b);
+        var xRb = 1.6;
+        aboveBand(base, bump, x0b, xRb, y0b, 56);
+        hline(base, y0b, -2.55, 2.35);
+        graph(base, bump, -2.6, 2.45, GRAY, 2.4, 180);
+        graph(base, bump, x0b, xRb, BLUE, 3.3, 120);
+        seg(base, [x0b, 0.02], [x0b, y0b], "#cbd5e1", 1.2, 2);
+        seg(base, [0.2, 0.02], [0.2, bump(0.2)], "#cbd5e1", 1.2, 2);
+        arr(base, [x0b, 0.16], [0.2, 0.16], NAVY, 2.2);
+        arr(base, [x0b, 0.16], [-1.72, 0.16], GRAY, 2);
+        pt(base, [x0b, y0b], ORANGE, false);
+        pt(base, [xRb, y0b], ORANGE, false);
+        pt(base, [0.2, bump(0.2)], BLUE, true, 4);
+        txt(base, -1.72, 0.85, "x₀", NAVY, 15);
+        txt(base, 0.7, 1.22, "x", BLUE, 15);
+        txt(base, 1.55, y0b + 0.22, "y = f(x₀)", ORANGE, 14, "left");
+        txt(base, -0.5, -0.38, "d>0", NAVY, 14);
+        txt(base, -1.85, -0.38, "d<0", GRAY, 14);
+        txt(base, 1.85, 1.42, "示意图", GRAY, 13);
+    }
+
+    var half = board("f-half", [-3, 1.6, 2.5, -1.45], true);
+    if (half) {
+        aboveBand(half, halfFn, -1, 0.5, 0.5, 48);
+        hline(half, 0.5, -2.85, 2.25);
+        graph(half, pow2, -2.9, 0, GRAY, 2.4, 160);
+        graph(half, function (x) { return 1 - x; }, 0, 2.25, GRAY, 2.4, 80);
+        graph(half, pow2, -1, 0, BLUE, 3.4, 80);
+        graph(half, function (x) { return 1 - x; }, 0, 0.5, BLUE, 3.4, 40);
+        pt(half, [-1, 0.5], ORANGE, false);
+        pt(half, [0.5, 0.5], ORANGE, false);
+        seg(half, [-1, 0.06], [-1, 0.42], "#cbd5e1", 1.2, 2);
+        half.create("ticks", [half.defaultAxes.y, [0.5, -0.5, -1.5]], {
+            drawLabels: true,
+            strokeColor: "#94a3b8",
+            majorHeight: 8,
+            label: { offset: [-12, 0], fontSize: 13, strokeColor: "#64748b", anchorX: "right" },
+            generateLabelText: function (tick) {
+                var v = tick.usrCoords[2];
+                if (Math.abs(v - 0.5) < 1e-6) return "";
+                if (Math.abs(v + 0.5) < 1e-6) return "−1/2";
+                if (Math.abs(v + 1.5) < 1e-6) return "−3/2";
+                return "";
+            }
+        });
+        txt(half, -2.35, 0.92, "2ˣ", GRAY, 16, "left");
+        txt(half, 1.28, -0.78, "1 − x", GRAY, 16, "left");
+        txt(half, 1.45, 0.72, "y = 1/2", ORANGE, 15, "left");
+        txt(half, -1.72, 0.22, "x₀", NAVY, 14);
+        half.create("ticks", [half.defaultAxes.x, [0.5]], {
+            drawLabels: true,
+            strokeColor: NAVY,
+            majorHeight: 10,
+            label: { offset: [0, -18], fontSize: 13, strokeColor: NAVY, cssStyle: "font-weight:700" },
+            generateLabelText: function () { return "1/2"; }
+        });
+    }
+
+    var shift = board("f-shift", [-2.15, 1.55, 2.45, -1.55], false);
+    if (shift) {
+        seg(shift, [-1.5, 0.62], [2.05, 0.62], "#e2e8f0", 2);
+        seg(shift, [-1.5, -0.62], [2.05, -0.62], "#e2e8f0", 2);
+        seg(shift, [-1, 0.62], [0.5, 0.62], NAVY, 6);
+        seg(shift, [0, -0.62], [1.5, -0.62], NAVY, 6);
+        pt(shift, [-1, 0.62], NAVY, false, 3.6);
+        pt(shift, [0.5, 0.62], NAVY, false, 3.6);
+        pt(shift, [0, -0.62], NAVY, false, 3.6);
+        pt(shift, [1.5, -0.62], NAVY, false, 3.6);
+        arr(shift, [-1, 0.32], [0, -0.32], ORANGE, 2);
+        arr(shift, [0.5, 0.32], [1.5, -0.32], ORANGE, 2);
+        txt(shift, -1.82, 0.62, "x", INK, 16);
+        txt(shift, -1.82, -0.62, "d", INK, 16);
+        txt(shift, -1, 1.05, "−1", NAVY, 14);
+        txt(shift, 0.5, 1.05, "1/2", NAVY, 14);
+        txt(shift, 0, -1.12, "0", NAVY, 14);
+        txt(shift, 1.5, -1.12, "3/2", NAVY, 14);
+        txt(shift, 0.15, 0.02, "+1", ORANGE, 16);
+    }
+
+    var odd = board("f-odd", [-3.3, 1.72, 3.3, -1.58], true);
+    if (odd) {
+        oddCurve(odd, -3.15, 3.15, BLUE, 2.8);
+        pt(odd, [0, 1], GRAY, false);
+        pt(odd, [0, -1], GRAY, false);
+        pt(odd, [0, 0], INK, true, 4);
+        txt(odd, -2.55, 0.72, "2ˣ", GRAY, 15);
+        txt(odd, 1.85, -0.72, "−2⁻ˣ", GRAY, 15);
+        txt(odd, 0.72, 0.28, "f(0)=0", INK, 15);
+    }
+
+    function fOdd(x) {
+        if (x < 0) return pow2(x);
+        if (x > 0) return negPow(x);
+        return 0;
+    }
+
+    function fmtNum(v) {
+        var n = Math.round(v * 100) / 100;
+        if (Math.abs(n) < 0.005) return "0";
+        var s = Math.abs(n).toFixed(2).replace(/0+$/, "").replace(/\.$/, "");
+        return (n < 0 ? "−" : "") + s;
+    }
+
+    function fmtDiff(v) {
+        var n = Math.round(v * 100) / 100;
+        if (Math.abs(n) < 0.005) return "0";
+        return (n > 0 ? "+" : "−") + Math.abs(n).toFixed(2);
+    }
+
+    function heightGroup(opts) {
+        var b = board(opts.id, opts.box, true);
+        var slider = document.getElementById(opts.slider);
+        var valEl = document.getElementById(opts.val);
+        var status = document.getElementById(opts.status);
+        if (!b || !slider || !status) return;
+        var xL = opts.box[0] + 0.2;
+        var xR = opts.box[2] - 0.35;
+        oddCurve(b, xL, xR, GRAY, 2.2);
+        pt(b, [0, 0], INK, true, 3.2);
+        var tracks = opts.tracks.map(function (tr) {
+            var y0 = fOdd(tr.x0);
+            seg(b, [xL, y0], [xR, y0], tr.color, 1.3, 2);
+            var start = b.create("point", [tr.x0, y0], {
+                name: "", size: 3.6, face: "o",
+                fillColor: "#fff", strokeColor: tr.color, strokeWidth: 2,
                 fixed: true, highlight: false, showInfobox: false, withLabel: false
-            };
-            board.create("point", [0, 1], openLimit);
-            board.create("point", [0, -1], openLimit);
-            board.create("point", [0, 0], {
+            });
+            var foot = b.create("point", [tr.x0, y0], {
+                name: "", size: 0, visible: false,
+                fixed: true, highlight: false, showInfobox: false, withLabel: false
+            });
+            var land = b.create("point", [tr.x0, y0], {
                 name: "", size: 4, face: "o",
-                fillColor: "#0f172a", strokeColor: "#0f172a", strokeWidth: 2,
+                fillColor: tr.color, strokeColor: tr.color, strokeWidth: 2,
                 fixed: true, highlight: false, showInfobox: false, withLabel: false
             });
-            function tag(x, y, str, color) {
-                board.create("text", [x, y, str], {
-                    fixed: true, highlight: false, parse: false, fontSize: 15,
-                    strokeColor: color || "#64748b", cssStyle: "font-weight:700",
-                    anchorX: "middle", anchorY: "middle"
-                });
-            }
-            tag(-2.55, 0.72, "2ˣ", "#64748b");
-            tag(1.85, -0.72, "−2⁻ˣ", "#64748b");
-            tag(0.72, 0.28, "f(0)=0", "#0f172a");
-        })();
-        (function () {
-            var box = document.getElementById("f-venn");
-            if (!box || !window.JXG) {
-                if (box) box.textContent = "图像未能载入。";
-                return;
-            }
-            var board = JXG.JSXGraph.initBoard("f-venn", {
-                boundingbox: [-5.2, 4.15, 5.2, -4.15],
-                axis: false,
-                grid: false,
-                keepAspectRatio: true,
-                showCopyright: false,
-                showNavigation: false,
-                showInfobox: false,
-                pan: { enabled: false },
-                zoom: { enabled: false, wheel: false, pinch: false }
+            b.create("segment", [start, foot], {
+                strokeColor: tr.color, strokeWidth: 2.4, highlight: false
             });
-            board.create("circle", [[0.55, 0], [0.55 + 3.35, 0]], {
-                strokeColor: "#1e3a8a", strokeWidth: 2.4,
-                fillColor: "#dbeafe", fillOpacity: 0.85,
-                highlight: false
+            var rise = b.create("segment", [foot, land], {
+                strokeColor: GREEN, strokeWidth: 3.4, highlight: false
             });
-            board.create("circle", [[-1.15, 0.15], [-1.15 + 1.35, 0.15]], {
-                strokeColor: "#ea580c", strokeWidth: 2.4,
-                fillColor: "#ffedd5", fillOpacity: 0.92,
-                highlight: false
+            txt(b, tr.x0 - 0.08, y0 + 0.32, tr.name, tr.color, 14);
+            function label(x, y, str, ax) {
+                return b.create("text", [x, y, str], {
+                    fixed: true, highlight: false, parse: false,
+                    fontSize: 14, strokeColor: tr.color,
+                    cssStyle: "font-weight:700",
+                    anchorX: ax || "middle", anchorY: "middle"
+                });
+            }
+            var dLbl = label(tr.x0, y0, "d", "middle");
+            var dyLbl = label(tr.x0, y0, "", "left");
+            return { tr: tr, y0: y0, foot: foot, land: land, rise: rise, dLbl: dLbl, dyLbl: dyLbl };
+        });
+        function update() {
+            var d = parseFloat(slider.value);
+            if (!isFinite(d)) return;
+            if (valEl) valEl.textContent = "d = " + fmtNum(d);
+            var parts = [];
+            tracks.forEach(function (tk) {
+                var x = tk.tr.x0 + d;
+                var y = fOdd(x);
+                var diff = y - tk.y0;
+                tk.foot.setPosition(JXG.COORDS_BY_USER, [x, tk.y0]);
+                tk.land.setPosition(JXG.COORDS_BY_USER, [x, y]);
+                var showD = Math.abs(d) >= 0.08;
+                tk.dLbl.setAttribute({ visible: showD });
+                if (showD) {
+                    var yD = tk.y0 >= 0 ? tk.y0 - 0.34 : tk.y0 + 0.34;
+                    tk.dLbl.setPosition(JXG.COORDS_BY_USER, [(tk.tr.x0 + x) / 2, yD]);
+                }
+                var mid = (tk.y0 + y) / 2;
+                if (Math.abs(diff) < 0.12) mid = Math.max(y, tk.y0) + 0.24;
+                var dye = Math.round(diff * 100) / 100 > 0.005 ? GREEN : RED;
+                tk.rise.setAttribute({ strokeColor: dye });
+                tk.dyLbl.setAttribute({ strokeColor: dye });
+                tk.dyLbl.setText(fmtDiff(diff));
+                tk.dyLbl.setPosition(JXG.COORDS_BY_USER, [x + 0.2, mid]);
+                var who = tk.tr.who ? tk.tr.who + " " : "";
+                parts.push(who + "从 " + fmtNum(tk.tr.x0) + " 走到 " + fmtNum(x) + "，高度差 " + fmtDiff(diff));
             });
-            board.create("point", [-1.35, -0.15], {
-                name: "d", size: 4, face: "o",
-                fillColor: "#0f172a", strokeColor: "#0f172a", strokeWidth: 2,
-                fixed: true, highlight: false, showInfobox: false,
-                label: { fontSize: 16, strokeColor: "#0f172a", offset: [8, -2], cssStyle: "font-weight:700" }
-            });
-            function tag(x, y, str, color) {
-                board.create("text", [x, y, str], {
-                    fixed: true, highlight: false, parse: false, fontSize: 18,
-                    strokeColor: color, cssStyle: "font-weight:700",
-                    anchorX: "middle", anchorY: "middle"
-                });
-            }
-            tag(-1.15, 0.85, "D(x₂)", "#ea580c");
-            tag(2.35, 1.35, "D(x₁)", "#1e3a8a");
-        })();
-        (function () {
-            var ids = ["f-case-left", "f-case-mix"];
-            if (!window.JXG) {
-                ids.forEach(function (id) {
-                    var box = document.getElementById(id);
-                    if (box) box.textContent = "图像未能载入。";
-                });
-                return;
-            }
-            var box = [-3.35, 2.25, 3.45, -1.7];
-            function make(id) {
-                var el = document.getElementById(id);
-                if (!el) return null;
-                return JXG.JSXGraph.initBoard(id, {
-                    boundingbox: box,
-                    axis: true,
-                    grid: false,
-                    keepAspectRatio: true,
-                    showCopyright: false,
-                    showNavigation: false,
-                    showInfobox: false,
-                    pan: { enabled: false },
-                    zoom: { enabled: false, wheel: false, pinch: false },
-                    defaultAxes: {
-                        x: {
-                            name: "x", withLabel: true, strokeColor: "#94a3b8",
-                            label: { position: "rt", offset: [-4, 14], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
-                            ticks: {
-                                strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0,
-                                majorHeight: 8, drawZero: false,
-                                label: { fontSize: 13, strokeColor: "#64748b", offset: [0, -8] }
-                            }
-                        },
-                        y: {
-                            name: "y", withLabel: true, strokeColor: "#94a3b8",
-                            label: { position: "rt", offset: [8, 4], fontSize: 14, strokeColor: "#64748b", cssStyle: "font-weight:700" },
-                            ticks: {
-                                strokeColor: "#94a3b8", insertTicks: false, ticksDistance: 1, minorTicks: 0,
-                                majorHeight: 8, drawZero: false,
-                                label: { fontSize: 13, strokeColor: "#64748b", offset: [-12, 0], anchorX: "right" },
-                                generateLabelText: function (tick) {
-                                    var v = tick.usrCoords[2];
-                                    var n = Math.round(v);
-                                    if (Math.abs(v - n) > 1e-6) return String(v);
-                                    return n < 0 ? "−" + (-n) : String(n);
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-            function base(board) {
-                var curve = { strokeColor: "#2563eb", strokeWidth: 2.6, highlight: false, numberPoints: 160 };
-                board.create("functiongraph", [function (x) { return Math.pow(2, x); }, -3.2, -0.03], curve);
-                board.create("functiongraph", [function (x) { return -Math.pow(2, -x); }, 0.03, 3.3], curve);
-                var hole = {
-                    name: "", size: 3, face: "o", fillColor: "#fff", strokeColor: "#64748b", strokeWidth: 2,
-                    fixed: true, highlight: false, showInfobox: false, withLabel: false
-                };
-                board.create("point", [0, 1], hole);
-                board.create("point", [0, -1], hole);
-                board.create("point", [0, 0], {
-                    name: "", size: 3.6, face: "o", fillColor: "#0f172a", strokeColor: "#0f172a", strokeWidth: 2,
-                    fixed: true, highlight: false, showInfobox: false, withLabel: false
-                });
-            }
-            function dot(board, xy, color) {
-                board.create("point", xy, {
-                    name: "", size: 4, face: "o", fillColor: color, strokeColor: color, strokeWidth: 2,
-                    fixed: true, highlight: false, showInfobox: false, withLabel: false
-                });
-            }
-            function holeAt(board, xy, color) {
-                board.create("point", xy, {
-                    name: "", size: 3.2, face: "o", fillColor: "#fff", strokeColor: color, strokeWidth: 2,
-                    fixed: true, highlight: false, showInfobox: false, withLabel: false
-                });
-            }
-            function tag(board, x, y, str, color) {
-                board.create("text", [x, y, str], {
-                    fixed: true, highlight: false, parse: false, fontSize: 14,
-                    strokeColor: color, cssStyle: "font-weight:700", anchorX: "middle", anchorY: "middle"
-                });
-            }
-            function guide(board, x, y0, y1) {
-                board.create("segment", [[x, y0], [x, y1]], {
-                    strokeColor: "#cbd5e1", strokeWidth: 1.2, dash: 2, highlight: false
-                });
-            }
-            var navy = "#1e3a8a", orange = "#ea580c";
-            var left = make("f-case-left");
-            if (left) {
-                base(left);
-                var x1 = -2, x2 = -1;
-                dot(left, [x1, Math.pow(2, x1)], navy);
-                dot(left, [x2, Math.pow(2, x2)], orange);
-                guide(left, x1, Math.pow(2, x1), 1.22);
-                guide(left, x2, Math.pow(2, x2), 1.55);
-                left.create("segment", [[x1 + 0.06, 1.22], [-0.08, 1.22]], { strokeColor: navy, strokeWidth: 3, highlight: false });
-                left.create("segment", [[x2 + 0.06, 1.55], [-0.08, 1.55]], { strokeColor: orange, strokeWidth: 3, highlight: false });
-                holeAt(left, [x1 + 0.06, 1.22], navy);
-                holeAt(left, [-0.08, 1.22], navy);
-                holeAt(left, [x2 + 0.06, 1.55], orange);
-                holeAt(left, [-0.08, 1.55], orange);
-                tag(left, x1 - 0.32, 0.46, "x₁", navy);
-                tag(left, -1.45, 0.78, "x₂", orange);
-                tag(left, -1.2, 1.02, "D(x₁)", navy);
-                tag(left, -1.55, 1.78, "D(x₂)", orange);
-            }
-            var mix = make("f-case-mix");
-            if (mix) {
-                base(mix);
-                dot(mix, [1, -Math.pow(2, -1)], navy);
-                dot(mix, [-1, Math.pow(2, -1)], orange);
-                guide(mix, -1, 0.5, 1.55);
-                guide(mix, 1, -0.5, 0.42);
-                mix.create("segment", [[-0.94, 1.55], [-0.08, 1.55]], { strokeColor: orange, strokeWidth: 3, highlight: false });
-                holeAt(mix, [-0.94, 1.55], orange);
-                holeAt(mix, [-0.08, 1.55], orange);
-                mix.create("arrow", [[1.08, 0.42], [3.15, 0.42]], { strokeColor: navy, strokeWidth: 2.2, highlight: false });
-                tag(mix, -1.35, 0.62, "x₂", orange);
-                tag(mix, 1, -0.78, "x₁", navy);
-                tag(mix, -0.55, 1.82, "D(x₂)", orange);
-                tag(mix, 2.15, 0.68, "d>0", navy);
-            }
-        })();
+            status.textContent = "d = " + fmtNum(d) + "。" + parts.join("；") + "。";
+            b.update();
+        }
+        slider.addEventListener("input", update);
+        update();
+    }
+
+    heightGroup({
+        id: "g-left",
+        slider: "dSliderL",
+        val: "dValL",
+        status: "dStatL",
+        box: [-3.5, 1.75, 1.8, -1.45],
+        tracks: [{ x0: -2, color: ORANGE, name: "x₀" }]
+    });
+    heightGroup({
+        id: "g-right",
+        slider: "dSliderR",
+        val: "dValR",
+        status: "dStatR",
+        box: [-2.8, 1.55, 3.9, -1.55],
+        tracks: [{ x0: 1, color: NAVY, name: "x₀" }]
+    });
+    heightGroup({
+        id: "g-cross",
+        slider: "dSliderC",
+        val: "dValC",
+        status: "dStatC",
+        box: [-3.6, 1.7, 4.1, -1.55],
+        tracks: [
+            { x0: -1, color: ORANGE, name: "x₂", who: "左边 x₂" },
+            { x0: 1, color: NAVY, name: "x₁", who: "右边 x₁" }
+        ]
+    });
+
+    var three = board("d-three", [-5.05, 3.5, 5.05, -3.2], false);
+    if (three) {
+        txt(three, -4.7, 3.15, "蓝 D(x₁)", NAVY, 14, "left");
+        txt(three, -1.5, 3.15, "橙 D(x₂)", ORANGE, 14, "left");
+
+        function row(y, title) {
+            txt(three, -4.7, y + 0.78, title, INK, 14, "left");
+            seg(three, [-4.35, y], [4.45, y], "#e2e8f0", 2);
+        }
+        function tagN(x, y, str, color) {
+            txt(three, x, y - 0.48, str, color, 13);
+        }
+        function openAt(x, y, color) { pt(three, [x, y], color, false, 3.6); }
+        function fillAt(x, y, color) { pt(three, [x, y], color, true, 3.8); }
+
+        var up = 0.28;
+        row(1.85, "左支：x₁=−2，x₂=−1");
+        seg(three, [0, 1.85], [2, 1.85], NAVY, 5);
+        seg(three, [0, 1.85 + up], [1, 1.85 + up], ORANGE, 5);
+        openAt(0, 1.85, NAVY);
+        openAt(2, 1.85, NAVY);
+        openAt(0, 1.85 + up, ORANGE);
+        openAt(1, 1.85 + up, ORANGE);
+        tagN(0, 1.85, "0", INK);
+        tagN(1, 1.85, "1", ORANGE);
+        tagN(2, 1.85, "2", NAVY);
+
+        row(-0.15, "右支：x₁=1，x₂=2");
+        arr(three, [-1.12, -0.15], [-4.35, -0.15], NAVY, 3.2);
+        arr(three, [0.14, -0.15], [4.4, -0.15], NAVY, 3.2);
+        arr(three, [-2.12, -0.15 + up], [-4.35, -0.15 + up], ORANGE, 3.2);
+        arr(three, [0.14, -0.15 + up], [4.4, -0.15 + up], ORANGE, 3.2);
+        fillAt(-2, -0.15 + up, ORANGE);
+        fillAt(-1, -0.15, NAVY);
+        openAt(0, -0.15, NAVY);
+        openAt(0, -0.15 + up, ORANGE);
+        tagN(-2, -0.15, "−2", ORANGE);
+        tagN(-1, -0.15, "−1", NAVY);
+        tagN(0, -0.15, "0", INK);
+
+        row(-2.15, "x₂ 在左，x₁ 在右");
+        arr(three, [-1.12, -2.15], [-4.35, -2.15], NAVY, 3.2);
+        arr(three, [0.14, -2.15], [4.4, -2.15], NAVY, 3.2);
+        seg(three, [0, -2.15 + up], [1, -2.15 + up], ORANGE, 5);
+        fillAt(-1, -2.15, NAVY);
+        openAt(0, -2.15, NAVY);
+        openAt(0, -2.15 + up, ORANGE);
+        openAt(1, -2.15 + up, ORANGE);
+        tagN(-1, -2.15, "−1", NAVY);
+        tagN(0, -2.15, "0", INK);
+        tagN(1, -2.15, "1", ORANGE);
+    }
+
+    var contra = board("f-contra", [-2.7, 1.65, 2.55, -0.85], true);
+    if (contra) {
+        var yF = 0.5;
+        var uC = -1;
+        var hC = 0.5;
+        graph(contra, pow2, -2.55, -0.03, GRAY, 2.4, 140);
+        graph(contra, pow2, uC, uC + hC, BLUE, 3.6, 40);
+        hline(contra, yF, -2.45, 1.7);
+        pt(contra, [0, 1], GRAY, false);
+        pt(contra, [uC, yF], NAVY, true, 4);
+        pt(contra, [uC + hC, pow2(uC + hC)], BLUE, true, 4);
+        pt(contra, [0, yF], RED, true, 4.4);
+        seg(contra, [uC, yF], [uC, 0.18], "#cbd5e1", 1.2, 2);
+        seg(contra, [uC + hC, pow2(uC + hC)], [uC + hC, 0.18], "#cbd5e1", 1.2, 2);
+        seg(contra, [0, yF], [0, 0.18], "#cbd5e1", 1.2, 2);
+        seg(contra, [hC, 0.18], [hC, 0.92], "#cbd5e1", 1.2, 2);
+        arr(contra, [uC, 0.18], [uC + hC, 0.18], NAVY, 2.2);
+        arr(contra, [0, 0.18], [hC, 0.18], NAVY, 2.2);
+        markX(contra, hC + 0.02, 1.02);
+        txt(contra, -2.15, 0.95, "2ˣ", GRAY, 14);
+        txt(contra, uC - 0.18, yF + 0.22, "u", NAVY, 14);
+        txt(contra, -0.75, 0.38, "h", NAVY, 14);
+        txt(contra, 0.25, 0.38, "h", NAVY, 14);
+        txt(contra, 0.72, 0.72, "反设 f(0)", RED, 13, "left");
+        txt(contra, 0.85, 1.15, "落到线上面", RED, 13, "left");
+        txt(contra, 0.85, 0.28, "要在线下面", ORANGE, 13, "left");
+        txt(contra, 1.55, 1.38, "右支未知", GRAY, 13, "left");
+    }
+
+    var sign = board("f-sign", [-2.85, 1.4, 2.15, -0.9], true);
+    if (sign) {
+        graph(sign, pow2, -2.7, -0.03, GRAY, 2.4, 140);
+        graph(sign, pow2, -1.5, -1, BLUE, 3.5, 30);
+        seg(sign, [-1, 0.5], [0.5, 0.5], ORANGE, 1.7, 2);
+        pt(sign, [0, 1], GRAY, false);
+        pt(sign, [-1, 0.5], NAVY, true, 4);
+        pt(sign, [-1.5, pow2(-1.5)], BLUE, true, 4);
+        pt(sign, [0.5, 0.5], RED, true, 4.4);
+        seg(sign, [-1, 0.5], [-1, 0.16], "#cbd5e1", 1.2, 2);
+        seg(sign, [-1.5, pow2(-1.5)], [-1.5, 0.16], "#cbd5e1", 1.2, 2);
+        seg(sign, [0.5, 0.5], [0.5, 0.16], "#cbd5e1", 1.2, 2);
+        arr(sign, [-1, 0.16], [-1.5, 0.16], NAVY, 2.2);
+        arr(sign, [0.5, 0.16], [0.02, 0.16], NAVY, 2.2);
+        markX(sign, 0.72, 0.72);
+        txt(sign, -2.25, 0.85, "2ˣ", GRAY, 14);
+        txt(sign, -0.78, 0.72, "u", NAVY, 14);
+        txt(sign, -1.25, 0.34, "h", NAVY, 14);
+        txt(sign, 0.28, -0.42, "(0,1)", GRAY, 13);
+        txt(sign, 0.85, 0.42, "假定 >0", RED, 13, "left");
+        txt(sign, 1.15, 1.05, "右支未知", GRAY, 13, "left");
+    }
+
+    var pull = board("f-pull", [-3.45, 1.8, 2.85, -1.4], true);
+    if (pull) {
+        graph(pull, pow2, -3.25, -0.03, GRAY, 2.4, 150);
+        graph(pull, pow2, -2.5, -1, BLUE, 3.4, 40);
+        seg(pull, [0.15, 1], [2.55, 1], GRAY, 1.3, 2);
+        pt(pull, [0, 1], GRAY, false);
+        pt(pull, [-2.5, pow2(-2.5)], NAVY, true, 4);
+        pt(pull, [-1, 0.5], NAVY, true, 4);
+        pt(pull, [2, 1.22], RED, true, 4.4);
+        pt(pull, [0.5, 0], GRAY, true, 4);
+        seg(pull, [-2.5, pow2(-2.5)], [-2.5, -1.02], "#cbd5e1", 1.2, 2);
+        seg(pull, [-1, 0.5], [-1, -0.55], "#cbd5e1", 1.2, 2);
+        seg(pull, [2, 1.22], [2, -0.55], "#cbd5e1", 1.2, 2);
+        seg(pull, [0.5, 0], [0.5, -1.02], "#cbd5e1", 1.2, 2);
+        arr(pull, [-1, -0.55], [2, -0.55], NAVY, 2.2);
+        arr(pull, [-2.5, -1.02], [0.5, -1.02], NAVY, 2.2);
+        markX(pull, 0.5, 0.42);
+        txt(pull, -2.95, 0.55, "2ˣ", GRAY, 14);
+        txt(pull, -2.5, pow2(-2.5) + 0.22, "v", NAVY, 14);
+        txt(pull, -0.72, 0.68, "u", NAVY, 14);
+        txt(pull, 2.22, 1.42, "a", RED, 14, "left");
+        txt(pull, 2.22, 1.05, "≥1", RED, 13, "left");
+        txt(pull, 0.78, 0.22, "t ≤0", GRAY, 13, "left");
+        txt(pull, 0.55, -0.32, "d", NAVY, 14);
+        txt(pull, -1.0, -1.22, "d", NAVY, 14);
+        txt(pull, 1.15, 0.42, "要 >0", RED, 13, "left");
+        txt(pull, 1.7, 0.55, "右支未知", GRAY, 13, "left");
+    }
+
+    var mono = board("f-mono", [-3.35, 1.6, 3.45, -1.45], true);
+    if (mono) {
+        var y1 = -0.4;
+        aboveBand(mono, pow2, -3.15, -0.04, y1, 42);
+        hline(mono, y1, -3.1, 3.2);
+        graph(mono, pow2, -3.15, -0.04, GRAY, 2.3, 140);
+        graph(mono, pow2, -2, -1, BLUE, 3.6, 30);
+        pt(mono, [0, 1], GRAY, false);
+        pt(mono, [-2, 0.25], BLUE, true, 4);
+        pt(mono, [-1, 0.5], BLUE, true, 4);
+        pt(mono, [1, y1], NAVY, true, 4.2);
+        seg(mono, [-2, 0.25], [-2, 0.08], "#cbd5e1", 1.2, 2);
+        seg(mono, [-1, 0.5], [-1, 0.08], "#cbd5e1", 1.2, 2);
+        seg(mono, [1, y1], [1, 0.08], "#cbd5e1", 1.2, 2);
+        seg(mono, [2, y1], [2, -0.02], NAVY, 1.6, 2);
+        arr(mono, [-2, 0.08], [-1, 0.08], NAVY, 2.2);
+        arr(mono, [1, 0.08], [2, 0.08], NAVY, 2.2);
+        arr(mono, [2, y1 + 0.06], [2, -0.04], NAVY, 2.2);
+        txt(mono, -2.85, 0.72, "2ˣ", GRAY, 14);
+        txt(mono, -2.28, 0.48, "u", BLUE, 14);
+        txt(mono, -1.5, 0.28, "h", NAVY, 14);
+        txt(mono, 1.5, 0.28, "h", NAVY, 14);
+        txt(mono, 1, -0.72, "x₁", NAVY, 14);
+        txt(mono, 2.38, -0.22, "更高", NAVY, 14, "left");
+        txt(mono, -2.45, -0.82, "y=f(x₁)", ORANGE, 13, "left");
+        txt(mono, 2.15, 0.85, "右支无解析式", GRAY, 13, "left");
+        txt(mono, -1.7, 1.22, "左支在线上面", BLUE, 13);
+    }
+})();
     </script>
     <script>
         (function () {
