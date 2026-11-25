@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <link rel="stylesheet" href="../css/site.css?v=1">
+    <link rel="icon" href="../icons/favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="../icons/favicon.ico" sizes="32x32">
+    <title>证明与验算 · 记一数学</title>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: { fontCache: 'global' }
+        };
+        (function () {
+            var sources = [
+                '../vendor/tex-svg.js?v=1',
+                'https://cdn.bootcdn.net/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js',
+                'https://unpkg.com/mathjax@3.2.2/es5/tex-svg.js'
+            ];
+            function giveUp() {
+                var note = document.createElement('p');
+                note.textContent = '数学公式未能渲染。请确认能访问到 vendor/tex-svg.js。';
+                note.style.cssText = 'width:min(1440px,calc(100% - 1.5rem));margin:1rem auto;padding:0.8rem 1rem;background:#fef3c7;border:1px solid #f59e0b;border-radius:8px;color:#92400e;';
+                document.body.prepend(note);
+            }
+            function load(i) {
+                if (i >= sources.length) {
+                    if (document.body) giveUp();
+                    else document.addEventListener('DOMContentLoaded', giveUp);
+                    return;
+                }
+                var s = document.createElement('script');
+                s.async = true;
+                s.src = sources[i];
+                s.onload = function () {
+                    if (!window.MathJax || !window.MathJax.version) load(i + 1);
+                };
+                s.onerror = function () { load(i + 1); };
+                document.head.appendChild(s);
+            }
+            load(0);
+        })();
+    </script>
+</head>
+<body class="lecture">
+    <div class="now-asking" id="nowAsking">
+        <div class="bar-tools">
+            <button type="button" class="home-link" onclick="printLecture()">打印</button>
+            <a class="home-link" href="../index.html">返回目录</a>
+        </div>
+        <div class="now-inner">
+            <span class="now-label" id="nowLabel">方法</span>
+            <div class="now-text" id="nowText">证明负责保证结论正确；验算负责发现人为错误。</div>
+        </div>
+    </div>
+    <div class="container">
+        <header>
+            <div class="section-kicker">方法</div>
+            <h1>证明与验算</h1>
+            <p>数学逻辑与解题实践，各管一层，不能混为一谈。</p>
+            <p>证明写完，结论就该站住；验算是帮自己抓笔误，不是证明缺的那一块。</p>
+            <div class="badge-group">
+                <span class="badge">逻辑严谨</span>
+                <span class="badge">实践纠错</span>
+            </div>
+        </header>
+
+        <section class="card" data-q="总原则">
+            <div class="section-header">
+                <span class="step-num">总</span>
+                <h2>一句话</h2>
+            </div>
+            <div class="motto">不要把防粗心的技巧，抬成证明里的必要环节。</div>
+            <div class="mindset-box">
+                <div class="mindset-title">两层分开看</div>
+                <p><strong>数学逻辑：</strong>充要性写全了，证明就完整。多验一次，不等于刚才还差一步。</p>
+                <p><strong>考试实践：</strong>紧张、疲劳时，符号可能写反，某步可能算错。代回、估数量级、看图，能及时抓住人为错误。</p>
+                <p>工具有用，要知道为什么有用，而不是盲目执行套路。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="对照表">
+            <div class="section-header">
+                <span class="step-num">表</span>
+                <h2>对照表</h2>
+            </div>
+            <div class="matryoshka-box translate-block">
+                <div class="matryoshka-title">对暗号 · 对照表</div>
+                <p class="translate-lead">认出这一步属于哪一层 → 知道它该不该进证明 → 决定考场上要不要动它。</p>
+                <div class="translate-wrap">
+                    <table class="translate-table">
+                        <thead>
+                            <tr>
+                                <th>解题环节<span>这一步叫什么</span></th>
+                                <th>数学逻辑<span>证明要不要它</span></th>
+                                <th>实践价值<span>什么时候有用</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td data-label="解题环节">端点检查</td>
+                                <td data-label="数学逻辑">充要性已完整证明时<strong>非必要</strong></td>
+                                <td data-label="实践价值">抓开闭、边界笔误</td>
+                            </tr>
+                            <tr>
+                                <td data-label="解题环节">等号成立条件</td>
+                                <td data-label="数学逻辑">看最值是否真正取得、条件是否取得到</td>
+                                <td data-label="实践价值">代回临界值一眼看穿</td>
+                            </tr>
+                            <tr>
+                                <td data-label="解题环节">增根检验</td>
+                                <td data-label="数学逻辑">变形<strong>不等价</strong>时必要；等价则不必为验而验</td>
+                                <td data-label="实践价值">先问：有没有引入额外限制或扩大解集</td>
+                            </tr>
+                            <tr>
+                                <td data-label="解题环节">特殊值代入</td>
+                                <td data-label="数学逻辑">一般非必要；构造反例、证必要性时可以是关键一步</td>
+                                <td data-label="实践价值">排除选项、验复杂式子</td>
+                            </tr>
+                            <tr>
+                                <td data-label="解题环节">数量级估算</td>
+                                <td data-label="数学逻辑">非必要</td>
+                                <td data-label="实践价值">数量级差很多时快抓错</td>
+                            </tr>
+                            <tr>
+                                <td data-label="解题环节">图像辅助</td>
+                                <td data-label="数学逻辑">单靠看图不能代替证明；有明确函数性质作依据时，可参与严格论证</td>
+                                <td data-label="实践价值">看根的个数、找破局点</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">自己问三句</div>
+                <p>1. 不做这一步，逻辑还完整吗？——完整就不是证明缺口。</p>
+                <p>2. 这一步容易手滑吗？——容易就值得验。</p>
+                <p>3. 前面已经保证正确了吗？——保证了，验算只是复查，不是补证。</p>
+            </div>
+            <div class="mindset-box pit">
+                <div class="mindset-title">去分母别一锅炖</div>
+                <p>乘以一个已知正数，是等价变形；乘以符号不确定的式子，就要分类或改写法。两者不能混成「去分母必查」。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="端点检查">
+            <div class="section-header">
+                <span class="step-num">例</span>
+                <h2>端点检查怎么摆</h2>
+            </div>
+            <div class="case-grid">
+                <div class="case-card">
+                    <h4>数学逻辑</h4>
+                    <p>非必要。一路严格不等式推到边界，充要性已经完了。</p>
+                </div>
+                <div class="case-card">
+                    <h4>解题规范</h4>
+                    <p>不要求机械每题都做。证明写清开闭即可。</p>
+                </div>
+                <div class="case-card">
+                    <h4>考试实践</h4>
+                    <p>可以作纠错：代回临界值，看等号能不能踩。</p>
+                </div>
+                <div class="case-card">
+                    <h4>思维训练</h4>
+                    <p>不能替代充要性证明。会验，也要会证。</p>
+                </div>
+            </div>
+            <div class="mindset-box pit">
+                <div class="mindset-title">常见踩空</div>
+                <p>把「交卷前多看一眼」说成「不验证明就不完整」——两层搅在一起了。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">什么时候值得启动</div>
+                <p>不是「出现某类题就必须验」，而是「心里没底或链条很长时，可以选用」：</p>
+                <p>1. 恒成立转化为最值后，留意最值是否取得、等号能否成立。</p>
+                <p>2. 换元后，确认新变量的取值范围是否完整、与原变量是否对应。</p>
+                <p>3. 对严格不等号、开闭区间边界没有把握时，可以代回临界值。</p>
+                <p>4. 计算过程较长时，可以用特殊值、数量级和图像辅助复核。</p>
+            </div>
+        </section>
+
+        <section class="card" data-q="前辈怎么说">
+            <div class="section-header">
+                <span class="step-num">读</span>
+                <h2>前辈怎么说</h2>
+            </div>
+            <p>分层不是我们发明的。下面分两行写：上面是原著核心思想，下面是对本主题的教学解读。不要把解读误当成原话。</p>
+            <div class="mindset-box">
+                <div class="mindset-title">波利亚 · 回顾</div>
+                <p><strong>乔治·波利亚</strong>（George Pólya），匈牙利人，后长期在美国工作。1887 年生于布达佩斯。</p>
+                <p><strong>原著核心思想：</strong>区分论证推理与合情推理；解题四步的最后一步是「回顾」——检验结果、检查论证、看能否更短或换路。</p>
+                <p><strong>对本主题的教学解读：</strong>回顾帮你确认没算傻；它是发现与防错的实践，不是发表时证明正文里缺的那一块。</p>
+                <p><strong>出处：</strong>《怎样解题》（How to Solve It，1945）；《数学与猜想》（Mathematics and Plausible Reasoning，1954）。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">拉卡托斯 · 边界</div>
+                <p><strong>伊姆雷·拉卡托斯</strong>（Imre Lakatos），匈牙利人，后在英国任教。1922 年生于德布勒森。</p>
+                <p><strong>原著核心思想：</strong>证明往往在反驳中完善；边界、极端点、退化情形里最容易出现反例，概念和条件也因此被改得更清楚。</p>
+                <p><strong>对本主题的教学解读：</strong>充要性真已无懈可击时，端点检查在逻辑上可省；排雷、核对边界时，它仍很管用——是实践动力，不是定理条文。</p>
+                <p><strong>出处：</strong>《证明与反驳》（Proofs and Refutations，1976；据其剑桥讲稿整理）。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">陶哲轩 · 理智检验</div>
+                <p><strong>陶哲轩</strong>（Terence Tao），澳大利亚人，后在美国任教；菲尔兹奖得主。1975 年生于阿德莱德。</p>
+                <p><strong>原著核心思想：</strong>动手写严密证明前，常用 sanity check：极端情形、数量级、对称性等，快速试探论证方向是否靠谱。</p>
+                <p><strong>对本主题的教学解读：</strong>过不了，证明里多半有错；全过了，也不等于已经证完。检验不能代替逻辑证明。</p>
+                <p><strong>出处：</strong>《解决数学问题》（Solving Mathematical Problems，2006）；《陶哲轩实分析》；其数学博客中关于 sanity checks 的讨论。</p>
+            </div>
+            <div class="mindset-box">
+                <div class="mindset-title">舍恩菲尔德 · 自己盯自己</div>
+                <p><strong>阿兰·舍恩菲尔德</strong>（Alan H. Schoenfeld），美国人，数学教育研究者。1947 年生于纽约。</p>
+                <p><strong>原著核心思想：</strong>解题表现很大程度取决于控制与监控——会不会停下来问：这一步还要不要做？逻辑能不能信？该不该换策略？</p>
+                <p><strong>对本主题的教学解读：</strong>上面「自己问三句」，就是这种元认知：不仅会算，还知道自己在哪一层、什么时候可以停。</p>
+                <p><strong>出处：</strong>《数学问题解决》（Mathematical Problem Solving，1985）。</p>
+            </div>
+            <div class="motto">证明捍卫正确；验算包容会出错的人。两样都要，位置不同。</div>
+        </section>
+    </div>
+    <script src="../js/site.js?v=2"></script>
+</body>
+</html>
