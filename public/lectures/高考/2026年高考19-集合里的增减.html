@@ -238,31 +238,25 @@
             </div>
             <div class="solution-step">
                 <h3>第一步：左右各自递增</h3>
-                <p>\(x&lt;0\) 时 \(f(x)=2^x\)，底数 \(2&gt;1\)。奇函数把这一支镜像到右边。</p>
-                <div class="case-grid">
-                    <div class="case-card">
-                        <h4>左支</h4>
-                        <p>\(f\) 在 \((-\infty,0)\) 上严格递增，且 \(0&lt;f(x)&lt;1\)。</p>
-                    </div>
-                    <div class="case-card">
-                        <h4>右支</h4>
-                        <p>\(f\) 是奇函数，定义域为 \(\mathbb R\)。故 \(f(0)=0\)，且 \(f(-x)=-f(x)\)。</p>
-                        <p>任取 \(0&lt;u&lt;v\)，则 \(-v&lt;-u&lt;0\)。</p>
-                        <p>左支严格递增，得 \(f(-v)&lt;f(-u)\)，即 \(-f(v)&lt;-f(u)\)。</p>
-                        <p>故 \(f(u)&lt;f(v)\)。右支也严格递增。</p>
-                        <p>\(x&gt;0\) 时 \(-x&lt;0\)，故 \(0&lt;f(-x)&lt;1\)，从而 \(-1&lt;f(x)&lt;0\)。</p>
-                    </div>
-                </div>
-                <p>\(t\geqslant 0\) 时，\(f(t)\leqslant 0\)。</p>
+                <p>\(x&lt;0\) 时 \(f(x)=2^x\)，底数 \(2&gt;1\)。任取 \(x_1&lt;x_2&lt;0\)，则</p>
+                <div class="formula-block">$$f(x_2)-f(x_1)=2^{x_2}-2^{x_1}=2^{x_1}(2^{x_2-x_1}-1)&gt;0,$$</div>
+                <p>故 \(f(x_1)&lt;f(x_2)\)。左支严格递增，且 \(0&lt;f(x)&lt;1\)。</p>
+                <p>\(f\) 是奇函数，定义域为 \(\mathbb R\)。故 \(f(0)=0\)，且 \(f(-x)=-f(x)\)。</p>
+                <p>任取 \(0&lt;x_1&lt;x_2\)。则 \(-x_2&lt;-x_1&lt;0\)。比较的仍是 \(x_1&lt;x_2\)，负号把它们映到左支。</p>
+                <p>左支严格递增，得 \(f(-x_2)&lt;f(-x_1)\)，即 \(-f(x_2)&lt;-f(x_1)\)，故 \(f(x_1)&lt;f(x_2)\)。</p>
+                <p>右支也严格递增。\(x&gt;0\) 时 \(-1&lt;f(x)&lt;0\)。\(t\geqslant 0\) 时 \(f(t)\leqslant 0\)。</p>
             </div>
             <div class="canvas-wrap">
                 <div id="f-odd" class="jxgbox" role="img" aria-label="奇函数：左支严格递增且在 x 轴上方，右支镜像后严格递增且在 x 轴下方，原点函数值是 0。左右在原点处不连成一条线。"></div>
                 <p class="cap">左支严格递增且 \(f&gt;0\)，右支严格递增且 \(f&lt;0\)，黑点 \(f(0)=0\)。两段各自升高，合起来不是全轴递增。</p>
             </div>
             <div class="solution-step">
-                <h3>第二步：先定顺序</h3>
-                <p>已知 \(f(x_1)\leqslant f(x_2)\)，且 \(x_1x_2\neq 0\)。若 \(x_1&lt;0&lt;x_2\)，则 \(f(x_1)&gt;0&gt;f(x_2)\)，与条件矛盾。</p>
-                <p>都在左支时，\(x_1\leqslant x_2&lt;0\)。都在右支时，\(0&lt;x_1\leqslant x_2\)。还有 \(x_2&lt;0&lt;x_1\)。</p>
+                <h3>第二步：顺序就是 \(x_1&lt;x_2\)</h3>
+                <p>已知 \(f(x_1)\leqslant f(x_2)\)，且 \(x_1x_2\neq 0\)。\(x_1=x_2\) 时两个集合相同。下面设 \(x_1\neq x_2\)。</p>
+                <p>若 \(x_1&lt;0&lt;x_2\)，则 \(f(x_1)&gt;0&gt;f(x_2)\)，与条件矛盾。</p>
+                <p>都在左支时，若 \(x_2&lt;x_1\)，则 \(f(x_2)&lt;f(x_1)\)，与条件矛盾。故 \(x_1&lt;x_2&lt;0\)。</p>
+                <p>都在右支时，若 \(x_2&lt;x_1\)，同样矛盾。故 \(0&lt;x_1&lt;x_2\)。</p>
+                <p>还剩 \(x_2&lt;0&lt;x_1\)。这是两点本来的位置，不把 \(x_1\)、\(x_2\) 对调。</p>
             </div>
             <div class="solution-step">
                 <h3>第三步：正反各用一次</h3>
@@ -270,26 +264,26 @@
                 <div class="case-grid">
                     <div class="case-card">
                         <h4>都在左支</h4>
-                        <p>\(x_1\leqslant x_2&lt;0\)。</p>
+                        <p>\(x_1&lt;x_2&lt;0\)。</p>
                         <p>\(f(x_2+d)&gt;0\)，而 \(t\geqslant 0\) 时 \(f(t)\leqslant 0\)。</p>
-                        <p>故 \(x_2+d&lt;0\)，和 \(x_2\) 同侧。函数值变大，得 \(d&gt;0\)。</p>
-                        <p>于是 \(x_1&lt;x_1+d\leqslant x_2+d&lt;0\)。</p>
-                        <p>\(x_1+d\) 仍和 \(x_1\) 同侧。自变量变大，得 \(f(x_1+d)&gt;f(x_1)\)。</p>
+                        <p>故 \(x_2+d&lt;0\)，和 \(x_2\) 同侧。由 \(x_2&lt;x_2+d\) 得 \(d&gt;0\)。</p>
+                        <p>于是 \(x_1&lt;x_1+d&lt;x_2+d&lt;0\)。</p>
+                        <p>\(x_1+d\) 仍和 \(x_1\) 同侧。由 \(x_1&lt;x_1+d\) 得 \(f(x_1)&lt;f(x_1+d)\)。</p>
                     </div>
                     <div class="case-card">
                         <h4>都在右支</h4>
-                        <p>\(0&lt;x_1\leqslant x_2\)。</p>
+                        <p>\(0&lt;x_1&lt;x_2\)。</p>
                         <p>若 \(x_1+d\leqslant 0\)，落点不在右支：\(f(x_1+d)\geqslant 0&gt;f(x_1)\)。</p>
-                        <p>若 \(x_1+d&gt;0\)，则 \(x_2+d\geqslant x_1+d&gt;0\)，和 \(x_2\) 同侧。</p>
-                        <p>函数值变大，得 \(d&gt;0\)，从而 \(x_1+d&gt;x_1&gt;0\)。</p>
-                        <p>仍和 \(x_1\) 同侧。自变量变大，得 \(f(x_1+d)&gt;f(x_1)\)。</p>
+                        <p>若 \(x_1+d&gt;0\)，则 \(x_2+d&gt;x_1+d&gt;0\)，和 \(x_2\) 同侧。</p>
+                        <p>由 \(x_2&lt;x_2+d\) 得 \(d&gt;0\)，从而 \(x_1&lt;x_1+d\)。</p>
+                        <p>仍和 \(x_1\) 同侧。由 \(x_1&lt;x_1+d\) 得 \(f(x_1)&lt;f(x_1+d)\)。</p>
                     </div>
                     <div class="case-card">
                         <h4>跨过原点</h4>
-                        <p>\(x_2&lt;0&lt;x_1\)。</p>
-                        <p>\(f(x_2+d)&gt;0\)，故 \(x_2+d&lt;0\)，和 \(x_2\) 同侧。函数值变大，得 \(d&gt;0\)。</p>
-                        <p>于是 \(x_1+d&gt;x_1&gt;0\)，和 \(x_1\) 同侧。</p>
-                        <p>自变量变大，得 \(f(x_1+d)&gt;f(x_1)\)。</p>
+                        <p>\(x_2&lt;0&lt;x_1\)。名字不动。</p>
+                        <p>\(f(x_2+d)&gt;0\)，故 \(x_2+d&lt;0\)。由 \(x_2&lt;x_2+d\) 得 \(d&gt;0\)。</p>
+                        <p>于是 \(x_1&lt;x_1+d\)，落点仍在右支。</p>
+                        <p>由 \(x_1&lt;x_1+d\) 得 \(f(x_1)&lt;f(x_1+d)\)。</p>
                     </div>
                 </div>
             </div>
@@ -434,31 +428,32 @@
                 </div>
                 <p>因此 \(-1&lt;x&lt;\dfrac{1}{2}\)。由 \(x=d-1\)，得 \(0&lt;d&lt;\dfrac{3}{2}\)。所以 \(D(-1)=\left(0,\dfrac{3}{2}\right)\)。</p>
 
-                <p><strong>（2）</strong> 当 \(x&lt;0\) 时，\(f(x)=2^x\)。设 \(u,v\in(-\infty,0)\) 且 \(u&lt;v\)，则</p>
-                <div class="formula-block">$$f(v)-f(u)=2^v-2^u=2^u(2^{v-u}-1).$$</div>
-                <p>\(v-u&gt;0\)，故 \(2^{v-u}&gt;1\)。又 \(2^u&gt;0\)，故 \(f(v)-f(u)&gt;0\)，即 \(f(u)&lt;f(v)\)。因此 \(f\) 在 \((-\infty,0)\) 上严格递增。又 \(x&lt;0\) 时 \(0&lt;2^x&lt;1\)，故 \(f(x)\in(0,1)\)。</p>
-                <p>\(f\) 是定义域为 \(\mathbb R\) 的奇函数，故 \(f(0)=0\)，且 \(f(-x)=-f(x)\)。\(x&gt;0\) 时 \(-x&lt;0\)，故 \(0&lt;f(-x)&lt;1\)，从而 \(f(x)\in(-1,0)\)。设 \(u,v\in(0,+\infty)\) 且 \(u&lt;v\)，则 \(-v&lt;-u&lt;0\)。由左支严格递增，\(f(-v)&lt;f(-u)\)，即 \(-f(v)&lt;-f(u)\)，故 \(f(u)&lt;f(v)\)。右支也严格递增。\(t\geqslant 0\) 时 \(f(t)\leqslant 0\)。</p>
-                <p>已知 \(f(x_1)\leqslant f(x_2)\)，且 \(x_1x_2\neq 0\)。若 \(x_1&lt;0&lt;x_2\)，则 \(f(x_1)&gt;0&gt;f(x_2)\)，矛盾。任取 \(d\in D(x_2)\)，即 \(f(x_2+d)&gt;f(x_2)\)，分三种情形证明 \(f(x_1+d)&gt;f(x_1)\)。</p>
+                <p><strong>（2）</strong> 当 \(x&lt;0\) 时，\(f(x)=2^x\)。设 \(x_1&lt;x_2&lt;0\)，则</p>
+                <div class="formula-block">$$f(x_2)-f(x_1)=2^{x_2}-2^{x_1}=2^{x_1}(2^{x_2-x_1}-1).$$</div>
+                <p>\(x_2-x_1&gt;0\)，故 \(2^{x_2-x_1}&gt;1\)。又 \(2^{x_1}&gt;0\)，故 \(f(x_2)-f(x_1)&gt;0\)，即 \(f(x_1)&lt;f(x_2)\)。因此 \(f\) 在 \((-\infty,0)\) 上严格递增。又 \(x&lt;0\) 时 \(0&lt;2^x&lt;1\)，故 \(f(x)\in(0,1)\)。</p>
+                <p>\(f\) 是定义域为 \(\mathbb R\) 的奇函数，故 \(f(0)=0\)，且 \(f(-x)=-f(x)\)。\(x&gt;0\) 时 \(-x&lt;0\)，故 \(0&lt;f(-x)&lt;1\)，从而 \(f(x)\in(-1,0)\)。设 \(0&lt;x_1&lt;x_2\)，则 \(-x_2&lt;-x_1&lt;0\)。由左支严格递增，\(f(-x_2)&lt;f(-x_1)\)，即 \(-f(x_2)&lt;-f(x_1)\)，故 \(f(x_1)&lt;f(x_2)\)。右支也严格递增。\(t\geqslant 0\) 时 \(f(t)\leqslant 0\)。</p>
+                <p>以下 \(x_1,x_2\) 为题设中的两点，满足 \(f(x_1)\leqslant f(x_2)\) 且 \(x_1x_2\neq 0\)。若 \(x_1=x_2\)，则 \(D(x_1)=D(x_2)\)。下设 \(x_1\neq x_2\)。若 \(x_1&lt;0&lt;x_2\)，则 \(f(x_1)&gt;0&gt;f(x_2)\)，矛盾。任取 \(d\in D(x_2)\)，即 \(f(x_2+d)&gt;f(x_2)\)。</p>
                 <div class="case-grid">
                     <div class="case-card">
                         <h4>① 都在左支</h4>
-                        <p>\(x_1&lt;0\)，\(x_2&lt;0\)。由左支严格递增，得 \(x_1\leqslant x_2&lt;0\)。</p>
+                        <p>若 \(x_2&lt;x_1&lt;0\)，则 \(f(x_2)&lt;f(x_1)\)，矛盾。故 \(x_1&lt;x_2&lt;0\)。</p>
                         <p>\(f(x_2+d)&gt;f(x_2)&gt;0\)，而 \(t\geqslant 0\) 时 \(f(t)\leqslant 0\)，故 \(x_2+d&lt;0\)。</p>
-                        <p>再由左支严格递增，得 \(d&gt;0\)。于是 \(x_1&lt;x_1+d\leqslant x_2+d&lt;0\)。</p>
-                        <p>\(x_1+d\) 仍在左支，从而 \(f(x_1+d)&gt;f(x_1)\)。</p>
+                        <p>由 \(x_2&lt;x_2+d\) 得 \(d&gt;0\)。于是 \(x_1&lt;x_1+d&lt;x_2+d&lt;0\)。</p>
+                        <p>\(x_1+d\) 仍在左支。由 \(x_1&lt;x_1+d\) 得 \(f(x_1)&lt;f(x_1+d)\)。</p>
                     </div>
                     <div class="case-card">
                         <h4>② 都在右支</h4>
-                        <p>\(x_1&gt;0\)，\(x_2&gt;0\)。由右支严格递增，得 \(0&lt;x_1\leqslant x_2\)。</p>
+                        <p>若 \(0&lt;x_2&lt;x_1\)，则 \(f(x_2)&lt;f(x_1)\)，矛盾。故 \(0&lt;x_1&lt;x_2\)。</p>
                         <p>若 \(x_1+d\leqslant 0\)，则 \(f(x_1+d)\geqslant 0&gt;f(x_1)\)。</p>
-                        <p>若 \(x_1+d&gt;0\)，则 \(x_2+d\geqslant x_1+d&gt;0\)。由右支严格递增及 \(f(x_2+d)&gt;f(x_2)\)，得 \(d&gt;0\)。</p>
-                        <p>从而 \(x_1+d&gt;x_1\)，故 \(f(x_1+d)&gt;f(x_1)\)。</p>
+                        <p>若 \(x_1+d&gt;0\)，则 \(x_2+d&gt;x_1+d&gt;0\)。由 \(x_2&lt;x_2+d\) 得 \(d&gt;0\)，从而 \(x_1&lt;x_1+d\)。</p>
+                        <p>由右支严格递增，\(f(x_1)&lt;f(x_1+d)\)。</p>
                     </div>
                     <div class="case-card">
                         <h4>③ \(x_2&lt;0&lt;x_1\)</h4>
+                        <p>两点位置即此，不把 \(x_1\)、\(x_2\) 对调。</p>
                         <p>\(f(x_2+d)&gt;f(x_2)&gt;0\)，而 \(t\geqslant 0\) 时 \(f(t)\leqslant 0\)，故 \(x_2+d&lt;0\)。</p>
-                        <p>再由左支严格递增，得 \(d&gt;0\)。于是 \(x_1+d&gt;x_1&gt;0\)。</p>
-                        <p>由右支严格递增，得 \(f(x_1+d)&gt;f(x_1)\)。</p>
+                        <p>由 \(x_2&lt;x_2+d\) 得 \(d&gt;0\)，从而 \(x_1&lt;x_1+d\)。</p>
+                        <p>由右支严格递增，\(f(x_1)&lt;f(x_1+d)\)。</p>
                     </div>
                 </div>
                 <p>综上所述，\(d\in D(x_1)\)，故 \(D(x_2)\subseteq D(x_1)\)。</p>
